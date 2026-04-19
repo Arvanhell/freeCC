@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" vontrent="ie=edge">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>HTML tables and forms</title>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -211,9 +211,106 @@ document.getElementById('js-id').textContent = jsIns;
     <script>
         const reqForm = `
         <form action="">
-            
+            <label for="email">Email Adress (Required field):</label>
+            <input required type="email" name="email" id="email" />
+            <button type="submit">Submit Form</button>
+        </form>            
         `
+        document.getElementById('required-id').textContent= reqForm;
     </script>
+    <p> Each browser will have its own set of styles for showing this alert message.
+    </p>
+    <p>
+        Another advantage of using the email input is that email inputs have some basic validation to ensure correctly formatted email addresses. For example, if you type in random words and click submit, then the browser will show an alert that an <strong>@</strong> sign is missing.
+    </p>
+
+    <pre id="validation2" class="code-box"></pre>
+    <script>
+        const valid2 = `
+        <form action="">
+            <label for="email">Email Adress (Required field):</label>
+            <input required type="email" name="email" id="email" />
+            <button type="submit">Submit Form</button>
+        </form>
+        `
+        document.getElementById('validation2').textContent = valid2;
+    </script>
+
+<p>
+    It is important to note that browsers only check for basic validation for standard email addresses it is up to you to add additional layers of validation, which you will learn about in later modules.
+</p>
+<p>
+    Other form of validation for email inputs are to use the <strong>minlength</strong> and <strong>maxlength</strong> attributes. Here is an example using the extra validation.
+</p>
+    <pre id="min-length" class="code-box"></pre>
+    <script>
+        const minMaxLength = `
+        <form action="">
+            <label for="email">Email Adress (Required field): </label>
+            <input
+                required
+                type="email"
+                name="email"
+                id="email"
+                minlength="4"
+                maxlength="64"
+            />
+            <button type="submit">Submit Form</button>
+        </form>
+        `
+        document.getElementById('min-length').textContent = minMaxLength;
+    </script>
+    <p>
+        The <strong>minlength</strong> and <strong>maxlength</strong> attributes are used to set the minimum and maximum length in characters for email input. If you don't include the minimum length or exceed the max length of characters, the browser will show an alert message.
+    </p>
+</article>
+<article>
+    <h2>What are the different Form states, and why are they important?</h2>
+    <p>
+        In HMTL, form controls, like inputs, can be in different stages or conditions like a <strong>focused</strong> state, <strong>readonly</strong> state, or <strong>disabled</strong> state.
+    </p>
+    <p>
+        The first state would be considered the <strong>default</strong> state. The default state of an email address input is a blank input. That is what the email input looks like when it is first rendered on the page.
+    </p>
+    <pre id="inp" class="code-box"></pre>
+    <script>
+        const input2 = `
+        <input type="email" name="email" id="email" />
+        `
+        document.getElementById('inp').textContent = input2
+    </script>
+    <p>
+        When the user click on a form control or select it with the keyboard's tab key, then that means it is in the <strong>focused</strong> state. When an input is in the <strong>focused</strong> state, most browsers will show a blue highlighted border around the input. But you can choose to add additional styles in CSS.
+    </p>
+    <p>
+        Another form state is the <strong>disabled</strong> state. This state shows users thaat an input cannot be focused or activated.
+    </p>
+    <p>
+        Similar to the <strong>focused</strong> state, you can choose to add additional styles for the <strong>disabled</strong> state using CSS
+    </p>
+    <p>
+        Another type of form state is the <strong>readonly</strong> state. This is when a form control, like an input, is not editable by the user. Here is an example of setting an email input to read-only. The <strong>value</strong> attribute is used to set the value shown isnide the input field.
+    </p>
+    <pre id="read-only" class="code-box"></pre>
+    <script>
+        const readOnly = `
+        <input
+            readonly
+            type="email"
+            name="email"
+            id="email"
+            value="example@email.com"
+        />
+        `
+        document.getElementById('read-only').textContent = readOnly;
+    </script>
+<p>
+    A key difference between the <strong>disabled</strong> state and <strong>readonly</strong> state is that <strong>readonly</strong> can be focused while the <strong>disabled</strong> state cannot.
+</p>
+<p>
+    Understanding the different form states is important because they ensure a smoth user experience by providing clear feedback and guidance while handling errors.
+</p>
+    
 </article>
         <script src="index.js"></script>
     </body>
