@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=
+        "width=device-width, initial-scale=0.1">
+        <title>Working with HTML Tools</title>
+    </head>
+    <body>
+        <article>
+            <h2>What is an HTML Validator, and how can it help you debug your code</h2>
+            <p>
+                HMTL is a very forgiving language - elements still render even when you make mistakes, like forgetting to include a closing tag
+            </p>
+            <p>
+                Let's say you have <strong>h2</strong> element without a closing tag:
+            </p>
+
+            <pre id="trick1" class="code-box"></pre>
+            <script>
+                const trickHtml1 = `
+                <h1>Article Topic</h1>
+                <h2>Subheading 1</h2>
+                <h2>Subhedaing 2</h2>
+
+                <!-- This h2 does not have a closing tag -->
+                <h2>Subheading 3 
+                `
+                document.getElementById('trick1').textContent = trickHtml1;
+            </script>
+            <p>
+                The <strong>h2</strong> without a closing tag will still render fine. This happens because browsers use a parsing algorithm that handles common errors and tries to render HTML as closely as possible to the author's intention.
+            </p>
+            <p>
+                But this could backfire sometimes. Let's add a few paragraphs under the existing heading 2 tags in the code:
+            </p>    
+            <pre id="trick2" class="code-box"></pre>
+            <script>
+                const trickHtml2 = `
+                <h1>Article Topic</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nisi.
+                  </p>
+                <h2>Subheading 1 </h2>
+                   <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nisi.
+                  </p>
+                <h2>Subheading 2 </h2>  
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nisi.
+                  </p>
+                  <!-- This h2 does not have a closing tag -->
+                <h2>Subheading 3
+                      <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, nisi.
+                  </p>  
+                `
+                document.getElementById('trick2').textContent = trickHtml2;
+            </script>
+            <p>
+              As a result, the paragraph element under the <strong>h2</strong> without a closing <strong>h2</strong> tag renders as heading 2. This is why you need an HTML validator.
+            </p>
+            <p>
+              An HTML validator is a tool that checks the validity of your HTML code against the standard HTML specifications. It helps you identify errors and warnings in your HTML code, ensurring you web pages are correctly structured and compliant with web standards.
+            </p>
+            <p>
+              Using an HTML validator benefits not only you and your future code reviews, but also anybody else going through your code, such as your teammates and open-source contributors.
+            </p>
+            <p>
+              There are several HTML validators out there you can use. The most widely accepted one is the <strong>w3.org</strong> markup validation service.
+            </p>
+            <p>
+              When you visit the site <strong><a href="https://www.validator.w3.org">validator.w3.org</a></strong> you can click on the Validate by Direct Input button and paste in your HTML code.
+            </p>
+            <p>
+              When you click on the <strong>Check</strong> button, then a list of result will display with the errors that need to be fixed.
+            </p>
+            <p>
+              Another HTML validator that you can use is <strong><a href="https://www.jsonformatter.org">jsonformatter.org</a></strong>.
+            </p>
+            <p>
+              You can copy and paste your HMTL code inside the first editor and when you click on the validate button, it will show you any errors you have in your code.
+            </p>
+        </article>
+        <article>
+          <h2>How to use the DOM Inspector and DevTools to debug and build your projects.</h2>
+          <h3>Description</h3>
+          <p>
+            When you are building out your projects, you will frequently run into issues where your programs are not working as expected.
+          </p>
+          <p>
+            Programmers often refer to issues as bugs. The process of finding and fixing these bugs is known as debugging.
+          </p>
+          <p>
+            To debug your code, you will need to use some tools provided by your browser.
+          </p>
+          <p>
+            Two important tools to use would be the DOM inspector and developer tools.
+          </p>
+          <p>
+            The DOM inspenctor allows you to inspect the HTML structure of the page you are on.
+          </p>
+          <p>
+            The second tab is called the <strong>Console</strong>tab. This tab shows you any errors that might be occuring on the page.
+          </p>
+          <p>
+            In the situation wherre you have a broken link, you can check the console to see the error messages for that broken link. The common message that continues to display for the broken link is the 404 error. The 404 error idicates that the page is not found.
+          </p>
+          <p>
+            This lets us know that the issue is with the <strong>URL</strong> in the anchor element. When you inspect the <strong>href</strong> value you will see there is a typo.
+          </p>
+          <p>
+            Right now the console message shows <strong>/learn</strong> against a 404, but the correct URL should be <strong>/learn</strong>. When the link is corrected, then it will work as expected.
+          </p>
+          <p>
+            You will learn more about working with the developer tools throughout the certification, but this is just a short example on how it can help you debug your code.
+          </p>
+        </article>
+        
+    </body>
+</html>
