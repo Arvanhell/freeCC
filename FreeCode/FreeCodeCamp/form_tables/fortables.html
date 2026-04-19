@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" vontrent="ie=edge">
+        <title>HTML tables and forms</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <article>
+            <h2>
+                How Do Forms, Labels and Inputs work in HTML
+            </h2>
+            <h3>Lesson</h3>
+            <p> The <span>form</span> element in HTML is used to gather user information, such as names and email addresses. Here is an example of a form element:</p>
+            
+            <pre id="display-code" class="code-box"></pre>
+
+<script>
+  const myCode = `
+        <form action="url-goes-here">
+            <!-- input elements go here -->
+        </form>`;
+  
+  // To sprawia, że znaki < i > wyświetlą się jako tekst!
+  document.getElementById('display-code').textContent = myCode;
+                        </script>
+<p>
+    The <strong> action</strong> attribute specifies where the form data will be sent upon submission. To collect specific information, like names and email addresses, you would use the <strong>input</strong> element. Here is an example of using an <strong>input</strong> element.
+</p>                        
+<pre id="kod-dla-input" class="code-box"></pre>
+<script>
+  const kod1 = `
+        <form action="">
+            <input type="text" />
+        </form>`;
+  document.getElementById('kod-dla-input').textContent = kod1;
+</script>
+<p> <strong>input</strong></p> elements are void elements and do not have closing tags. The <strong>type</strong> attribute defines the data type expected from the user. In this case, the data would be plaintext. To add a label for the input, you would use a <strong>label</strong> element. Here is an example of using. a <strong>label</strong> element with the text of <strong>Full Name:</strong>.
+Click on the text <b>Full Name:</b> in the preview window and you will see the input go into focus. To interact with the example, you will neefd to enable the interactive editor.
+
+<pre id="label-id" class="code-box"></pre>
+<script>
+    const label1 = `
+        <form action="">
+            <label>
+                Full Name:
+            <input type="text" />
+            </label>
+        </form>`;
+            document.getElementById('label-id').textContent = label1;
+</script>
+
+<p>
+    By nesting an <strong>input</strong> inside a <strong>label</strong> element, you can create an implicit association between the <strong>label</strong> and the <strong>input</strong> field. The term "implicit" refers to something that is understood or inferred without needing to be explicitily stated or defined with additional attributes or elements. To implicitily associate a <strong>label</strong>with an <strong>input</strong>, you can use <strong>for</strong> attribute for an email address label.
+</p>
+<p>
+    interact with the <strong>input</strong> element in the preview window by typing in a fake email address like <strong>jane@example.com</strong>. To interact with the example, you will need to enable the interactive editor.
+</p>
+<pre id="email-for" class="code-box"></pre>
+<script>
+    const emailF = `
+    <form action ="">
+        <label for="email"> 
+            Email Adress: 
+        </label>
+        <input type="email" id="email" />
+    </form>
+    `
+    document.getElementById('email-for').textContent = emailF;
+</script>
+
+<p>
+    When using an explicit association, the values for ther <strong>for</strong> attribute and <strong>id</strong>need to be the same. In this case, the values are both set to <strong>email</strong>. The <strong>email</strong> type in the input provides basic validation for correctly formatted email address. If you want to show additional hints to the user about the expected input, you can use the <strong>placeholder</strong> attribute. Here is an example.
+</p>
+<pre id="placeholder-id" class="code-box"></pre>
+<script>
+    const placeholder1 =`
+    <form action="">
+        <label for="email"> 
+            Email Address:
+        </label>
+        <input type="email" id="email" placeholder="example@email.com" />
+    </form>
+    `
+    document.getElementById('placeholder-id').textContent = placeholder1;
+</script>
+</article>
+<article>
+    <h2>
+        What are the different Types of Buttons and when should You use them?
+    </h2>
+    <h3>Lesson</h3>
+    <p>
+        The <strong>button</strong> element is used to perform a particular action when it is activated. Here is an example of a <strong>button</strong> element with the button text of <strong>Start Game</strong>.
+    </p>
+    <pre id="start-btn" class="code-box"></pre>
+    <script>
+        const start1 = `
+        <button>
+            Start Game
+        </button>`
+        document.getElementById('start-btn').textContent = start1;
+    </script>
+    <p>
+        Other examples of using the <strong>button</strong> element include subnitting a form, showing a modal, or toggling a side menu open and closed. The <strong>button</strong> element has a <strong>type</strong> attribute which controls the behaviour of the button when it is activated. The first possible value for the <strong> type</strong> attribute would be the <strong>button </strong>type. Here is an example of using the <strong>button</strong> element with the <strong>button</strong> type and a text of <strong>Show Alert:</strong>
+    </p>
+    <pre id="type-btn" class="code-box"></pre>
+    <script>
+        const typeBtn =`
+        <button type="button">
+            Show Alert
+        </button>
+        `
+        document.getElementById('type-btn').textContent = typeBtn;
+    </script>
+    <p>
+        By default, the button will not do anythong when activated. However you can add some JavaScript code to make the button interactive, such as showing an alert in this case.
+    </p>
+    <p>
+        click on the <strong>Show Alert</strong> button to see an alert pop up on the screen. To interact with the axample, you will need to enable the interactive editor.
+    </p>
+    <pre id="js-id" class="code-box"></pre>
+    <script>
+    const jsIns = `
+    <button type="button">Show Alert</button>
+    <!--
+        <script src="index.js"></script>
+    -->
+    `
+document.getElementById('js-id').textContent = jsIns;
+    </script>
+<p>
+    Another possible value for the <strong>type</strong> attribute is the <strong>submit</strong> value. Here is an example of using a <strong>button</strong> element with the <strong>submit</strong> type.
+</p>
+<pre id="submit" class="code-box"></pre>
+<script>
+    const submit = `
+    <form action-"">
+        <label for="email">Email adress:</label>
+        <input type="email1" id="email" name="email" />
+        <button type="submit">Submit form</button>
+    </form>
+    `
+    document.getElementById('submit').textContent = submit;
+</script>
+<p>
+    Inside this <strong>form</strong> element, there is a <strong>label</strong> and <strong>input</strong> element for the user's email address. When the user clicks on the submit button, their data will be sent to the server and will be processed. The bird possible value for the <strong>type</strong> attribute is the <strong>reset</strong> value. Here is an example with reset and submit buttons.
+</p>
+<pre id="reset-id" class="code-box"></pre>
+<script>
+    const reset = `
+    <form action="">
+        <label for="email">Email adress:</label>
+        <input type="email" id="email" name="email" />
+        <button type="reset">Reset form</button>
+        <button type="submit">Submit form</button>
+    </form>
+    `
+    document.getElementById('reset-id').textContent = reset;
+</script>
+<p>
+    In this modified example, a <strong>label</strong> and <strong>input</strong> element are used to collect the user's email adress. When the user clicks on the reset button, then it will clear out all of their input data. It is important to note that reset buttons are usually not the best idea bnecause they could lead to users accidentally resetting their data. Also, ultiple buttons in your form could clutter up the user interface. 
+</p>
+<p>
+    Another way to create buttons in HTML is to use the <strong>input</strong> element. The <strong>input</strong> element also has a <strong>type</strong> attribute with the possible values of <strong>submit, reset</strong>, and <strong>button</strong>. Here is an example.
+</p>
+<pre id ="inputBtn" class="code-box"></pre>
+<pre id="jsCode" class="code-box"></pre>
+<script>
+    const inHtml= `
+    <input class="start-btn" type="button" value="Start Game" />
+    `
+    document.getElementById('inputBtn').textContent = inHtml;
+
+    const jsCode1= `
+    <!-- And inside the js file-->
+    document.addEventListener("DOMContentLoaded", () => {
+        const btn = document.querySelector(".start-btn");
+        btn.addEventListener("click", () => {
+        const paraEl = document.createElement('p');
+        const bodyEl = document.querySelector("body")
+      });
+    });
+    `
+    document.getElementById('jsCode').textContent = jsCode1
+</script>
+<p>
+    The <strong>value</strong> attribute is used to show the button text. So, what is the difference between using the <strong>input</strong> and <strong>button</strong> elements? <strong>input</strong> elements are void elements, which means they cannot have child nodes, such as text, and can only have a start tag. On the other hand, the <strong>button</strong> element offers more flexibility because you can nest text, images, and icons inside it.
+</p>
+</article>
+<article>
+    <h2>What is Clien-Side form Validation in HTML forms, and what are some examples?</h2>
+    <p>
+        When a user fills a form on your website, it is important that they fill out all of the necessary information in the correct format. HTML form controls, like inputs, have a lot o built-in validation that you can use to check for invalid data. This will help ensure that the user fixes these mistakes before the information is submitted and processed by the server.
+    </p>
+    <p>
+        The term "client-side" refers to everything that happens on the user's computer or device, like the part of a website or app you interact with directly. This includes the layout, design, and any interactive features.
+    </p>
+    <p>
+        The term "serwer-side" refers to everything that happens on the server, the computer, or system, that hosts the website or app. This includes processing data, running applications, and handling requests that come from the user's device.
+    </p>
+    <p>
+        While client-side validation is important, you also need server-side validation for added security. Malicious users can bypass client-side checks, so robust server-side measures are essential. You'll learn more about this in a later module. For now, let's take a look at some examples of client-side form validation.
+    </p>
+    <p>
+        One common example of built-in form validation is to use the <strong>required</strong> attribute specifies that the user needs to fill out that portion of the form before it gets submitted. Here an example of using this attribute in an emeil input.
+    </p>
+    <pre id="required-id" class="code-box"></pre>
+    <script>
+        const reqForm = `
+        <form action="">
+            
+        `
+    </script>
+</article>
+        <script src="index.js"></script>
+    </body>
+</html>
