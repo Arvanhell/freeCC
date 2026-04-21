@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=
+        "width=device-width, initial-scale=0.1">
+        <title>Accessibility</title>
+    </head>
+    <body>
+        <h1>Accessibility</h1>
+            <h2>Important of accessibility and Good HTML Structure</h2>
+            <p>
+                In these lectures, you will larn about accesibility and its importance, assistive tools for people with disabilities, HTML attributes that let you create inclusive websites, accessibility best practices, and much more.
+            </p>
+        <article>    
+            <h2>What is Accessibility</h2>
+            <p>
+                Accessibility involves creating products and services that everyone can use. In the context of web development, it's making websites that everyone can understand and interact with, including poeple with wisual, auditory, motor, and cognitive disabilities.
+            </p>
+            <p>
+                Some examples of disabilities that can impact users' online experience include:
+            </p>
+            <ul>
+                <li>Blidness.</li>
+                <li>Low vision.</li>
+                <li>Color blindness.</li>
+                <li>Deafness.</li>
+                <li>Difficulty using keyboards, mice, or touchscreens.</li>
+                <li>Attention disorders.</li>
+                <li>Memory issues.</li>
+                <li>Difficulty speaking or understanding spoken language.</li>
+                <li>Sensitivity to flashing lights.</li>
+            </ul>
+            <p>
+                These are just a few of many conditions that can impact users around the world.
+            </p>
+            <p>
+                To help you create accessible websites, the World Wide Web Consortium, known as W3C, developed a set of international standards that you can follow to make your websites more accessible and easier to use for people with disabilities.
+            </p>
+            <p>
+                These standards are known as the "Web Content Accessibility Guidelines" (WCAG).
+            </p>
+            <p>
+                These guidelines are designed with four core principles in mind, known as <strong>POUR</strong>.
+            </p>
+            <ul>
+                <li><strong>P</strong> stands for Percivable. users must be able to perceive the information that you are presenting. For example, you can provide alternative text for images, so users who access your website with a screen reader can understand them.</li>
+                <li><strong>O</strong> sttands for Operable. Users must be able to interact with the user interface. for example you can make sure that all functionality is accesible through the keyboard too, not just mouse. </li>
+                <li><strong>U</strong> stands for Understandable. Users must be able to interact with the user interface. For example, you can avoid complex sentences and use simple language as much as possible.</li>
+                <li><strong>R</strong> stands for Robust. Awide range of browsers and other tools, including assostive technologies, must be able to interpret the content.</li>
+            </ul>
+            <p>
+                Using semantic HTML is very helpfull for making your website compatible with different browsers and assistive technologies.
+            </p>
+            <p>
+                If your content doesn't following these guidelines correctly, you can access the Quick Reference of the World wide Web Consortium. There, you will find a comprehensive list of criteria and techniques.
+            </p>
+            <p>
+                Accessibility is essential for web development. By developing with inclusivity in mind, you can ensure that everyone can access and engage with your content, promote equality and create a better user experience for everyone around the world.
+            </p>
+        </article>
+        <article>
+            <h2>What are screen readers, and who uses them?</h2>
+            <h3>Description</h3>
+            <p>
+                Screen readers are assistive technology programs that help blind and visually impaired people use computers and mobile devices.
+            </p>
+            <p>
+                Screen readers are not just tools for the blind and visually impaired to access computers and mobile devices.
+            </p>
+            <p>
+                They empower these individuals to access education, work opportunities, and social media. This ensures digital inclusion and enhances their ability to participate fully in society.
+            </p>
+            <p>
+                There's a common misconception that screen readers are text-to- speach devices.
+            </p>
+            <p>
+                However, text-to-speech is just one of the features of screen reader. Some screen readers even render the text to braille output instead of speach.
+            </p>
+            <p>
+                Apart from text-to-speech and braille output, other notable features of screen readers are navigaton aids and web browsing assistance.
+            </p>
+            <p>
+                Screen reader programs are also not only made for the blind and visualy impaired. Dyslexic individuals and people with cognitive disabilities also use screen readers. All the popular operating systems out there have screen readers built into them.
+            </p>
+            <p>
+                macOS and iOS both have VoiceOver built-in. You can turn it on on your computer by pressing <strong>Cmd + F5</strong>. You can access it on iPhones throught Settings.
+            </p>
+            <p>
+                Windows computers have Narrator built-in. You can turn it on by pressing <strong>win + CTRL + Enter</strong> NonVisual Desktop Access (NVDA) and Job Access With Speech (JAWS) are also available for Windows computers. NVDA is free and open-source, while JAWS is paid.
+            </p>
+            <p>
+                Linux has <i>Orca</i> for the desktop environment and <i>Speakup</i> for the linux terminal.
+            </p>
+            <p>
+                Android phones have TalkBack built-in. You can turn it on by accessing <i>Settings > Special Function > Accessibility > TalkBack</i>.
+            </p>
+            <p>
+                Some Androids devices also have Ella and Select to Speak built-in.
+            </p>
+            <p>
+                One major challenge for screen reader users is that many software developers don't design their products with screen-reader friendliness and accessibility in mind.
+            </p>
+            <p>
+                Even though accessibility is a broad topic, every developer needs to learn how to make their web software accessible for the blind and visually impaired, as well as other group of people with disabilities.
+            </p>
+            <p>
+                This demonstrates empathy and a commitment to inclusivity, ensuring that all users can benefit from their work.
+            </p>
+        </article>
+        <article>
+            <h2>What are large text or braille keyboards, and who uses them?</h2>
+            <h3>Description</h3>
+            <p>
+                Large text and braille keyboards are designed for users with visual disabilities. In Large Text Keyboards, also called Large Print Keyboards, the letters, numbers, and symbols are larger compared to standard keyboards. This design is helpful for people who may find smaller text in the keys difficult to see. Most of them also have enhanced contrast and brightness.
+            </p>
+            <p>
+                A large print keyboard made by the brand MaxiAids has yellow keys with black, big, and bold letters, numbers, and symbols on them. This is helpful for people with low vision.
+            </p>
+            <p>
+                Another keyboard is the black large print keyboard with white print on the keys. This keyboard is also backlit, so users can adjust its brightness to different lighting conditions.
+            </p>
+            <p>
+                While large print keyboards provide visual cues for users with low vision, braille keyboards provide a completely tactile experience for people with more severe vision disabilities, including people who are blind.
+            </p>
+            <p>
+                Braille is a tactile reading and writing system. It consists of raised dots arranged in specific patterns to represent letters, numbers, and punctuation.Braille keyboards use this system to help users find the right keys on the keyboard by feeling these patterns with their fingers. The keys have raised dots in patterns that represent letters, numbers and symbols.
+            </p>
+            <p>
+                And some keyboards combine both approaches- large fonts and braille patterns in the keys. This is helpful for people with visual disabilities and for people who are learning braille.
+            </p>
+            <p>
+                Large text and braille keyboards are tools that empower people with visual disabilities. By providing alternative input methods, these assistive technologies ensure that everyone can be part of the digital world.
+            </p>
+        </article>
+        <article>
+            <h2>What are alernative pointing devices such as tracballs, joysticks, and Touchpads used for?</h2>
+            <h3>Description</h3>
+            <p>
+                Alternative pointing devices are input devices that make good alternatives to the traditional mouse. They are essential for improving computer accessibility for those with disabilities, forelimb impairments, and limited mobility.
+            </p>
+            <p>
+                Common examples of alternative pointing devices are trackballs, joysticks, and touchpads.A trackball is a stationary pointing device that consists of a large, movable ball within a socket. It also includes additional buttons for clicking and performing other functions.Unlike the traditional mouse, which requires movement around a surface to control the cursor, a trackball remains in place. Users manipulate the ball directly with their fingers, thumb, or palm to move the cursor on the screen.
+            </p>
+            <p>
+                Some traditional mice also have a trackball on the top or side. These mice could make a good starting point if you want to gradually switch to a trackball.
+            </p>
+            <p>
+                Trackballs reduce the physical movement the user needs for navigation, making them ideal for users with mobility issues. Apart from that, if you need high precision and have limited desk space, a trackball is more ideal than a traditional mouse.
+            </p>
+            <p>
+                A joystick is a pointing device primarily designed for games and certain industrial applications like machinery control. It consists of a lever that pivots up, down, left, and right, and often includes additional buttons for various actions
+            </p>
+            <p>
+                Joysticks provide precise control over movement and actions within digital environments. This makes them popular for flight simulators, cranes, driving games, and other applications requiring precise directional input.
+            </p>
+            <p>
+                Because joysticks accommodate larger and more deliberate movements, they are beneficial for individuals with tremors and unsteady hands.They also reduce the strain and pain that comes with repetitive movements, making them ideal for individuals with arthritis and carpal tunnel syndrome.
+            </p>
+            <p>
+                touchpad is a flat, touch-sensitive device built into laptops and some keyboards. It allows users to control the cursor on the screen by sliding their fingers across its surface.Apart from the surface for cursor control, touchpads also feature buttons that emulate the actions of a traditional mouse, such as right-click and left-click.Most people see touchpads as a better alternative to a mouse because they significantly enhance navigation by supporting multi-touch gestures like pinch-to-zoom, two-finger scrolling, tap-to-click, and three-finger swipes.
+            </p>
+            <p>
+                Touchpad is ideal for individuals with low arm or hand movement because the forelimb is almost always stationary while using it. It is also suitable for people with arthritis and joint pain because they don't get to move their arms too much.
+            </p>
+        </article>
+        <article>
+            <h2>What are screen Magnifiers used for?</h2>
+            <h3>Description</h3>
+            <p>
+                Screen magnifiers are tools that help people with low vision and other visual impairments better access digital content and the web.
+            </p>
+            <p>
+                Let's delve deeper into what these tools are and the role they play in digital content accessibility.
+            </p>
+            <p>
+                Screen magnifiers work by enlarging texts, graphics, and other elements on a computer or mobile device screen. Many screen magnifiers allow users to enlarge the display by more than 200%. Users can then navigate the page using their pointing device or keyboard. Additionally, most magnifiers offer customizable zoom percentages and other features in their settings.
+            </p>
+            <p>
+                Screen magnifiers primarily help people with low vision read text, as small fonts in documents or applications can be challenging for them. By enlarging the text, they can read emails, articles, and other content without straining their eyes. Screen magnifiers also assist with web browsing. They help users locate and click on buttons, links, and other interactive elements that might be difficult to see. This improved visibility ensures that users can browse websites, fill out forms, and engage in online activities without difficulty.
+            </p>
+            <p>
+                Therefore, software developers need to make their digital products accessible to people with low vision. Some considerations include:
+            </p>
+            <ul>
+                <li>Using scalable fonts so the user can resize the page without the layout breaking.</li>
+                <li>Ensuring the user interface adapts to different screen sizes through responsive design.</li>
+                <li>Using high-contrast color schemes and customizable colors.</li>
+                <li>Implementing a non-sticky and tiny navbar so users can still see content when using magnifiers.</li>
+                <li>Using regular HTML text instead of images of text.</li>
+                <li>Providing feedback directly next to the element that triggers it, and more.</li>
+            </ul>
+            <p>
+                All the mainstay Operating Systems have at least one magnifier built into them by their manufacturers:
+            </p>
+            <ul>
+                <li>macOS and iOS both have Zoom. You can turn it on on macOS by going to Settings, filter by Accessibility, and then click on "Zoom". Toggle the "Use keyboard shortcuts to zoom" option to enable it.</li>
+                <li>
+                    You can turn it on on iPhone through Settings > Accessibility > Zoom.
+                </li>
+                <li>Android devices have Magnification. To turn it on, go to Settings > Special Function > Accessibility> Magnification. Since this may vary from device to device, you can search for "Magnification" on the settings homepage to access it.</li>
+                <li>
+                    Windows has Magnifier. You can use it by going to Settings > Ease of Access > Magnifier.
+                </li>
+                <li>
+                    The magnifiers for Linux operating systems vary. It is either Zoom or Magnifier.
+                </li>
+            </ul>
+            <p>
+                Apart from the ones built into operating systems, some useful third party screen magnifiers are:
+            </p>
+            <ul>
+                <li>ZoomText for Windows.</li>
+                <li>ClaroView for both macOS and Windows.</li>
+                <li>iZoom for Windows.</li>
+                <li>Zoomify - Screen Magnifier for macOS.</li>
+                <li>LunarPluse for Windows.</li>
+                <li>Loupe for macOS.</li>
+            </ul>
+        </article>
+        <article>
+            <h2>What is Voice REcignition Software used for?</h2>
+            <h3>Description</h3>
+            <p>
+                Voice recognition software helps people with disabilities interact with computers and other digital devices. Let's discuss what voice recognition software is and the role it plays in digital inclusion.In the context of accessibility, voice recognition tools let people with disabilities use their voice to pass commands to perform various tasks instead of using traditional input devices like keyboards and mice. This includes writing emails and other documents, surfing the net, and controlling smart home devices.
+            </p>
+            <p>
+                Because voice recognition software tools eliminate the need for physical interaction, they empower people with disabilities with significant independence and control over their environment.Here are the specific people who may find voice recognition software significantly helpful:
+            </p>
+            <ul>
+                <li>People with visual impairments, including those with low-vision or blindness.</li>
+                <li>Individuals with mobility impairments, such as limited use of hands and arms or conditions like arthritis and carpal tunnel syndrome.</li>
+                <li>Those recovering from hand or arm injuries.</li>
+                <li>Individuals with cognitive disorders, like memory issues or attention deficit disorders.</li>
+                <li>Elderly individuals who might find it easier to use voice commands.</li>
+                </ul>
+                <p>
+                    Note that people with disabilities are not the only ones who use voice recognition technology. Law enforcement agencies, gamers, drivers, and busy professionals also use voice recognition tools.
+                </p>
+                <p>
+                    A few examples of voice recognition software that allows people to interact with their computer include Voice Control for macOS/iOS, Voice Access for Android, and Windows Speech Recognition for Windows (referred to as Voice Access in the most recent versions of Windows). Dragon by Nuance is a popular third-party voice recognition software for Windows.
+                </p>
+        </article>
+        <article>
+            <h2>What are some common accessibility auditing tools to use?</h2>
+            <h3>Description</h3>
+            <p>
+                Accessibility is a crucial yet often overlooked aspect of digital content. When making your digital content accessible, it's important to ensure it meets accessibility standards.
+            </p>
+            <p>
+                An accessibility auditing tool is an application that helps you improve the accessibility of your digital content by reporting accessibility issues that can be easily found through automated testing. This content includes websites, web applications, and mobile apps.
+            </p>
+            <p>
+                It is important to note that while automated accessibility tools have a role in improving accessibility, they typically will only find about a third of all possible accessibility issues. Therefore, it is important not to rely on them entirely to evaluate the accessibility of your content. Manual testing, preferably by people with disabilities, will always be required to ensure that your content is as accessible as possible.
+            </p>
+            <p>
+                Let's look at some free tools that can help you improve the accessibility of your digital content.
+            </p>
+            <p>
+                Google Lighthouse is a popular web metric checker you can use directly within Chrome DevTools or online. This means you can check not only live websites but also locally-developed ones.
+            </p>
+            <p>
+                Google Lighthouse is a popular web metric checker you can use directly within Chrome DevTools or online. This means you can check not only live websites but also locally-developed ones.The metrics you can check include accessibility, SEO, best practices, and performance.
+            </p>
+            <p>
+                To use Lighthouse, open your DevTools by pressing F12 and switching to the Lighthouse tab. Select the metrics you want to check, choose the device you want to test on, and click the "Analyze page load" button.An accessibility score will appear after the check is complete, along with a list of any issues that need fixing.
+            </p>
+            <p>
+                If you want more reliable metrics, consider using the web version. The downside is that it doesn't support testing local websites. You can access the web version on pagespeed.web.dev.
+            </p>
+            <p>
+                WAVE is another reliable accessibility checker you can use as a Chrome extension or on the web. All you need to do is enter the URL of your website and a comprehensive accessibility report will be generated for you. This report includes accessibility features implemented, ARIA, and contrasts.
+            </p>
+            <p>
+                The IBM Equal Accessibility Checker is another robust tool for improving digital content accessibility. With it, you can scan your websites for accessibility issues and generate a detailed report.
+            </p>
+            <p>
+                You can use it as a Chrome extension or Firefox add-on.
+            </p>
+            <p>
+                To use the IBM Accessibility Checker as a Chrome extension, download it from the Chrome web store. Open your Devtools by pressing F12 and selecting the "Accessibility Checker" tab located in the Elements panel. Click the scan button to start the check and a report will be generated for you. You can export the report as a spreadsheet and an HTML file by clicking the "Export XLS" button.
+            </p>
+            <p>
+                Please keep in mind, while these automated tools help you make your content more accessible, a perfect score from any of them does not mean that your content is entirely accessible. The range of issues that these tools test for is limited, and manual testing will always be needed to ensure a more accessible experience for everyone.
+            </p>
+        </article>
+        <article>
+            <h2>How does proper heading level structure affect accessibility?</h2>
+            <h3>Description</h3>
+
+        </article>
+        <article>
+            <h2>What are best practices for tables and accessibility?</h2>
+            <p>
+                When we see a table, we immediately start making visual associations between the data and the headers.
+            </p>
+            <p>
+                For example, let's say we have a table representing our pets. We have two dogs and two cats and the table is showing us their names and ages. While a sighted person may be able to understand the relationships in this table, making the connections between the values and the headers is much harder for people who use screen readers to navigate the table.
+            </p>
+            <p>
+                As a web developer, you are in charge of creating these associations and structuring your HTML markup in a way that is also easy for screen reader users to interpret.
+            </p>
+            <p>
+                So, let's see how you can create accessible tables that everyone can understand. The first best practice that we will cover is using table caption. With the <strong>caption</strong> element, you can write the caption (or title) of a table, so users, especially those who use assistive technologies, can quickly understand the table's purpose and content. You should place the <strong>caption</strong> element immediately after the opening tag of the <strong>table</strong> element. This way, screen readers and other assistive technologies can provide more context by announcing the caption before reading the content.
+            </p>
+            <pre id="caption-tab" class="code-box">   
+            </pre>
+            <script>
+                const tabCaps = `
+                <table>
+                    <caption>Our Pets</caption>
+                    <!-- Table Rows and Columns -->
+                    </table>
+                `
+                document.getElementById('caption-tab').textContent = tabCaps;
+            </script>
+            <p>
+                Now let's talk about row and column headers. Headers are special cells, typically found at the start of a row or column, that describe the type of data stored in the row or column. You can define a row or column header with the table header element, <strong>th</strong>.
+            </p>
+            <p>
+                For example, the code below creates a table for two pets. Every row has a row header (the name of the pet) and every column has a column header, which describes what the data in the column represents (age and type).
+            </p>
+            <pre id = "tab-row" class="code-box"></pre>
+            <script>
+                const tabRow = `
+                <table>
+                    <caption>Our Pets</caption>
+                    <thead>
+                        <tr>
+                            <!-- Column Headers -->
+                            <th>Name</th>
+                            <th>age</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Nora</th> <!-- Row Header -->
+                            <td>5</td>
+                            <td>Dog</td>
+                        </tr>
+                        <tr>
+                            <th>Gino</th> <!-- ROw Header -->
+                            <td>2</td>
+                            <td>Cat</td>
+                        </tr>
+                    </tbody>
+                </table>
+                `
+                document.getElementById('tab-row').textContent = tabRow;
+            </script>
+            <p>
+                Notice that above code has a <strong>caption</strong> element immediately after the opening <strong>table</strong> element. Then inside the table head (<strong>thead</strong>) element, it has the column headers(<strong>Name,Age,</strong> and <strong>Type</strong>). In the second and third rows, inside the table body (<strong>tbody</strong>) element, we find the data for each one of our pets. The names of the pets are the row headerrs because they are inside table header elements (<strong>th</strong>).
+            </p>
+            <p>
+                Associating the data cells with their corresponding headers is also very important for screen readers. The <strong>scope</strong> attribute determines if a header is a row jeader or a column header. Screen readers may guess this correctly from the table's structure, but it's usually recommended to explicitly idicate the <strong>scope</strong> to ensure clarity.
+            </p>
+            <p>
+                The <strong>scope</strong> attribute has four possible values. The two you will use most often are <strong>col</strong>for column and <strong>row</strong> for row. In the code below, you can see that we added the <strong>scope</strong> attribute to the column and row headers. The three column headers (<strong>Name, Age</strong> and <strong>Type</strong>) have a ,<strong>scope</strong> of <strong>col</strong>, column.
+            </p>
+            <p>
+                The two row headers (<strong>Nora</strong> and <strong>Gino</strong>) have a <strong>scope</strong> of <strong>row</strong>.
+            </p>
+            <pre id="scope-col" class="code-box"></pre>
+            <script>
+                const scopeCol = `
+                <table>
+                    <caption>Our Pets</caption>
+                    <thead>
+                        <tr>
+                            <!-- Now they have scope -->
+                            <th scope='col'>Name</th>
+                            <th scope='col'>Age</th>
+                            <th scope='col'>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope='row' >Nora</th>
+                            <td>5</td>
+                            <td>Dog</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gino</th>
+                            <td>2</td>
+                            <td>Cat</td>
+                        </tr>
+                    </tbody>
+                </table>
+                `
+                document.getElementById('sccope-col').textContent = scopeCol;
+            </script>
+            <p>
+                If a column or row header spans across multiple cells, the <strong>scope</strong>will also be applied to each one of the cells individually. Here's an example of that.
+            </p>
+            <pre id="rowSpan-Col"class="code-box"></pre>
+            <script>
+                const rowSpanCol = `
+                <table>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" scope="row">Dogs</th>
+                            <th scope="row">Nora</th>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gino</th>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" scope="row">Cats</th>
+                            <th scope="row>Lulu</th>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Elizabeth</th>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+                `
+                document.getElementById('rowSpan-Col').textContent = rowSpanCol;
+            </script>
+            <p>
+                In this table, the cell with <strong>Nora</strong>'s age (<strong>5</strong>)will have one column header (<strong>Age</strong>)and two row headers (<strong>Dogs</strong> and <strong>Nora</strong>). <strong>Gino</strong>'s age (<strong>2</strong>) will also have one column header (<strong>Age</strong>) and two row headers (<strong>Dogs</strong> and <strong>Gino</strong>).            
+            </p>
+            <p>
+                However, some screen readers may not be able to interpret tables with complex structures, so you should also try to flatten the table as much as possible to avoid row and column headers that span across multiple cells.
+            </p>
+            <p>
+                Your goal should always be to make sure users can access this information, even if their screen readers can handle complex table structures.
+            </p>
+            <p>
+                Now, for cell width, it's recommended to avoid using fixed values. You should use relative values instead, like percentages. Also, try to avoid defining cell height. This will allow users to adjust the text size to fit their needs.
+            </p>
+            <p>
+                And finally, you should let the browser determine the table width whenever possible, to reduce the need for horizontal scrolling.
+            </p>
+            <p>
+                HTML tables are essential for presenting structured data in an accessible and understandable format. By following these accessibility guidelines, you can create tables that are easy to understand for everyone.
+            </p>
+        </article>
+        <article>
+            <h2>Why Is it important for inputs to have an associated label</h2>
+            <h3>Lesson</h3>
+            <p>
+                Labels on input fields might seem like small details, but they play a crucial role in making forms easier for everyone to use.
+            </p>
+            <p>
+                Labels help people with disabilities, make forms more user-friendly for everyone, and ultimately improve form conversion rates.
+            </p>
+            <p>
+                Let's dive into why adding labels to input elements is important for accessibility and usability.
+            </p>
+            <p>
+                Screen readers often rely on labels to describe the purpose of input fields. In order for this to work properly, the label must be programmatically associated with the <strong>input</strong>. While there are several ways to do that, the most common is to use the HTML <strong>label</strong> element.
+            </p>
+            <p>
+                Here's how to associate a <strong>label</strong> with an <strong>input</strong>
+            </p>
+            <pre id="inp-lab" class="code-box"></pre>
+            <script>
+                const inpLab = `
+                <form>
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" />
+                </form>
+                `
+                document.getElementById('inp-lab').textContent = inpLab;
+            </script>
+            <p>
+                In this example, the <strong>for</strong> attribute of the <strong>label</strong>element is associated with the <strong>id</strong> of the <strong>input</strong> element. This connection allows screen readers to announce the <strong>lable</strong> when the <strong>input</strong> is in a focused state, allowing screen reader users to understand the purpose of the <strong>input</strong>.
+            </p>
+            <p>
+                Associating labels with all input fields also benefits SEO. With proper labels, search engines will understand the page content better, leading to a positive impact on the page search rankings.
+            </p>
+            <p>
+                But this is important to understand that you're making content for humans, not search engines. So, you should make sure the labels are as clear and descriptive as possible.
+            </p>
+
+        </article>
+    <article>
+        <h2>introduction to ARIA</h2>
+        <h2>What is the purpose of WAI-ARIA and how does it work?</h2>
+        <p>
+            Making static content accessible can be relatively straightforward, but dynamic content can be more challenging. This is where WAI-ARIA comes in.
+        </p>
+        <p>
+            Let's look at what WAI-ARIA is, its purpose, how it works, and some examples.
+        </p>
+        <p>
+            WAI-ARIA stands for Web Accessibility Initiative - Accessible Rich Internet Applications. It's a specification that enhances accessibility for dynamic content and UI (User Interface) components.
+        </p>
+        <p>
+            Note that WCAG and WAI-ARIA are not the same. WCAG provides general guidelines for web accessibility, while WAI-ARIA offers specific rules for making dynamic and interactive content accessible for users of assistive technologies.
+        </p>
+        <p>
+            So, the primary purpose of WAI-ARIA is to improve accessibility for dynamic content and UI components that do not have native HTML equivalents.
+        </p>
+        <p>
+            WAI-ARIA works by introducing a set of attributes you can add to HTML elements to provide additional semantic information. These attributes are categorized into roles, states, and properties.
+        </p>
+        <p>
+            ARIA role defines the purpose of an element within a website or web app. Here is an example of setting the role to button for a div element.
+        </p>
+        <p>
+            &lt;div role="button"&gt;Click Me&lt;/div&gt;
+        </p>
+        <p>
+            By doing this you are indicating to assistive technology that the element is a button. Roles do not provide any functionality however. Merely giving this div a role of button will not make it act like a button. To make it look and behave like a button you would need to use CSS and JavaScript to get the desired result.
+        </p>
+        <p>
+            Here is an example of using HTML, CSS and JavaScript to create a custom button element.
+        </p>
+        <p>
+            <strong>HTML</strong>
+            &lt;link href="styles.css" rel="stylesheet"&gt;
+            &lt;div id="custom-btn" role="button"&gt;Click&lt;/div&gt;
+            &lt;script src="index.js"&gt;&lt;/script&gt; 
+            <strong>CSS</strong>
+            #custom-btn {
+                display: inline-block;
+                padding: 0.4em 1em;
+                font-size: 1rem;
+                font-family: sans-serif;
+                color: buttontext;
+                background-color: buttonface;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                cursor: pointer;
+                user-select: none;
+                text-align: center;
+            }
+
+            #custom-btn:focus {
+                outline: 2px solid Highlight;
+                outline-offset: 2px;
+            }
+
+            #custom-btn:active {
+                background-color: #ddd;
+            }
+        
+        <strong>JS</strong>
+        <pre id="js-ar" class="code-box">
+            <script>
+                const jsAr = `
+                const button = document.getElementById("custom-btn");
+
+        button.addEventListener("click", () =>
+        {
+            alert("Button clicked");
+        });
+
+        button.addEventListener("keydown", (e) =>
+        {
+            if (e.key === "Enter" || e.key === '') {
+            e.preventDefault();
+            button.click();
+          }
+        });
+                `
+                document.getElementById('js-ar').textContent = jsAr
+            </script>
+        </pre>
+        </p>
+        <p>
+            It is better to use the native <strong>button</strong> or <strong>input</strong> elements. For example, the <strong>aria-labelledby</strong> property lets you connect an element to a specific label:
+
+            &lt;h2 id="header-id"&gt;About freeCodeCamp&lt;/h2&gt;
+            &lt;button id="button-id" aria-labelledby="header-id button-id"&gt;Learn More&lt;/button&gt;
+
+        </p>
+        <p>
+            This will make the elements understandable and navigable for users of assistive technologies.
+        </p>
+        <p>
+            To get the best out of WAI-ARIA, try to stick with native HTML whenever possible since it generally provides more accessibility out of the box.
+        </p>
+        <p>
+            Use WAI-ARIA only when HTML falls short, and don’t forget to test with assistive technologies like screen readers, or have people with disabilities test your work. Also, make sure your WAI-ARIA states and properties update with the content in real time. Avoid overusing ARIA, as it can often be confusing.
+        </p>
+    </article>
+    <article>
+        <h2>What are ARIA roles?</h2>
+        <h3>Lesson</h3>
+        <p>
+            NOTE: Some of these interactive examples might include CSS and JavaScript code. Don't worry about trying to understand the code. The previews are there to help illustrate some of the main points discussed in the lesson. To see the previews, you will need to enable the interactive editor.
+        </p>
+        <p>ARIA stands for Accessible Rich Internet Applications.</p>
+        <p>
+            ARIA roles specify the semantic meaning of HTML elements. They're essential for making web content accessible to people who use assistive technologies, like screen readers.
+        </p>
+        <p>
+            HTML has semantic and non-semantic elements, based on whether they convey meaning about their content.
+        </p>
+        <p>
+            Many semantic HTML elements already have an ARIA role assigned by default. For example, the button element has a default ARIA role of button.
+        </p>
+        <h3>HTML</h3>
+        <p>
+            &lt;button&gt;Example button&lt;/button&gt;
+        </p>
+        <p>
+            But non-semantic elements don't have a role. For example, screen readers will not know how to interpret the purpose of a div if you don't specify its role explicitly. 
+        </p>
+        <p>
+            &lt;div&gt;
+            &lt;!-- more elements go here -- &gt;
+            &lt;/div&gt;
+        </p>
+        <p>
+            To specify the ARIA role of an element, you just need to add the role attribute, like this role="ARIA role", where value is the name of a role in the ARIA specification.
+        </p>
+        <pre id="alert-id" class="code-box"></pre>
+        <script>
+            const alertAria = `
+            <link rel="stylesheet" href="styles.css">
+
+            <div class="alert" id="exp-warning" role="alert">
+                <span class='hidden'>Your log in session will expire in 3 minutes.</span>
+                </div>
+            
+CSS
+.alert {
+    background-color: #fff3cd;
+    border: 1px solid #ffeba;
+    color: #856404;
+    padding: 1em;
+    margin-top: 1em;
+    border-radius: 4px;
+    font-weight: bold;
+    }
+
+.alert span {
+    display: inline-block;
+}
+            `
+            document.getElementById('alert-id').textContent = alertAria;
+        </script>
+        <p>
+            It is important to note that specifying a role on an element only does one thing: It informs assistive technology of the purpose of the element. It does not add any functionality or behavior to the element. If people expect a role to behave a certain way, it is up to you, the developer, to add that expected behavior.
+        </p>
+        <p>
+            For example, adding a role of button to a div does not automatically make it clickable with a mouse or usable with a keyboard. It is the responsibility of the developer to add the expected behavior that allows the div to act like a button, and in most cases, it is just better to use the button element.
+        </p>
+        <p>
+            There are six main categories of ARIA roles:
+        </p>
+        <ul>
+            <li>Document structure roles</li>
+            <li>Widget roles</li>
+            <li>Landmark roles</li>
+            <li>Live region roles</li>
+            <li>Window roles</li>
+            <li>And Abstract roles</li>
+        </ul>
+        <p>
+            Let's take a look at them in more detail.
+        </p>
+        <p>
+            Document structure roles define the overall structure of the web page. With these roles, assistive technologies can understand the relationships between different sections and help users navigate the content.
+        </p>
+        <p>
+            However, most of the document structure roles are not used in modern web development because browsers already support equivalent semantic HTML elements, which should be prioritized whenever possible.
+        </p>
+        <p>
+            You should specify the roles that don't have an equivalent semantic element. For example: toolbar, tooltip, feed, math, presentation, none, and note.
+        </p>
+        <p>
+            There are other similar roles but these are the most commonly used ones. This is an example of a div with the math ARIA role. The div contains a mathematical equation.
+        </p>
+        <pre id="math-eq" class="code-box"></pre>
+            <script>
+                const matExpr = `
+                HTML
+                <link rel = "stylesheet" href="styles.css">
+
+                <div role="math" aria-label="x squared + y squared = 3">
+                    x<sup>2</sup> + y<sup>2</sup> = 3
+                </div>
+                CSS
+                .math-expression {
+                    font-family: "Times New Roman", serif;
+                    font-size: 1.2rem;
+                    background-color: #f4f4f4;
+                    }
+                .math-expression sup {
+                    font-size: 0.8rem;
+                    }
+                `
+                document.getElementById('math-eq').textContent = matExpr;
+            </script>
+            <p>
+                You'll also notice that the div has an aria-label attribute. The value of this attribute should be a string that represents the expression.
+            </p>
+            <p>
+                Widget roles define the purpose and functionality of interactive elements, like scrollbars.
+            </p>
+            <p>
+                Examples of widget roles include scrollbar, searchbox, separator (when focusable), slider, spinbutton, switch, tab, tabpanel, and treeitem.
+            </p>
+            <p>
+                /div/
+                    id="searchbox"
+                    class="searchbox"
+                    role="searchbox"
+                    aria-label="Search the site"
+                    tabinex='0'
+                    contenteditable="true"/
+                    /div/
+                /button type="button" aria-label="Submit search"/Search//button/
+            </p>
+            <p>
+                Some of these roles have equivalent semantic elements. You should prioritize the semantic element over the role if there is one. For example, you should favor using the HTML button element over adding a role of button to a div.
+            </p>
+            <p>
+                Landmark roles classify and label the primary sections of a web page. Screen readers use them to provide convenient navigation to important sections of a page. You should use them sparingly to keep the overall layout simple and easy to understand. Examples of landmark roles are banner, complementary, contentinfo, form, main, navigation, region, and search. Each of these roles has a corresponding HTML equivalent, such as header, footer, aside, form, main, nav, section, and search. If you use the proper HTML elements to define the sections of your page then it is not necessary to explicitly add the role attribute to these elements.
+            </p>
+            <p>
+                div role ="banner" class="site-banner"<br>
+                h1 Accessible Web Design <br>
+                nav <br>
+                ul <br>
+                li <br> a href="#" Home a li 
+                li <br> a href="#" Articles a li 
+                li <br> a href="#" About a li 
+                li <br> a href="#" Contact a li <br>
+                ul <br>
+                nav<br>
+                div<br>
+            
+            </p>
+            <p>
+                Live region roles define elements with content that will change dynamically. This way, screen readers and other assistive technologies can announce changes to users with visual disabilities. These roles include: alert, log, marquee, status, and timer.
+            </p>
+
+        <pre id="marq-stat" class="code-box"></pre>
+        <script>
+            const marStat= `
+            <link rel="stylesheet" href="styles.css">
+            
+            <div class="status-demo">
+                <button id="update-status-btn">Check Status</button>
+                <div id="status-msg" role="status" class="status-message">
+                    No update yet.
+                </div>
+            </div>
+
+            CSS
+            .status-demo {
+            margin-top: 1em;
+            }
+
+            button {
+            padding: 0.5 rem 1em
+            ../
+            ../ }
+
+            JS
+            const button = document.getElementById('update-status-btn');
+            const statusMessage = document.getElementById('status-msg');
+
+            button.addEventListener("click", () => {
+            statusMessage.textContent = 'YOur uplload succesfully.';
+            });
+            `
+            document.getElementById('marq-stat').textContent = marStat;
+        </script>
+        <p>
+            Window roles define sub-windows, like pop up modal dialogues. These roles include <strong>alertdialog</strong> and <strong>dialog</strong>. Please note that it is now considered a best practice to use the HTML <strong>dialog</strong> element and its accociated JavaScript methods instead of manually creating a dialog.
+        </p>
+        <p>
+            Here is example.
+        </p>
+        <pre id="open-dialog"></pre>
+        <script>
+            const opDial = `
+            <link rel="stylesheet" href="styles.css">
+
+            <butoon id="open-dialog">Open Dialog</button>
+
+            <div id="custom dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" class="dialog">
+                <div class="dialog-content">
+                    <h3 id="dialog-title">Confirm Action</h3>
+                    <p>Are you cure you want to delete this file?</p>
+                  <div class="dialog-actions">
+                    <button id="confirm-btn">Yes</button>
+                    <button id="close-dialog">Cancel</button>
+                 </div>
+                </div>
+            </div>
+    
+        JS
+        const dialog = document.getElementById('custom-dialog');
+        const openBtn = document.getElementById('open-dialog');
+        const closeBtn = document.getElementById('close-dialog');
+        const confirmBtn = document.getElementById(;confirm-btn);
+
+        openBtm.addEventListener("click", () => {
+            dialog.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener("click", () => {
+            dialog.style.display = 'none';
+        });
+
+        confirmBtn.addEventListener("click", () => {
+        ALER('FILE DELETED.');
+        dialog.style.display = "none";
+        });
+                
+`
+            document.getElementById('open-dialog').textContent = opDial;
+        </script>
+        <p>
+            And finally, we have abstract roles. These roles help organize the document. They're only meant to be used internally by the browser, not by developers, so you should know that they exist but you shouldn't use them on your websites or web applications.
+        </p>
+        <p>
+            With ARIA roles, you can create accessible and inclusive websites and web applications. They provide semantic information about the purpose and function of HTML elements.
+        </p>
+        <p>
+            Screen readers and other assistive technologies use this information to help users understand the content of your page and set expectations for how to use it, which helps ensure that everyone can have a great user experience.
+        </p>
+        </article>
+        <article>
+            <h2>What are roles of the aria-label and aria labelledby Attributes?</h2>
+            <h3>Lesson</h3>
+            <p>
+                It is important to make sure that all users, including those living with disabilities, can access websites without issues.
+            </p>
+            <p>
+                For people using screen readers, the aria-label and aria-labelledby attributes provide crucial information about page elements that might be unclear or invisible.
+            </p>
+            <p>
+                Let's look at what the aria-label and aria-labelledby attributes are and the roles they play in making the web accessible to people with visual impairments and related disabilities.
+            </p>
+            <p>
+                You'll notice both aria-label and aria-labelledby are prefixed with aria. So what does that mean? ARIA stands for Accessible Rich Internet Applications. It's a set of attributes prefixed with aria-, which lets developers communicate the purpose of elements to assistive technologies. The aria-label attribute is an invisible label for interactive elements. It adds a text label to an element that screen readers can read.
+            </p>
+            <p>
+                aria-label is especially useful for elements that do not have visible text but still need to be described by screen readers. For example, buttons with only icons often need aria-label to convey their purpose.
+            </p>
+            <p>Here is an example</p>
+            <pre id ="aria-lb"></pre>
+            <script>
+                cosnt ariaLbl = `
+                <button aria-label="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                `
+                document.getElementById('aria-lb').textContent = ariaLbl;
+            </script>
+            <p>
+                In this case, a screen reader may announce this button as Search, button, even though the button only contains an icon. The aria-label attribute tells screen readers what text to use in place of the icon.
+            </p>
+            <p>
+                If the button contained the text "Search" instead of an icon, then there would be no need for the aria-label attribute as the text would provide the label for the button.
+            </p>
+            <p>
+                For input elements, the aria-label attribute provides a label directly if there isn't a visible label associated with the input.
+            </p>
+            <p>
+                The aria-labelledby attribute does the exact same thing as the aria-label attribute, but instead of defining the text directly in the attribute, you use a reference to text that already exists on the page. The existing text must have an id attribute, which will be used for the reference value in the aria-labelledby attribute.
+            </p>
+            <p>Here's an example:</p>
+            <pre id="txt-btn-aria" class="code-box"></pre>
+            <script>
+                const txtBtnAria = `
+                <input type="text" aria-labelledby="search-btn">
+                <button type="button" id="search-btn">Search</button>
+                `
+                document.getElementById('txt-btn-aria').textContent = txtBtnAria;
+            </script>
+
+        <p>
+            In this case, the text for the button is being used as the label for the search input. Screen readers will announce the input as something like Search, edit. If you later decide you want to change the button text to Find, the label for the input will automatically be updated to the new text since it is referencing the button text. Combining multiple id values into a single aria-labelledby attribute value is also possible. Here's how that works:
+        </p>
+        <pre id="span-volume" class="code-box"></pre>
+        <script>
+            const spanVol = `
+            <div>
+                <span id="volume-label">Volume</span>
+                <span id="volume-details">Adjust the volume level</span>
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="30"
+                    aria-labelledby="volume-label volume-details">
+            </div>
+            `
+            document.getElementById("span-volume").textContent = spanVol;
+        </script>
+        <p>
+            For the slider, the screen reader will look out for the content of the volume-label and volume-details elements and announce Volume Adjust the volume level.
+        </p>
+        <p>
+            You've seen that both aria-label and aria-labelledby attributes help screen readers understand what elements do. So, which one should you use? Since they both provide the same functionality, either can be used, but there may be a few advantages to using aria-labelledby over aria-label:
+        </p>
+        <ul>
+            <li>You've seen that both aria-label and aria-labelledby attributes help screen readers understand what elements do. So, which one should you use? Since they both provide the same functionality, either can be used, but there may be a few advantages to using aria-labelledby over aria-label:</li>
+            <li>Using aria-labelledby can also help prevent a mismatch between the visible label text and the invisible label for screen reader users since updating the visible text will automatically update the invisible label.
+            </li>
+            <li>aria-labelledby can make it much easier to programmatically create complex invisible labels consisting of multiple sources of text.</li>
+        </ul>
+        <p>
+            One last note, do not use aria-label and aria-labelledby on an element at the same time. In this case, the invisible label for screen readers will always be determined by aria-labelledby and aria-label will be completely ignored.
+        </p>
+        </article>
+         <article>
+            <h2>What is the aria-hidden attribute, and how does it work?</h2>
+            <h3>Lesson</h3>
+            <p>
+                If you ever need to display content while at the same time hiding it from people who use assistive technology, like screen readers, you can use the aria-hidden attribute.
+            </p>
+            <p>
+                You just need to add it to the HTML element that you want to hide and set its value to true, like you can see over here: aria-hidden="true".
+            </p>
+            <p>
+                This attribute hides the element and all of its children from the accessibility tree, while keeping them visible on the page. Common use cases include:
+            </p>
+            <ul>
+                <li>
+                    Icons and images that only have a decorative purpose.
+                </li>
+                <li>
+                    Duplicated content.
+                </li>
+            </ul>
+            <p>
+                It is important to remember that aria-hidden only hides content from assistive technology, such as screen readers. If the content should be hidden from everyone, then you should not use aria-hidden to hide it. For example, a hamburger menu that is currently collapsed must be hidden from all keyboard users, not just screen reader users. In this case you could set the CSS display property to none on the menu to remove it from the DOM when it is collapsed.
+            </p>
+            <p>
+                You should never use aria-hidden to hide an element that is focusable with the keyboard. The aria-hidden attribute only removes the element from the accessibility tree. It does not remove it from the DOM. Thus, it will still be possible for screen reader users to tab to the element, but their screen reader will not announce the element, effectively causing them to focus on "nothing".
+            </p>
+            <p>
+                Here's an example where we hide an icon from the accessibility tree by adding the aria-hidden attribute with a value of true.
+            </p>
+            <p>
+                We only keep the text exposed to assistive technologies to avoid any confusion that may arise from the redundancy of having both an icon and text for the same purpose.
+            </p>
+            <p>
+                NOTE: This interactive example includes the Font Awesome CDN so you can see the gear icon displayed in the preview window. To see the previews, you will need to enable the interactive editor.
+            </p>
+            <pre id="font-awesome" class="code-box"></pre>
+            <script>
+                const fntAwesome = `
+                <head>
+                    <!-- Font Awesome CDN -->
+                    <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"
+                    />
+                </head>
+
+                <button>
+                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                    <span class="label">Setting</span>
+                </button>
+                `
+                document.getElementById('font-awesome').textContent
+                = fntAwesome;
+            </script>
+            <p>
+                You do not need to use aria-hidden when:
+            </p>
+            <ul>
+                <li>The HTML element already has a hidden attribute.</li>
+                <li>The element or the element's ancestor is already hidden with display: none.</li>
+                <li>The element or the element's ancestor is already hidden with visibility: hidden.</li>
+            </ul>
+            <p>
+                In these three cases, the element is already removed from the DOM and thus hidden from the accessibility tree, so the aria-hidden attribute is not necessary.
+            </p>
+            <p>
+                As with using any ARIA attributes, you should always test with assistive technologies, and preferably having people with disabilities test your work, to make sure that it's easy to understand, even with these hidden elements.
+            </p>
+            <p>
+                You should also know that setting aria-hidden to false will not expose the element to assistive technologies if any of its parents has this attribute set to true.
+            </p>
+            <p>
+                The aria-hidden attribute is used to hide elements from people who use assistive technology, such as screen reader users.
+            </p>
+            <p>
+                While it can be helpful for hiding purely decorative elements and duplicated content, it should be used sparingly to avoid hindering accessibility.
+            </p>
+            <p>
+                In general, all content and functionality available on the page should also be available to people using assistive technology. The use case for aria-hidden is very narrow and should be limited primarily to making the experience cleaner for screen reader users by removing purely decorative or duplicate information. Do not use aria-hidden to hide content that you don’t think screen reader users would be interested in. Screen reader users deserve to have access to all information on the page.
+            </p>
+
+         </article>
+         <article>
+            <h2>What is the aria-describedby Attribute, and how does it works?</h2>
+            <h3>Lesson</h3>
+            <p>
+                The aria-describedby attribute is used to provide additional information about an element to screen reader users by referencing existing content on the page. It creates a programmatic association between the element and the content (technically referred to as an accessible description), which screen readers can use to inform users of the additional information when they interact with the element.
+            </p>
+            <p>
+                The most common use for aria-describedby is to associate instructions and error messages with form inputs. Due to the various methods screen reader users have for navigating a page, they may miss these messages when navigating between inputs. Using aria-describedby helps ensure that they will hear them.
+            </p>
+            <p>
+                Let's take a look at a few examples to understand how it works. In this first example, we have a form element that accepts a password.
+            </p>
+            <p>
+                Enable the interactive editor and type a few characters into the password input field. You will see that the password is masked in the preview window. You should also see that the password-help text remains red until you provide 8 or more characters into the input.
+            </p>
+            <p>
+                NOTE: This interactive example is using CSS and JavaScript to dynamically update the color for the password-help text. Don't worry about trying to understand the JavaScript code because you will learn JavaScript in future modules.
+            </p>
+            <pre id="passw-help" class="code-box"></pre>
+            <script>
+                const passHelp = `
+                <link rel="stylesheet" href="style.css">
+
+                <form>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" aria-describedby="password-help" />
+                    <p id="password-help">Your password must be at least 8 characterd long.</p>
+                </form>
+                `
+                document.getElementById('passw-help').textContent = passHelp;
+            </script>
+            <p>
+                We are using a label element for the Password text and associating that with the password input field.
+            </p>
+            <p>
+                We also have a paragraph element that describes the password requirements. We are using the aria-describedby attribute to associate the password input field with the password requirements in the paragraph element. When a screen reader user interacts with this input, their screen reader will announce the name of the input (Password) and may then also announce the password requirements. This is not an absolute guarantee however as some screen readers may not automatically announce the additional content, or may only announce it in specific circumstances. This is not uncommon. Each screen reader is different and handles ARIA attributes in their own way. This does not negate the use of aria-describedby, as it will benefit screen reader users in general.
+            </p>
+            <p>
+                Another good use case for the aria-describedby attribute is when you have a delete button. Here is an example of a delete button followed by a message describing what will happen when the button is clicked:
+            </p>
+            <pre id="delete-arria-msg" class="code-box"></pre>
+            <script>
+                const ariaDelDesc = `
+                <button aria-describedby ="delete-message">Delete</button>
+
+                <p id="delete-message">Warning! All deletion are permanent.</p>
+                `
+                document.getElementById("delete-arria-msg").textContent = ariaDelDesc;
+            </script>
+            <p>
+                Just like in the earlier example, we associate the delete button with the message using the aria-describedby attribute. The id value and the value of the aria-describedby attribute must match.
+            </p>
+            <p>
+                The aria-describedby attribute is a powerful attribute that can be used to help ensure that additional information about an element is provided to screen reader users when they interact with the element. It is most commonly used to associate instructions and error messages with form inputs in order to reduce the chance that screen reader users will miss these messages as they navigate the form.
+            </p>
+         </article>
+
+    </body>
+</html>
