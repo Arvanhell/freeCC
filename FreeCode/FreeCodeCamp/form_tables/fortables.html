@@ -312,6 +312,128 @@ document.getElementById('js-id').textContent = jsIns;
 </p>
     
 </article>
+<article>
+    <h2>What HMTL tables used for, and what should they not be used for?</h2>
+    <h3>Lesson about tables</h3>
+    <p>
+        HTML tables aren't used as much these days as they used to be. But, as a front-end developer, you should still be familiar with them. Tables are one of the earliest ways devs had for displaying data in a browser way back in the 1990s.
+        -------
+        Here's an example of code used to generate a table from the US Burea of Labor Statistic:
+    </p>
+    <pre id="ex-how" class="code-box"></pre>
+    <script>
+        const howWasTabThen =`
+        <table id="quickfacts">
+            <thead>
+                <tr>
+                    <th colspan="2">Quick Facts: Software Developers, Quality Assurance Analysts, and Testters</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>2023 Median Pay</th>
+                    <td>
+                        $130,160 per year
+                        <br>$62.58 per hour
+                    </td>
+                </tr>
+                <tr>
+                    <th>Typical Entry-Level Education</th>
+                    <td>Bachelo's degree</td>
+                </tr>
+                <tr>
+                    <th>Work Experience in a Related Occupation</th>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <th>On-the-job Training</th>
+                    <td>None</td>
+                </tr>
+                <tr>
+                    <th>Number of Jobs, 2022</th>
+                    <td>1,795,300</td>
+                </tr>
+                <tr>
+                    <th>Job Outlok, 2022-32</th>
+                    <td>25% (Much faster than average)</td>
+                </tr>
+                <tr>
+                    <th>Employment Change, 2022-32</th>
+                    <td>451,200</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>If this table had a footer it would be here.</th>
+                </tr>
+            </tfoot>
+        </table>
+        `
+        document.getElementById('ex-how').textContent = howWasTabThen;
+    </script>
+
+    <p>
+        As you can see, there's a main <strong>table</strong> element with an <strong>id</strong> set to <strong>quicfacts</strong>. Inside it, the table has a table head element, <strong>thead</strong>, table body element, <strong>tbody</strong>, and a table foot element, <strong>tfoot</strong>.
+    </p>
+    <p>
+        The table head ,body, and foot elements can each contain some number of table rows, <strong>tr</strong>. And each table row can contain a table header <strong>th</strong> which labels the data in that row. It can also contain some number of individual data cells, called table data, <strong>td</strong>.
+        Now that's a lot of HMTL elements. But don't be intimidated- these follow a simple hierarchy.
+    </p>
+    <p>
+        Here's the simplest table we can create that includes all of these elements:
+    </p>
+    <pre id="simp-tab" class="code-box"></pre>
+        <script>
+            const simpTab =`
+            <table>
+                <thead>
+                    <tr>
+                        <th>The Title of this table</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>First Row</th>
+                        <td>
+                            First Data Cell
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Second Row</th>
+                        <td>
+                            Second Data Cell
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>
+                            The footer of this table, which might contain date of publication,
+                            author credits, 
+                            or other meta information
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+            `
+            document.getElementById('simp-tab').textContent = simpTab;
+        </script>
+    <p>
+        So as you can see, the data itself is always within a <strong>tr</strong>- and within that <strong>tr</strong> element is a <strong>th</strong> element with a header, and a <strong>td</strong> element with data.
+    </p>
+    <p>
+        Some websites will choose to use <strong>div</strong> to build their own tables instead of using the more appropriate <strong>table</strong> element.
+    </p>
+    <p>
+        While is posible to display tabular data using generic <strong>div</strong> elements, it is still better to use the <strong>table</strong> element instead.
+    </p>
+    <p>
+        Many years ago, developers might have used a <strong>table</strong> to position non-data elements on a webpage. This was never considered a best practice. But you may encounter some codebases where tables are still used like this.
+    </p>
+    <p>
+        Nowadays, developers use CSS flexbox and grid to layout their designs.
+    </p>
+</article>
         <script src="index.js"></script>
     </body>
 </html>
