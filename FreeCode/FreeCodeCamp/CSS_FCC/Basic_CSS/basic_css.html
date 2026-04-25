@@ -1354,6 +1354,76 @@
 
         </section>
     </article>
+    <article>
+        <h2>
+            CSS Specificity, the Cascade algorithm, and inheritance.
+        </h2>
+        <section>
+            <h3>
+                What Is CSS Specificity, and the Specificity for inline, internal, and external CSS?
+            </h3>
+            <h4>Lesson</h4>
+            <p>
+                CSS specificity is a fundamental concept that determines which styles are applied to an element when multiple rules could apply.
+            </p>
+            <p>
+                Understanding specificity helps developers resolve conflicts between different CSS rules and ensures that the desired styles are consistently applied.
+            </p>
+            <p>
+                CSS specificity is calculated based on the type of selectors used.
+            </p>
+            <p>
+                The highest specificity is attributed to inline styles, which are applied directly to an element through the <strong>style</strong> attribute.
+            </p>
+            <p>
+                In this example, the first paragraph will be red while the other <strong>p</strong> elements will be blue. This is because inline styles have a higher specificity than type selectors like the <strong>p</strong> selector shown in the <strong>styles.css</strong> file.
+            </p>
+            <pre id="specificity-p" class="code-box">
+                <script>
+                    const speciFicity = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <p style="color: red;">Red paragraph</p>
+                    <p>Other para </p>
+                    <p>Another para </p>
+                    <p> Yet another para </p>
+
+                    CSS
+                    p {
+                      color: blue;
+                    }
+                    `
+                document.getElementById('specificity-p').textContent = speciFicity;
+                </script>
+            </pre>
+            <p>
+                Following this, ID selectors have a high level of specificity.
+            </p>
+            <pre id="specificity-id" class="code-box">
+                <script>
+                    const specificityId = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <p id="para">Red paragraph</p>
+                    <p>Other para </p>
+                    <p>Another para </p>
+                    <p> Yet another para </p>
+
+                    CSS
+                    #para {
+                      color: red;
+                    }
+                    p {
+                      color: blue;
+                      }
+                    `
+                document.getElementById('specificity-id').textContent = specificityId;
+                </script>
+            </pre>
+        </section>
+    </article>
 </body>
 
 </html>
