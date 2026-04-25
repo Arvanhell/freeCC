@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic CSS</title>
+</head>
+
+<body>
+    <h1> Basic CSS</h1>
+    <article>
+        <h2>What is CSS?</h2>
+        <section>
+            <p>
+                The following lectures are all about CSS. You will lerarn what CSS is and its role on the web, a CSS
+                rule and its anatomy, the three ways to write CSS and when to use wach, inline and block elements,a nd
+                many more.
+            </p>
+        </section>
+    </article>
+    <article>
+        <h2>What is CSS, and What is Its role on the WEB?</h2>
+        <section>
+            <h2>Lesson</h2>
+            <p>CSS, which stands for Cascading Style Sheets, its crucial component of modern web development. It is a
+                markup language used to apply styles for HTML. In simpler terms, if HTML is the structure of a web page,
+                CSS is what makes it look good</p>
+            <p>Here is an example of styling a navbar</p>
+            <pre id="nav-bar" class="code-box">
+                    <script>
+                        const navBar = `
+                        HTML 
+                            <link rel="stylesheet" href="styles.css" />
+
+                        <nav class="navbar">
+                            <ul class="nav-links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Service</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </nav>
+                        
+                        CSS
+                        * {
+                         margin: 0;
+                         padding: 0;
+                         box-sizing: border-box;
+                        }
+
+                        body {
+                         font-family: 'Segoe UI', sans-serif;
+                         background-color: #f4f4f4;
+                        } 
+
+                        .navbar .logo {
+                         font-size: 1.5rem;
+                         font-weight: bold;
+                        }
+
+                        .nav-links {
+                         list-style: none;
+                         display: flex;
+                         gap: 1.5rem;
+                        }
+
+                        .nav-links a:hover {
+                         color: #ff9800;
+                        }
+                        `
+                        document.getElementById('nav-bar').textContent = navBar;
+                    </script>
+                </pre>
+            <p>
+                The primary role of CSS is to separate the content of a web page from its visual presentation. This
+                separation allows web developers to create more flexible and maintainable websites.
+            </p>
+            <p>
+                With CSS, you can control the layout, colors, fonts, and overall visual appearance of web pages without
+                altering the HTML structure.
+            </p>
+            <p>
+                Let's consider a simple analogy. If you think of a website as a house, HTML would be the foundation and
+                framework, while CSS would be the paint, wallpaper, and decorations that make the house visually
+                appealing and unique.
+            </p>
+            <p>
+                CSS works by selecting HTML elements and applying styles to them.
+            </p>
+            <p>
+                Here is an example showing an unstyled <b>button</b> element and a styled one. To interact with this
+                example, you will need to enable the interactive editor.
+            </p>
+            <pre id="btn-about" class="code-box">
+                    <script>
+                        const btnAbout = `
+                        CSS
+                         
+                         .round-btn {
+                            font-size: 1rem;
+                            font-family: 'Segoe UI', sans-serif;
+                            border: none;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease, transform 0.2 ease;
+                            background-radius: 50px;
+                            padding: 0.6rem 1,6rem;
+                         }
+
+                         .round-btn:hover {
+                            background-color: #27ae60;
+                            transform: translateY(-2px);
+                         }
+                        `
+                        document.getElementById('btn-about').textContent = btnAbout;
+                    </script>
+                    </pre>
+                    <p>
+                        These styles can include properties like color, font size, and many more. By changing these properties, you can dramatically alter how a web page looks without changing its content.
+                    </p>
+                    <p>
+                        One of the most powerful aspects of CSS is its ability to create responsive designs.
+                    </p>
+                    <p>
+                        This means that with CSS, you can make your website look great on any device, whether it's a desktop computer, a tablet, or a smartphone.
+                    </p>
+                    <p>
+                        CSS allows you to adjust layouts, font sizes, and other visual elements based on the screen size of the device viewing the website.
+                    </p>
+                    <pre id="respns-for-tables" class="code-box">
+                        <script>
+                            const responsTbl = `
+                            CSS
+                            body {
+                                margin: 0;
+                                font-family: 'Segoe UI', sans-serif;
+                                background-color:#f9f9f9;
+                                color: #333;
+                            }
+
+                            .header {
+                                background-color: #4CAF50;
+                                color: white;
+                                padding: 2rem;
+                                text-align: center;
+                            }
+
+                            .content {
+                                display: flex;
+                                gap: 1rem;
+                                justify-content: center;
+                            }
+
+                            .box {
+                                flex: 1;
+                                min-width: 200px;
+                                background-color: #ddd;
+                                padding: 2rem;
+                                text-align: center;
+                                font-size: 1.2rem;
+                                border-radius: 8px;
+                                transition: background-color 0.3s;
+                            }
+
+                            .box:hover {
+                                background-color: #ccc;
+                            }
+
+                            /* Responsive: for tablets and below ( equall or bigger 768px) */
+                            @media (max-width: 768) {
+                            .content {
+                              flex-direction: column;
+                              align-items: center;
+                              }
+
+                              .box {
+                              width: 90%;
+                              font-size: 1.1rem;
+                              }
+                            }
+
+                            /* Responsive: for phones equal or bigger than 480px) */
+                            @media (max-width: 480px) {
+                             .header {
+                              padding: 1.5rem 1rem;
+                             }
+
+                             .header h1 {
+                             font-size: 1.5rem;
+                             }
+
+                             .header p {
+                             font-size: 1rem;
+                             }
+
+                             .box {
+                              font-size: 1rem;
+                              padding: 1.5rem;
+                             }
+                            }
+                            `
+                            document.getElementById('respns-for-tables').textContent = responsTbl;
+                        </script>
+                    </pre>
+                    <p>
+                        Another important feature of CSS is its cascading nature, which is where the "cascading" in its name comes from.
+                    </p>
+                    <p>
+                        This means that styles can be inherited and overridden, allowing for a hierarchical structure of styling. You will learn more about how this works in future lessons.
+                    </p>
+                    <p>
+                        CSS also supports the use of external stylesheets.
+                    </p>
+                    <p>
+                        This means you can keep all your styling rules in a separate file, which can then be linked to multiple HTML pages.
+                    </p>
+                    <p>
+                        This feature greatly enhances the maintainability of websites, especially larger ones. Instead of having to change styles on each individual page, you can make changes in one CSS file that will affect all linked pages.
+                    </p>
+                    <p>
+                        In the world of web development, CSS plays a vital role in creating visually appealing, responsive, and user-friendly websites.
+                    </p>
+                    <p>
+                        It allows developers to transform simple HTML documents into engaging web experiences that capture users' attention and enhance their interaction with web content.
+                    </p>
+        </section>
+        <section>
+            <h2>What is the basic anatomy of a CSS Rule?</h2>
+            <p>
+                CSS is responsible for the styles of a web page. All of these styles are made up of various CSS rules.
+            </p>
+            <p>
+                A CSS rule is made up of two main parts: a selector and a declaration block.
+            </p>
+            <pre id="sel-block" class="code-box">
+                <script>
+                    const selBlock = `
+                    selector {
+                        property: value;
+                    }
+                    `
+                    document.getElementById('sel-block').textContent = selBlock;
+                </script>
+            </pre>
+            <p>
+                A selector is a pattern used in CSS to identify and target specific HMTL elements for styling.
+            </p>
+            <p>
+                Examples of selectors include type selectors, class selectors, and ID selectors.
+            </p>
+            <p>
+                The curly braces provided in the basic syntax are known as a declaration block. A declaration block applies a set od styles for a given selector, or selectors.
+            </p>
+            <p>
+                Inside the declaracion block, you will have a series of declarations. Each declaration consists of a property and a value.
+            </p>
+            <p>
+                The property is the CSS identifier that specifies which feature is being styled. An example of property would be the <strong>background-color</strong> property.
+            </p>
+            <p>
+                The value would be the specific setting applied to that property. For example, if the property is <strong>background-color</strong>, a value could be <strong>purple</strong>, which sets the background color to purple.
+            </p>
+            <p>
+                After each property name, you need to pladce a colon, and after each value, you should have a semicolon.
+            </p>
+            <pre id="col-semicol" class="code-box">
+                <script>
+                const colSemiCol = `
+                    <link rel="stylesheet" href="styles.css>
+                    <h1>Learning about CSS </h1>
+
+                    <p>Example paragraph element </p>
+                    <p>Another example paragraph element</p>
+
+                    CSS 
+                    p {
+                        color: blue;
+                    }
+                `
+                document.getElementById('col-semicol').textContent = colSemiCol;
+                </script>
+            </pre>
+            <p>
+                In this CSS rule, a type selector targets all paragraph elements on the page.
+            </p>
+            <p>
+                Inside the declaration block, there is one declaration.
+            </p>
+            <p>
+                The declaration consist of the <b>Color</b> property with a value set to <strong>blue</strong>. This will change the text color for all paragraph elements to <strong>blue</strong>.
+            </p>
+            <p>
+                If you want to apply the same set of styles to multiple selectors, you can create a selector list with each selector separated by an comma.
+            </p>
+            <pre id="selectors-coma" class="code-box">
+                <script>
+                    const selectorComa = `
+                    <link rel="stylesheet" href="styles.css">
+
+                    <h1 id="title">Example heading </h1>
+                    <h2 class="subheading">Example subheading</h2>
+                    <p>This paragraph is not affected by the selector.</p>
+                    CSS
+                    #title,
+                    .subheading {
+                        color: navy;
+                    }
+                    `
+                    document.getElementById('selectors-coma').textContent = selectorComa;
+                </script>
+            </pre>
+            <p>
+                In this selector list, there is an <strong>id</strong> selector targeting the HMTL element with the <strong>id</strong> value of<strong>title</strong>.All <strong>id</strong> selectors must start with a hash <strong>#</strong> symbol.
+            </p>
+            <p>
+                Then there is a comma followed by a <strong>class</strong> selector that targets all HTML elements witn the <strong>class</strong> value of <strong>subheading</strong>. All class selectors must start with a dot <strong>.</strong>.
+            </p>
+            <p>
+                The entire selector list will receive the same styling, with the next color set to <strong>navy</strong>.
+            </p>
+        </section>
+        <section>
+            <h2>What is the Meta viewport element used for?</h2>
+            <p>
+                The meta viewport element is a crucial component in responsive web design.
+            </p>
+            <P>
+                It's a special HTML meta element that gives the browser instructions on how to control the page's dimensions and scaling on different devices, particularly on mobile phones and tablets.                
+            </P>
+            <p>
+                Let's take a look at the basic syntax of the meta viewport.
+            </p>
+            <pre id="viewport" class="code-box">
+                <script>
+                    const viewPort = `
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+                    `
+                    document.getElementById('viewport').textContent = viewPort;
+                </script>
+            </pre>
+            <p>
+                This element is typically placed in the <strong>head</strong> section of your HTML document. But what does each part of the element mean?
+            </p>
+            <p>
+                The <strong>width=device-width</strong> part tells the browser to set the width of the page to match the screen width of the device. This is essential for creating responsive layouts that adapt to different screen sizes.
+            </p>
+            <p>
+                The <strong>initial-scale=1.0</strong> sets the initial zoom level when the page is first loaded. A value of 1.0 means that the page is displayed at <strong>100%</strong> zoom, without any scaling.
+            </p>
+            <p>
+                By using the meta viewport element, you're ensuring that your web pages are displayed properly on mobile devices.Without it, mobile browsers will typically render the page at a desktop screen width and then scale it down, which can result in a poor user experience with tiny, hard-to-read text.
+            </p>
+            <p>
+                The meta viewport element also allows you to control whether users can zoom in and out of your web pages.While it's possible to disable zooming with the <strong>user-scalable=no</strong> attribute, it's generally recommended to avoid this for accessibility reasons.Many users rely on the ability to zoom for better readability, especially those with visual impairments.Here's an example of what not to do:
+            </p>
+            <pre id="viewport1" class="code-box">
+                <script>
+                    const viewPort1 = `
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+                    `
+                    document.getElementById('viewport1').textContent = viewPort1;
+                </script>
+            </pre>
+            <p>
+                Instead, it's better to design your website to be responsive and readable at different zoom levels, ensuring that all users can comfortably access your content.The meta viewport element plays a crucial role in creating mobile-friendly websites.It ensures that your carefully crafted responsive designs are displayed as intended on various devices, providing a better user experience for all visitors to your site.
+            </p>
+        </section>
+        <section>
+            <h2> What are some default browseer styles applied to HTML?</h2>
+            <p>
+                When you start working with HTML and CSS, you'll notice that some styles are applied to your web pages even before you write any CSS. These styles are called "default browser styles" or "user-agent styles".
+            </p>
+            <p>
+                These default browser styles provide basic formatting to ensure that HTML elements are displayed in a readable way across all browsers.
+            </p>
+            <p>
+                However, these styles can vary slightly from one browser to another, which is why it's important to understand them when designing a consistent look for your website.
+            </p>
+            <p>
+                Let’s take a look at some common default browser styles applied to various HTML elements.
+            </p>
+            <p>
+                Headings are one of the most commonly used HTML elements and are styled by default to have varying sizes and weights.
+            </p>
+            <p>
+                For example, <strong>h1</strong> (the highest-level heading) is usually bold and larger in font size compared to lower-level headings like <strong>h2</strong>, <strong>h3</strong>, and so on.
+            </p>
+            <p>
+                These heading tags help define the hierarchy and structure of your content.
+            </p>
+            <div>
+                <h3>The following example shows all six heading elements form <strong>h1</strong> to <strong>h6</strong></h3>
+                <pre id="head-ing" class="code-box">
+                    <script>
+                        const hIng = `
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+                    `
+                    document.getElementById('head-ing').textContent = hIng;
+                    </script>
+                </pre>
+            </div>
+            <p>
+                Another element with default styles is the <strong>hr</strong> element, which creates a horizontal rule often used to visually separate sections of content. Browsers generally apply a simple line style to this element.
+            </p>
+            <p>
+                To understand better, let's look at this code example.
+            </p>
+            <pre id="prg-hr" class="code-box">
+                <script>
+                    const prgHr =`
+                    <p>Paragraph 1</p>
+                    <p>Paragraph 2</p>
+                    <hr>
+                    <p>Paragraph 3</p>
+                    <p>Paragraph 4</p>
+                    `                
+                    document.getElementById('prg-hr').textContent = prgHr;
+                    </script>
+            </pre>
+            <p>
+                The horizontal rule appears as a thin line with spacing above and below the text to distinguish between sections of content.
+            </p>
+            <hr>
+            <p>
+                Next, we will look at the <strong>blockquote</strong> element.
+            </p>
+            <p>
+                Blockquotes are used to indicate a section of text that is a quotation from another source. Browsers typically add indentation and sometimes italicize the text.
+            </p>
+            <p>
+                The indentation helps set blockquotes apart from the rest of the text, making it clear that this content is quoted from another source.
+            </p>    
+            <p>
+                Let's take a look at this code example:
+            </p>
+            <pre id="block-qote" class="code-box">
+                <script>
+                    const blockQote = `
+                    <p>Paragraph 1</p>
+                    <p>Paragraph 2</p>
+                    <blockquote>I think, therefore I am. (Rene Descartes)</blockquote>
+                    <p>Paragraph 3</p>
+                    <p>Paragraph 4</p>
+                    `
+                    document.getElementById('block-qote').textContent = blockQote;
+                </script>
+            </pre>
+            <p>
+                In the example above, the <strong>blockqote</strong> element will produce an indent on the text, applied by the default browser styles.
+            </p>
+            <p>
+                Anoter element with default styles is the anchor element <strong>(&lt;a&gt;)</strong>, which is styled with a default blue color and underlining to make to recognizabl as a link.
+            </p>
+            <pre id="anchor-style" class="code-box">
+                <script>
+                    const anchorStyle = `
+                    <p>Paragraph 1</p>
+                    <p>Paragraph 2</p>
+                    <a href="https://link.org">Visit the link </a>
+                    <p>Paragraph 3</p>
+                    <p>Paragraph 4</p>
+                    `
+                    document.getElementById('anchor-style').textContent = anchorStyle;
+                </script>
+            </pre>
+            <p>
+                The above code has four paragraph elements with an anchor element in the middle. The anchor element is styled in blue with an underline to show users to go to the freeCodeCamp learn page.
+            </p>
+            <p>
+                Finally, we'll look at the unordered and ordered list elements.
+            </p>
+            <p>
+                Browsers add basic formatting to lists, including indentation and bullets or numbers, depending on whether you are using an unordered list (<strong>ul</strong>) or an ordered list (<strong>ol</strong>).
+            </p>
+            <p>
+                Let's take a look at an example:
+            </p>
+            <pre id="ul-ol" class="code-box">
+                <script>
+                    const ulOl =`
+                    <p>Sample Paragraph</p>
+                    <ol>
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        <li>item 3</li>
+                    </ol>
+                    <ul>
+                        <li>item</li>
+                        <li>another item</li>
+                        <li>item after another item</li>
+                    </ul> 
+                    <p>>Ending Paragraph</p>
+                    `
+                    document.getElementById('ul-ol').textContent = ulOl;
+                </script>
+            </pre>
+            <p>
+                In the above code example, we are using an unordered list and an ordered list. Both of these lists will be slightly indented to the right by default.
+            </p>
+            <p>
+                For examples, you saw how the browser applied default spacing, varying font sizes, and weight to these html elements.
+            </p>
+            <p>
+                In later lessons, we will learn how to reset some of these default sttyles using a CSS reset.
+            </p>
+        </section>
+        <section>
+            <h2>What are inline, internal, and external CSS, and when should you use each of one?</h2>
+            <h3>Lesson</h3>
+            <p>
+                
+            </p>
+        </section>
+
+    </article>
+</body>
+
+</html>
