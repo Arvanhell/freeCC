@@ -22,7 +22,7 @@
     <article>
         <h2>What is CSS, and What is Its role on the WEB?</h2>
         <section>
-            <h2>Lesson</h2>
+            <h3>Lesson</h3>
             <p>CSS, which stands for Cascading Style Sheets, its crucial component of modern web development. It is a
                 markup language used to apply styles for HTML. In simpler terms, if HTML is the structure of a web page,
                 CSS is what makes it look good</p>
@@ -513,10 +513,255 @@
             <h2>What are inline, internal, and external CSS, and when should you use each of one?</h2>
             <h3>Lesson</h3>
             <p>
-                
+                CSS can be appleid to a webpage in three main ways: inline, internal, or external.
+            </p>
+            <p>
+                Each method has its own use case, advantages, and limitations, and knowing when to use each one is essentianl for writing clean, efficient, and maintainable code.
+            </p>
+            <p>
+                Let's break down the three types of CSS and when you should use them.
+            </p>
+            <p>
+                Inline CSS is writtne directly within an HTML element using the <strong>style</strong> attribute. It applies styles to a specific element.
+            </p>
+            <p>
+                Here's an example using inline CSS
+            </p>
+            <pre id="inline-style" class="code-box">
+                <script>
+                    const inlineStyle = `
+                    <p style="color: green;"> this is an inline-styled paragraph.</p>
+                    `
+                    document.getElementById('inline-style').textContent = inlineStyle;
+                </script>
+            </pre>
+            <p>
+                In this exaple, we are using the <strong>style</strong> attribute to set the paragraph text to <strong>green</strong>.
+            </p>
+            <p>
+                Inline CSS is generally used for quick, one-off styles or to override other styles for a specific element.
+            </p>
+            <p>
+                However, it should be avoided in most cases because it can clutter the HTML and make the code harder to maintain.
+            </p>
+            <p>
+                Most of the time, it's better to use internal or external CSS to keep your styles organized and maintanable.
+            </p>
+            <p>
+                Internal CSS is written within the <strong>style</strong> tags inside the <strong>head</strong> section of an HTML document. It applies styles to the entire page and is useful when you need to style a single document.
+            </p>
+            <p>
+                Here's an example of internal CSS:
+            </p>
+            <pre id="internal-style" class="code-box">
+                <script>
+                    const internalStyle = `
+                    <head>
+                        <style>
+                            p {
+                            color: bluej;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <p>
+                            This paragraph is styled using internal CSS.
+                        </p>
+                    </body>
+                    `
+                document.getElementById('internal-style').textContent = internalStyle;
+                </script>
+            </pre>
+            <p>
+                In the above example, the internal CSS applies blue text to all <strong>p</strong> elements on the page.
+            </p>
+            <p>
+                Internal CSS is best used when you need to apply styles to a specific page rather than across multiple pages. It’s useful for single-page websites or when the styles don’t need to be reused elsewhere.
+            </p>
+            <p>
+                However, there are some downsides, such as not promoting reusability across multiple pages. Additionally, like inline CSS, it mixes HTML and CSS, making the code harder to maintain in larger projects.
+            </p>
+            <p>
+                External CSS written in a separate <strong>.css</strong> file and linked to the HTML document using the <strong>link</strong> element in the <strong>head</strong> section.
+            </p>
+            <p>
+                It allows you to style multiple pages consistently and is the preffered method in professional web development.
+            </p>
+            <p>
+                Here is an example of styling all paragraph elements:
+            </p>
+            <pre id="external-style" class="code-box">
+                <script>
+                    const externalStyle = `
+                    HTML
+                    <head>
+                        <link rel="stylesheet" href="styles.css">
+                    </head>
+                    <body>
+                        <p>This paragraph is styled using external CSS</p>
+                    </body>
+                    CSS
+                    p {
+                        color: red;
+                    }
+                    `
+                document.getElementById('external-style').textContent = externalStyle;
+                </script>
+            </pre>
+            <p>
+                In an earlier lesson, you learned that the <strong>link</strong> element has a <strong>rel</strong> attribute that specifies the relationship between the current document and the linked resource, such as linking to a stylesheet or an external resource.
+            </p>
+            <p>
+                On the other hand, the <strong>href</strong> attribute specifies the URL of the linked resource, indicating where the resource should be retrieved from.
+            </p>
+            <p>
+                External CSS is ideal for large projects where you want to maintain a consistent style across multiple pages.
+            </p>
+            <p>
+                It promotes separation of concerns by having HTML handle the structure and CSS handle the styling, which makes the code more maintainable and scalable.
+            </p>
+            <p>
+                Understanding when to use each type of CSS is crucial for efficient and effective web development.
+            </p>
+            <p>
+                In most cases, external CSS should be your go-to approach, especially for larger and more complex projects.
             </p>
         </section>
-
+        <section>
+            <h2>
+                How do width and height work?
+            </h2>
+            <h3>Lesson</h3>
+            <p>
+                In CSS, the <strong>width</strong> and <strong>height</strong> properties are used to control the dimensions of elements on a webpage.
+            </p>
+            <p>
+                These properties can be defined in different units such as pixels (<strong>px</strong>), percentages(<strong>%</strong>), viewports units(<strong>vw</strong>,<strong>vh</strong>), and more.
+            </p>
+            <p>
+                The <strong>width</strong> property specifies the width of an element. If you do not specify a width, then the default is set to <strong>auto</strong>. This lets the browser determine the element's width based on its content, parent, and display type. For a <strong>div</strong> element, <strong>width: auto</strong> makes it expand to fill the full width of its parent container.
+            </p>
+            <p>
+                The <strong>height</strong> property specifies the height of an element. Similarly, the height is <strong>auto</strong> by default, which means it will adjust to the content inside.
+            </p>
+            <p>
+                Here's an example using the <strong>width</strong> and <strong>height</strong> properties:
+            </p>
+            <pre id="weight-height" class="code-box">
+                <script>
+                    const weightHeight =`
+                    <head>
+                        <style>
+                            .box {
+                              width: 100px;
+                              height: 100px;
+                              background-color: skyblue;
+                             }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="box"></div>
+                    </body>
+                    `
+                document.getElementById('weight-height').textContent = weightHeight;
+                </script>
+            </pre>
+            <p>
+                In this example, we have a <strong>div</strong> element with class named <strong>box</strong>. This element will be occupying <strong>100px</strong> in height and width, whereas the background color will be <strong>skyblue</strong>.
+            </p>
+            <p>
+                Pixels are a fixed-size unit of measurement in CSS, providing precise control over dimensions.
+            </p>
+            <p>
+                The <strong>min-width</strong> property specifies the minimum width an element can be. Even if the content inside is smaller, the element won’t shrink below this value.
+            </p>
+            <p>
+                The <strong>min-height</strong> specifies the minimum height an element can be. It ensures that the element does not become shorter than the set value.
+            </p>
+            <p>
+                Here is an example:
+            </p>
+            <pre id="min-height-min-width" class="code-box">
+                <script>
+                    const minMaxWH = `
+                    <head>
+                        <style>
+                            .box {
+                              width: 50px;
+                              min-width: 100px;
+                              height: 50px;
+                              min-height: 100px;
+                              background-color: lightcoral;
+                            }
+                        </style>
+                        <head>
+                        <body>
+                            <div class="box"></div>
+                        </body>
+                    `
+                document.getElementById('min-height-min-width').textContent = minMaxWH;
+                </script>
+            </pre>
+            <p>
+                The above example demonstrate how <strong>min-width</strong> and <strong>min-height</strong> work.
+            </p>
+            <p>
+                Even thought the box has its <strong>width</strong> and <strong>height</strong> set to 50px, it will actually be <strong>100px</strong> by <strong>100px</strong>. This is because the <strong>min-width</strong> and <strong>min-height</strong> are set to <strong>100px</strong>, which are larger the specified <strong>width</strong> and <strong>height</strong>.
+            </p>
+            <p>
+                Remember, if <strong>min-width</strong> or <strong>min-height</strong> are larger than the <strong>width</strong> or <strong>height</strong>, they will override the smaller values. This ensures that elementes don't become to small, which is important for maintaining a consistent and usable design.
+            </p>
+            <p>
+                The <strong>max-width</strong> specifies the maximum width an element can grow to, even if there is enough space for it to be wider.
+            </p>
+            <p>
+                The <strong>max-height</strong> specifies the maximum height an element can grow to, regardles of the content size.
+            </p>
+            <p>
+                Here is an example:
+            </p>
+            <pre id="over-riding-height-width" class="code-box">
+                <script>
+                    const overRidingHW = `
+                    <head>
+                        <style>
+                            .box {
+                              width: 200px;
+                              max-width: 150px;
+                              height: 200px;
+                              max-height: 150px;
+                              background-color: lightgreen;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="box"></div>
+                    </body>
+                    `
+                document.getElementById('over-riding-height-width').textContent = overRidingHW;
+                </script>
+            </pre>
+            <p>
+                The above example demonstrates how <strong>max-width</strong> and <strong>max-height</strong> override <strong>width</strong> and <strong>height</strong>. Even though the box is set to <strong>200px</strong> by <strong>200px</strong>, it will actually be <strong>150px</strong> by <strong>150px</strong>. This is because the <strong>max-width</strong> and <strong>max-height</strong> are set to <strong>150px</strong>, which is smaller.
+            </p>
+            <p>
+                Remember, when <strong>max-width</strong> or <strong>max-height</strong> are smaller than <strong>width</strong> or <strong>height</strong>, they take precedence. This is important for controlling the maximum size of elements in your layouts.
+            </p>
+            <p>
+                CSS prioritizes <strong>min-width</strong> and <strong>min-height</strong> over <strong>width</strong> and <strong>height</strong>. <strong>max-width</strong> and <strong>max-height</strong> restrict dimensions if values exceed their limits.
+            </p>
+            <p>
+                For example, if you set <strong>width</strong> to <strong>600px</strong> and <strong>max-width</strong> to <strong>500px</strong>, the element will be limited to <strong>500px</strong> wide. The <strong>max-width</strong> overrides the wider setting, keeping the element within the specified maximum size.
+            </p>
+            <p>
+                This ensures elements stay within desired size ranges, regardless of standard width and height values.
+            </p>
+        </section>
+        <section>
+            <h2>What are the different types of CSS combinators?</h2>
+            <h3>Lesson</h3>
+            
+        </section>
     </article>
 </body>
 
