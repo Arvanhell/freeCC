@@ -1422,6 +1422,657 @@
                 document.getElementById('specificity-id').textContent = specificityId;
                 </script>
             </pre>
+            <p>
+                Next, class selecors, attribute selectors, and pseudo-classes come into play.
+            </p>
+            <p>
+                Examples include class selectors such as <strong>.container</strong> and <strong>button</strong>, attribute selectors like <strong>[type="text"]</strong>, and pseudo-classes such as <strong>:hover</strong>. These have a moderate level of specificity.
+            </p>
+            <p>
+                In this example, the first paragraph will be red because an <strong>id</strong> selector has a higher specificity than classes and type selectors. The <strong>.example-para</strong> elements will have a color of green while the remaining paragraph elements will have a color of blue.
+            </p>
+            <pre id="specificity-example-para" class="code-box">
+                <script>
+                    const specificityExamplePara = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <p id="para">Red paragraph</p>
+                    <p class="example-para">Other para </p>
+                    <p class="example-para">Another para </p>
+                    <p> Yet another para </p>
+
+                    CSS
+                    #para {
+                      color: red;
+                    }
+
+                    .example-para {
+                      color: green;
+                    }
+
+                    p {
+                      color: blue;
+                      }
+                    `
+                document.getElementById('specificity-example-para').textContent = specificityExamplePara;
+                </script>
+            </pre>
+            <p>
+                Type selectors, such as <strong>div</strong> and <strong>h1</strong>, and pseudo-elements like <strong>::before</strong> and <strong>::after</strong>, have a lower specificity compared to the previous groups.
+            </p>
+            <p>
+                Finally, the universal selector, represented by an asterisk <strong>*</strong> has the lowest specificity of all.
+            </p>    
+            <p>
+                Here is an example of setting the color for all elements to red using the <strong>*</strong> selector. You won't see any red elements though because there are ID and type selectors that override those styles which highlights the low specificity of the <strong>*</strong> selector.
+            </p> 
+            <pre id="universal-selector" class="code-box">
+                <script>
+                    const universalSelector = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <p id="para">Example paragraph </p>
+                    <p>Other paragraph </p>
+                    <p>Another one para </p>
+                    CSS
+                    * {
+                     color: red;
+                    }
+
+                    #para {
+                      color: green;
+                    }
+
+                    p {
+                      color: blue;
+                    }
+                    `
+                document.getElementById('universal-selector').textContent = universalSelector;
+                </script>
+            </pre>
+            <p>
+                Specificity values are calculated as a four-part value <strong>(a,b,c, d)</strong>:
+            </p>
+            <ul>
+                <li>
+                    <b>a</b>: inline styles (<strong>1</strong>or<strong>0</strong>).
+                </li>
+                <li>
+                    <b>b</b>: Number of ID selectors.
+                </li>
+                <li>
+                    <b>c</b>: Number of class selectors, attribute selectors, and pseudo-classes.
+                </li>
+                <li>
+                    <b>d</b>: Number of type selectors, pseudo-elements, and universal selectors.
+                </li>
+            </ul>
+            <p>
+                Each part of the specificity value carries different weight:
+            </p>
+            <ul>
+                <li>
+                    Inline styles (<strong>a</strong>) have the highest weight, contributing a value of <strong>1</strong> to the first part of the specificity value.
+                </li>
+                <li>
+                    ID selectors (<strong>b</strong>) carry the next highest weight, with each ID contributing <strong>1</strong> to the second part of the specificity value.
+                </li>
+                <li>
+                    Class selectors, attribute selectors, and pseudo-classes (<strong>c</strong>) carry moderate weight, with each contributing <strong>1</strong> to the third part of the specificity value.
+                </li>
+                <li>
+                    Type selectors and pseudo-elements (<strong>d</strong>) have the lowest weight, with each contributing <strong>1</strong> to the fourth part of the specificity value.
+                </li>
+                <li>
+                    Universal selector (<strong>*</strong>): The universal selector contributes <strong>0</strong> to the specificity calculation and does not affect specificity. Its inclusion in a selector does not change the specificity value.
+                </li>
+            </ul>
+            <p>
+                Inline CSS has the highest specificity because it is applied directly to the element. It overrides any internal or external CSS. The specificity value for inline styles is (<strong>1, 0, 0, 0</strong>).
+            </p>
+            <p>
+                Here is another example of an inline style:
+            </p>
+            <p>
+                &lt;p style="color: red;"&gt;This text is red. &lt;/p&gt;
+            </p>
+            <p>
+                Internal CSS is defined within a <strong>style</strong> element in the <strong>head</strong> section of the HTML document. It has lower specificity than inline styles. Both internal and external CSS share the same specificity level — the specificity is determined by the selectors used, not by where the CSS is defined. When two rules share equal specificity, the one that appears later in the document wins. So if an external stylesheet is linked after an internal <strong>style</strong> block, the external rules take precedence. If it's linked before, the internal rules win.
+            </p>
+            <p>
+                The specificity value for internal styles is determined by the selectors used. For example, an ID selector within internal CSS has a specificity value of (<strong>0, 1, 0, 0</strong>).
+            </p>
+            <pre id="inter-inline" class="code-box">
+                <script>
+                    const interInline = `
+                    HTML
+                    <head>
+                        <style>
+                            #text {
+                              color: blue;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div id="text">This text is blue.</div>
+                    </body>
+                    `
+                document.getElementById('inter-inline').textContent = interInline;
+                </script>
+            </pre>
+            <p>
+                In this example, the text will be blue unless an inline style or a more specific selector is applied.
+            </p>
+            <p>
+                External CSS is linked via a <strong>link</strong> element in the <strong>head</strong> section and is written in separate <strong>.css</strong> files. Like internal CSS, the specificity of external styles is determined by the selectors used. External CSS provides the best maintainability for larger projects.
+            </p>
+            <p>
+                The specificity value for external styles is also determined by the selectors used. For example, a class selector within external CSS has a specificity value of (<strong>0, 0, 1, 0</strong>).
+            </p>
+            <pre id="external-specificity" class="code-box">
+                <script>
+                    const externalSpecificity = `
+                    HTML
+                    <head>
+                        <link rel="stylesheet" href="styles.css">
+                    </head>
+                    <body>
+                        <div class="text">
+                            This text's color is defined in an external CSS file.
+                        </div>
+                    </body>
+                    CSS
+                    .text {
+                      color: purple;
+                    }
+                    `
+                document.getElementById('external-specificity').textContent = externalSpecificity;
+                </script>
+            </pre>
+            <p>
+                In this example, the text color is defined in the <strong>styles.css</strong> file and will be applied unless overridden by a more specific selector or an inline style.
+            </p>
+        </section>
+        <section>
+            <h2>What is the Universal Selector, and what is its specificity?</h2>
+            <h3>Lesson</h3>
+            <p>
+                The universal selector (<strong>*</strong>) is a special type of CSS selector that matches any element in the document.
+            </p>
+            <p>
+                It is often used to apply a style to all elements on the page, which can be useful for resetting or normalizing styles across different browsers.
+            </p>
+            <p>
+                The universal selector can be used to select all elements within a specific context or globally across the entire document.
+            </p>
+            <p>
+                Here is an example of using the universal selector for setting the <strong>margin</strong> and <strong>padding</strong> for the entire HTML document:
+            </p>
+            <pre id="universal-selector2" class="code-box">
+                <script>
+                    const univerSel1 = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <h1>Heading</h1>
+                    <p>Example para element</p>
+
+                    CSS
+                    * {
+                      margin: 0;
+                      padding: 0;
+                    }
+                    `
+                document.getElementById('universal-selector2').textContent = univerSel1;
+                </script>
+            </pre>
+            <p>
+                In this code example, the <strong>*</strong> selector resets the margin and padding of all elements to zero, which is a common technique used in CSS resets.
+            </p>
+            <p>
+                The universal selector has the lowest specificity value of any selector. It contributes 0 to all parts of the specificity value (<strong>0, 0, 0, 0</strong>).
+            </p>
+            <p>
+                This means that any other selector, including type selectors, class selectors, ID selectors, and inline styles, will override the styles set by the universal selector.
+            </p>
+            <p>
+                Let's take a look at the following HTML and CSS example:
+            </p>
+            <pre id="universal-selector3" class="code-box">
+                <script>
+                    const univerSel3 = `
+                    HTML
+                    <head>
+                    <style>
+                        * {
+                          color: blue;
+                        }
+                        p {
+                          color: red;
+                        }
+                        .highlight {
+                          color: green;
+                        }
+                        #unique {
+                          color: purple;
+                        }
+                    </style>
+                    </head>
+                    <body>
+                        <p id="unique" class="highlight">
+                            This text has multiple styles applied.
+                        </p>
+                    </body>
+                    `
+                document.getElementById('universal-selector3').textContent = univerSel3;
+                </script>
+            </pre>
+            <p>
+                The universal <strong>*</strong> selector sets the text color to <strong>blue</strong> for all elements.
+            </p>
+            <p>
+                However, the <strong>p</strong> type selector overrides this by setting the text color to <strong>red</strong> specifically for <strong>p</strong> elements.
+            </p>
+            <p>
+                If an element has the <strong>highlight</strong> class, the class selector takes precedence, changing the text color to <strong>green</strong>.
+            </p>
+            <p>
+                Finally, the <strong>#unique</strong> ID selector, which has the highest specificity, will override all others, setting the text color to <strong>purple</strong>.
+            </p>
+        </section>
+        <section>
+            <h2>What is the specifficity for Type Selectors?</h2>
+            <h3>Lesson</h3>
+            <p>
+                Type selectors, also known as element selectors, target elements based on their tag name.
+            </p>
+            <p>
+                These selectors are fundamental in CSS and allow you to apply styles to all instances of a specific HTML element.
+            </p>
+            <p>
+                Type selectors are straightforward to use and are written simply as the tag name of the element you want to style.<br>
+                
+                Here is an example of a type selector targeting all paragraph elements on the page:
+            </p>
+            <pre id="type-selector" class ="code-box">
+                <script>
+                    const typeSel = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <p>para one</p>
+                    <p>para two</p>
+                    <p>para three</p>
+
+                    CSS
+                    p {
+                      color: blue;
+                    }
+                    `
+                document.getElementById('type-seector').textContent = typeSel;
+                </script>
+            </pre>
+            <p>
+                In this example, all <strong>p</strong> elements will have their text color set to <strong>blue</strong>.
+            </p>
+            <p>
+                Type selectors have a relatively low specificity compared to other selectors. The specificity value for a type selector is (<strong>0, 0, 0, 1</strong>).
+            </p>
+            <p>
+                This means that type selectors will be overridden by class selectors, ID selectors, and inline styles, but can still apply styles unless those higher-specificity rules are present.
+            </p>
+            <p>
+                Let's take a look at an example where the class selectors will override the styles of the type selector.
+            </p>
+            <pre id="type-selector2" class="code-box">
+                <script>
+                    const typeSel2 = `
+                    <p class="para">I am paragraph</p>
+                    <p class="para">I am another paragraph</p>
+
+                    CSS
+                    p {
+                      color: blue;
+                    }
+                    .para {
+                      color: red;
+                    }
+                    `
+                document.getElementById('type-selector2').textContent = typeSel2;
+                </script>
+            </pre>
+            <p>
+                All paragraphs on the page with the class of <strong>para</strong> will have the text color set to <strong>red</strong> instead of <strong>blue</strong> because class selectors have a higher specificity than type selectors.
+            </p>
+        </section>
+        <section>
+            <h2>What is the Specificity for class selectors ?</h2>
+            <h3>Lesson</h3>
+            <p>
+                Class selectors are a key part of CSS, allowing developers to target multiple elements with the same class attribute and apply consistent styling.
+            </p>
+            <p>
+                This makes them highly versatile and efficient for applying styles across a website.
+            </p>
+            <p>
+                Class selectors are defined by a period (<strong>.</strong>) followed by the class name. They can be applied to any element in the HTML document.
+            </p>
+            <p>
+                Here i an example using a class selector:
+            </p>
+            <pre id="class-selector" class="code-box">
+                <script>
+                    const classSelector = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css"
+                    <p class="highlight">Example paragraph</p>
+                    CSS
+                    .higlight {
+                      color: green;
+                    }
+                    `
+                document.getElementById('class-selector').textContent = classSelector;
+                </script>
+            </pre>
+            <p>
+                In this example, any element with the class <strong>highlight</strong> will have its text color set to <strong>green</strong>.
+            </p>
+            <p>
+                Class selectors have a higher specificity than type selectors but lower than ID selectors and inline styles.
+            </p>
+            <p>
+                The specificity value for a class selector is (<strong>0, 0, 1, 0</strong>). This means that class selectors can override type selectors, but they can be overridden by ID selectors and inline styles.
+            </p>
+            <p>
+                Class selectors can be combined with other selectors to create more specific rules.
+                <br>
+                Here is an example combining a paragraph type selector with a class selector:
+            </p>
+            <pre id="class-selector1" class="code-box">
+                <script>
+                    const classSelector1 = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css"
+                    <p class="bold-text">Example para</p>
+                    <p class="bold-text">Example para</p>
+                    <p>Another para</p>
+                    <p>Yet another para</p>
+                    
+                    CSS
+                    p.bold-text {
+                      font-weight: bold;
+                    }
+                    `
+                    document.getElementById('class-selector1').textContent = classSelector1;
+                </script>
+            </pre>
+            <p>
+                This rule applies only to <strong>p</strong> elements that also have the <strong>bold-text</strong>
+            </p>
+        </section>
+        <section>
+            <h2>What is Secificity for ID selectors?</h2>
+            <h3>Lesson</h3>
+            <p>
+                ID selectors are among the most powerful selectors in CSS, allowing developers to apply styles to specific elements with unique identifiers.
+            </p>
+            <p>
+                This makes them highly effective for targeting individual elements that need unique styling.
+            </p>
+            <p>
+                ID selectors are defined by a hash symbol (<strong>#</strong>)followed by the ID name. They should be unique within an HTML document, meaning no two elements should share the same ID.<br>
+                Here is an example using ID selector:
+            </p>
+            <pre id="id-selector" class="code-box">
+                <script>
+                    const idSel = `
+                    <link rel="stylesheet" href="styles.css">
+                    <p id="unique">Example paragraph</p>
+                    <p>Another paragraph</p>
+                    <p>Yet another paragraph</p>
+
+                    CSS
+                    #unique {
+                      color: purple;
+                    }
+                    `
+                document.getElementById('id-selector').textContent = idSel;
+                </script>
+            </pre>
+            <p>
+                In this example, the element with the ID <strong>unique</strong> will have its text color set to <strong>purple</strong>. 
+            </p>
+            <p>
+                ID selectors have a very high specificity, higher than type selectors and class selectors, but lower than inline styles. The specificity value for an ID selector is (<strong>0, 1, 0, 0</strong>).
+            </p>
+            <p>
+                This means that ID selectors can override class selectors and type selectors but can be overridden by inline styles.
+            </p>
+        </section>
+        <section>
+            <h2>What is the important Keyword, and what are the best practices fou using it?</h2>
+            <h3>Lesson</h3>
+            <p>
+                The <strong>!important</strong> keyword in CSS is used to give a style rule the highest priority, allowing it to override any other declarations for a property.
+            </p>
+            <p>
+                When used, it forces the browser to apply the specified style, regardless of the specificity of other selectors.
+            </p>
+            <p>
+                Let's say you have an HTML paragraph element with inline styles like this:
+            </p>
+            <pre id="imp-selector" class="code-box">
+                <script>
+                    const impSel = `
+                    <p class="para" style="background-color: lightblue; color: black;">
+                        This is paragraph.
+                    </p>
+                    `
+                document.getElementById('imp-selector').textContent = impSel;
+                </script>
+            </pre>
+            <p>
+                In this example, the paragraph element has a background color set to <strong>lightblue</strong> and a text color set to <strong>black</strong>.
+            </p>
+            <p>
+                The CSS applies the following styles to the paragraph element:
+            </p>
+            <pre id="imp-selector2" class="code-box">
+                <script>
+                    const impSel2 = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <p class="para" style="background-color: lightblue; color: black;">
+                        This is paragraph.
+                    </p>
+
+                    CSS
+                    .para {
+                      background-color: black;
+                      color: white;
+                    }
+                    `
+                document.getElementById('imp-selector2').textContent = impSel2;
+                </script>
+            </pre>
+            <p>
+                Since inline styles have a higher precedence than class, ID and type selectors, the black background color and white text color will not be applied to that paragraph element.
+            </p>
+            <p>
+                To override those inline styles, you can use the <strong>!important</strong> keyword like this:
+            </p>
+            <pre id="imp-selector3" class="code-box">
+                <script>
+                    const impSel3 = `
+                    <p class="para" style="background-color: lightblue; color: black;">
+                        This is paragraph.
+                    </p>
+
+                    CSS
+                    .para {
+                      background -color: black !important
+                      color: white !important;
+                    `
+                document.getElementById('imp-selector3').textContent = impSel3;
+                </script>
+            </pre>
+            <p>
+                The <strong>!important</strong> keyword is used after the CSS value and before the semicolon.
+            </p>
+            <p>
+                Now the paragraph element will have those black and white colors applied because the inline styles are being overridden with the use of the <strong>!important</strong> keyword.
+            </p>
+            <p>
+                The <strong>!important</strong> keyword in CSS is used to give a style rule the highest priority, effectively overriding other declarations, including those with higher specificity and inline styles.
+            </p>
+            <p>
+                However, the <strong>!important</strong> keyword does not change the specificity of the CSS selector itself. It simply ensures that the rule with <strong>!important</strong> is applied, even if there are other conflicting rules with higher specificity.
+            </p>
+            <p>
+                Another appropriate use case for the <strong>!important</strong> keyword is to override styles from third-party libraries or frameworks when you do not have control over the original CSS.
+            </p>
+            <p>
+                However, overusing the <strong>!important</strong> keyword can lead to difficulties in maintaining and debugging your CSS, as it breaks the natural cascading of styles and can lead to unintended consequences.
+            </p>
+            <p>
+                So, it is best to use the !important keyword sparingly.
+            </p>
+        </section>
+        <section>
+            <h2>How does the Cascade Algorithm work at a High Level</h2>
+            <h3>Lesson</h3>
+            <p>
+                The Cascade Algorithm is the process the browser uses to decide which CSS rules to apply when there are multiple styles targeting the same element. It ensures that the most appropriate styles are used, based on a set of well-defined rules.
+            </p>
+            <p>
+                The process begins with relevance. The browser first filters all the CSS rules to find those that actually apply to the element in question. This includes matching selectors and considering media queries that might be in effect.
+            </p>
+            <p>
+                A media query is a CSS technique used to apply styles based on the characteristics of the device or viewport, such as its width, height, or orientation.
+            </p>
+            <p>
+                Next, the algorithm considers <strong>origin and importance</strong>. CSS can come from different sources: the browser’s default styles (user-agent), styles set by the user, and styles written by the author (you).
+            </p>
+            <p>
+                Following the consideration of origin, the algorithm then evaluates the importance of each rule, giving priority to rules marked with <strong>!important</strong>, which override other rules regardless of their source.
+            </p>
+            <p>
+                After filtering by origin and importance, the algorithm looks at specificity. When two rules from the same origin and importance level apply, the rule with the higher specificity will be applied.
+            </p>
+            <p>
+                Specificity is a measure of how targeted a selector is, with more specific selectors taking precedence over more general ones.
+            </p>
+            <p>
+                Finally, if everything else is equal, the <strong>order of appearance</strong> comes into play. When two rules have the same specificity, the one that appears last in the CSS will be applied.
+            </p>
+            <p>
+                This is why the order in which you write your styles can sometimes affect the outcome.
+            </p>
+            <p>
+                Let's take a look at an example.
+            </p>
+            <p>
+                In the HTML file, there is a single paragraph element. Then inside the CSS, we have two rules, each targeting the paragraph element.
+            </p>
+            <pre id="cascading-style" class="code-box">
+                <script>
+                    const cascadingStyle = `
+                    <link rel="stylesheet" href="styles.css">
+
+                    <p>Example paragraph</p>
+
+                    CSS
+                    p {
+                      color: blue;
+                    }
+                    p {
+                      color: green
+                    }
+                    `
+                document.getElementById('cascading-style').textContent = cascadingStyle;
+                </script>
+            </pre>
+            <p>
+                The first rule sets all paragraph elements to the text color of blue while the second rule sets all paragraph elements to the text color of green.
+            </p>
+            <p>
+                So which color will be applied? The color green will be applied to the paragraph elements.
+            </p>
+            <p>
+                By considering relevance, origin and importance, specificity, scope, and order of appearance, the Cascade Algorithm ensures that your CSS behaves predictably, allowing you to design more complex and nuanced web pages.
+            </p>
+        </section>
+        <section>
+            <h2>How does Inheritance Work with CSS at a high level?</h2>
+            <h3>Lesson</h3>
+            <p>
+                Inheritance is a key concept in CSS that determines how styles are passed down from parent elements to their child elements.
+            </p>
+            <p>
+                Just like in the real world, where children often inherit traits from their parents, in CSS, certain properties can be inherited by child elements from their parent elements.
+            </p>
+            <p>
+                This allows for a more efficient way to apply consistent styling across an entire document.
+            </p>
+            <p>
+                In CSS, not all properties are inherited by default. For example, properties like <strong>color</strong>, <strong>font-family</strong>, and <strong>line-height</strong> are inherited. This means that if you set the text color on a parent element, all of its child elements will inherit that color unless you specifically override it.
+            </p>
+            <p>
+                For instance, consider the following example where a parent <strong>div</strong> element has its color set using an inline style, and the child <strong>p</strong> element inherits that color:
+            </p>
+            <pre id="stylling" class="code-box">
+                <script>
+                    const styllingDoc = `
+                    <div style="color: blue;">
+                        This is the parent element.
+                        <p>
+                            This is th chaild element inheriting the color.
+                        <p>
+                    </div>
+                    `
+                document.getElementById('stylling').textContent = styllingDoc;
+                </script>
+            </pre>
+            <p>
+                In this case, both the parent <strong>div</strong> and the child <strong>p</strong> will display their text in blue because the color is inherited.
+            </p>
+            <p>
+                On the other hand, properties like <strong>margin</strong>, <strong>padding</strong>, <strong>border</strong>, and <strong>background</strong> are not inherited by default. If you want a child element to inherit these styles, you need to explicitly set them, either directly on the child element or by using the <strong>inherit</strong> keyword.
+            </p>
+            <p>
+                The <strong>inherit</strong> keyword can be used to force inheritance of a property from a parent element, even if that property is not normally inherited.
+            </p>
+            <p>
+                For example, if you want a specific child element to have the same <strong>padding</strong> as its parent, you can set <strong>padding:%20inherit$0</strong> on the child element:
+            </p>
+            <pre id="inherit-keyword" class="code-box">
+                <script>
+                    const inheritKey = `
+                    <div style="padding: 20px;">
+                        Thist is the parent with padding.
+                        <p style="padding: inherit;">
+                            This is the child element inheriring the padding.
+                        </p>
+                    </div>
+                    `
+                document.getElementById('inherit-keyword').textContent = inheritKey;
+                </script>
+            </pre>
+            <p>
+                In this case, the child <strong>p</strong> element will inherit the <strong>20px</strong> of padding from its parent <strong>div</strong> element.
+            </p>
+            <p>
+                Inheritance is especially useful for maintaining consistency and reducing redundancy in your stylesheets.
+            </p>
+            <p>
+                Instead of writing the same style rule for multiple elements, you can define it once on a parent element, and the child elements will inherit it. This can make your CSS more concise and easier to manage.
+            </p>
+            <p>
+                However, it’s important to remember that inheritance only works in one direction – from parent to child. If you override a style on a child element, it won’t affect the parent element.
+            </p>
         </section>
     </article>
 </body>
