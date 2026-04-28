@@ -2421,6 +2421,267 @@
             <p>
                 Here's an example using the shorthand property:
             </p>
+            <pre id="shothand-prop" class="code-box">
+                <script>
+                    const shortProp = `
+                    <ul style="list-style: square inside url('https://lin.do.zdjecia.jpeg');">
+                        <li>Item 1 </li>
+                        <li>Item 2 </li>
+                        <li>Item 4 </li>
+                    </ul>`
+                    document.getElementById('shothand-prop').textContent = shortProp;
+                </script>
+            </pre>
+            <p>
+                this example, the list items use square bullets, positioned inside the content, with a custom image as the bullet.
+            </p>
+            <p>
+                However, if the image is unavailable or not rendered, the square bullets will be used as a fallback.
+            </p>    
+        </section>
+        <section>
+            <h2>Why are default link styles important for usability on the web?</h2>
+            <h3>Lesson</h3>
+            <p>
+                Default link styles play a crucial role in enhancing usability and accessibility on the web.
+            </p>
+            <p>
+                These styles, typically blue for unvisited links and purple for visited links, have become a standard that users have come to expect and rely on when navigating websites.
+            </p>
+            <p>
+                The primary purpose of default link styles is to provide clear visual cues that help users distinguish between interactive and non-interactive elements on a webpage.
+            </p>
+            <p>
+                This distinction is fundamental to creating an intuitive and user-friendly browsing experience.
+            </p>
+            <p>
+                Let's consider the basic default styles for links:
+            </p>
+            <pre id="basic-default-styles-for-links" class="code-box">
+                <script>
+                    const defaultStylesForLinks = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+                    
+                    <a href="/">Example Link</a>
+
+                    CSS
+                    a:link {
+                      color: blue;
+                      text-decoration: underline;
+                    }
+                    a:visited {
+                      color: purple;
+                    }`
+                    document.getElementById('basic-default-styles-for-links').textContent = defaultStylesForLinks;
+                </script>
+            </pre>
+            <p>
+                These styles serve several important functions.
+            </p>
+            <p>
+                Firstly, the blue color for unvisited links stands out against most background colors and text, making links easily identifiable. This contrast is crucial for users to quickly scan a page and find navigational elements or important information.
+            </p>
+            <p>
+                The underline further emphasizes that the text is clickable, providing an additional visual cue. This is particularly helpful for users who may be colorblind or have difficulty distinguishing colors.
+            </p>
+            <p>
+                The change in color for visited links (typically to purple) helps users keep track of where they've been. This feature is invaluable for navigating large websites or conducting research, as it prevents users from inadvertently revisiting the same pages.
+            </p>
+            <p>
+                Without any custom CSS, most browsers will render these links in blue with an underline. After clicking on one of the links, its color will change to purple, providing immediate feedback to the user about their browsing history.
+            </p>
+            <p>
+                While it's common for designers to modify these default styles to match a website's aesthetic, it's crucial to maintain the core principles behind them.
+            </p>
+            <p>
+                If you choose to change the default styles, ensure that links are still clearly distinguishable from regular text, there's a visible difference between visited and unvisited links, and the chosen colors provide sufficient contrast with the background.
+            </p>
+            <pre id="customisation-link-color" class="code-box">
+                <script>
+                    const customizeColorLink =`
+                    HMTL
+                    <a href="/">Example</a>
+                    
+                    CSS
+                    a:link {
+                      color: blue;
+                      text-decoration: none;
+                      border-bottom: 1px solid blue;
+                    }
+                    a:visited {
+                      color: purple;
+                      border-bottom: 1px solid purple;
+                    }
+                    a:active {
+                      color: darkorange;
+                    }`
+                    document.getElementById('customisation-link-color').textContent = customizeColorLink;
+                </script>
+            </pre>
+            <p>
+                This maintains the blue and purple color scheme while replacing the underline with a bottom border for a more modern look.
+            </p>
+            <p>
+                It's also important to consider the different states of links. In addition to the default and visited states, links typically have hover and active states as above.
+            </p>
+            <p>
+                These states provide immediate feedback to users as they interact with links, enhancing the overall usability of the site.
+            </p>
+            <p>
+                In conclusion, while it's possible to customize link styles, the principles behind the default styles should be maintained.
+            </p>
+            <p>
+                They play a crucial role in creating a usable and accessible web experience, helping users navigate and interact with content effectively.
+            </p>
+            <p>
+                Always prioritize clarity and user experience when designing link styles for your websites.
+            </p>
+        </section>
+        <section>
+            <h2>How do you style the different link states?</h2>
+            <h3>Lesson</h3>
+            <p>
+                There are different states of a link including <strong>link</strong>, <strong>visited</strong>, <strong>hover</strong>, <strong>focus</strong>, and <strong>active</strong>. These states are important for helping users recognize links and providing clear feedback after interactions, which improves both usability and accessibility.
+            </p>
+            <p>
+                Styling these different link states is crucial for usability and accessibility, as it provides visual cues about the current state of the link. This helps users understand which links they have visited, which link they are interacting with, and what will happen when they click.
+            </p>
+            <p>
+                For users with visual impairments or cognitive disabilities, these distinct styles can make navigation much easier and more intuitive.
+            </p>
+            <p>
+                Additionally, clear link states enhance the overall user experience by providing immediate feedback on user interactions, reducing confusion and improving the site's navigability.
+            </p>
+            <p>
+                These states can be styled using something called <strong>pseudo-classes</strong> in CSS.
+            </p>
+            <p>
+                A pseudo-class is a keyword added to a selector that specifies a special state of the selected element.
+            </p>
+            <p>
+                For example, <strong>:hover</strong> can change a button's color when the user's pointer hovers over it, while <strong>:visited</strong> can change the color of a link that has already been visited.
+            </p>
+            <p>
+                Pseudo-classes allow you to style elements based on their state or the user's interaction with them, without the need for additional markup in your HTML.
+            </p>
+            <p>
+                The syntax of a pseudo-class looks something like this where A is the selector and :B is the pseudo-class:
+            </p>
+            <pre id="syntax-pseudo-classes" class="code-box">
+                <script>
+                    const syntaxPseudoClass = `
+                    A:B {
+                      property: value;
+                    }`
+                    document.getElementById('syntax-pseudo-classes').textContent = syntaxPseudoClass;
+                </script>
+            </pre>
+            <p>
+                To better understand how to style the different link states, let's take a look at some examples.
+            </p>
+            <p>
+                The <strong>:link</strong> pseudo-class styles unvisited links, indicating that they are clickable.
+            </p>
+            <p>
+                Here is an example of targeting an achor element and using the <strong>:link</strong> pseudo-class:
+            </p>
+            <pre id="link-pseudo-class" class="code-box">
+                <script>
+                    const linkPseudoClass = `
+                     HTML 
+                     <link rel="stylesheet" href="styles.css">
+
+                     <a href="/">Example link</a>
+
+                     CSS
+                     /* Normal state (unvisited link) */
+                     a:link {
+                       color: red;
+                    }`
+                    document.getElementById('link-pseudo-class').textContent = linkPseudoClass;
+                </script>
+            </pre>
+            <p>
+                The above example will change the link's default blue color to <strong>red</strong> when it is unvisited.
+            </p>
+            <p>
+                <strong>:visited</strong> styles links that have already been visited or clicked, helping users track which links they have clicked before. Here's an example usage of <strong>:visited</strong> pseudo-class:
+            </p>
+            <pre id="visited-pseudo-classes" class="code-box">
+                <script>
+                    const visitedPseudoClass = `
+                    HTML
+                    <a href="https://www.link.to.somewhere.org" target="_blank">Click me</a>
+
+                    CSS
+                    /* Visited link */
+                    a:visited {
+                      color: green;
+                    }`
+                    document.getElementById('visited-pseudo-classes').textContent = visitedPseudoClass;
+                </script>
+            </pre>
+            <p>
+                This code will color the link to <strong>green</strong> when it is clicked.
+            </p>
+            <p>
+                <strong>:hover</strong> changes the link's style when the user hovers over it, providing a vvisual cue that the link is interactive. Here's an example usage of <strong>:hover</strong> pseudo-class:
+            </p>
+            <pre id="hover-pseudo-class" class="code-box">
+                <script>
+                    const hoverPseudoClass = `
+                    <a href="/">Example link</a>
+
+                    CSS
+                    a:hover {
+                      color: green;
+                    }`
+                    document.getElementById('visited-pseudo-classes').textContent = hoverPseudoClass;
+                </script>
+            </pre>
+            <p>
+                This code will color the links to <strong>green </strong> when mouse is hovered over it.
+            </p>
+            <p>
+                <strong>:focus</strong> adds styles around the link when the link it is focused, such as when navigating with a keyboard, or enhancing accessibility.
+            </p>
+            <p>
+                Here is an example using the <strong>outline</strong> property to apply a solid orange outline when the link is focused.
+            </p>
+            <pre id="focused-pseudo-classes" class="code-box">
+                <script>
+                    const focusedPseudoClass = `
+                    <a href="/">Example link</a>
+
+                    CSS
+                    /* Focus state */
+                    a:focus {
+                      outline: 2px solid orange;
+                    }`
+                    document.getElementById('focused-pseudo-classes').textContent = focusedPseudoClass;
+                </script>
+            </pre>
+            <p>
+                <strong>:active</strong> changes the link's styles while the link is being clicked, providing immediate feedback to the user that their action is being registered. Here’s an example usage of :active pseudo-class:
+            </p>
+            <pre id="active-pseudo-classes" class="code-box">
+                <script>
+                    const activePseudoClass = `
+                    HTML
+                    <a href="/">Example link</a>
+                    
+                    CSS
+                    /* Active state */
+                    a:active {
+                      color: pink;
+                    }`
+                    document.getElementById('active-pseudo-classes').textContent = activePseudoClass;
+                </script>
+            </pre>
+            <p>
+                This code example will make the link to <strong>pink</strong> color immediately when the link is clicked.
+            </p>
         </section>
     </article>
 </body>
