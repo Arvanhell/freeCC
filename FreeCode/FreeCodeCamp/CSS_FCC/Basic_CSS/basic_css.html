@@ -2074,6 +2074,354 @@
                 However, it’s important to remember that inheritance only works in one direction – from parent to child. If you override a style on a child element, it won’t affect the parent element.
             </p>
         </section>
+        
+    </article>
+    <article>
+        <section>
+            <h2>CSS FUNDAMENTALS REVIEW</h2>
+            <h3>Lesson</h3>
+
+            <p>
+                CSS Basic
+            </p>
+            <ul>
+                <li>
+                    <strong>What is CSS?</strong>: Cascading Style Sheets (CSS) is a markup language used to apply styles to HTML elements. CSS is used for colors, background images, layouts and more.
+                </li>
+                <li>
+                    <strong>Basic Anatomy of a CSS Rule</strong>: A CSS rule is made up of two main parts: a selector and a declaration block. A selector is a pattern used in CSS to identify and target specific HTML elements for styling. A declaration block applies a set of styles for a given selector or selectors.
+                </li>
+                <li>
+                    <strong>meta name="viewport"</strong> Element: This meta element gives the browser instructions on how to control the page's dimensions and scaling on different devices, particularly on mobile phones and tablets.
+                </li>
+                <li>
+                    <strong>Default Browser Styles</strong> Each HTML element will have default browser styles applied to them. This usually includes items like default margins and paddings.
+                </li>
+            </ul>
+            <p>
+                <strong>Inline, internal, and external CSS</strong>
+            </p>
+            <ul>
+                <li>
+                    <strong>Inline CSS</strong> These styles are written directly within an HTML element using the <i>style</i> attribute. Most of the time you will not be using inline CSS due to separation of concerns.
+                </li>
+                <li>
+                    <strong>Internal CSS</strong> These styles are written within the <strong>&lt;style&gt;</strong> tags inside the <strong>head</strong> section of an HTML document. This can be useful for creating short code examples, but usually you will not need be using internal CSS.
+                </li>
+                <li>
+                    <strong>External CSS</strong> These styles are written in a separate CSS file and linked to the HTML document using the <strong>link</strong> element in the <strong>head</strong> section. For most projects, you will use an external CSS file over internal or inline CSS.
+                </li>
+            </ul>
+            <h4>Working With the <strong>width</strong>and <strong>height</strong>Properties</h4>
+            <ul>
+                <li>
+                    <l>width</l> <strong>Property</strong> This property specifies the width of an element. If you do not specify a width, then the default is set to <strong><i>auto</i></strong>. This lets the browser determine the element's width based on its content, parent, and display type.
+                </li>
+                <li>
+                    <strong>min-width Property: </strong>This property specifies the minimum width for an element.
+                </li>
+                <li>
+                    <strong><l>max-width</l> </strong><strong>Property</strong>: This property specifies the maximum width for an element.
+                </li>
+                <li>
+                    <strong><l>height</l></strong> <strong>Property</strong> This property specifies the height of an element. Similarly, the height is auto by default, which means it will adjust to the content inside.
+                </li>
+                <li>
+                    <strong><l>min-height</l>Property</strong> : This property specifies the minimum height for an element.
+                </li>
+                <li>
+                    <strong><l>max-height</l> Property: </strong> This property specifies the maximum height for an element.
+                </li>
+            </ul>
+            <h4><strong>Different Types of CSS Combinators</strong></h4>
+            <ul>
+                <li>
+                    <strong>Descendant Combinator</strong> This combinator is used to target elements that are descendants of a specified parent element. The following example will target all <strong>li</strong> items inside <strong>ul</strong> elements.
+                </li>
+                <li>
+                    <strong>Child Combinator (&gt;)</strong>: This combinator is used to select elements that are direct children of a specified parent element. The following example will target all p elements that are direct children of the container class.
+                </li>
+                <li>
+                    <strong>Next-sibling Combinator (+)</strong>: This combinator selects an element that immediately follows a specified sibling element. The following example will select the paragraph element that immediately follows the h2 element.
+                </li>
+                <li>
+                    <strong>Subsequent-sibling Combinator (~)</strong> This combinator selects all siblings of a specified element that come after it. The following example will style only the second paragraph element because it is the only one that is a sibling of the ul element and shares the same parent.
+                </li>
+            </ul>
+            <h4>Inline, Block, and Inline-Block level elements</h4>
+            <ul>
+                <li>
+                    <strong>Inline Level Elements</strong> Inline elements only take up as much width as they need and do not start on a new line. These elements flow within the content, allowing text and other inline elements to appear alongside them. Common inline elements are <strong>span</strong>, <strong>anchor</strong>, and <strong>img</strong> elements.
+                </li>
+                <li>
+                    <strong>Block Level Elements</strong> Block-level elements start on a new line and take up the full width available to them by default, stretching across the width of their container. Some common block-level elements are <strong>div</strong>, <strong>paragraph</strong>, and <strong>section</strong> elements.
+                </li>
+                <li>
+                    <strong>Inline-Block Level Elements</strong> You can set an element to <strong>inline-block</strong>> by using the <strong>display</strong> property. These elements behave like inline elements but can have a <strong>width</strong> and <strong>height</strong> set like block-level elements.
+                </li>
+            </ul>
+            <h4>Margin and Padding</h4>
+            <ul>
+                <li>
+                    <strong>margin</strong>Property:This property is used to apply space outside the element, between the element's border and the surrounding elements.
+                </li>
+                <li>
+                    <strong>padding</strong> Property: This property is used to apply space inside the element, between the content and its border.
+                </li>
+                <li>
+                    <strong>margin</strong> Shorthand: You can specify 1–4 values to set the margin sides. One value applies to all four sides; two values set top and bottom, then right and left; three values set top, horizontal (right and left), then bottom; four values set top, right, bottom, left.
+                </li>
+                <li>
+                    <strong>padding</strong> Shorthand: You can specify 1–4 values to set the padding sides. One value applies to all four sides; two values set top and bottom, then right and left; three values set top, horizontal (right and left), then bottom; four values set top, right, bottom, left.
+                </li>
+            </ul>
+            <h4>CSS Specificity</h4>
+            <ul>
+                <li>
+                    <strong>Inline CSS Specificity</strong> Inline CSS has the highest specificity because it is applied directly to the element. It overrides any internal or external CSS. The specificity value for inline styles is (1, 0, 0, 0).
+                </li>
+                <li>
+                    <strong>Internal CSS Specificity</strong> Internal CSS is defined within a style element in the head section of the HTML document. It has lower specificity than inline styles. Both internal and external CSS share the same specificity level, which is determined by their selectors, not their location.
+                </li>
+                <li>
+                    <strong>External CSS Specificity</strong> External CSS is linked via a link element in the head section and is written in separate .css files. Like internal CSS, its specificity is determined by the selectors used. When two rules have equal specificity, source order determines the winner — the rule that appears later in the document takes precedence. External CSS provides the best maintainability for larger projects.
+                </li>
+                <li>
+                    <strong>Universal Selector</strong> (*): a special type of CSS selector that matches any element in the document. It is often used to apply a style to all elements on the page, which can be useful for resetting or normalizing styles across different browsers. The universal selector has the lowest specificity value of any selector. It contributes 0 to all parts of the specificity value (0, 0, 0, 0).
+                </li>
+                <li>
+                    <strong>Type Selectors</strong> These selectors target elements based on their tag name. Type selectors have a relatively low specificity compared to other selectors. The specificity value for a type selector is (0, 0, 0, 1).
+                </li>
+                <li>
+                    <strong>Class Selectors</strong> These selectors are defined by a period (.) followed by the class name. The specificity value for a class selector is (0, 0, 1, 0). This means that class selectors can override type selectors, but they can be overridden by ID selectors and inline styles.
+                </li>
+                <li>
+                    <strong>ID Selectors</strong> ID selectors are defined by a hash symbol (#) followed by the ID name. ID selectors have a very high specificity, higher than type selectors and class selectors, but lower than inline styles. The specificity value for an ID selector is (0, 1, 0, 0).
+                </li>
+                <li>
+                    <strong>!important keyword</strong> used to give a style rule the highest priority, allowing it to override any other declarations for a property. When used, it forces the browser to apply the specified style, regardless of the specificity of other selectors. You should be cautious when using !important because it can make your CSS harder to maintain and debug.
+                </li>
+                <li>
+                    <strong>Cascade Algorithm</strong> An algorithm used to decide which CSS rules to apply when there are multiple styles targeting the same element. It ensures that the most appropriate styles are used, based on a set of well-defined rules.
+                </li>
+                <li>
+                    <strong>CSS Inheritance</strong> The process by which styles are passed down from parent elements to their children. Inheritance allows you to define styles at a higher level in the document tree and have them apply to multiple elements without explicitly specifying them for each element.
+                </li>
+            </ul>
+        </section>
+    </article>
+    <article>
+        <h2>Styling Lists and links</h2>
+        <section>
+            <h2>How do you space list items using margin or line-height?</h2>
+            <h3>Lesson</h3>
+            <p>
+                Margins and line-height are essential for spacing list items to enhance readability and visual appeal.
+            </p>
+            <p>
+                First, let's start spacing list items using margins!
+            </p>
+            <p>
+                Margins can be used to create space between list items by applying margin properties to the <strong>li</strong> elements. This method allows you to control the spacing outside each list item, effectively increasing or decreasing the gap between them.
+            </p>
+            <p>
+                By default, HTML will not apply that much spacing between the list items.
+            </p>
+            <p>
+                To apply some spacing to the bottom of each list item, you can use the <strong>margin-bottom</strong> property like this:
+            </p>
+            <pre id="margin-btm" class="code-box">
+                <script>
+                    const margBtm = `
+                    HTML
+                    <ul> 
+                        <li> Item 1 </li>
+                        <li> Item 2 </li>
+                        <li> Item 3 </>
+                    </ul>
+
+                    CSS
+                    li {
+                      margin-bottm: 40px;
+                    }
+                    `
+                document.getElementById('margin-btm').textContent = margBtm;
+                </script>
+            </pre>
+            <p>
+                In this example, <strong>40px</strong> of margin will be applied to the bottom of each list item inside the unordered list.
+            </p>
+            <p>
+                Another way to space out list items would be to use the <strong>line-height</strong> property.
+            </p>
+            <p>
+                The <strong>line-height</strong> property adjusts the vertical spacing between lines of text within a single list item.
+            </p>
+            <p>
+                While it primarily affects the spacing between lines of text within each item, it can also indirectly influence the overall spacing between list items if the items contain only a single line of text.
+            </p>
+            <p>
+                If list items have multiple lines of text, the <strong>line-height</strong> will affect the spacing between those lines, but it does not directly adjust the spacing between separate list items themselves.
+            </p>
+            <p>
+                To control the spacing between individual list items, you would use <strong>margin  padding</strong> properties instead.
+            </p>
+            <p>
+                Using the same unordered list from earlier, here is an example of applying <strong>line-height</strong> to the list items:
+            </p>
+            <pre id="line-heig" class="code-box">
+                <script>
+                    const lineHe = `
+                    HTML
+                    <ul> 
+                        <li> Item 1 </li>
+                        <li> Item 2 </li>
+                        <li> Item 3 </>
+                    </ul>
+
+                    CSS
+                    li {
+                      line-height: 2;
+                    }
+                    `
+                document.getElementById('line-heig').textContent = lineHe;
+            </script>
+            </pre>
+            <p>
+                In this example, <strong>line-height:%202;$0</strong> sets the line height to be twice the font size, creating more vertical space within each list item.
+            </p>
+        </section>
+        <section>
+            <h2>How do the different list- style properties work?</h2>
+            <h3>Lesson</h3>
+            <p>
+                In CSS, the <strong>list-style</strong> property is used to control the appearance of lists on a webpage.
+            </p>
+            <p>
+                Whether you're working with ordered lists <strong>(ol)</strong> or unordered lists <strong>(ul)</strong>, the <strong>list-style</strong> property allows you to customize how list items are displayed.
+            </p>
+            <p>
+                The <strong>list-style</strong> property is actually a shorthand for three other properties:
+            </p>
+            <ul>
+                <li>
+                    <strong>list-style-type</strong>
+                </li>
+                <li><strong>list-style-position</strong></li>
+                <li><strong>list-style-image</strong></li>
+            </ul>
+            <p>
+                Each one plays a different role in defining the appearance of lists.
+            </p>
+            <p>
+                The <strong>list-style-type</strong> property allows you to define the type of bullet point or number used in a list.
+            </p>
+            <p>
+                For unordered lists, you can choose from several bullet styles, such as discs, circles, or squares.
+            </p>
+            <p>
+                For ordered lists, you can use different numbering systems, like decimal, Roman numerals, or even alphabetical characters.
+            </p>
+            <p>
+                Here’s an example of using <strong>list-style-type</strong>
+            </p>
+            <pre id="list-style-tps" class="code-box">
+                <script>
+                    const listStyleType = `
+                    HTML
+                    <ul style="list-style-type: square;">
+                        <li> Item 1 </li>
+                        <li> Item 2 </li>
+                        <li> Item 3 </li>
+                    </ul>
+                    `
+                document.getElementById('list-style-tps').textContent = listStyleType;
+                </script>
+            </pre>
+            <p>
+                In this example, the bullet points of the unordered list are changed to squares.
+            </p>
+            <p>
+                The <strong>list-style-type</strong> property is the most commonly used of the three, as it directly affects the appearance of the bullet or numbering style in your lists.
+            </p>
+            <p>
+                The <strong>list-style-position</strong> property controls the position of the bullet or number in relation to the list item’s content. There are two values you can use: <strong>inside</strong> and <strong>outside</strong>.
+            </p>
+            <p>
+                When you use the value <strong>outside</strong>, the bullet or number appears outside the content, which is the default behavior.
+            </p>
+            <p>
+                And, when you use the value <strong>inside</strong>, the bullet or number appears inside the content, which may cause the text to wrap and align with the bullet or number.
+            </p>
+            <p>
+                Here an example of using <strong>list-style-position</strong>
+            </p>
+            <pre id="list-style-pos" class="code-box">
+                <script>
+                    const listStylePos = `
+                    HTML
+                    <ul style="list-style-position: inside;">
+                        <li> It 1 </li>
+                        <li> It 2 </li>
+                        <li> It 3 </li>
+                    </ul>
+                    <ul style="list-style-position: outside;">
+                        <li> It 4 </li>
+                        <li> It 5 </li>
+                        <li> It 6 </li>
+                    </ul> `
+                document.getElementById('list-style-pos').textContent = listStylePos;
+                </script>
+            </pre>
+            <p>
+                In this example, both <strong>inside</strong> and <strong>outside</strong> values are provided for two different unordered list tags.
+            </p>
+            <p>
+                The <strong>list-style-position</strong> property can be useful when you want to control the alignment of the list content, especially in situations where you have multiple lines of text in a single list item.
+            </p>
+            <p>
+                The <strong>list-style-image</strong> property allows you to use an image as the bullet point for your list items. This can be useful for adding a unique visual style to your lists.
+            </p>
+            <p>
+                Here's an example of using <strong>list-style-image</strong>
+            </p>
+            <pre id="list-style-im" class="code-box">
+                <script>
+                    const listStyleIm = `
+                    HTML
+                    <head>
+                        <style>
+                            ul {
+                              list-style-image: url('https://link.to.image.jpeg');
+                              list-style-position: inside;
+                            }
+                        </style>
+                        </haed>
+                        <ul>
+                            <li>item1</li>
+                            <li>item 2</li>
+                            <li>item 3</li>
+                        </ul>
+                        </body>`
+                        document.getElementById('list-style-im').textContent = listStyleIm;
+                </script>
+            </pre>
+            <p>
+                In this example, the bullet points are replaced by a custom freeCodeCamp logo, adding a personalized touch to the list.
+            </p>
+            <p>
+                When using <strong>list-style-image</strong>, make sure the image you choose is small and appropriate for the design of your webpage. If the image is too large or complex, it can make the list harder to read.
+            </p>
+            <p>
+                You can combine the three properties – <strong>list-style-type</strong>, <strong>list-style-position</strong>, and <strong>list-style-image</strong> – into a single <strong>list-style</strong> shorthand property.
+            </p>
+            <p>
+                The order of the values in the shorthand doesn’t matter, but all three can be specified together.
+            </p>
+            <p>
+                Here's an example using the shorthand property:
+            </p>
+        </section>
     </article>
 </body>
 
