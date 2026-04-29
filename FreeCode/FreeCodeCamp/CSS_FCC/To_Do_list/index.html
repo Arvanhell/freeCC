@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Styled To-Do List</title>
-        <link name="stylesheet" href="styles.css">
-    </head>
-    <body>
 
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Styled To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<h1>To-Do List</h1>
+<ul class="todo-list">
+   <li>
+    <input id="main-item1" name="main-item1" type="checkbox" >
+    <label for="main-item1">Item 1</label>
+      <ul class="sub-item">
+        <li>
+          <a class="sub-item-link" target="_blank" href="/">Link 1</a>
+        </li>
+     </ul>
+     </li>
+    <li>
+      <input id="main-item2" name="main-item2" type="checkbox">
+      <label for="main-item2">Item 2</label>
+       <ul class="sub-item">
+        <li><a class="sub-item-link" target="_blank" href="/">Link 2</a></li>
+     </ul>  
+    </li>
+    <li>
+     <input id="main-item3" name="main-item3" type="checkbox">
+     <label for="main-item3">Item 3</label>
+      <ul class="sub-item">
+       <li><a class="sub-item-link" target="_blank" href="/">Link 3</a></li>
+       </ul>
+    </li>
+    <li>
+     <input id="main-item4" name="main-item4" type="checkbox">
+     <label for="main-item4">Item 4</label>
+      <ul class="sub-item">
+        <li><a class="sub-item-link" href="/" target="_blank">Link 4 </a></li>
+      </ul>
+    </li> 
+    </ul>
+
+</body>
+
 </html>
