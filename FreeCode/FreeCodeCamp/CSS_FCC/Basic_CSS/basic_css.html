@@ -2684,6 +2684,392 @@
             </p>
         </section>
     </article>
+    <article>
+        <h2>Working with Background and Borders</h2>
+        <section>
+            <h2>How do background image size, repeat, position, and attachment work?</h2>
+            <p>
+                When working with background images in CSS, you have several properties at your disposal to control how these images are displayed.
+            </p>
+            <p>
+                The main properties we'll focus on are <strong>background-size</strong>, <strong>background-repeat</strong>, <strong>background-position</strong>, and <strong>background-attachment</strong>.
+            </p>
+            <p>
+                Let's first a look at the <strong>background-image</strong> property:
+            </p>
+            <pre id="background-image-property" class="code-box">
+                <script>
+                    const backgroundImageProperty = `
+                    HTML
+                    <style>
+                        body {
+                          background-image: url('http://link.related.to .the.image.jpg');
+                        }
+                    </style>`
+                    document.getElementById('background-image-property').textContent = backgroundImageProperty;
+                </script>
+            </pre>
+            <p>
+                The above CSS sets a image for the <strong>body</strong> element.
+            </p>
+            <p>
+                If you want to set the size for the background image, you can use the <strong>background-size</strong> property.
+            </p>
+            <p>
+                You can use <strong>contain</strong> to scale the image as large as possible withiut cropping or stretching.
+            </p>
+            <p>
+                Here's an example with <strong>background-size: contain</strong>:
+            </p>
+            <pre id="background-size-contain" class="code-box">
+                <script>
+                    const backgroundSizeContain = `
+                    <style>
+                        body {
+                          background-image: url('http://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg');
+                          background-size: contain;
+                          min-height: 100px;
+                        }
+                    </style>
+                    `
+                document.getElementById('background-size-contain').textContent = backgroundSizeContain;
+                </script>
+            </pre>
+            <p>
+                We are setting the <strong>min-height</strong> to <strong>100px</strong> so the background image is visible and the layout maintains a baseline height, ensuring that even with minimal content, the design appears balanced and visually appealing.
+            </p>
+            <p>
+                If we change the <strong>background-size</strong> property to use the <strong>cover</strong> value, then the background image will scale to cover the entire <strong>body</strong> element while maintaining its aspect ratio.
+            </p>
+            <pre id="background-size-cover" class="code-box">
+                <script>
+                    const backgroundSizeCover = `
+                    HTML
+                    <style>
+                    body {
+                      background-image: url("https://link.to.some.image.jpg")
+                      background-size: cover;
+                      min-height: 100px;
+                    }
+                    </style>
+                    `
+                document.getElementById('background-size-cover').textContent = backgroundSizeCover;
+                </script>
+            </pre>
+            <p>
+                In the previous examples, you probably noticed that the background image would continuously  repeat.
+            </p>
+            <p>
+                By default, background images repeat both horizontally and vertically to fill the entire element. However, you can control this behavior.
+            </p>
+            <p>
+                You can use the <strong>background-repeat</strong> property with the value set to <strong>no-repeat</strong>.
+            </p>
+            <pre id="background-repeat-property" class="code-box">
+                <script>
+                    const backgroundRepeatProperty = `
+                    <style>
+                        body {
+                          background-image: url('https://valid.link.to.image.jpg');
+                          background-size: contain;
+                          background-repeat: no-repeat;
+                          min-height: 100px;
+                          }
+                    </style>
+                    `
+                document.getElementById('background-repeat-property').textContent = backgroundRepeatProperty
+                </script>
+            </pre>
+            <p>
+                With the <strong>background-size</strong> set to <strong>contain</strong> and the <strong>background-repeat</strong> set to <strong>no-repeat</strong>, the image will no longer repeat the screen.
+            </p>
+            <p>
+                If you wanted to repeat the background image horizontally, you can use the <strong>repeat-x</strong> value for the <strong>background-repeat</strong> property.
+            </p>
+            <pre id="background-repeat-x" class="code-box">
+                <script>
+                    const backgroundRepeatX = `
+                    HMTL
+                    <style>
+                        body {
+                        background-image: url('https://valid.link.to.image.jpg');
+                        background-size: contain;
+                        background-repeat: repeat-x;
+                        min-height: 100px;
+                        }
+                    </style>
+                    `
+                document.getElementById('background-repeat-x').textContent = backgroundRepeatX;
+                </script>
+            </pre>
+            <p>
+                If you wanted to repeat the background image vertically, you can use the <strong>repeat-y</strong> value for the <strong>background-repeat</strong> property.
+            </p>
+            <pre id="background-repeat-y" class="code-box">
+                <script>
+                    const backgroundRepeatY = `
+                    <style>
+                        body {
+                        background-image: url('https://valid.link.to.image.jpg');
+                        background-size: contain;
+                        background-repeat: repeat-y;
+                        min-height: 100px;
+                        }
+                    </style>`
+                document.getElementById('background-repeat-y').textContent = backgroundRepeatY;
+                </script>
+            </pre>
+            <p>
+                To position a background image on the screen, you can use the <strong>background-position</strong> property.
+            </p>
+            <p>
+                The <strong>background-position</strong> property allows you to set where in the element the background image appears. You can use keywords like <strong>top</strong>, <strong>bottom</strong>, <strong>left</strong>, <strong>right</strong>, and <strong>center</strong>, or specific pixel or percentage values.
+            </p>
+            <p>
+                Here is an example using the <strong>center</strong> and <strong>top</strong> for the <strong>background-position</strong>:
+            </p>
+            <pre id="background-center-top" class="code-box">
+                <script>
+                    const backgroundCenterTop =`
+                    <style>
+                        body {
+                          background-image: url('https://valid.link.to.image.jpg');
+                          background-size: contain;
+                          background-repeat: no-repeat;
+                          background-position: center top;
+                          min-height: 100px;
+                          }
+                    </style>
+                    `
+                    document.getElementById('background-center-top').textContent = backgroundCenterTop;
+                </script>
+            </pre>
+            <p>
+                This CSS code positions the background image at the center of the element horizontally and at the top vertically.
+            </p>
+            <p>
+                Lastly, <strong>background-attachment</strong> determines whether the background image scrolls with the content or remains fixed when the page is scrolled.
+            </p>
+            <p>
+                The main values are <strong>scroll</strong>(default), where the background image scrolls with the content, and <strong>fixed</strong>,where the background image stays in the same position on the screen.
+            </p>
+            <p>
+                Here is an example usint the <strong>fixed</strong> value for the <strong>background-attachment</strong> property.
+            </p>
+            <pre id="background-attachment-fixed" class="code-box">
+                <script>
+                    const backgroundAttachmentFixed = `
+                    HTML
+                    <style>
+                        body {
+                          background-image: url("https://valid.link.to.image.jpg");
+                          background-position: center top;
+                          background-attachment: fixed;
+                          }
+                    </style>`
+                document.getElementById('background-attachment-fixed').textContent = backgroundAttachmentFixed;
+                </script>
+            </pre>
+            <p>
+                This CSS code sets the background image to remain fixed in place even when page is scrolled.
+            </p>
+            <p>
+                If you wanted to combine a few of the properties into one line, you can do that by using the shorthand <strong>background</strong> property.
+            </p>
+            <p>Here is an example:</p>
+            <pre id="background-image-shorthand" class="code-box">
+                <script>
+                    cosnt backgroundImageShorthand = `
+                    HTML
+                    <style>
+                        body {
+                          background: center top fixed url(https://link.to.valid.image.jpg);
+                          }
+                    </style>`
+                    document.getElementById('background-image-shorthand').textContent = backgroundImageShorthand;
+                </script>
+            </pre>
+            <p>
+                The above example combines the <strong>background-image</strong>, <strong>background-position</strong>, and <strong>background-attachment</strong> into a single line.
+            </p>
+            <p>
+                By mastering these properties, you will have great control over how background images are displayed in your web designs, allowing for more visually appealing and functional layouts.
+            </p>
+        </section>
+        <section>
+            <h2>
+                What is a background gradient, and how does it work?
+            </h2>
+            <h3>Lesson</h3>
+            <p>
+                A background gradient in CSS is a smooth transition between two or more colors that can be applied to the background of an element. Gradients allow you to create visually appealing backgrounds without needing images.
+            </p>
+            <p>
+                There are two main types of gradients in CSS: linear gradients and radial gradients.
+            </p>
+            <p>
+                A linear gradient transitions colors along a straight line. You can define the direction and the colors involved.
+            </p>
+            <p>
+                basic syntax =&gt;  background: linear-gradient(direction, color-stop1, color-stop2, ...);
+            </p>
+            <p>
+                In this example, we are using the <strong>background</strong> CSS property with a value of the <strong>linear gradient</strong>.
+            </p>
+            <p>
+                The direction specifies the direction of the gradient. It can be an angle (such as <strong>45deg</strong>), akeyword (such as <strong>to right</strong>, <strong>to bottom</strong>), or a side/corner.
+            </p>
+            <p>
+                <strong>color-stop</strong> specifies the colors and positions where the  gradient transitions occur.
+            </p>
+            <p>
+                To better understand how linear gradient work, let's take a look at the following example:
+            </p>
+            <pre id="linear-gradient-prop" class="code-box">
+             <script>
+                const linearGradientProp = `
+                HTML
+                <link rel="stylesheet" href="styles.css">
+                <div class="linear-gradient"></div>
+                
+                CSS
+                .linear-gradient {
+                  background: linear-gradient(to right, red, yellow);
+                  height: 40vh;
+                }`
+                document.getElementById('linear-gradient-prop').textContent = linearGradientProp;
+             </script>
+            </pre>
+            <p>
+                This CSS creates a linear gradient that transitions from <strong>red</strong> on the <strong>left</strong> to <strong>yellow</strong> on the <strong>right</strong>. The gradient is applied to an element with a height of <strong>40%</strong> of the viewport height. You'll learn more about <strong>vh</strong> units in a future lesson.
+            </p>
+            <p>
+                The <strong>to right</strong> direction means the gradient runs horizontally from left to right.
+            </p>
+            <p>
+                Another type of gradient would be the <strong>radial</strong> gradient.
+            </p>                
+            <p>
+                A radial gradient transition colors radiating from an origin (usually the center) outward in a circular or eliptical shape.
+            </p>
+            <p>
+                Here is the basic : <strong>background: radial-gradient(shape size at position, color-stop1, color-stop2, ...)</strong>
+            </p>
+            <p>
+                On the syntax, the <strong>shape</strong> specifies the shape of gradient which could be <strong>circle</strong> or <strong>elipse</strong>.
+            </p>
+            <p>
+                The <strong>size</strong> determines the size of the gradient's ending shape which could be <strong>closest-side</strong>, <strong>closest-corner</strong>, <strong>farthest-side</strong> or <strong>farthest-corner</strong>.
+            </p>
+            <p>
+                <strong>position</strong> determines the position of the gradient's center which could be specified using keywords (such as <strong>center</strong>, <strong>top left</strong>, <strong>bottom right</strong>) or precise values (such as <strong>50% 50%</strong>, <strong>10px 20px</strong>).
+            </p>
+            <p>
+                Lastly, color stops are a list of colors that the gradient transitions through. Each color stop can optionally include a position value (percentage or length) indicating where the color should be placed.
+            </p>
+            <p>
+                An example would be:
+            </p>
+            <pre id="radial-gradient" class="code-box">
+                <script>
+                    const radialGradient= ` 
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+                    <div class="radial-gradient"></div>
+
+                    CSS
+                    .radial-gradient {
+                      background: radial-gradient(cirlcle closest-side at center, red, yellow 50%, green);
+                      height: 60vh;
+                      }
+                    `
+                    document.getElementById('radial-gradient').textContent = radialGradient;
+                </script>
+            </pre>
+            <p>
+                This CSS creates a circular radial gradient centered in the element. It starts with <strong>red</strong> at the center, transitions to <strong>yellow</strong> at <strong>50%</strong> of the radius, and end with <strong>green</strong>.
+            </p>
+            <p>
+                The <strong>closest-side</strong> keyword makes the gradient's ending shape fit the closest side of the element. The gradient is applied to an element with a height of <strong>60%</strong> of the viewport height.
+            </p>
+            <p>
+                Understanding how to work with CSS gradients can significantly enhance your designs by providing visually appealing backgrounds without the need for images.
+            </p>
+            <p>
+                With option like linear gradients for smooth transitions and radial gradients for circular effects, they offer both flexibility and creativity in web design.
+            </p>
+        </section>
+        <section>
+            <h2>WHat are some accessibility considerations for background?</h2>
+            <h3>Lesson</h3>
+            <p>
+                In web design, backgrounds play a vital role in defining the overall look and feel of a webpage.
+            </p>
+            <p>
+                However, when designing with backgrounds, it's crucial to consider accessibility to ensure your content is usable and readable by all users, including those with visual impairments.
+            </p>
+            <p>
+                One of the primary accessibility concerns related to backgrounds is ensuring that there is sufficient contrast between the background and the text.
+            </p>
+            <p>
+                Without adequate contrast, users with visual impairments, including those with low vision or color blindness, may struggle to read the content on your page.
+            </p>
+            <p>
+                Contrast refers to the difference in lightness or darkness between two colors. Sufficient contrast between the background color and the text color is essential for readability.
+            </p>
+            <p>
+                The Web Content Accessibility Guidelines (WCAG) recommend a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text.
+            </p>
+            <p>
+                For example, placing white text on a light-gray background would result in poor contrast, making the text difficult to read. However, white text on a dark-blue background would provide good contrast, enhancing readability for all users.
+            </p>
+            <p>
+                Here's an example of poor contrast:
+            </p>
+            <pre id="poor-contrast" class="code-box">
+                <script>
+                    const poorContrast = `
+                    HTML
+                    <p style="color: lightgray; background-color: whitesmoke;">
+                        This is an example of poor contrast.
+                    </p>
+            Now, here's an example of good contrast:
+
+                    HTML
+                    <p style="color: white; background-color: darkslatergay;">
+                        This is an example a good contrast.
+                    </p>
+                    `
+                    document.getElementById('poor-contrast').textContent = poorContrast;
+                </script>
+            </pre>
+            <p>
+                Another consideration is avoiding placing text over busy or complex backgrounds, such as images or gradients with multiple colors. Busy backgrounds can make it hard to distinguish the text from the background, regardless of the contrast.
+            </p>
+            <p>
+                When designing backgrounds, avoid using color as the sole means of conveying information. For example, using just color to indicate an error or success message (such as red for error or green for success) can be problematic for users with color blindness.
+            </p>
+            <p>
+                In addition to color, you should use symbols or text to convey information. For example, alongside a red error message, you could use an icon or bold text to make it clear that there’s an error.
+            </p>
+            <p>
+                Though less common, background audio or videos can also affect accessibility.
+            </p>
+            <p>
+                Background music or auto-playing videos can be distracting for some users, particularly those with cognitive disabilities. If you include background audio, always provide a way for users to mute or pause the audio.
+            </p>
+            <p>
+                By taking these accessibility considerations into account, you can create more inclusive designs that ensure your content is readable and usable by all users, regardless of their abilities.
+            </p>
+        </section>
+        <section>
+            <h2>
+                What are the different ways you can add borders around images?
+            </h2>
+            <h3>Lesson</h3>
+            
+        </section>
+    </article>
 </body>
 
 </html>
