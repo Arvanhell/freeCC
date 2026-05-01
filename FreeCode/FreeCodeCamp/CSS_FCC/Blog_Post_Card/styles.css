@@ -1,0 +1,42 @@
+.read-more {
+    color: white;                /* Kolor tekstu inny niż domyślny */
+    background-color: black;     /* Kolor tła */
+    margin: 10px;                /* Marginesy ze wszystkich stron */
+    padding: 8px 16px;           /* Padding ze wszystkich stron */
+    border-radius: 5px;          /* Zaokrąglone rogi */
+    display: inline-block;       /* To jest KLUCZOWE z Twojej listy */
+    text-decoration: none;       /* Opcjonalnie, żeby usunąć podkreślenie */
+  }
+  
+  .read-more:hover {
+    background-color: blue;      /* Hover ma zmieniać tło, nie tekst! */
+  }
+  
+  .blog-post-card {
+    border-radius: 5%;
+    width: 80%;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .post-content {
+    padding: 5px;
+  }
+  .post-img {
+    width: 100%;            /* Wypełnia całą szerokość karty */
+    border-bottom: 2px solid black; /* Dowolna wartość, byle była */
+    display: block;         /* Dobra praktyka, żeby nie było szpar pod obrazkiem */
+  }
+  
+  .post-title {
+    margin: 15px;
+    color: #333; /* Ciemnoszary zamiast domyślnego czarnego */
+  }
+  
+  .post-excerpt {
+    margin: 15px;
+    color: #555; /* Nieco jaśniejszy szary */
+  }
+  
+  
+  
