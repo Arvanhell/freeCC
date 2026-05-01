@@ -3067,7 +3067,96 @@
                 What are the different ways you can add borders around images?
             </h2>
             <h3>Lesson</h3>
-            
+            <p>
+                In CSS, there are seeral ways to add borders around images, each offering different styling options and levels of control.
+            </p>
+            <p>
+                Let's explore some of the most common and versatile methods.
+            </p>
+            <p>
+                The most straightforward way to add a border to an image is by using the <strong>border</strong> property. This property is a shorthand that allows you to set the width, style, and color of the border all at once.
+            </p>
+            <pre id="border-property-shorthand" class="code-box">
+                <script>
+                    const borderPropertyShorthand = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <img src="https://link.to valid.image.jpeg">
+
+                    CSS
+                     img {
+                       border: 2px solid red;
+                      }`
+                      document.getElementById('border-property-shorthand').textContent = borderPropertyShorthand;
+                </script>
+            </pre>
+            <p>
+                This CSS rule adds a 2-pixel wide, solid red border around all <strong>img</strong> elements. You can adjust the width, style (such as <strong>dashed</strong>, <strong>dotted</strong>, or <strong>double</strong>), and color to suit your design needs.
+            </p>
+            <p>
+                If you need more control over individual sides of the border, you can use the specific border properties for each side:
+            </p>
+            <pre id="border-property-both-side" class="code-box">
+                <script>
+                    const borderPropertyBothSides = `
+                    HTML
+                    <link rel="stylesheet" href="styles.css">
+
+                    <img src="https://link.to.valid.image.jpeg" alt="description of the valid image">
+
+                    CSS
+                    img {
+                      border-top: 10 px solid red;
+                      border-right: 10 px dashed green;
+                      border-bottom: 10px dotted blue;
+                      border-left: 10px double purple;
+                    }`
+                    document.getElementById('border-property-both-side').textContent = borderPropertyBothSides;
+                </script>
+            </pre>
+            <p>
+                This allows you to create unique border styles for each side of the image.
+            </p>
+            <p>
+                ANother way to create a border effect is by using the <strong>outline</strong> property. While similar to border, outline doesn’t effect the element dimensions layout:
+            </p>
+            <pre id="border-property-outline" class="code-box">
+                <script>
+                    const borderPropertyOutline = `
+                    HTML
+                    <img src="link to valid image" alt="desription valid image">
+
+                    CSS
+                    img {
+                      outline: 3px solid gold;
+                    }`
+                    document.getElementById('border-property-outline').textContent = borderPropertyOutline;
+                </script>
+            </pre>
+            <p>
+                This creates a gold outline around the image without changing its size or position.
+            </p>
+            <p>
+                If you want to create rounded corners on your border, you can use the <strong>border-radius</strong> property in conjunction with border:
+            </p>
+            <pre id="border-border-radius" class="code-box">
+                <script>
+                    const borderBorderRadius = `
+                    HTML
+                    <img src="link to valid image source" alt="description valid image">
+
+                    CSS
+                    img {
+                      border: 2px solid black;
+                      border-radius: 10px;
+                    }`
+                    document.getElementById('border-border-radius').textContent = borderBorderRadius;
+                </script>
+            </pre>
+            <p>
+                Remember, these techniques can be combined and customized to create unique border effects. The choice of method depends on your specific design requirements and the level of complexity you need.
+            </p>
         </section>
     </article>
 </body>
