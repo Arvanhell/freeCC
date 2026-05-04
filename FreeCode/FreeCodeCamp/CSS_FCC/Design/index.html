@@ -751,7 +751,470 @@
                 <p>
                   This example more than meets the AAA standard. Now, let's take a look at purple text on a blue background.
                 </p>
-                
+                <pre id="bad-example-contrast" class="code-box">
+                  <script>
+                    const  badExContrast = `
+                    HTML
+                    <style>
+                      .contrast-21 {
+                        background-color: white;
+                        color: black;
+                        padding: 15px;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        margin-bottom: 20px;
+                      }
+
+                      .label {
+                        font-weight: bold;
+                        margin-bottom: 8px;
+                        display: block;
+                      }
+
+                      .purple-on-blue {
+                        background-color: #0000cc;
+                        color: #800080;
+                        padding: 15px;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        margin-bottom: 20px;
+                      }
+                      </style>
+
+                      <div class="contrast-21">
+                        <span class="label">Contrast Ratio 21:1 </span>
+                        This example more than meetw the AAA standard with black text on white background.
+                      </div>
+
+                      <div class="purple-on-blue">
+                        <span class="label">Purple on Blue (Lower Contrast)</span>
+                        This doesn't meet the AA standard.
+                      </div>`
+                      document.getElementById('bad-example-contrast').textContent = badExContrast;
+                  </script>
+                </pre>
+                <p>
+                  This example has a contrast ratio of 1.48:1 which does not even meet the AA standard.
+                </p>
+                <p>
+                  How can you fix this? Well, there are three aspects that impact the contrast ratio.
+                </p>
+                <p>
+                  The first is the hue, which represents the general color type, like red, blue, orange. Let's shift to a hue that is further away from blue. In this case, let's use red.
+                </p>
+                <pre id="hue-fix-broken-contrast" class="code-box">
+                  <script>
+                    const hueFixBrokenContrast = `
+                    HTML
+                    <style>
+                      .contrast-21 {
+                        background-color: white;
+                        color: black;
+                        padding: 15px;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        margin-bottom: 20px;
+                      }
+
+                      .label {
+                        font-weight: bold;
+                        margin-bottom: 8px;
+                        display: block;
+                      }
+                      
+                      .red-on-blue {
+                        background-color: #0000cc;
+                        color: #ff0000;
+                        padding: 15px;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        margin-bottom: 20px;
+                      }
+                      </style>
+
+                      <div class="contrast-21">
+                        <span class="label">Contrast Ratio 21:1</span>
+                        This example more than meets the AAA standard with black text on white background.
+                      </div>
+
+                      <div class="red-on-blue">
+                        <span class="label">Red on Blue (Higher Contrast Hue Shift)</span>
+                        This doesn't meet accessibility standards.
+                      </div>
+                    `
+                    document.getElementById('hue-fix-broken-contrast').textContent = hueFixBrokenContrast;
+                  </script>
+                </pre>
+                <p>
+                  Unfortunately, this change only brought the contrast ratio to 1.49:1, which means you need to change the saturation, or the "amount" of color present. Let's increase the amount of red in the text. That brings us much closer to the goal, with a 3.54:1 contrast ratio.
+                </p>
+                <pre id="saturation-fixing-broken-contrast" class="code-box">
+                  <script>
+                    const saturationFixingBrokenContrast = `
+                    HTML
+                    <style>
+                      .contrast-21 {
+                        background-color: white;
+                        color: black;
+                        padding: 15px;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        margin-bottom: 20px;
+                      }
+
+                      .label {
+                        font-weight: bold;
+                        margin-bottom: 8px;
+                        display: block;
+                      }
+
+                      .low-sat-red-on-blue {
+                        background-color: #0000cc;
+                        color: #b23333;
+                        padding: 15px;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        margin-bottom: 20px;
+                      }
+
+                      .high-sat-red-on-blue {
+                        background-color: #0000cc;
+                        color: #ff4d4d;
+                        padding: 15px;
+                        font-family: sans-serif;
+                        font-size: 18px;
+                        margin-bottom: 20px;
+                      }
+                      </style>
+
+                      <div class="contrast-21">
+                        <span class="label">Contrast Ratio 21:1</span>
+                        This example more than meets the AAA standard with black text on white background.
+                      </div>
+
+                      <div class="low-sat-red-on-blue">
+                        <span class="label">Higher Saturation Red on Blue ( Contrast ~1.49:1)</span>
+                        This red has low saturation, resulting in a poor contrast ratio.
+                      </div>
+                      <div class="high-sat-red-on-blue">
+                        <span class="label">Higher Saturation Red on Blue (Conrast ~3.54:1)</span>
+                        Increasing the saturation of rec omproves contrast but it's still below AA standard.
+                      </div>  
+                    `
+                    document.getElementById('saturation-fixing-broken-contrast').textContent = saturationFixingBrokenContrast;
+                  </script>
+                </pre>
+                <p>
+                  However, you can potentially get even closer by changing the last value, which is lightness. Lightness represents how much white is present in the color.
+                </p>
+                <p>
+                  Let's decrease the lightness of the red. Now there is a much darker red against the light blue background, which brings the contrast ratio to 10.34:1.
+                </p>
+                <pre id="decresing-lightness-contrast" class="code-box">
+                  <script>
+                    const decreasingLightnessContrast = `
+                    HTML
+                    <style>
+                      .contrast-21 {
+                      background-color: white;
+                      color: black;
+                      padding: 15px;
+                      font-family: sans-serif;
+                      font-size: 18px;
+                      margin-bottom: 20px;
+                    }
+
+                    .label {
+                      font-weight: bold;
+                      margin-bottom: 8px;
+                      display: block;
+                    }
+
+                    .blue-bg {
+                      background-color: #add8e6;
+                      padding: 15px;
+                      font-family: sans-serif;
+                      font-size: 18px;
+                      margin-bottom: 20px;
+                    }
+
+                    .low-sat-red-on-blue {
+                      background-color: #0000cc;
+                      color: #b23333;
+                      margin-bottom: 20px;
+                    }
+
+                    .high-sat-red-on-blue {
+                      background-color: #0000cc;
+                      color: #ff4d4d;
+                      margin-bottom: 20px;
+                    }
+
+                    .dark-red-on-light-blue {
+                      background-color: #add8e6;
+                      color: #8b0000;
+                    }
+                    </style>
+                    <div class="contrast-21">
+                        <span class="label">Contrast Ratio 21:1</span>
+                        This example more than meets the AAA standard with black text on white background.
+                      </div>
+
+                      <div class="low-sat-red-on-blue">
+                        <span class="label">Higher Saturation Red on Blue ( Contrast ~1.49:1)</span>
+                        This red has low saturation, resulting in a poor contrast ratio.
+                      </div>
+                      <div class="high-sat-red-on-blue">
+                        <span class="label">Higher Saturation Red on Blue (Conrast ~3.54:1)</span>
+                        Increasing the saturation of rec improves contrast but it's still below AA standard.
+                      </div>  
+                      <div class="dark-red-on-light-blue">
+                        <span class="label">Darker Red on Light Blue (Contrast ~10.34:1)</span>
+                        Decreasing the lightness of the red increases the contrast ratio significantly.
+                      </div>`
+                      document.getElementById('decreasing-ligtness-contrast').textContent = decreasingLightnessContrast;
+                  </script>
+                </pre>
+                <p>
+                  You could continue to adjust the colors to find the balance between the visual effect you want and an accessible contrast ratio. But it is important to remember that accessibility should always take precedence.
+                </p>
+            </section>
+            <section>
+              <h2>What is the importance of good visual hierarchy in designs?</h2>
+              <h3>Lesson</h3>
+              <p>
+                <strong>NOTE</strong>: Some of the interactive examples might use CSS that you haven't learned yet. Don't worry about trying to understand all of the code. The goal of the examples is to show you previews for these design concepts so you better understand how things work.
+              </p>
+              <p>
+                Visual hierarchy refers to the way you layout and display the content of your page to guide the viewer's attention.
+              </p>
+              <p>
+                A strong hierarchy can provide a clear path for the eye to follow, ensuring that the information you convey is consumed in the order that you intended.
+              </p>
+              <p>
+                Let's consider a basic page layout in which the HTML for the page is semantically correct, but the styling applied does not create a strong visual hierarchy.
+              </p>
+              <pre id="visual-hierarchy-start" class="code-box">
+                <script>
+                  const visualHierarchyStart = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: sans-serif;
+                      color: #333;
+                      background-color: #fff;
+                    }
+
+                    header, nav, main, section, footer {
+                      padding: 10px;
+                      margin-bottom: 10px;
+                      border: 1px solid #ccc;
+                    }
+
+                    h1, h2, h3 {
+                      font-weight: normal;
+                      font-size: 16px;
+                      margin: 5px 0;
+                    }
+
+                    nav {
+                      text-decoration: none;
+                      color: #333;
+                      margin-right: 10px;
+                      font-size: 14px;
+                    }
+
+                    p {
+                      font-size: 14px;
+                      margin: 5px 0;
+                    }
+                    </style>
+
+                    <header>
+                      <h1>My Website</h1>
+                    </header>
+
+                    <nav>
+                      <a href="#">Home</a>
+                      <a href="#">About</a>
+                      <a href="#">Service</a>
+                      <a href="#">Contact</a>
+                    </nav>
+                    
+                    <main>
+                      <section>
+                        <h2>Welcome</h2>
+                        <p>This is the welcome section of the homepage.</p>
+                      </section>
+
+                      <section>
+                        <h2>Our Services</h2>
+                        <p>Here we describe what we offer.</p>
+                      </section>
+
+                      <section>
+                        <h2>Get in Touch </h2>
+                        <p>Contact us for more information.</p>
+                      </section>
+                    </main>
+
+                    <footer>
+                      <p>&copy; 2025 My Website</p>
+                    </footer>`
+                    document.getElementById('visual-hierarchy-start').textContent= visualHierarchyStart;
+                </script>
+              </pre>
+              <p>
+                If the font size isn't distinct, there is no visible indication of the document flow, although things are separated by headings.
+              </p>
+              <p>
+                To create a visual hierarchy, you should apply different font sizes to the heading tiers. You could also use something like a "callout box" to highlight a specific section.
+              </p>
+              <pre id="visual-hierarchy-font-sizes" class="code-box">
+                <script>
+                  const visualHierarchyFontSizes = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: sans-serif;
+                      line-heigth: 1.6;
+                      padding: 20px;
+                      background: #f9f9f9;
+                      color: #333;
+                    }
+
+                    h1 {
+                      font-size: 32px;
+                      margin-bottom: 10px;
+                    }
+
+                    h2 {
+                      font-size: 24px;
+                      margin-top: 20px;
+                      margin-bottom: 8px;
+                    }
+
+                    h3 {
+                      font-size: 18px;
+                      margin-top: 15px;
+                      margin-bottom: 6px;
+                    }
+
+                    p {
+                      font-size: 16px;
+                      margin-bottom: 12px;
+                    }
+
+                    .callout {
+                      background-color: #fff3cd;
+                      border-left: 5px solid #ffc107;
+                      padding: 15px;
+                      margin: 20px 0;
+                    }
+                    </style>
+
+                    <h1>Understanding Visual Hierarchy</h1>
+                    <p>Visual hierarchy helps users navigate and understand content by guiding their attention.</p>
+
+                    <h2>Heading Tiers</h2>
+                    <p>Using different font sizes for headingcreates and makes content scannable.</p>
+
+                    <h3>Level 3 Heading</h3>
+                    <p>This smaller heading further breaks down the section without overpowering it.</p>
+
+                    <div class="callout">
+                      <strong>Tip:</strong>Use a callout box like to highlighting important notes or key takeways.
+                    </div>`
+                    document.getElementById('visual-hierarchy-font-sizes').textContent = visualHierarchyFontSizes;
+                </script>
+              </pre>
+              <p>
+                Visual hierarchy can also help increase your user conversion. For example, you can take advantage of the callout box to further draw attention to a Call to Action (CTA) button.
+              </p>
+              <pre id="visual-hierarchy-cta-btn" class="code-box">
+                <script>
+                  const visualHierarchyCtaBtn = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: sans-serif;
+                      padding: 20px;
+                      background-color: #f4f4f4;
+                      color: #333;
+                    }
+
+                    h2 {
+                      font-size: 24px;
+                      margin-bottom: 10px;
+                    }
+
+                    p {
+                      font-size: 16px;
+                      margin-bottom: 15px;
+                    }
+
+                    .callout {
+                      background-color: #e0f7fa;
+                      border-left: 5px solid #00acc1;
+                      padding: 20px;
+                      margin-top: 20px;
+                      text-align: center;
+                    }
+
+                    .cta-button {
+                      display: inline-block;
+                      background-color: #00acc1;
+                      color: white;
+                      padding: 12px 20px;
+                      font-size: 16px;
+                      text-decoration: none;
+                      border-radius: 4px;
+                      margin-top: 10px;
+                    }
+
+                    .cta-button:hover {
+                      background-color: #008b9a;
+                    }
+                    </style>
+
+                    <h2>Ready to Boost Your Productivity?</h2>
+                    <p>Join thousand of users who are getting more done with our simple and effectove tools.</p>
+
+                    <div class="callout">
+                      <strong>Don't wait!</strong>Start your free trial today and see the difference.
+                      <br>
+                      <a href="#" class="ctta-button">Start Free Trial</a>
+                    </div>`
+                    document.getElementById('visual-hierarchy-cta-btn').textContent = visualHierarchyCtaBtn;
+                </script>
+              </pre>
+              <p>
+                Finally, your visual hierarchy can be important for conveying other components, like a navigation bar or a footer.
+              </p>
+              <p>
+                This makes it easier for your users to find the essential information that they may be looking for.
+              </p>
+            </section>
+            <section>
+              <h2>
+                How does scale work in design?
+              </h2>
+              <h3>Lesson</h3>
+              <p>
+                <strong>NOTE</strong>: Some of the interactive examples might use CSS that you haven't learned yet. Don't worry about trying to understand all of the code. The goal of the examples is to show you previews for these design concepts so you better understand how things work.
+              </p>
+              <p>
+                The "scale" of something refers to its size.
+              </p>
+              <p>
+                When you're looking at scaling in your web design, you're looking at the size relationships between different elements, and how these elements might adapt to different screen sizes.
+              </p>
+              <p>
+                Using the correct scale for your elements plays an important role in visual hierarchy. Larger elements will draw more attention, which can guide your users through the content in the way that you want.
+              </p>
+              <p>
+                For example, the visual separation between a heading and a paragraph draws your reader’s attention, but the scale should be appropriate to get an eye-catching text that pulls your reader to that section.
+              </p>
             </section>
         </article>
     </main>
