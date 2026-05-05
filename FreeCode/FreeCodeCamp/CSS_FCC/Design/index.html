@@ -1215,6 +1215,436 @@
               <p>
                 For example, the visual separation between a heading and a paragraph draws your reader’s attention, but the scale should be appropriate to get an eye-catching text that pulls your reader to that section.
               </p>
+              <pre id="visual-separation" class="code-box">
+                <script>
+                  const visualSeparation = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: sans-serif;
+                      padding: 20px;
+                      background-color: #fdfdfd;
+                      color: #333;
+                    }
+
+                    .section {
+                     margin-bottom: 40px;
+                    }
+
+                    .big-heading {
+                      font-size: 40px;
+                      font-weight: bold;
+                      margin-bottom: 12px;
+                    }
+
+                    .paragraph {
+                      font-size: 16px;
+                      max-width: 600px;
+                      line-height: 1.6;
+                    }
+                  </style>
+                  <div class="section">
+                    <div class="big-heading">
+                      Discover the Power of Smart Design
+                    </div>
+                    <p class="paragraph">
+                      Great design isn't just about colors or fonts - it's also about scale.
+                      A large heading like this one instantly grabs your attention, while the paragraph beneath it provides context and detail.
+                      Proper scaling creates a clear path for the reader's eye to follow.
+                    </p>
+                  </div>`
+                  document.getElementById('visual-separation').textContent = visualSeparation;
+                </script>
+              </pre>
+              <p>
+                Scale doesn't apply just to text, though. It's also important for images. And while the scale of a banner image might make sense for a desktop layout, it might be too large on a mobile layout.
+              </p>
+              <p>
+                By scaling an image down to a more appropriate ratio, you can keep the visual impact while ensuring the information on the site is visible.
+              </p>
+              <pre id="visual-scaling" class="code-box">
+                <script>
+                  const visualScaling = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: sans-serif;
+                      padding: 20px;
+                      background-color: #fefefe;
+                      color: #333;
+                    }
+
+                    .banner {
+                      max-width: 600px;
+                      margin: 0 auto;
+                      font-size: 16px;
+                      line-height: 1.6;
+                    }
+
+                    @media (max-width: 600px) {
+                       .banner {
+                         max-width: 90%;
+                         }
+                        
+                       .content {
+                         font-size: 15px;
+                         }
+                       }
+                  </style>
+
+                  <img 
+                  src="https://placehold.co/1200x400/png?text=Large+Banner+Image"
+                  alt="Banner"
+                  class="banner"
+                  >
+
+                  <div class="content">
+                    <p>
+                      This banner image looks great on a large screen, but on smaller devicess, its scales down automatically.
+                      That way, it still delivers a strong visual impression without pushing the actual content off the screen.
+                      Scaling inages properly helps maintain balance and accessibility across layouts.
+                    </p>
+                  </div>`
+                  document.getElementById('visual-scaling').textContent = visualScaling;
+                </script>
+              </pre>
+              <p>
+                Scale is also important for interactivity, and the ability to actually use your website. If the text in a navigation bar is not at an appropriate scale, mobile phone users will have a hard time tapping on the links.
+              </p>
+              <p>
+                And if you scale it appropriately, you end up with links that are not only easier to read, but easier to click on for your mobile users.
+              </p>
+              <pre id="visual-scaling-for-mobile" class="code-box">
+                <script>
+                  const visualScalingForMobile = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: sans-serif;
+                      padding: 20px;
+                      margin: 0;
+                      background-color: #fafafa;
+                    }
+
+                    .navbar {
+                      background-color: 004080;
+                      padding: 15px 20px;
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 20px;
+                    }
+
+                    .nav-link {
+                      color: white;
+                      text-decoration: none;
+                      font-size: 18px;
+                      padding: 10px 15px;
+                      display: inline-block;
+                      border-radius: 4px;
+                    }
+
+                    .nav-link:hover {
+                      background-color: #0059b3;
+                    }
+
+                    @media (max-width: 600px) {
+                      .nav-link {
+                        font-size: 20px;
+                        padding: 14px 18px;
+                        }
+                      }
+                  </style>
+
+                  <nav class="navbar">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">Service</a>
+                    <a href="#" class="nav-link">Contact</a>
+                  </nav>`
+                  document.getElementById('visual-scaling-for-mobile').textContent = visualScalingForMobile;
+                </script>
+              </pre>
+              <p>
+                There are many ways that scale is important in your designs. We've covered the basics, so you should now have a fundamental understanding of its importance.
+              </p>
+            </section>
+            <section>
+              <h2>
+                How does alignment work in design?
+              </h2>
+              <h3>Lesson</h3>
+              <p>
+                <strong>NOTE</strong>: Some of the interactive examples might use CSS that you haven't learned yet. Don't worry about trying to understand all of the code. The goal of the examples is to show you previews for these design concepts so you better understand how things work.
+              </p>
+              <p>
+                When you are designing web pages, it is important to create cohesive and visually appealing designs. One way to achieve this is through the use of alignment.
+              </p>
+              <p>
+                Alignment is the process of arranging text and images in a way that creates a visual connection between elements.
+              </p>
+              <p>
+                It helps to create a sense of order and organization on the page, making it easier for users to navigate and understand the content.
+              </p>
+              <p>
+                There are several types of alignment you can use, but the basic ones are:
+              </p>
+              <ul>
+                <li>left alignment</li>
+                <li>center alignment</li>
+                <li>right alignment</li>
+                <li>justified alignment</li>
+                <li>vertical alignment</li>
+              </ul>
+              <br>
+              <p>
+                Left, right, and center alignments are all subtypes of horizontal alignment, while vertical alignment is used to align elements along a vertical axis.
+              </p>
+              <p>
+                Let's take a closer look at each type of alignment and how you can use them in your designs.
+              </p>
+              <p>
+                Left alignment is commonly used with text where each element is aligned to the left margin. Aligning all of the headings and paragraphs on a web page to the left margin makes it easier for the user to read and follow the content.
+              </p>
+              <pre id="alignment-left-margin" class="code-box">
+                <script>
+                  const alignmentLeftMargin = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: Arial, sans-serif;
+                      padding: 20px;
+                      background-color: #fff;
+                      color: #222;
+                      max-width: 700px;
+                      margin: auto;
+                    }
+
+                    h1, h2, h3, p {
+                      text-align: left;
+                      margin: 10px 0;
+                    }
+
+                    p {
+                      line-height: 1.5;
+                    }
+                  </style>
+                  <h1>Why Left Alignment Matters</h1>
+                  <p>Left alignment is one of the most common and effective ways to present text on web pages.</p>
+
+                  <h2>Consistency</h2>
+                  <p>Aligning all heading and paragraphs to the left margin creates a clean and consistent reading flow. </p>
+
+                  <h3>Easy to Follow</h3>
+                  <p>Users can easily scan and follow content without confusion or misalignment.</p>`
+                  document.getElementById('alignment-left-margin').textContent = alignmentLeftMargin;
+                </script>
+              </pre>
+              <p>
+                The opposite of left alignment is right alignment, where each element is aligned to the right margin. This is often used on websites to display additional content like promotional banners or advertisements.
+              </p>
+              <pre id="alignment-right-margin" class="code-box">
+                <script>
+                  const alignmentRightMargin = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: Arial, sans-serif;
+                      padding: 20px;
+                      background-color: #fff;
+                      color: #222;
+                      max-width: 700px;
+                      margin: 0 auto;
+                    }
+
+                    h1, h2, h3, p {
+                      text-align: right;
+                      margin: 10px 0;
+                    }
+
+                    p {
+                      font-size: 16px;
+                      line-height: 1.5;
+                    }
+                  </style>
+
+                  <h1>Right Alignment in Web Design</h1>
+                  <p>Right alignment is commonly used to diplay additional or promotional content on websites.</p>
+
+                  <h2>Secondary Content<h2>
+                  <p>Aligning text to the right margin can help separate it visually from the main content.</p>
+
+                  <h3>Promotional Use</h3>
+                  <p>This alignment is often chosen for banners, advertisments, or sidebar messages.</p>`
+                  document.getElementById('alignment-right-margin').textContent = alignmentRightMargin;
+                </script>
+              </pre>
+              <p>
+                For example, an ad that is aligned to the right margin makes it stand out from the rest of the content on the page but doesn't distract the user from the main content.
+              </p>
+              <p>
+                Center alignment is where elements are centered on the page. This is often used for headings, logos, and other important elements that you want to draw attention to.
+              </p>
+              <pre id="alignment-center" class="code-box">
+                <script>
+                  const alignmentCenter = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: Arial, sans-serif;
+                      padding: 20px;
+                      background-color: #fff;
+                      color: #222;
+                      max-width: 700px;
+                      margin: 0 auto;
+                    }
+
+                    h1, h2, h3, p {
+                      text-align: center;
+                      margin: 10px 0;
+                    }
+
+                    p {
+                      font-size: 16px;
+                      line-height: 1.5;
+                      max-width: 600px;
+                      margin-left: auto;
+                      margin-right: auto;
+                    }
+                  </style>
+
+                  <h1>Center Alignment for Impact</h1>
+                  <p>Center alignment is perfect for drawing attention to heading and important elements.</p>
+
+                  <h2>Eye-Catching Layout</h2>
+                  <p>By centering key, content, you make it stand our and create a balanced visual appeal.</p>
+                  
+                  <h3>Common Uses</h3>
+                  <p>This technique is often used for logos, hero headings, and call-to-action messages.</p>`
+                  document.getElementById('alignment-center').textContent = alignmentCenter;
+                </script>
+              </pre>
+              <p>
+                Justified alignment is when text is aligned to both the left and right margins. This is typically used for descriptive passages or articles, and creates a clean and professional look.
+              </p>
+              <pre id="alignment-left-right" class="code-box">
+                <script>
+                  const alignmentLeftRight = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: Georgia, serif;
+                      padding: 20px;
+                      background-color: #fff;
+                      color: #222;
+                      max-width: 700px;
+                      margin: 0 auto;
+                    }
+
+                    p {
+                      text-align: justify;
+                      line-height: 1.7;
+                      margin-bottom: 20px;
+                    }
+                    
+                    h1 {
+                      text-align: center;
+                      margin-bottom: 20px;
+                    }
+                  </style>
+
+                  <h1>Justified Alignment for Clean Text Blocks</h1>
+
+                  <p>
+                    Justified alignment ensures that each line of text stretches evenly between the left and right margins.
+                    This creates a smoth, block-like appearance that looks very polished and professional. It's commonly used in newspapers, magazines, and formal documents where a uniform looks is desired.
+                  </p>
+
+                  <p>
+                    However, care should be taken with justified text to avoid uneven spacing or "rivers" of white space, espacially on narrow columns or screens. Proper hyphenation and responsive design can help maintain readability.
+                  </p>`
+                  document.getElementById('alignment-left-right').textContent = alignmentLeftRight;
+                </script>
+              </pre>
+              <p>
+                The last type of alignment is vertical alignment, which is used to align elements along a vertical axis.
+              </p>
+              <p>
+                Vertical alignment can be used, for example, for a contact form on a website. Aligning all of the form inputs like the name, email, and message fields along a vertical axis makes it easier for the user to fill out the form.
+              </p>
+              <pre id="aligment-vertical" class="code-box">
+                <script>
+                  const aligmentVertical = `
+                  HTML
+                  <style>
+                    body {
+                      font-family: Arial, sans-serif;
+                      padding: 20px;
+                      background-color: #fff;
+                      color: #222;
+                      max-width: 400px;
+                      margin: 0 auto;
+                    }
+
+                    form {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 15px;
+                    }
+
+                    label {
+                      font-weight: bold;
+                      margin-bottom: 5px;
+                    }
+
+                    input, textarea {
+                      padding: 8px;
+                      border: 1px solid #ccc;
+                      border-radius: 4px;
+                      width: 100%;
+                      box-sizing: border-box;
+                    }
+
+                    button {
+                      padding: 10px;
+                      background-color: #007bff;
+                      border: none;
+                      border-radius: 4px;
+                      color: white;
+                      cursor: pointer;
+                    }
+
+                    button:hover {
+                      background-color: #0056b3;
+                    }
+                  </style>
+
+                  <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="e.g, Jane Doe">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="janedoe@example.com">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name'message" rows="4" placeholder="Write your message here"></textarea>
+
+                    <button type="submit">Submit</button>
+                  </form>`
+                  document.getElementById('aligment-vertical').textContent = aligmentVertical;
+                </script>
+              </pre>
+              <p>
+                By using different types of alignment, you can create a sense of order and organization on the page that makes it easier for users to navigate and understand the content.
+              </p>
+            </section>
+            <section>
+              <h2>
+                What is the impoprtance of whitespace in design?
+              </h2>
+              <h3>Lesson</h3>
+              <p>
+                
+              </p>
             </section>
         </article>
     </main>
