@@ -16,9 +16,7 @@
             </p>
             <section>
                 <h2 class="section-title">What are common design terms to help you communicate with designers.</h2>
-                <p>
-                    <strong>NOTE</strong>: Some of the interactive examamples might use CSS that you haven't learned yet. Don't worry about trying to understand all of the code. The goal trying to understand all of the code. The goal of the examples is to show you previews for these design concept so you better undeerstand how thing work.
-                </p>
+            
                 <p>
                     As a developer, you may need to work closely with designers. If you understand basic design terminology, you'll have a shared vocabulary and you'll be able to participate in the design process more actively. This can make your workflow more efficient and result in a better user experience.
                 </p>
@@ -637,9 +635,6 @@ HTML
                 <h2>How do you create good background and foreground with designers?</h2>
                 <h3>Lesson</h3>
                 <p>
-                    <strong>NOTE</strong>: Some of the interactive examples might use CSS that you haven't learned yet. Don't worry about trying to understand all of the code. The goal of the examples is to show you previews for these design concepts so you better understand how things work.
-                </p>
-                <p>
                     First, you may need to familiarize yourself with contrast. Contrast is the difference between two colors - or how easy it is to tell them apart.
                 </p>
                 <p>
@@ -1047,9 +1042,6 @@ HTML
             <section>
               <h2>What is the importance of good visual hierarchy in designs?</h2>
               <h3>Lesson</h3>
-              <p>
-                <strong>NOTE</strong>: Some of the interactive examples might use CSS that you haven't learned yet. Don't worry about trying to understand all of the code. The goal of the examples is to show you previews for these design concepts so you better understand how things work.
-              </p>
               <p>
                 Visual hierarchy refers to the way you layout and display the content of your page to guide the viewer's attention.
               </p>
@@ -2460,6 +2452,1503 @@ HTML
             <p>
               Breadcrumbs are a navigation aid that shows the user where they are in the site's hierarchy. Here is an example of what breadcrumbs look like for a mock-up electronics website:
             </p>
+            <pre id="breadcrumbs-hierarchy" class="code-box">
+              <script>
+  const breadcrumbsHierarchy = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+    <div class="breadcrumbs">
+      Home / Electronics / Phones / Smartphone XYZ
+    </div>
+  CSS
+    .breadcrumbs {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 1rem 0;
+    }`
+    document.getElementById('breadcrumbs-hierarchy').textContent = breadcrumbsHierarchy;
+              </script>
+            </pre>
+            <p>
+              In most websites, breadcrumbs are displayed at the top of the page, showing the user the path they took to get to the current page. Starting from the <strong>Homepage</strong>, the user navigated to the <strong>Electronics</strong> category, then to the <strong>Phones</strong> category, and finally to the <strong>Smartphone XYZ</strong> product. You have probably interacted with breadcrumbs on a website as you were searching for a product or specific piece of information.
+            </p>
+            <p>
+              The use of breadcrumbs is helpful because it can help users understand where they are in the site's hierarchy and how to navigate back to the previous pages. This is especially useful when a user has come from a search result or an external link and needs to understand the context of the page they are on.
+            </p>
+            <p>
+              When it comes to designing breadcrumbs, there are a few considerations to keep in mind. The first is to decide on what the separator will be. The separator is the character that separates the different levels of the hierarchy. Common separators include the greater than sign (&gt;), right angle quotation marks (&gt;&gt;) ,and the forward slash (/)
+            </p>
+            <pre id="separators-characters" class="code-box">
+              <script>
+  const separatorsCharacters = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+    <div class="breadcrumbs">
+      Home &gt; Electronics &gt; Phones &gt; Smartphone XYZ
+    </div>
+  CSS
+    .breadcrumbs {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 1rem 0;
+    }`
+    document.getElementById('separators-characters').textContent = separatorsCharacters;
+              </script>
+            </pre>
+            <p>
+              The second consideration is the placement of the breadcrumbs. Breadcrumbs are typically placed at the top of the page, either above or below the main navigation bar. Users shouldn't have to struggle to find the breadcrumbs, so make sure they are visible and easy to locate.
+            </p>
+            <pre id="placement-breadcrumbs" class="code-box">
+              <script>
+  const placementBreadcrumbs = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+    <nav class="main-nav">
+      <a href="#">Home</a>
+      <a href="#">Electronics</a>
+      <a href="#">Phones</a>
+    </nav>
+    <div class="breadcrumbs">
+      Home &gt; Electronics &gt; Phones &gt; Smartphones XYZ
+    </div>
+  CSS
+    .main-nav {
+      background-color: #333;
+      padding: 1rem;
+    }
+
+    .main-nav a {
+      color: white;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+
+    .breadcrumbs {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 1rem 0;
+    }`
+    document.getElementById('placement-breadcrumbs').textContent = placementBreadcrumbs;
+              </script>
+            </pre>
+            <p>
+              Another consideration is the size of the breadcrumbs. You want to make sure the breadcrumbs are large enough to be easily read, but not so large that they take up too much space on the page. Remember, the breadcrumbs aren't meant to serve as a primary navigation tool, but rather as a secondary navigational aid. In websites where there is a lot of information on a page, users can easily see where they are in the hierarchy and navigate back to previous pages using breadcrumbs.
+            </p>
+            <pre id="size-breadcrumbs" class="code-box">
+              <script>
+  const sizeBreadcrumbs = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+    <div class="breadcrumbs">
+      Home &gt; Electronics &gt; Phones &gt; Smartphone XYZ
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+  CSS
+    .breadcrumbs {
+      font-size: 1rem;
+      color: #555;
+      margin: 1rem 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }`
+    document.getElementById('size-breadcrumbs').textContent = sizeBreadcrumbs;
+              </script>
+            </pre>
+            <p>
+              So when should you use breadcrumbs on your site? If your site is simple and has a shallow hierarchy, breadcrumbs might not be necessary. A shallow hierarchy means that the site has only a few levels of navigation, so breadcrumbs might not add much value. Typically, you will see breadcrumbs on e-commerce sites, news sites, and other sites with a deep hierarchy like technical documentation sites.
+            </p>
+          </section>
+          <section>
+            <h2>
+              What are best practices for designing cards?
+            </h2>
+            <h3>
+              Lesson
+            </h3>
+            <p>
+              Card components are a very common occurrence in e-commerce, social media, and news sites. They are used to help display information in a structured way. When you are designing your cards, it is important to understand best practices so your users can easily understand the information you are trying to convey.
+            </p>
+            <p>
+              The first consideration for card design should be simplicity. You don't want your cards to be visually cluttered or display too much information. For example, if a card design is visually cluttered, there will be too much information for the user to process all at once.
+            </p>
+            <p>
+              Here is an example of a cluttered card design:
+            </p>
+            <pre id="cluttered-card-design" class="code-box">
+              <script>
+  const clutteredCardDesign = `
+   HTML
+   <link rel="stylesheet" href="styles.css">
+
+   <div class="card">
+    <img src="https://placehold.co/150x150"
+        alt="Example Product Image"
+      >
+    <h2>
+      <strong><em>Product Name: Ultimate Edition,</em></strong>
+    </h2>
+    <p>
+      This is a great product that you will love! It has many features and benefits that will make your life easier and more enjoyable. Whether you're at home or on the go, this product is perfect for all situations. Don't miss out on this incredible offer, buy now and experience the difference!
+    </p>
+    <button>
+      Buy Now
+    </button>
+    <button>
+      Learn More
+    </button>
+    <button>
+      Add to Whishlist
+    </button>
+    <p>
+      <strong>Only 3 left in stock!</strong>
+    </p>
+    <p>
+      <em>Rated 4.8 stars by 2,391 customers</em>
+    </p>
+  </div>
+  CSS
+    .card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      width: 300px;
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card p {
+      font-size: 1eml
+      margin: 8px 0;
+    }
+
+    .card button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      cursor: pointer;
+    }`
+    document.getElementById('cluttered-card-design').textContent = clutteredCardDesign;
+              </script>
+            </pre>
+            <p>
+              Having less information and good spacing between items on the card makes it easier for the user to process the information, and allows for multiple cards on the page.
+            </p>
+            <p>
+              Here is an example of a simple card design:
+            </p>
+            <pre id="multicard-design" class="code-box">
+              <script>
+  const multicardDesign = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="card">
+      <img src="https://placehold.co/150x150"
+        alt="Example Product Image">
+      <h2>
+        Product Name
+      </h2>
+      <button>
+        Buy Now
+      </button>
+    </div>
+  CSS
+    .card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      width: 200px;
+      text-alilgn: center;
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin: 8px 0;
+    }
+
+    .card button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      cursor: pointer;
+    }`
+    document.getElementById('multicard-design').textContent = multicardDesign;
+              </script>
+            </pre>
+            <p>
+              Another thing to consider is where the user can click on the card. Some card designs will have a single button, making it obvious where the user can click. Other card designs will have the entire card clickable. When the user hovers over any part of the card, the card will change color or have a shadow effect to indicate that the card is clickable. Whatever design you choose, it needs to be consistent throughout your site and easy for the user to understand.
+            </p>
+            <pre id="card-clickable" class="code-box">
+              <script>
+  const cardClickable = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="card">
+      <a href="#">
+        <img src="https://placehold.co/150x150"
+          alt="Example Product Image">
+        <h2>
+          Product Name
+        </h2>
+        <button>
+          Buy Now
+        </button>
+      </a>
+    </div>
+  CSS
+    .card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      width: 300px;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin: 8px 0;
+    }
+
+    .card button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      cursor: pointer;
+    }`
+    document.getElementById('card-clickable').textContent = cardClickable;
+              </script>
+            </pre>
+            <p>
+              Another consideration is the use of media on your cards. Choosing high-quality media can significantly enhance the user experience. If you are using images or videos for say a product card, the higher the quality the more the user will be interested in that product. But if you use poor media quality, then the user might not trust the quality of your products and services.
+            </p>
+            <p>
+              One of the last things to consider is the use of color hierarchy. You want to make sure that the most important information on the card is the most prominent. You can use bright colors for important elements like a call-to-action button, and light colors for less important items on a card.
+            </p>
+            <pre id="color-hierarchy-call" class="code-box">
+              <script>
+  const colorHierarchyCall = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="card">
+      <img src="https://placehold.co/150x150"
+        alt="Example Product Image">
+      <h2>
+        Product Name
+      </h2>
+      <button>
+        Buy Now
+      </button>
+    </div>
+  CSS
+    .card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin: 8px 0;
+    }
+
+    .card button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      cursor: pointer;
+    }`
+    document.getElementById('color-hierarchy-call').textContent = colorHierarchyCall;
+              </script>
+            </pre>
+            <p>
+              As you continue to work on web applications, keep in mind the different best practices for card design. This will help you create better user experiences for your users.
+            </p>
+          </section>
+          <section>
+            <h2>
+              What are best practices for designing infinite scrolls?
+            </h2>
+            <h3>
+              Lesson
+            </h3>
+            <p>
+              Infinite scrolling is a design pattern that loads more content as the user scrolls down the page. Oftentimes, this is used on social media sites like Twitter. For example, if you are logged in and want to see more tweets, you can scroll down and more tweets will load. This is an example of infinite scrolling.
+            </p>
+            <pre id="infinite-scrolling-pattern" class="code-box">
+              <script>
+  const infiniteScrollingPattern = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="infinite-scroll">
+      <div class="post">Post 1</div>
+      <div class="post">Post 2</div>
+      <div class="post">Post 3</div>
+      <div class="post">Post 4</div>
+      <div class="post">Post 5</div>
+      <div class="post">Post 6</div>
+      <div class="post">Post 7</div>
+      <div class="post">Post 8</div>
+      <div class="post">Post 9</div>
+      <div class="post">Post 10</div>
+      <!-- More posts will load here as the user scrolls down -->
+    </div>
+
+    <script src="index.js"></script>
+  CSS
+    .infinite-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .post {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  JS
+  //Simulate loading more content as the user scrolls
+    
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        loadMorePosts();
+        }
+    });
+
+    function loadMorePosts() {
+      const container = document.querySelector('.infinite-scroll');
+      for (let i = 0; i < 3; i++) {
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.textContent = 'Post $ {container.children.length + 1}';
+        container.appendChild(post)
+      }
+    }`
+    document.getElementById('infinite-scrolling-pattern').textContent = infiniteScrollingPattern;
+              </script>
+            </pre>
+            <p>
+              Infinite scrolling is also used as a substitute for pagination. Pagination is a design pattern that breaks up content into pages. This is often used when there is a lot of content to display. An example of pagination is when you search for something on Google and you see the search results on multiple pages. With pagination, you have to click on a button to go to the next page. With infinite scrolling, you just keep scrolling down and more content will load.
+            </p>
+            <pre id="pagination-infinite-scrolling" class="code-box">
+              <script>
+  const paginationInfiniteScrolling = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+  
+    <div class="pagination">
+      <div class="post">Post 1</div>
+      <div class="post">Post 2</div>
+      <div class="post">Post 3</div>
+      <!-- More posts will be on the next pages -->
+    </div>
+    <div class="pagination-controls">
+      <button class="prev" disabled>Previous</button>
+      <button class="next">Next</button>
+    </div>
+    <script src="index.js"></script>
+  CSS
+    .pagination {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .post {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .pagination-controls {
+      margin-top: 12px;
+    }
+
+    .pagination-controls button {
+      padding: 8px 16px;
+      margin-right: 8px;
+    }
+  JS
+    let currentPage = 1;
+    const postPerPage = 3;
+    const totalPosts = 9;
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+    const container = document.querySelector('.pagination');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    function renderPosts() {
+      container.innerHTML = '';
+      const start = (currentPage - 1) * postsPerPage;
+      const end = start + postsPerPage;
+        for (let i = start; i < end && i < totalPosts; i++) {
+          const post = document.createElement('div');
+          post.className = 'post';
+          post.textContent = 'Post $ {i + 1}'};
+          container.appendChild(post);
+        }
+        preButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages;
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderPosts();
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderPosts();
+      }
+    });
+
+    renderPosts();`
+    document.getElementById('pagination-infinite-scrolling').textContent = paginationInfiniteScrolling;
+              </script>
+            </pre>
+            <p>
+              As you incorporate infinite scrolling into your design, there are a few best practices to keep in mind. The first consideration is to provide a "Load More" button that loads the next set of results when the user clicks on it. This is a good way to give the user control over when they want to see more content.
+            </p>
+            <pre id="load-more-button" class="code-box">
+              <script>
+  const loadMoreButton = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="infinite-scroll">
+      <div class="post">Post 1</div>
+      <div class="post">Post 2</div>
+      <div class="post">Post 3</div>
+      <!-- More posts will load when the user clicks "Load More" -->
+    </div>
+    <button class="load-more">Load More</button>
+    <script src="index.js"></script>
+  CSS
+    .infinite-scroll {
+      diplay: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .post {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .load-more {
+      margin-top: 12px;
+      padding: 8px 16px;
+    }
+  JS
+    const loadMoreButton = document.querySelector('.load-more');
+    const container = document.querySelector('.infinite-scroll');
+    loadMoreButton.addEventListener('click', () => {
+      loadMorePosts();
+    });
+
+    function loadMorePosts() {
+      for (let i = 0; i < 3; i++) {
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.textContent = 'Post $ {container.children.length + 1}';
+        container.appendChild(post);
+      }
+    }`
+    document.getElementById('load-more-button').textContent = loadMoreButton;
+              </script>
+            </pre>
+            <p>
+              Another consideration would be to add a "Back" button. This gives users the ability to go back to the previous page without having to scroll all the way back up. This creates a better user experience and gives them more control over their browsing experience.
+            </p>
+            <p>
+              Sometimes you will see designs with a "Back to the top" button which leads users back to the top of the page of results. Another consideration is to provide a loading indicator. Users should have a clear indication that more content is being loaded; otherwise, they might think that the page is broken.
+            </p>
+            <pre id="back-to-top-design" class="code-box">
+              <script>
+  const backToTopDesign = `
+  HTML
+  <link rel="stylesheet". href="styles.css">
+
+  <div class="infinite-scroll">
+    <div class="post">Post 1</div>
+    <div class="post">Post 2</div>
+    <div class="post">Post 3</div>
+    <div class="post">Post 4</div>
+    <div class="post">Post 5</div>
+    <div class="post">Post 6</div>
+    <div class="post">Post 7</div>
+    <div class="post">Post 8</div>
+    <div class="post">Post 9</div>
+    <div class="post">Post 10</div>
+    <!-- more post will load here as the user scroll down -->
+  </div>
+
+  <div class="loading-indicator" style="display: none;">
+    Loading...
+  <button id="back-to-top". class="back-to-top">
+    Back to TOP
+  </button>
+  <script src="index.js"></script>
+
+  CSS
+   .infinite-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+   }
+
+   .post {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+   }
+
+   .loading-indicator {
+      margin-top: 12px;
+      font-weight: bold;
+   }
+
+   .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+   }
+
+   .back-to-top:hover {
+      background-color: #0056b3;
+   }
+
+  JS
+    constt container = document.querySelector('.infinite-scroll');
+    const loadingIndicator = document.querySelector('.loading-indicator');
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        loadMorePosts();
+      }
+    });
+
+    function loadMorePosts() {
+      loadingIndicator.style.display = 'block';
+      setTimeout( () => {
+        for (let i = 0; i < 3; i++) {
+          const post = document.createElement('div');
+          post.className = 'post';
+          post.textContent = 'Post $ {container.children.length + 1}';
+          container.appendChild(post);
+        }
+          loadingIndicator.style.display = 'none';
+      }, 1000);
+    }`
+document.getElementById('back-to-top-design').textContent = backToTopDesign;
+              </script>
+            </pre>
+            <p>
+              One of the last considerations would be to keep the footer accessible to the user. If the footer contains important information, then it should be accessible to the user at all times.
+            </p>
+            <p>
+              In conclusion, infinite scrolling is a great way to display content on your website. However, you should keep in mind the best practices when designing your infinite scroll so that you can provide the best user experience possible.
+            </p>
+          </section>
+          <section>
+            <h2>
+              WHat are best practice for design modal dialogs?
+            </h2>
+            <h3>
+              Lesson
+            </h3>
+            <p>
+              What is a modal? It's the type of pop-up that a website might show you on top of their content. HTML has a <strong>dialog</strong> element that you can use to create modals.
+            </p>
+            <p>
+              The content behind a modal is usually dimmed. This helps the user visually focus on the area you want them to interact with – in this case, the modal.
+            </p>
+            <p>
+              It's always a good idea to allow the user to click outside of the modal to close it.
+            </p>
+            <pre id="open-modal" class="code-box">
+              <script>
+  const openModalDesign = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+    <button id="open-modal">
+      Open Modal
+    </button>
+    <dialog>
+      <h2> Subscribe to our Newsletter! </h2>
+      <p> Get the latest updates and offers. </p>
+      <button>Subscribe</button>
+      <button>Close</button>
+    </dialog>
+    <script src="index.js"></script>
+  CSS
+    dialog {
+      border: none;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  JS
+    const dialog = document.querySelector('div');
+    const closeButton = dialog.querySelector('button:last-of-type');
+    const openModalButton = document.getElementById('open-modal');
+
+    closeButton.addEventListener('click', () => {
+      dialog.close();
+    });
+    
+    openModalButton.addEventListener('click', () => {
+      dialog.showModal();
+    })
+
+    // Close the modal when clicking outside of it
+    dialog.addEventListener('click', (event) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog = (
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom
+      );
+      if (!isInDialog) {
+        dialog.close();
+      }
+    });`
+    document.getElementById('open-modal').textContent = openModalDesign;
+    </script>
+            </pre>
+            <p>
+              You'll often see very prominent buttons on modals. These are called CTAs, or call-to-action. You want these to be easily identifiable since the purpose of interrupting the user's flow with a modal is to prompt them to take a specific action.
+            </p>
+            <p>
+              Modals should also have a close button. While you may really want the user to click on your CTAs, it's important to give them an option to back out of the modal and resume whatever they were previously doing.
+            </p>
+            <pre id="modal-close-btn" class="code-box">
+              <script>
+const modalCloseBtn = `
+HTML
+<link rel="stylesheet" href="styles.css">
+<button id="open-modal">
+  Open Modal
+</button>
+<dialog>
+  <h2>Subscribe ti our Newsletter!</h2>
+  <p>Get the latest updates and offers.</p>
+  <button class="cta">Subscribe</button>
+  <button class="close">Close</button>
+</dialog>
+<script src="index.js"></script>
+CSS
+  .cta {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .close {
+    background-color: transparent;
+    color: #007BFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+JS
+  const dialog = document.querySelector('div');
+  const closeButton = dialog.querySelector('.close');
+  const openModalButton = document.getElementById('open-modal');
+
+  closeButton.addEventListener('click', () => {
+    dialog.close();
+  });
+
+  openModalButton.addEventListener('click', () => {
+    dialog.showModal();
+  });
+
+  // Close the modal when clicking outside of it
+    dialog.addEventListener('click', (event) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog = (
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom
+      );
+      if (!isInDialog) {
+        dialog.close();
+      }
+    });`
+document.getElementById('modal-close-btn').textContent = modalCloseBtn;
+              </script>
+            </pre>
+            <p>
+              There are, of course, accessibility concerns with modals, such as correctly managing focus on elements. However, if you use these general practices as your starting point, you'll have a solid foundation to build on.
+            </p>
+          </section>
+          <section>
+            <h2>
+              What are best practices for progress Indication on Forms, Registration, and Setup?
+            </h2>
+            <h3>
+              Lesson
+            </h3>
+            <p>
+              Progress indication is a way to show users how far they are in a process. It can be used in forms, registration, and setup processes. The goal is to help users understand where they are in the process and how much more they need to do.
+            </p>
+            <p>
+              For example, you can use a progress indication bar to show users what is left to do when filling forms. You don't want to create a situation where the user needs to fill out a lengthy form and they don't know how many more steps they need to complete. Transparency is key so the user knows whether they have enough time to sit down and complete the form or if they need to come back later.
+            </p>
+  <pre id="progress-indicator" class="code-box">
+  <script>
+    const progressIndicator = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <form id="multiStepForm">
+      <div class="form-progress">
+        <label class="progress-label">
+          Form progress
+        </label>
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+          <div class="progress-text">Step 1 of 3</div>
+        </div>
+      </div>
+
+      <!-- Step 1 -->
+      <fieldset class="form-step active">
+        <legend>
+          Personal Information
+        </legend>
+        <label for="name">
+          Full Name
+        </label>
+        <input type="name" id="name" name="name" required>
+
+        <label for="email">
+          Email
+        </label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="button" class="next-btn">
+          Next
+        </button>
+      </fieldset>
+
+      <! -- Step 2 -->
+      <fieldset class="form-step">
+        <legend>
+          Address
+        </legend>
+        <label for="address">
+          Street Address
+        </label>
+        <input type="text" id="address" name="adress" required>
+
+        <label for="city">
+          City
+        </label>
+        <input type="text" id="city" name="city" required>
+
+        <button type="button" class="prev-btn">
+          Previous
+        </button>
+        <button type="button" class="next-btn">
+          Next
+        </button>
+      </fieldset>
+
+      <!-- Step 3 -->
+      <fieldset class="form-step">
+        <legend>
+          Review & Submit
+        </legend>
+        <p>
+          Please review your information before submitting.
+        </p>
+
+        <button type="button" class="prev-btn">
+          Previous
+        </button>
+        <button type="submit">
+          Submit
+        </button>
+      </fieldset>
+    </form>
+    <script src="index.js"></script>
+  CSS
+    .form-progress {
+      max-width: 500px;
+      margin: 20px auto 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    .progress-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .progress-container {
+      position: relative;
+      background-color: #555;
+      border-radius: 8px;
+      height: 30px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .progress-bar {
+      background-color: #4caf50;
+      height: 100%;
+      width: 0;
+      border-radius: 8px 0 0 8px;
+      transition: width 0.3x ease;
+    }
+
+    .progress-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    legend {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      outline: none;
+      border-color: #4caf50;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    button {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #45a049;
+    }
+
+    button:disabled {
+      background-color: #9e9e9e;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 600px) {
+      .form-progress, form {
+        max-width: 90%;
+        margin: 20px auto;
+      }
+    }
+  JS
+  const form = document.getElementById('multiStepForm');
+  const steps = form.querySelectorAll('.form-step');
+  const progressBar = form.querySelector('.progress-bar');
+  const progressText = form.querySelector('.progress-text');
+  const totalStep = steps.length;
+
+  let currentStep = 0;
+
+  function updateProgress() {
+    const percent = ((currentStep + 1) / totalSteps) * 100;
+    progressBar.style.width = percent + '%';
+    progressText.textContent = 'Step $ {currentStep + 1} of $ {totalSteps}';
+  }
+
+  function showStep(index) {
+    stpes.forEach( (step, i) => {
+      step.classList.toggle('active', i === index);
+    });
+    updateProgress();
+  }
+
+  form.querySelectorAll('.next-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (currentStep < totalSteps - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }  
+    });
+  });
+
+  form.querySelectorAll('.prev-btn').forEach(btn => {
+    btn.addEventLlistener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  showStep(currentStep);
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Form submitted!');
+  });`
+  document.getElementById('progress-indicator').textContent = progressIndicator;
+  </script>
+  </pre>
+            <p>
+              When designing a progress indication section, there are a few best practices to keep in mind. The first consideration is to keep it simple. You don't want to overwhelm the user with too much information where they get frustrated and leave the site.
+            </p>
+            <p>
+              The second consideration is to make it possible to go back to previous steps. This is important because users may want to go back and check their previous answers or make changes.
+            </p>
+            <p>
+              Another consideration is to make the progress indication section easy to find. If the user can't find it, they won't know how far they are in the process.
+            </p>
+            <p>
+              The last consideration is to have clear section titles, percentages, or steps. If you just have a progress bar with no context, the user won't know what it means.
+            </p>
+  <pre id="clear-section-context" class="code-box">
+    <script>
+  const progressFormClearSectionContext = `
+  HTML
+  <link rel="stylesheet" href="styles.css">
+
+  <form id="progressForm">
+    <div class="form-progress" aria-label="Form progress">
+      <label class="progress-label">Step <span  id="currentStep">1</span> of <span id="totalSteps">4</span> (<span id="percentage" >25%</span>)</label>
+      <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <fieldset class="form-step active">
+      <legend>
+        Basic Information
+      </legend>
+      <p>
+        Please enter your basic information.
+      </p>
+      <label for="name">
+        Name
+      </label>
+      <input type="text" id="name" name="name" required>
+
+      <button type="button" class="next-btn">
+        Next
+      </button>
+    </fieldset>
+
+    <!-- Step 2 -->
+    <fieldset class="form-step">
+      <legend>
+        Contact Details
+      </legend>
+      <p>
+        How can we reach you?
+      </p>
+      <label for="email">
+        Email
+      </label>
+      <input type="email" id="email "name="email" required>
+
+      <button type="button" class="prev-btn">
+        Previous
+      </button>
+      <button type="button" class="next-btn">
+        Next
+      </button>
+    </fieldset>
+
+    <!-- Step 3 -->
+    <fieldset class="form-step">
+      <legend>
+        Adress
+      </legend>
+      <p>
+        Where do you live?
+      </p>
+      <label for="address">
+        Street:
+      </label>
+      <input type="text" id="address" name="address" required>
+
+      <button type="button" class="prev-btn">
+        Previous
+      </button>
+      <button type="button" class="next-btn">
+        Next
+      </button>
+    </fieldset>
+
+    <!-- Step 4 -->
+    <fieldset class="form-step">
+      <legend>
+        Review
+      </legend>
+      <p>
+        Review your answer before submitting.
+      </p>
+
+      <button type="button" class="prev-btn">
+        Previous
+      </button>
+      <button type="submit">
+        Submit
+      </button>
+    </fieldset>
+  </form>
+  <script src="index.js"></script>
+
+  CSS
+    .form-progress {
+      max-width: 500px;
+      margin: 20px auto 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    .progress-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .progress-container {
+      position: relative;
+      background-color: #555;
+      border-radius: 8px;
+      height: 30px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .progress-bar {
+      background-color: #4caf50;
+      height: 100%;
+      width: 0;
+      border-radius: 8px 0 0 8px;
+      transition: width 0.3x ease;
+    }
+
+    .progress-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    legend {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      outline: none;
+      border-color: #4caf50;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    button {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    button: hover:not(:disabled) {
+      background-color: #45a049;
+    }
+
+    button:disabled {
+      baclground-color: #9e9e9e;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 600px) {
+      .form-progress, form {
+        max-width: 90%;
+        margin: 20px auto;
+      }
+    }
+  JS
+    const form = document.getElementById('progressForm');
+    const steps = form.querySelectorAll('.form-step');
+    const progressBar = form.querySelectorAll('.progress-bar');
+    const currentStepSpan = document.getElementById('currentStep');
+    const totalStepSpan = document.getElementById('totalSteps');
+    const percentageSpan = document.getElementById('percentage');
+
+    const totalSteps = steps.length;
+    let currentStep = 0;
+
+    totalStepsSpan.textContent = totalSteps;
+
+    function updateProgress() {
+      const percent = Math.round(((currentStep + 1) / totalSteps) * 100);
+      progressBar.style.width = percent + '%';
+      currentStepSpan.textContent = currentStep + 1;
+      percentageSpan.textContent = percent + '%';
+
+      // Update ARIA attribute
+      form.querySelector('.progress-container').set
+      attribute('aria-valuenow', percent);
+    }
+
+    function showStep(index) {
+      steps.forEach((step, i) => {
+        step.classList.toggle('active', i === index);
+      });
+      updateProgress();
+    }
+
+    form.querySelectorAll('.next-btn').forEach( btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep < totalSteps - 1 ) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    form.querySelectorAll('.prev-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep > 0 ) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Form submitted! Thanks!');
+    });
+
+    showStep(currentStep);
+  `
+  document.getElementById('clear-section-context').textContent = progressFormClearSectionContext;
+    </script>
+  </pre>
+            <p>
+              These are just a few best practices to keep in mind when designing progress indication on forms, registration, and setup processes. Study a few examples on big websites and see how they implement progress indication. Then test your design with real users to see how well it works.
+            </p>
+          </section>
+          <section>
+            <h2>
+              What are best practices for designing shopping carts?
+            </h2>
+            <h3>
+              Lesson
+            </h3>
+            <p>
+              There are thousands of e-commerce websites on the internet, and the shopping cart is a crucial part of the e-commerce experience. A good design can make the shopping cart experience more enjoyable and increase sales. A poor design can lead to abandoned carts and lost sales.
+            </p>
+            <p>
+              In this lesson, we will discuss some best practices for designing shopping carts. The first design consideration is making sure the shopping cart is visible to users at all times. Most shopping cart designs will have the cart displayed in the upper right hand corner of the page. Users should see the number of items in their cart displayed next to the cart icon, and be able to click on the cart to see more details about the items they are purchasing.
+            </p>
+  <pre id="practice-designing-shopping-cart" class="code-box">
+    <script>
+  const practiceDesignShoppingCart = `
+  HTML
+      <link rel="stylesheet" href="styles.css">
+
+      <div class="shopping-cart">
+        <button od="cart-btn" aria-label="Shopping cart">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg"
+            width:"24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-shopping-cart"
+            viewBox="0 0 24 24"
+            ariia-hidden="true"
+            focusable="false"
+          >
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a7 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span id="item-count">2</span>
+        </button>
+      </div>
+  CSS
+      .shopping-cart {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-family: sans-serif;
+      }
+
+      #cart-btn {
+        background: none;
+        border: none;
+        cursor: default;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        color: #333;
+        font-size: 24px;
+      }
+
+      #item-count {
+        background: red;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 13px;
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        min-width: 18px;
+        height: 18px;
+        line-height: 14px;
+        text-align: center;
+        font-weight: 700;
+        user-select: none;
+        box-sizing: border-box;
+      }
+
+      #cart-details {
+        background: white;
+        border: 1px solid #ccc;
+        max-height: 300px;
+        overflow-y: auto;
+        box-shadow: 0 4px 8px rgaba(0,0,0,0.1);
+        margin-top: 10px;
+        padding: 10px;
+        position: relative;
+        z-index: 1000;
+      }
+
+      #cart-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #cart-items li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+      }`
+      document.getElementById('practice-designing-shopping-cart').textContent = practiceDesignShoppingCart;
+    </script>
+  </pre>
+            <p>
+              Another consideration is providing a clear way for users to update the quantity of items in their cart. This can be done by providing a quantity input field next to each item in the cart. Users can easily update the quantity of an item by changing the number in the input field.
+            </p>
+            <p>
+              You should also provide a "Remove" button next to each item in the cart. This allows users to easily remove items from their cart. You don't want to make it difficult for users to remove items from their cart, as this can lead to frustration and abandoned carts.
+            </p>
+  <pre id="remove-btn-add" class="code-box">
+    <script>
+  const removeBtnAdd = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="shopping-cart">
+      <h2>Your Cart</h2>
+      <ul class="cart-items">
+        <li class="cart-item">
+          <span class="item-name">T-Shirt</span>
+          <input type="number" min="1" value="2" class="quantity-input" aria-label="Quantity for T-Shirt" />
+          <button class="remove-btn">Remove</button>
+        </li>
+        <li class="cart-item">
+          <span class="item-name">Hat</span>
+          <input type="numbner" min="1" value="1" class="quantity-input" aria-label="Quantity for Hat" />
+          <button class="remove-btn">Remove</button>
+        </li>
+      </ul>
+    </div>
+
+  CSS
+    .shopping-cart {
+      
+    }
+  `
+    </script>
+  </pre>
           </section>
         </article>
     </main>
