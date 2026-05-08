@@ -3944,8 +3944,422 @@ document.getElementById('modal-close-btn').textContent = modalCloseBtn;
 
   CSS
     .shopping-cart {
-      
+      max-width: 400;
+      margin: 20px auto;
+      font-family: sans-serif;
+      border: 1px solid #ccc;
+      padding: 15px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
     }
+
+    .shopping-cart h2 {
+      margin-top: 0;
+      font-weight: 600;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    .cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item-name {
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .quantity-input {
+      width: 50px;
+      padding: 4px 6px;
+      font-size: 1rem;
+      margin: 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .remove-btn {
+      background: #e74c3c;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .remove-btn:hover,
+    .remove-btn: focus {
+      background: #c0392b;
+      outline: none;
+    }`
+    document.getElementById('remove-btn-add').textContent = removeBtnAdd;
+    </script>
+  </pre>
+            <p>
+              Anoteher consideration is the shopping cart icon itself. The icon should be something easily recognizable for all users. A common icon is a shopping cart with a handle and wheels. Other icons might be a shopping bag or a basket. But you don't want to choose an icon that is too abstract or difficult to understand.
+            </p>
+            <p>
+              When the user wants to review the total in their cart, they should be able to easily find the total cost of all items in the cart. This should be displayed prominently on the page, so users don't have to search for it.
+            </p>
+  <pre id="shopping-cart-icon" class="code-box">
+    <script>
+      const shoppingCartIcon = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="shopping-cart">
+      <button id="cart-btn" aria label="Shopping cart">
+       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        fill="none"
+        stroke="currentColor" 
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-shopping-cart"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+      <span id="item-count">3</span>
+    </button>
+    <div id="cart-details">
+      <ul id="cart-items">
+        <li>T-Shirt x2 - $40.00</li>
+        <li>Hat x1 - $15.00</li>
+      </ul>
+      <div id="cart-total">
+        Total: <strong>$55.00</strong>
+      </div>
+    </div>
+  </div>
+CSS
+  .shopping-cart {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-familly: sans-serif;
+    widt: 280px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+  }
+
+  #cart-count {
+    background: none;
+    border: none;
+    cursor: default;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    color: #333;
+    font-size: 28px;
+  }
+
+  #item-count {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 14px;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    line-height: 14px;
+    text-align: center;
+    font-weight: 700;
+    user-select: none;
+    box-sizing: border-box;
+  }
+
+  #cart-details {
+    margin-top: 10px;
+  }
+
+  #cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+  }
+
+  #cart-items li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  #cart-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: right;
+    color: #111;
+  } `
+   document.getElementById('shopping-cart-icon').textContent = shoppingCartIcon;
+    </script>
+  </pre>
+            <p>
+              Finally, you should provide a clear call-to-action button for users to proceed to checkout. This button should be prominently displayed on the page, so users don't have to search for it.
+            </p>
+            <p>
+              You don't want to have too many buttons on the page, as this can lead to confusion. The call-to-action button should be the most prominent button on the page, so users know exactly what to do next. You should use the brand's primary color for the button, so it stands out from the rest of the page.
+            </p>
+  <pre id="primary-color-for-btn" class="code-box">
+    <script>
+      const primaryColorForBtn = `
+  HTML
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="shopping-cart">
+      <button id="cart-btn" aria-label="Shopping cart">
+        <svg 
+          xmlns="https://www.w3.org/2000/svg"
+          widtH="28"
+          height="28"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-shopping-cart"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span id="item-count">3</span>
+      </button>
+      <div id="cart-details">
+        <ul id="cart-details">
+          <ul id="cart-item">
+            <li>T-Shirt x2 - $40.00</li>
+            <li>Hat x1 - $15.00</li>
+          </ul>
+          <div id="cart-total">
+            Total: <strong>$55.00</strong>
+          </div>
+        <button id="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  CSS
+    :root {
+      --primary-color: #007bff;
+    }     
+
+    .shopping-cart {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-family: sans-serif;
+      width: 280px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+
+    #cart-btn {
+      background: none;
+      border: none;
+      cursor: default;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      color: #333;
+      font-size: 28px;
+    }
+
+    #item-count {
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 7px;
+      font-size: 14px;
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      min-width: 18px;
+      height: 18px;
+      line-height: 14px;
+      text-align: center;
+      font-weight: 700;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    #cart-details {
+      margin-top: 10px;
+    }
+
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+      font-size: 1rem;
+    }
+
+    #cart-items li {
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    #cart-total {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: right;
+      color: #111;
+      margin-bottom: 15px;
+    }
+
+    #checkout-btn {
+      width: 100%;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #checkout-btn:hover,
+    #checkout-btn:focus {
+      background-color: #0056b3;
+      outline: none;
+    }`
+    document.getElementById('primary-color-for-btn').textContent = primaryColorForBtn;
+    </script>
+  </pre>
+            <p>
+              These are just a few best practices for designing shopping carts. By following these guidelines, you can create a shopping cart that is easy to use and will help increase sales for your e-commerce website.
+            </p>
+          </section>
+          <section>
+            <h2>What is progressive disclosure</h2>
+            <h3>Lesson</h3>
+            <p>
+              A progressive disclosure is a design pattern used to only show users relevant content based on their current activity and hide the rest. This is done to reduce cognitive load and make the user experience more intuitive.
+            </p>
+<pre id="progressive-disclosure" class="code-box">
+  <script>
+    const progressiveDisclosure = `
+  HTML
+  <link rel="stylesheet" href="styles.css">
+
+  <div class="progressive-disclosure">
+    <button id="show-details-btn" aria-expanded="false" aria-controls="extra-content">
+      Show More Details
+    </button>
+    <div id="extra-content" class="hidden" tabindex="1">
+      <p>
+        Here are additional details that ate revealed only when you want to see them. THis keeps the interface clean and reduce cognitive load.
+      </p>
+    </div>
+  </div>
+  <script src="index.js"></script>
+  
+  CSS
+    .progressive-disclosure {
+      font-family: sans-serif;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+      
+    #show-details-btn {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    #show-details-btn:hover,
+    #show-details-btn:focus {
+      background-color: #0056b3;
+      outline: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #extra-content {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f7f9fcff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+  JS
+    const btn = document.getElementById('show-details-btn');
+    const content = document.getElementById('extra-content');
+    
+    btn.addEventListener('click', () => {
+      const isHidden = content.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', !isHidden);
+      if (!isHidden) {
+        content.focus();
+        }
+    });`
+  document.getElementById('progressive-disclosure').textContent = progressiveDisclosure;
+  </script>
+</pre>
+              <p>
+                For example, when you use Google's search page, most of your searches will be simple. So having a simple user interface with very few options makes sense. But for the few times you will need a more advanced search, Google provides an advanced search option that will reveal more options.
+              </p>
+              <p>
+                You can find Google's advanced search option from the settings menu on the Google homepage. Or you can go to <strong>google.com/advanced_search</strong>.
+              </p>
+              <p>
+                Another example of progressive disclosure would be the "More details" button on products in an e-commerce website. When you visit a site like Amazon, you will see a list of product images in different categories. This allows users to shop with ease and not get overwhelmed by too much information.
+              </p>
+              <p>
+                If the user is interested in a particular product, they can click on the product image to reveal more details about the product. Displaying all of the information right away may be overwhelming for the user. So, by using progressive disclosure, the user can choose to see more information when they are ready.
+              </p>
+  <pre id="progressive-disclosure-choose" class="code-box">
+    <script>
+  const progressiveDisclosureChoose = `
+  HTML
+      <link rel="stylesheet" href="styles.css">
+
+      <div class="product-list">
+        <div class="product" tabibdex="0" aria-label=
   `
     </script>
   </pre>
