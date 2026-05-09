@@ -1,0 +1,51 @@
+          /* Plik styles.css */
+          :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        main {
+            max-width: 900px; /* Ograniczamy szerokość, żeby tekst się nie "rozlał" */
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Hierarchia Fontów */
+        h1 { font-size: 2.5rem; color: var(--primary-color); text-align: center; }
+        h2 { font-size: 1.8rem; margin-top: 30px; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; }
+        h3 { font-size: 1.4rem; color: var(--accent-color); }
+        
+        /* Bloki kodu (te Twoje pre) */
+        .code-box {
+            background: #222;
+            color: #eee;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+        
+        /* Obrazki */
+        img {
+            max-width: 100%; /* To jest KLUCZ do skali! */
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+        }
