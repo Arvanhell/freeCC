@@ -4359,11 +4359,574 @@ CSS
       <link rel="stylesheet" href="styles.css">
 
       <div class="product-list">
-        <div class="product" tabibdex="0" aria-label=
-  `
+        <div class="product" tabindex="0" aria-expanded="false" aria-controls="details-1">
+          <img src="https://placehold.co/150x150"
+            alt="Example Product Image">
+
+          <button class="details-btn" aria-label="Show more details for Product 1">More details</button>
+          <div id="details-1" class="product-details hidden" tabindex="-1">
+            <p><strong>Product 1:</strong> This is a great product with awesome features that you'll love. </p>
+
+            <ul>
+              <li>Feature A</li>
+              <li>Feature B</li>
+              <li>Feature C</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product" tabindex="0" aria-expanded="false" aria-controls="details-2">
+          <img src="https://placehold.co/150x150" alt="Example Product Image" />
+
+          <button class="details-btn" aria-label="Show more details for Product 2">More details</button>
+          <div id="details-2" class="product-details hidden" tabindex="-1">
+            <p><strong>Product 2:</strong>Another fantastic item with lots of benefits for your daily use.</p>
+              <ul>
+                <li>Benefit X</li>
+                <li>Benefit Y</li>
+                <li>Benefit Z</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <script src="index.js"></script>
+
+  CSS
+      .product-list {
+        font-family: sans-serif;
+        display: flex;
+        gap: 20px;
+        max-width: 800px;
+        margin: 20px auto;
+        flex-wrap: wrap;
+      }
+
+      product {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        width: 180px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        position: relative;
+      }
+
+      .product img {
+        width: 100%;
+        border-radius: 6px;
+        cursor: pointer;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .details-btn {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      .details-btn:hover,
+      details-btn:focus {
+        background-color: #0056b3;
+        outline: none;
+      }
+
+      .product-details {
+        margin-top: 10px;
+        background-color: #f7f9fc;
+        borrder: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 8px;
+        font-size: 0.9rem
+      }
+
+      .hidden {
+        display: none;
+      }
+        
+  JS
+    document.querySelectorAll('.details-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const product = button.closest('.product');
+          const details = product.querySelector('.product-details');
+          const isHidden = details.classList.toggle('hidden');
+            product.setAttribute('aria-expanded', !isHidden);
+              if(!isHidden) {
+                details.focus();
+                button.textContent = 'Hide details';
+              } else {
+                button.textContent = 'More details' ;
+              }
+          });
+      });`
+      document.getElementById('progressive-disclosure-choose').textContent = progressiveDisclosureChoose;
     </script>
   </pre>
+            <p>
+              So, what are some best practices for designing with the progressive disclosure technique? The first consideration is to keep all important information visible at all times. Users should not have to struggle to find key information because it is hidden by extra advanced features.
+            </p>
+  <pre id="progressive-disclosure-all-important" class="code-box">
+    <script>
+  const progressiveDisclosureAllImportant = `
+  HTML
+      <link rel="stylesheet" href="styles.css">
+
+      <div class="info-section">
+        <h2>Order Summary</h2>
+        <p><strong>Items in Cart:</strong>3</p>
+        <p><strong>Total Price:</strong>$75.00</p>
+        <div class="advanced-options">
+          <button id="toggle-advanced-btn" aria-expand="false" aria-control="advanced-details">
+            Show Advanced Options
+          </button>
+          <div id="advanced-details" class="hidden" tabindex="-1">
+            <p> Apply coupon codes, gift wrapping, or select shipping preferences here. </p>
+            <form>
+              <label for="coupon">Coupon Code:</label><br />
+              <input type="text" id="coupon" name="coupon"> <br /></br />
+              <label>
+                <input type="checkbox" name="gift-wrap"/> Gift wrap this order
+              </label><br /> <br />
+              <label for="shipping">Shipping method:</label><br />
+              <select id="shipping" name="shipping">
+                <option value="standard">Standard (Free)</option>
+                <option value="express">Express ($10.00)</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script src="index.js"></script>
+
+      CSS
+        .info-section {
+          font-family: sans-serif;
+          max-width: 400px;
+          margin: 30px auto;
+          border: 1px solid #ccc;
+          padding: 20px;
+          border-radius: 8px;
+          background-color: #fff;
+        }
+          
+        h2 {
+          margin-top: 0;
+        }
+
+        .advanced-options {
+          background-color: #007bff;
+          color: white;
+          border: none;
+          padding: 10px 16px;
+          font-size: 1rem;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.25s ease;
+        }
+
+        #toggle-advanced-btn:hover,
+        #toggle-advanced-btn:focus {
+          background-color: #0056b3;
+          outline: none;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        #advanced-details {
+          margin-top: 15px;
+          padding: 15px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          background-color: #f7f9fc;
+        }`
+        document.getElementById('progressive-disclosure-all-important').textContent = progressiveDisclosureAllImportant;
+    </script>
+  </pre>
+              <p>
+                Another consideration is to provide a single access point for users to access additional features or information. This could be a button or link that is always visible on the page. Adding multiple access points can be confusing for users and can lead to a poor user experience.
+              </p>
+  <pre id-="progressive-disclosure-single-access-point" class="code-box">
+    <script>
+  const progressiveDisclosureSingleAccessPoint = `
+  HTML
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js" defer></script>
+
+  <div class="product-preview">
+    <img src="https://placehold.co/150x150" alt="Example product Image" />
+
+    <h3>Sample Product</h3>
+    <p class="price">$49.99</p>
+    <button class="info-toggle" aria-expanded="false" aria-controls="product-info">
+      More Info  
+    </button>
+    <div id="product-info" class="product-info hidden" tabindex="-1">
+      <p>
+        This produst is made from high-quality materials and comes with a 2-year warranty.perfect for everyday use.  
+      </p>
+        <ul>
+          <li>Durable and lightweight</li>
+          <li>Available in multiple colors</li>
+          <li>Free shipping includes</li>
+        </ul>
+    </div>
+  </div>
+
+  CSS
+    body {
+      font-family: sans-serif;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .product-preview {
+      max-width: 300px;
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .product-preview img {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 10px
+    }
+
+    .price {
+      font-weight: bold;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .info-toggle {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .info-toggle:hover,
+    .info-toggle:focus {
+      background-color: #0056b3;
+      outline: none;
+    }
+
+    .product-info {
+      margin-top: 15px;
+      text-align: left;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+  JS
+    const toggleBtn = document.querySelector('.info-toggle');
+    const infoPanel = document.getElementById('product-info');
+
+    toggleBtn.addEventListener('click', () =>{
+      const isHidden = infoPanel.classList.toggle('hidden');
+      toggleBtn.textContent = isHidden ? 'More Info' : 'Hide Info';
+
+      if (!isHidden) {
+        infoPanel.focus();
+      }
+    });`
+    document.getElementById('progressive-disclosure-single-access-point').textContent = progressiveDisclosureSingleAccessPoint;
+    </script>
+  </pre>
+          <p>
+            As you design your applications, think about the overall user experience and how you can use progressive disclosure to make it easier for user to find the information they need. When done correctly it can make a big difference to the overall user experience.
+          </p>
+          </section>
+          <section>
+            <h2>What is Deffered Lazy Registration</h2>
+            <h3>Description</h3>
+            <p>
+              Lazy registration is a UI design pattern that allows users to browse and interact with your application without having to register. A good example of this would be an e-commerce site. Users should be able to browse through the products and add a few items to their cart. Then, if they are interested in purchasing, they will need to register.
+            </p>
+            <p>
+              The reason is that users need to see the value your site offers before they are willing to provide their information and register. When designing your applications, users should be able to see the value and feel like the application is safe to provide their information. Otherwise, they will not be willing to register and you will lose potential customers.
+            </p>
+            <p>
+              You will need to make sure to communicate that the user's sensitive data will be protected and secure. In later modules, we will discuss how to secure your application and protect your user's data.
+            </p>
+            <p>
+              Another good example of lazy registration would be YouTube. YouTube is a video sharing platform with millions of videos on everything from tech, pop culture, and gaming. If you visit YouTube, users can watch as many videos as they like without needing to sign in or register. However, if they want to like, comment, or subscribe to a channel, they will need to register.
+            </p>
+            <p>
+              If the user likes the content they are watching or wants to participate in the conversations, then they will be more willing to register. Lazy registration is a useful design pattern that allows users to see the value of your application before they are willing to provide their information.
+            </p>
+            <p>
+              The next time you are designing an application, consider using lazy registration to increase user engagement and retention.
+            </p>
           </section>
         </article>
+        <article>
+          <h2>Common Design Tools</h2>
+          <section>
+            <h2>What Are Design Briefs and How Do Developers Work with Them?</h2>
+            <h3>Description</h3>
+            <p>
+              When it comes to designing new features or applications, a good first step would be to create a design brief.
+            </p>
+            <p>
+              A design brief is a document that outlines the objectives, goals, and requirements of a project. It is a roadmap that guides the design process and ensures that the final product meets the needs of the client.
+            </p>
+            <p>
+              Usually the client will write the design brief and it will serve as a working draft. Sometimes, the designer might write one and consult with the client to make sure it meets their needs.
+            </p>
+            <p>
+              There are a few key elements that should be included in a design brief.
+            </p>
+            <p>
+              The first element is the overview of the project and business. This overview should include the company's details, mission, values, unique selling points, and products or services.
+            </p>
+            <p>
+              The next key element should be to document the goals and objectives for the project. This should include the purpose of the project, and the desired outcomes.
+            </p>
+            <p>
+              Examples of goals include increasing traffic to a site or increasing the number of monthly page visits by X percent.
+            </p>
+            <p>
+              Examples of goals include increasing traffic to a site or increasing the number of monthly page visits by X percent.Another key element would be the target audience. The design brief should include information about the target demographics, interests, and needs of the audience.
+            </p>
+            <p>
+              You should also include information about the competition and how the project will differentiate itself from the competition.
+            </p>
+            <p>
+              Another key element would be the project scope. This should include the deliverables, timeline, and budget. The deliverables should include a list of all the items that will be produced as part of the project, such as mockups, and final designs.
+            </p>
+            <p>
+              Without clearly defining project scope, things can get out of hand and go over budget. So, it's best to be as detailed as possible about what is expected to be delivered and by when.
+            </p>
+            <p>
+              One of the challenging aspects about project design is the timescale and budget. It is important to be realistic about what can be achieved within the given timeframe and budget. So, having a design brief that outlines these constraints is important.
+            </p>
+            <p>
+              Once all of these details have been discussed and documented, the design brief should be reviewed and approved by all stakeholders before the project begins. At that point, that is when the designers can get started with their work.
+            </p>
+            <p>
+              So, what is the developer's role in all of this? The developer's role is to take the designs, understand the project requirements, and turn them into a working product.
+            </p>
+            <p>
+              This involves writing code, testing, and debugging the application to ensure that it meets the requirements outlined in the design brief.
+            </p>
+            <p>
+              Oftentimes, developers will work in teams where the work is split up between multiple developers.
+            </p>
+            <p>
+              There will also usually be a project manager who will be responsible for coordinating the work and making sure that the project stays on track.
+            </p>
+            <p>
+              So, while you might not be involved in the design and initial decision making process as a developer, it is still important to understand the design brief and how it will impact your work.
+            </p>
+          </section>
+          <section>
+            <h2>Whatt Are Some Common Tools Developers Should Know ABout That Are Used by Desugners in the Industry?</h2>
+            <h3>Description</h3>
+            <p>
+              Design is the foundation of every enterprise-level web application. That's why designers and developers work closely to create user-focused interfaces that are visually appealing and functional.
+            </p>
+            <p>
+              Because of this, developers should be familiar with common design tools to make the most of what designers offer. Most of these design tools excel in vector-based design and prototyping.
+            </p>
+            <p>
+              Vector-based design involves creating digital art using mathematical formulas to define lines, shapes, and colors. Prototyping, on the other hand, refers to the process of creating an interactive model of a product or user interface.
+            </p>
+            <p>
+              Let's talk about some common design tools developers should know about.
+            </p>
+            <p>
+              Figma is one of the most common and essential design tools that developers should know. This cloud-based tool specializes in User Interface and User Experience (UI/UX) design. It enables design and development teams to collaborate from anywhere, offering built-in features such as:
+            </p>
+            <ul>
+              <li>Vector-based design</li>
+              <li>Automatic layout</li>
+              <li>Commenting and feedback system</li>
+              <li>Version history</li>
+              <li>Real-time collaboration</li>
+              <li>Design systems, and more</li>
+            </ul>
+            <br />
+            <p>
+              To get started with Figma, you can use the web-based interface or download the desktop app for your computer. It has a generous free tier, so you can get a lot done without paying for the pro version.
+            </p>
+            <p>
+              Sketch is another essential design tool that developers should be familiar with. Like Figma, it is vector-based and primarily used for UI/UX design.
+            </p>
+            <p>
+              Sketch is popular for its intuitive interface and simplicity, making it ideal for developers who want to quickly create prototypes. It's also widely used by designers for tasks like creating UIs, icons, and web layouts.
+            </p>
+            <p>
+              The main constraints with Sketch are its lack of a cloud-based interface and its availability only on macOS.
+            </p>
+            <p>
+              Adobe XD is another vector-based design and prototyping tool for UI/UX design, known for its seamless integration with other Adobe apps like Photoshop, Illustrator, and After Effects.
+            </p>
+            <p>
+              This integration makes workflows such as interactive prototyping and animations more efficient.
+            </p>
+            <p>
+              Adobe XD is available for both Windows and macOS and includes a cloud-based interface. For the best experience, however, you should use the app directly.
+            </p>
+            <p>
+              Another design tool worth mentioning is Canva. You can use Canva to create a wide range of visual content, including posters, cover photos, presentations, short videos, and more. Its user-friendly and simple design makes it ideal for beginners.
+            </p>
+            <p>
+              Additionally, Canva offers a rich library of templates, images, and design elements that make it easy to create professional-looking designs.
+            </p>
+            <p>
+              Beyond these features, Canva supports web interface design and allows for collaboration with teammates. The platform is available on the web, desktop, Android, and iOS app.
+            </p>
+            <p>
+              Other popular design tools developers should know are Framer, InVision, Adobe Photoshop, Adobe Illustrator, and Miro.
+            </p>
+          </section>
+          <section>
+            <h2>DESIGN FUNDAMENTALS REVIEW</h2>
+            <h3>Design Terminology</h3>
+            <ul>
+              <li>
+                <strong>Layout</strong>: this is how visual elements are arranged on a page or screen to communicate a message. These elements may include text, images, and white space.
+              </li>
+              <li>
+                <strong>Alignment</strong>: This is how the elements are placed in relation to one another. Using alignment correctly is helpful for making the design look clean and organized.
+              </li>
+              <li>
+                <strong>Composition</strong>: This is the act of arranging elements to creature a harmonius design. It determines how elements like images, text, and shapes relate to each other and contribute to the design in an artistic way.
+              </li>
+              <li>
+                <strong>Balance</strong>: This is how visual weight is distribubted within a composition. Designers ai to create an equilibrum through symmetrical or asymmetrical arrangements.
+              </li>
+              <li>
+                <strong>Scale</strong>: This refers to comparing the dimensions or size of one element to that of another.
+              </li>
+              <li>
+                <strong>Hierarchy</strong>: This establishes the order of importance of the elements in a design. It's abut making sure that the most important information is noticed first.
+              </li>
+              <li>
+                <strong>Contrast</strong>: This is the process of creating clear distinctions between the elements. You can do this through variation in color, size, shape, texture, or any other visual characteristic. Strong contrast is also helpfull for improving readibility.
+              </li>
+              <li>
+                <strong>White Space (negative space)</strong>: This is the empty space in a design. It's the area surronding the elements.
+              </li>
+              <li>
+                <strong>UI(User Interface)</strong>: UI includes the visual and interactive elements that users cn see on their screens, like icons, images, text, menus, links, and buttons.
+              </li>
+              <li>
+                <strong>UX(User Experience)</strong>: UX is about how users feel when using a product or service. An application with a well-designed user experience is intuitive, easy to use, efficietn, accessible, and enjoyable.
+              </li>
+              <li>
+                <strong>Design Brief</strong>: This is a document that outlines the objectives, goals, and requirements of a project. It is a roadmap that guides the design process and ensures that the final product meets the needs the client.
+              </li>
+              <li>
+                <strong>Vector Based Design</strong>: This involves creating digital art using mathematical formulas to define lines, shapes, and colors.
+              </li>
+              <li>
+                <strong>Prototyping</strong>
+              </li>: This refers to the process of creating an interactive model of a product or user interface.
+            </ul>
+            <h3>UI Design Fundamentals</h3>
+            <ul>
+              <li>
+                <strong>Good Contrast for background and Foreground Colors</strong>: It is important to ensure that the background color have good contrast to make the text readable. The Web Content Accessibility Guidelines(WCAG) recommend a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text.
+              </li>
+              <li>
+                <strong>Good Visual Hierarchy in Design</strong>: A strong visual hierarchy can provide a clear path for the eye to follow, ensuring that the information you convey is consumed in the order that you intend.
+              </li>
+              <li>
+                <strong>Responsive Images</strong>: Responsive images are images that scale to fit the size of the screen they are being viewed on. This is important because it ensures that your images look good on all devices, from desktops to mobile phones.
+              </li>
+              <li>
+                <strong>Progressive Enhancment</strong>: This is a design approach that ensures all users, regardless of browser of device, can access the essential content and functionality of an application.
+              </li>
+              <li>
+                <strong>User-Centered Design</strong>: This is an apporach that prioritizes the end user, from their needs to their preferences and limitations. The goal of user-centered design is to craft a web page that s intuitive, efficient to use, and pleasing for your users to interact with.
+              </li>
+              <li>
+                <strong>User Research</strong>: This is the systematic study of the people who use your product. The goal is to measure user needs, behaviours,a nd pain points.
+              </li>
+              <li>
+                <strong>Exit Interviews</strong>: This is a survey you can give to users when they cancel their accounts. It can halp you understand why users are leaving and what you can do to reduce churn.
+              </li>
+              <li>
+                <strong>User Testing</strong>: This refers to the practice of capturing data from users as they interface with your applicaton.
+              </li>
+              <li>
+                <strong>A/B Testing</strong>: This is the process of shipping a new feature to a randomly selected subset of your user base. You can then leverage analyctic data to determine if the feature is beneficial.
+              </li>
+              <li>
+                <strong>User Requirements</strong>: This refers to the stories or rubric that your application needs to follow. Userr requirements might be defined by user research or industry standards. They can even be defined by stakeholder input.
+              </li>
+              <li>
+                <strong>Progressive Disclosure</strong>: This is a design pattern used to only show users relevant content based on their current activity and hide the rest. This is done to reduce cognitive load and make the user experience more intuitive.
+              </li>
+              <li>
+                <strong>Deferred/Lazy Registration</strong>: This is UI design pattern that allows users to browse and interact with your application without having to register.
+              </li>
+            </ul>
+            <h3>Design Best Practices</h3>
+            <ul>
+              <li>
+                <strong>Dark Mode</strong>: This is a special feature on web applications where you can change the default light color scheme to a dark color scheme. You should use desaturated colors in dark mofe. Desaturated colors are colors that are less intense and have a lower saturation level.
+              </li>
+              <li>
+                <strong>Breadcrumbs</strong>: This is a navigation aid that shows the user where they are in the site's hierarchy. It is best to place breadcrumbs at the top od the page so users can easily find it. Also, you want to make sure the breadcrumbs are large enough to be easily read, but not so large that they take up too much space on the page.
+              </li>
+              <li>
+                <strong>Card Component</strong>: Your card components should be simple in design, not visually cluttered or display too much information. For media, make sure to choose high-quality images and videos to enhance the user experience.
+              </li>
+              <li>
+                <strong>Infinite Scroll</strong>: This is a design pattern that loads more content as the user scrolls down the page. You should consider using a load more button because it gives a user control over when they want to see more content. You can also add a back button so users have the ability to go back to the previous page without having to scroll all the way back up.
+              </li>
+              <li>
+                <strong>Modal Dialog</strong>: This is type of pop-up that will display on top of existing page content. Usually the background content will have dim color overlay in order to help the user better focus on the modal content. Also, it is always a good idea to allow the usert to click outside of the modal to close it. When you use the HTML ,<strong>dialog</strong> element, you will get a lot of the functiality and accessibility beneffits built in.
+              </li>
+              <li>
+                <strong>Progress Indication for Form Registration</strong>: This is a way to show users how far they are in a process. It can be used in forms, registration, and setup processes. Your design should be simple, easy to find, and make it possible to go back to previous steps.
+              </li>
+              <li>
+                <strong>Shopping Cart</strong>: Carts are a place for user to see what items they have already selected on an e-commerce platform. Your carts should always be visible to the user, use a common icon like a cart, bag or basket, and have a clear call-to-action button for users to proceed to checkout.
+              </li>
+            </ul>
+            <h3>Common Design Tools</h3>
+            <ul>
+              <li>
+                <strong>Figma</strong>: This cloud-based tool specializes in User Interface and User Experience (UI/UX) design. It enables design and development teams to collaborate from anywhere, offering built-in features including Vector-based design, automatic layout, a commenting and feedback system and more.
+              </li>
+              <li>
+                <strong>Sketch</strong>: This is a popular design tool used for its intuitive interface and simplicity, making it ideal for developers who want to quickly create prototypes. It's also widely used by designers for tasks like creating UIs, icons, and web layouts.
+              </li>
+              <li>
+                <strong>ADobe XD</strong>: This is a vector-based design and prototyping tool for UI/UX design, known for its seamless integration with other Adobe apps like Photoshop, Illustrator, and After Effect.
+              </li>
+              <li>
+                <strong>Canva</strong>: This tool allows you to create a wide range of visual content, including posters, cover photos, presenntations, short videos, and more. Its user-friendly and simple design makes it ideal for beginners.
+              </li>
+            </ul>
+          </section>
+        </article>
+        
     </main>
 </html>
