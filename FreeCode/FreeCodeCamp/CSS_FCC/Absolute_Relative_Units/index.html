@@ -6,5 +6,627 @@
         <title>Absolute and Relative Units</title>
         <link rel="stylesheet" href="styles.css">
     </head>
+    <main>
+        <h1>Working with Relative and Absolute Units</h1>
+        <p>
+            In these lectures, you will learn about relative and absolute units, and how they both impact what you see in the browser.
+        </p>
+        <article>
+            <section>
+                <h2>What Are Absolute Units in CSS, and When Should You Use Them?</h2>
+            <h3>LESSON</h3>
+            <p>
+                As you design your pages, you will work wiht different properties like width, heights, padding, margins, and more. When you define these properties, you will need to specify the length units of measurement you want to use.
+            </p>
+            <p>
+                There are two types of units you can use to define these properties: relative units and absolute units. In this lesson, we will just focus on absolute units.
+            </p>
+            <p>
+                Absolute length units are of fixed lengts and are not relative to anything else. Relative means that the length is relative to something else, like the size of the screen or the size of the parent element. We will talk more about relative units in the next few lessons.
+            </p>
+            <p>
+                The most common absolute unit is the pixel (<strong>px</strong>). Pixels are a fixed-size unit of measurement in CSS, providing precise control over dimensions. This means that 1px is always equal to 1/96th of an inch.
+            </p>
+            <p>
+                It is important to note that while 1px is standardized as 1/96 of an inch for the purposes of CSS layout, the actual physical size of a pixel may differ depending on the display.
+            </p>
+            <p>
+                Let's take a look at an example of using pixels to set the width and height for a box:
+            </p>
+<pre  class="code-box">
+    <code id="example-using-pix-set">
+    <script>
+    const exampleUsingPixSet = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="box"></div>
+    CSS
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }`
+        document.getElementById('example-using-pix-set').textContent = exampleUsingPixSet;
+    </script>
+    </code>
+</pre>
+            <p>
+                In this example, we have a red box with a width and height set to <strong>100px</strong>. The dimension for this box will stay the same regardless of changes pertaining to the screen size.
+            </p>
+            <p>
+                So, when should you use absolute units like pixels? Well, it depends on the situation. But generally you will use pixels where you can precise control over element dimensions, spacing, and layout. Sometimes you might use pixels for margins, padding, and borders.
+            </p>
+            <p>
+                Here is an example of using pixels to set the margin for two boxes:
+            </p>
+<pre  class="code-box">
+    <code id="using-pixels-set-margins">
+    <script>
+    const usingPixelsSetMargins = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="box"><div>
+        <div class="box"></div>
+
+    CSS
+      box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 10px;
+      }`
+      document.getElementById('using-pixels-set-margins').textContent = usingPixelsSetMargins;
+    </script>
+    </code>
+</pre>
+            <p>
+                Remember that margin is the space outside of the box. So, in this example, the box will have a margin of <strong>10px</strong> on all sides.
+            </p>
+            <p>
+                Other types of absolute units include the following:
+            </p>
+            <ul>
+                <li>
+                    The <strong>in</strong>(inches) unit, which is equal to 96px
+                </li>
+                <li>
+                    The <strong>cm</strong>(centimeters) unit, which is equal to 25.2/64 of an inch
+                </li>
+                <li>
+                    The <strong>mm</strong>(milimeters) unit, which is equal to 1/10th of a centimeter
+                </li>
+                <p>
+                    The <strong>q</strong>(quarter-millimeters) unit, which is equal to 1/140th of a centimeter
+                </p>
+                <p>
+                    The <strong>pc</strong>(picas) unit, which is equal to 1/6th of an inch
+                </p>
+                <p>
+                    The <strong>pt</strong>(points) unit, which is equal to 1/72th of an inch
+                </p>
+                <p>
+                    Most ot these units will be used for print and not for screeens.
+                </p>
+                <p>
+                    While the most common unit you will use is pixels, it is important to know that the other absolute units exist.
+                </p>
+            </ul>
+            </section>
+            <section>
+                <h2>What Are Percentages in CSS  and When Should You Use Them?</h2>
+                <h3>LESSON</h3>
+                <p>
+                    Percentages in CSS are relative units that allow you to define sizes, dimensions, and other properties as a proportion of their parent element. When you use a percentage value, you're essentialy saying,"Make this X% of this container".
+                </p>
+                <p>
+                    For example, if you set <strong>width: 50%</strong> on an element, it will occupy half the width of its parent container. This makes percentages incredibly useful for creating responsive designs that adapt to different screen sizes.
+                </p>
+<pre  class="code-box">
+    <code id="percentage-relative-units">
+    <script>
+    const percentageRelativeUnits = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="container">
+            <div class="box"></div>
+        </div>
+    CSS
+        .container {
+            width: 400px;
+            height: 200px;
+            background-color: lightray;
+        }
+
+        .box {
+            width: 50%;
+            height: 100%;
+            background-color: red;
+        }`
+        document.getElementById('percentage-relative-units').textContent = percentageRelativeUnits;
+    </script>
+    </code>
+</pre>
+                <p>
+                    Percentage are ideal for creating fluid layouts that adjust to various screen sizes. For instance, setting a container to <strong>width: 80%</strong> ensures it takes up 80%. of its parent's width, regardless of the device.
+                </p>
+<pre  class="code-box">
+    <code id="percentage-of-child-fluid">
+    <script>
+    const percentageOfChildFluid = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="parent">
+            <div class="child"></div
+        </div>
+    CSS
+        .parent {
+            width: 100%;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .child {
+            width: 80%;
+            height: 100%;
+            background-color: red;
+        }`
+        document.getElementById('percentage-of-child-fluid').textContent = percentageOfChildFluid;
+    </script>
+    </code>
+</pre>
+                <p>
+                    Using percentages for flexible images is another common practice. By applying<strong>max-width: 100%</strong> to images, you allow them to scale down on smaller screens while maintaining their aspect ratio.
+                </p>
+<pre  class="code-box">
+    <code id="applying-max-width-practice">
+    <script>
+    const applyingMaxWidthPractice = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <img src="https://placehold.co/150x150" alt="Example Product Image" />
+    CSS
+        img {
+            max-width: 100%;
+            height: auto;
+        }`
+        document.getElementById('applying-max-width-pracctice').textContent = applyingMaxWidthPractice;
+    </script>
+    </code>
+</pre>
+                <p>
+                    While less common, percentages can also be used for font sizes to create scalable typography. For example, <strong>font-size: 120%</strong> would make the text 20% larger than its parent's font size.
+                </p>
+<pre  class="code-box">
+    <code id="font-size-scalable-typography">
+    <script>
+    const fontSizeScalableTypography = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="text-container">
+            Parent text.
+            <p class="text">This is some example text.</p>
+        </div>
+    CSS
+        .text-container {
+            font-size: 16px;
+        }
+
+        .text  {
+            font-size: 120%;
+        }`
+        document.getElementById('font-size-scalable-typography').textContent = fontSizeScalableTypography;
+    </script>
+    </code>
+</pre>
+                <p>
+                    Percentages can be particularly handy for vertical centering. Here's an example of how you might use percentages with the <strong>transform</strong> property to center an element vertically.
+                </p>
+                <p>
+                    This example positions the element 50% from the top of its container, then uses <strong>transform</strong> to move it back up by half its own height, effectively centering it vertically.
+                </p>
+<pre  class="code-box">
+    <code id="transform-property-to-center">
+    <script>
+    const transformPropertyToCenter = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="centered"></div>
+    CSS
+        .centered {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }`
+        document.getElementById('transform-property-to-center').textContent = transformPropertyToCenter;
+    </script>
+    </code>
+</pre>
+                <p>
+                    You will learn more about how absolute positioning and the transform properties work in more detail in future lessons.
+                </p>
+                <p>
+                    Remember, percentages are always relative to something. For horizontal properties like <strong>width</strong>, they're relative to the parent's width. For vertical properties like <strong>height</strong>, they're usually relative to the parent's height (if specified).
+                </p>
+                <p>
+                    However, be cautious when nesting elements with percentage-based dimensions, as this can lead to unexpected results. Also, keep in mind that percentage-based heights can be tricky if the parent doesn't have a defined height.
+                </p>
+                <p>
+                    In summary, percentages in CSS are powerful tools for creating flexible, responsive designs. Use them when you want elements to scale proportionally to their containers or when you need layouts that adapt seamlessly to different screen sizes.
+                </p>
+            </section>
+            <section>
+                <h2>What Are ems and rems in CSS, and When Should You Use Them?</h2>
+                <h3>LESSON</h3>
+                <p>
+                    In the previous lesson, we learned about absolute length units like pixels. While absolute units can be helpful in certain situations, there will be times when you want to use relative units.
+                </p>
+                <p>
+                    In this lesson, we will learn about two relative units:<strong>em</strong>s and <strong>rem</strong>s.
+                </p>
+                <p>
+                    <strong>em</strong> units are relative to the font size of the element. If you are using ems for the <strong>font-size</strong> property, the size of the text will be relative to the front size of the parent element.
+                </p>
+                <p>
+                    To better understand how this works, let's take a look at an example:
+                </p>
+<pre  class="code-box">
+    <code id="ems-rems-in-css-usage">
+    <script>
+    const emsRemsInCssUsage =  `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <p class="para">I am a paragraph element</p>
+
+        <div class="blue-box"></div>
+
+    CSS
+        .para {
+            font-size: 20px;
+            margin-bottom: 1.5rem;
+            border: 2px solid red;
+        }
+
+        .blue-box {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            with: 100px;
+            height: 100px;
+        }`
+        document.getElementById('ems-rems-in-css-usage').textContent = emsRemsInCssUsage;
+    </script>
+    </code>
+</pre>
+                <p>
+                    For the HTML, we have a paragraph and a <strong>div</strong> element. The paragraphs element has a class of <strong>para</strong>, and the <strong>div</strong> element has a class of <strong>blue-box</strong>.
+                </p>
+                <p>
+                    For the <strong>para</strong> class, we set the <strong>font-size</strong> to <strong>20px</strong> and the <strong>margin-bottom</strong> to <strong>1.5rem</strong>. This means that the margin will be 1.5 times the font size of the paragraph element. <strong>1.5em</strong> results in 30 pixels of margin at the bottom of the paragraph. We have also set a <strong>border</strong> of <strong>2px solid red</strong> so you can see the margins better.
+                </p>
+                <p>
+                    For the <strong>blue-box</strong> class, we set the background color to <strong>blue</strong>, the text color to <strong>white</strong>, and the <strong>padding</strong> to <strong>10px</strong> on all four sides.
+                </p>
+                <p>
+                    From the example, there'll be a clear space between the bottom of the paragraph element and the blue box.
+                </p>
+                <p>
+                    So what happens if we remove the <strong>font-size</strong> propertyj from the <strong>para</strong> class?
+                </p>
+                <p>
+                    Well, the bottom margin will be relative to the font size of the parent element. In this case, the parent element is the body element, which has a default front size of <strong>16px</strong>.
+                </p>
+                <p>
+                    Good use cases for <strong>em</strong>s would be when you are working with modular components like buttons or cards. By. using <strong>em</strong> units, you can ensure that all aspects of the components (such as padding, margin, and borders) scale proportionally with the font size, keeping consistent proportions.
+                </p>
+                <p>
+                    So, up until this point, we have been setting the font size for an element using pixels. But that does present some challenges for users.
+                </p>
+                <p>
+                    Inside your browser settings, you can control the default font size.
+                </p>
+                <p>
+                    For those with visual impairments, they may increase the font size to make it easier to read. But if you are setting pixels for the font sizes in your web designs, the text will not scale proportionally with the rest of the content.
+                </p>
+                <p>
+                    One way to address this issue is to use <strong>rem</strong> units for typography. A <strong>rem</strong> unit is relative to the font size of the root element, which is the <strong>html</strong> element.
+                </p>
+                <p>
+                    By default, the font size of the <strong>html</strong> element is <strong>16px</strong>. If the user increases the font size in their browser settings, the font size of the <strong>html</strong> element will increase, and all rem units will scale proportionally.
+                </p>
+                <p>
+                    Here is an example of using <strong>rem</strong> units for the font size instead of pixels.
+                </p>
+<pre  class="code-box">
+    <code id="example-rem-using">
+    <script>
+    const exampleRemUsing = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <p>This is regular text.</p>
+        <p class="para">This text is slightly larger.</p>
     
+    CSS
+        .para {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid red;
+        }`
+    document.getElementById('example-rem-using').textContent = exampleRemUsing;
+    </script>
+    </code>
+</pre>  
+                <p>
+                    By setting the font size to <strong>1.2rem</strong>, the font size of the paragraph element will be 1.2 times the font size of the root element. If the user hasn't changed the default font size, the font size of the paragraph element will be <strong>19.2px</strong> because it is 1.2 times <strong>16px</strong>.
+                </p>
+                <p>
+                    So when should you use <strong>rem</strong> units? <strong>rem</strong> units are preferred over pixels for typography because they scale proportionally with the user's browser settings. This makes your content more accessible to users with visual impairments.
+                </p>
+                <p>
+                    <strong>rem</strong> units can also help maintain consistent spacing and layout across different elements.
+                </p>
+            </section>
+            <section>
+                <h2>What Are vh and vw Units, and When Should You Use Them?</h2>
+                <h3>LESSON</h3>
+                <p>
+                    In CSS,<strong>vh</strong> and <strong>vw</strong> are viewport-relative units that allow you to size elements based on the dimensions of the browser window. These units are particulary ueful for creating responsive design that adapt to different screen sizes.
+                </p>
+                <p>
+                    <strong>vh</strong> stands for "viewport height", and <strong>1vh</strong> is equal to 1% of the viewport width.
+                </p>
+                <p>
+                    Similarly, <strong>vw</strong> stands for "viewport width", and <strong>1vw</strong> is equal to 1% of the viewport width.
+                </p>
+                <p>
+                    This means that if you set an element's height to <strong>100vh</strong>, it will occupy the full height of the viewport, regardless of the actual pixel dimensions of the device.
+                </p>
+                <p>
+                    These units are especially handy when you want to create full-screen layouts or elements that maintain a specific proportion of the screen.
+                </p>
+                <p>
+                    For example, you might want to use them to create a hero section that always fills the entire screen (to interact with the example, you will need to enable the interactive editor).
+                </p>
+<pre  class="code-box">
+    <code id="hero-section-full-height">
+    <script>
+    const heroSectionFullHeight = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+
+        <section class="hero">
+            <h1>100vh / 100vw Example</h1>
+            <p>This section fills the entire browser window.</p>
+        </section>
+
+    CSS
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            border: 5px dashed #333;
+        }
+
+        .hero {
+            height: 100vh;
+            width: 100vw;
+            background-color: #add8e6;
+            padding: 2em;
+        }
+
+        .hero h1 {
+            font-size: 2em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1em;
+        }`
+        document.getElementById('hero-section-full-height').textContent = heroSectionFullHeight;
+    </script>
+    </code>
+</pre>
+                <p>
+                    This CSS ensures that the hero section will always be exactly the size of the viewport, regardless of the device's screen size.
+                </p>
+                <p>
+                    <strong>vh</strong> and <strong>vw</strong> units can also be used for typography to create responsive text sizes.
+                </p>
+<pre  class="code-box">
+    <code id="responsive-text-sizes">
+    <script>
+    const responsiveTextSizes = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <h1>Responsive Heading</h1>
+        <p>The h1 heading scales with the viewport width.</p>
+
+    CSS
+        h1 {
+            font-size: 5vw;
+        }`
+        document.getElementById('responsive-text-sizes').textContent = responsiveTextSizes;
+    </script>    
+    </code>
+</pre>
+                <p>
+                    This will set the font size of <strong>h1</strong> elements to 5% of the viewport width, allowing the text to scale smoothly with the browser window size.
+                </p>
+                <p>
+                    One of the advantages of vh and vw units is that they respond to changes in the viewport size in real-time. This means that if a user resizes their browser window, elements sized with these units will adjust accordingly without needing to reload the page. However, it's important to use these units judiciously. Setting font sizes solely with vw units, for example, can lead to text becoming too small on narrow screens or too large on wide screens.
+                </p>
+                <p>
+                    Another consideration is that on mobile devices, the viewport height can change when the browser's address bar appears or disappears, which can cause unexpected layout shifts if you're using <strong>vh</strong> units extensively.
+                </p>
+                <p>
+                    In summary, <strong>vh</strong> and <strong>vw</strong> units are powerful tools for creating responsive layouts and elements that adapt to the viewport size. They're particularly useful for full-screen sections, maintaining aspect ratios, and creating smoothly scaling designs. However, they should be used thoughtfully and often in combination with other CSS techniques to ensure the best user experience across all devices.
+                </p>
+            </section>
+            <section>
+                <h2>What is the Function, and How Does it Work?</h2>
+            </section>
+            <section>
+            <h3>LESSON</h3>
+            <p>
+                With the <strong>calc()</strong> function, you can perform calculations directly within your stylesheets to determine property values dynamically. This means that you can create flexible and responsive user interfaces by calculating dimensions based on the viewport size or other elements.
+            </p>
+            <p>
+                <strong>calc()</strong> is a CSS function. You'll learn more about functions when you start learning about JavaScript, but in this lesson, you're going to learn the basics that you need to know to understand how <strong>calc()</strong> works.
+            </p>
+            <p>
+                A function is a block of code that performs a specific task. Some functions are already defined in CSS, so you can use them directly and pass any necessary values to them to customize how their tasks will be performed.
+            </p>
+            <p>
+                In the world of programming, when we run the task performed by a function, we say that we "call" the function. The values that we pass into the function are known as arguments.
+            </p>
+            <p>
+                Like you can see in the code below, to call a function, you write its name followed by the arguments within parentheses, separated by commas. There shouldn't be a space between the name of the function and the opening parenthesis:
+            </p>
+            <code>
+                function(argument, argument, argument3)
+            </code>
+            <p>
+                A function may only need one value to know what to do. In that case, it will only take one argument. That's what happens with the <strong>calc()</strong> function. It takes one argument because it needs to know what to calculate.
+            </p>
+            <p>
+                For this, you pass something called an expression as an argument. An expression is a combination of values and operators that produces a result.
+            </p>
+            <p>
+                This is how you can call the <strong>calc()</strong> function. You write the name calc, followed by parentheses, and within the parentheses, you write the expression:
+            </p>
+            <code>
+                calc(expression)
+            </code>
+            <p>
+                The expression is evaluated to calculate the final result. "Evaluated" just means that the values and operators are converted into a single value behind the scenes. The result is assigned to the CSS property where the calculation is being made.
+            </p>
+            <p>
+                You can perform calculations on values that represent length, angle, time, percentages, numbers, and colors. You can also combine different units like pixels, percentages, and ems.
+            </p>
+            <p>
+                With numbers, all the values in the expression, also called the operands, must have their corresponding units, like <strong>px</strong>, <strong>em</strong>, and percentage <strong>(%)</strong>. Depending on the operator, different operands may have different units.
+            </p>
+            <p>
+                You can use the addition (<b>+</b>), subtraction (<b>-</b>), multiplication (<b>*</b>), and division (<b>/</b>) operators in the expression.
+            </p>
+            <p>
+                there are multiple operands and operators, <strong>calc()</strong> will follow the standard operator precedence rule. You can also add parentheses to establish the order of the operations if needed.
+            </p>
+            <p>
+                In there example below, you can see a <strong>div</strong> with the text <strong>Hello, World!</strong>.
+            </p>
+            <p>
+                Using the CSS type selector for selecting the <strong>div</strong>, you can style it with white text and a dark blue background:
+            </p>
+<pre  class="code-box">
+    <code id="test-file-hellow-world">
+    <script>
+    const testFileHellowWorld = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div>Hello, World!</div>
+
+    CSS
+        div {
+            color: white;
+            background-color: #1b1b32;
+            width: calc(50% - 20px);
+        }`
+        document.getElementById('test-file-hellow-world').textContent = testFileHellowWorld;
+    </script>
+    </code>
+</pre>
+            <p>
+                What's new here is that the width is calculated dynamically. Notice how we are calling the <strong>calc()</strong> function and passing an expression as an argument. The expression has two operands with different units and one operator, the subtraction operator.
+            </p>
+            <p>
+                Percentage is a relative unit. The value <strong>(50%)</strong> will be determined by the width of the parent container. Then, <strong>20px</strong> is subtracted from the value. The result of this expression will determine the width of the <strong>div</strong>.
+            </p>
+            <p>
+                The width of the <strong>div</strong> is approximately half the total width of its container, and if you resize the parent container, the width will be recalculated automatically.
+            </p>
+            <p>
+                That's the key advantage of using <strong>calc()</strong>. You can determine the value of a CSS property dynamically based on different aspects of the application or viewport.
+            </p>
+            <p>
+                The expression can also contain CSS functions and variables if you need to use them in your calculations. You'll learn more about CSS variables in the next lessons.
+            </p>
+            <p>
+                Great. Now that you know about the basics of the <strong>calc()</strong> function, let's cover some of its best practices.
+            </p>
+            <p>
+                First, you must surround the addition (<b>+</b>) and substraction (<b>-</b>) operators with whitespace.
+            </p>
+            <p>
+                For example, the expression below would not be a valid expression because the subtraction operator is immediately before the second operand.
+            </p>
+            <pre>
+            <code>
+                calc(100% -30px)
+            </code>
+            </pre>
+            <p>
+                the substraction (<b>-</b>) operator must be surrounded by whitespace, like this. Adding the whitespace will create a valid expression.
+            </p>
+            <pre>
+            <code>
+                calc(100% - 30%)
+            </code>
+            </pre>
+            <p>
+                This is not necessary for the multiplication and division operators but it's highly recommended.
+            </p>
+            <p>
+                You can also nestt <strong>calc()</strong> function calls if you need to perform calculations and use those results in other calculations.
+            </p>
+            <p>
+                Also, if you use the value zero to represent lengt in the expression that you pass into the <strong>calc()</strong> function, you must include the units. For example, this expression would not be valid:
+            </p>
+            <pre>
+            <code>
+                calc(100% - 0)
+            </code>
+        </pre>
+            <p>
+                You would need to add the units, like px.
+            </p>
+            <pre>
+            <code>
+                calc(100% - 0%)
+            </code>
+            </pre>
+            <p>
+                You should also know that currently, if you use the multiplication or division operators, one of the operands has to be unitless. For the division operator, specifically the right operand has to be unitless. This would not be a valid expression because both operands have units (pixels). One of the operands, either 5 or 50, must be unitless:
+            </p>
+            <pre>
+            <code>
+                calc(5px * 50px)
+            </code>
+            </pre>
+
+            <p>
+                You would need to omit the units in one of them. Both of these alternatives would be valid.
+            </p>
+            <pre>
+            <code>
+                calc(5 * 50px)
+                calc(5px * 50)
+            </code>
+            </pre>
+            <p>
+                And this is an example with the division operator. This would not be valid expression since they both have units:
+            </p>
+            <pre>
+            <code>
+                calc(50% / 5)
+            </code>
+            </pre>
+            <p>
+                The <strong>calc()</strong> function can be very helpful for you as a web developer. With this function, you can set property values dynamically to create flexible and responsive design.
+            </p>
+        </section>
+        </article>
+
+    </main>
 </html>

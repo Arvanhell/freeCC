@@ -30,16 +30,28 @@
         h3 { font-size: 1.4rem; color: var(--accent-color); }
         
         /* Bloki kodu (te Twoje pre) */
-        .code-box {
-            background: #222;
-            color: #eee;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            margin: 20px 0;
-        }
+       /* Opakowanie - definiuje ramę i suwak */
+.code-box {
+    background: #1e1e1e;       /* Nieco głębsza czerń */
+    padding: 0;                /* Resetujemy padding tutaj... */
+    border-radius: 8px;        /* Mocniejsze zaokrąglenie */
+    margin: 25px 0;
+    overflow: hidden;          /* Żeby code nie wystawał poza zaokrąglenia */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-left: 4px solid #3498db; /* Twój nowy znak rozpoznawczy */
+}
+
+/* Zawartość - tu dzieje się magia wizualna */
+.code-box code {
+    display: block;
+    padding: 20px;             /* ...i dodajemy go tutaj */
+    color: #ce9178;            /* Ciepły kolor kodu, łagodniejszy dla oka */
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;          /* Oddech między liniami */
+    overflow-x: auto;          /* Suwak tylko dla tekstu kodu */
+}
+
         
         /* Obrazki */
         img {
