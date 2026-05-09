@@ -1,0 +1,19 @@
+
+
+body {
+    padding: 50px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw; /* Możesz wpisać inną liczbę, np. 90vw, byle była jednostka vw */
+    min-height: calc(100vh - 100px);
+}
+
+hr {
+    width: 2%;
+}
+
+section {
+   width: 100%;
+}
