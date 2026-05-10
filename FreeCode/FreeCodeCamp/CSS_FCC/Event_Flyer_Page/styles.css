@@ -11,9 +11,15 @@ body {
 }
 
 hr {
-    width: 2%;
+    width: 10%;
 }
 
 section {
    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
