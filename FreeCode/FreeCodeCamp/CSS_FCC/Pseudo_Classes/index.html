@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Pseudo-Classes and ELements in CSS</title> 
+       <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <main>
+            <h1>Working with Pseudo-Classes and Pseudo-Elements</h1>
+            <p>
+                In these lectures, you will learn about pseudo-classes and pseudo-elements, alongside their examples and how they work.
+            </p>
+            <article>
+                <section>
+                <h2>What Are Pseudo-classes, and how do they work?</h2>
+                <h3>
+                    LESSON
+                </h3>
+                <p>
+                    Pseudo-classes are special CSS keywords that allow you to select an element based on its specific state or position. The element's state or position could include:
+                </p>
+                <ul>
+                    <li>When it's active.</li>
+                    <li>When it's beibg hovered over by a mouse.</li>
+                    <li>When it's the first child of a parent.</li>
+                    <li>When it's the last child of parent.</li>
+                    <li>When a link has been visited.</li>
+                    <li>When it's disabled.</li>
+                </ul>
+                <p>
+                    To use a pseudo-class, you add it to the selector by using a colon (<strong>:</strong> )followed by the name of the pseudo-class:
+                </p>
+                <pre class="code-box">
+                    <code>
+            selector:pseudo-class {
+            /* CSS properties */
+            }
+                    </code>
+                </pre>
+                <p>
+                    Let's see how you can use a pseudo-class to represent each of the states and positions we already mentioned.
+                </p>
+                <p>
+                   The <strong>:active</strong> pseudo-class lets you select the active state of an element, like clicking on a button:
+                </p>
+<pre class="code-box">
+    <code id="active-pseudo-class">
+        <script>
+        const activePseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <button>Example Button</button>
+    
+    CSS
+        button:active {
+            background: greenyellow;
+        }`
+        document.getElementById('active-pseudo-class').textContent = activePseudoClass;
+        </script>
+    </code>
+</pre>
+                    <p>
+                        The<strong>:hover</strong> pseudo-class defines the hover state of an element. An example would be hovering over a button or link.:
+                    </p>
+<pre class="code-box">
+    <code id="hover-pseudo-class">                  
+        <script>
+            const hoverPseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <a href="#">Hover over me</a>                     
+                        
+        CSS
+            a:hover {
+                text-decoration: none;
+                color: white;
+                background: crimson;
+            }`
+     document.getElementById('hover-pseudo-class').textContent = hoverPseudoClass;
+                            </script>
+                        </code>
+                    </pre>
+                    <p>
+                        The <strong>:first-child</strong> pseudo-class selects an element that is the first child of its parent element. Here's an example of targeting the first paragraph element in a div container:
+                    </p>
+<pre class="code-box">
+    <code id="first-child-pseudo-class">
+        <script>
+    const firstChildPseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="container">
+            <p>first child</p>
+            <p>second child</p>
+            <p>third child</p>
+            <p>fourth child</p>
+        </div>
+
+    CSS
+        .container p:first-child {
+            background: lightcoral;
+            padding: 0.4rem;
+        }`
+        document.getElementById('first-child-pseudo-class').textContent = firstChildPseudoClass;
+        </script>
+    </code>
+</pre>
+                    <p>
+                        The first paragraph element in that <strong>div</strong> will receive the <strong>lightcoral</strong> background color and <strong>padding</strong> of <strong>0.4rem</strong> on all four sides.
+                    </p>
+                    <p>
+                        The <strong>:last-child</strong> pseudo-class targets the last element that is the child of its parent. Here is an example of targeting the last paragraph element in the container <strong>div</strong> element:
+                    </p>
+    <pre class="code-box">
+        <code id="last-child-class">
+            <script>
+                const lastChildClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="container">
+            <p>first child</p>
+            <p>second child</p>
+            <p>last child</p>
+        </div>
+    
+    CSS
+        .container p:last-child {
+            background: lightcoral;
+            padding: 0.4rem;
+        }`
+        document.getElementById('last-child-class').textContent = lastChildClass;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        The<strong>:visited</strong> pseudo-class lets you style a link the user has already visited:
+                    </p>
+    <pre class="code-box">
+    <code id="visited-pseudo-class">                  
+        <script>
+            const visitedPseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <a href="https://www.example.com" target="_blank">Visit Example.com</a>                     
+                        
+        CSS
+            a:visited {    
+                color: purple;
+            } `  
+     document.getElementById('visited-pseudo-class').textContent = visitedPseudoClass;
+                            </script>
+                        </code>
+                    </pre>
+                    <p>
+                        The <strong>:disabled</strong> pseudo-class lets you style an interactive element in disabled mode:
+                    </p>
+<pre class="code-box">
+    <code id="disabled-pseudo-class">
+        <script>
+    const disabledPseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <button disabled>Disabled Button</button>
+
+    CSS
+        button:disabled {
+            background-color: lightgray;
+        }`
+        document.getElementById('disabled-pseudo-class').textContent = disabledPseudoClass;
+        </script>
+    </code>
+</pre>
+                    <p>
+                        As you can see, pseudo-classes let you style elements based on user interactions, like hovering or visiting a link. This makes your website feel more interactive.
+                    </p>
+                    <p>
+                        Apart from the pseudo-classes already mentioned, there are others like:
+                    </p>
+                    <ul>
+                        <li><strong>:focus</strong></li>
+                        <li><strong>:first-of-type</strong></li>
+                        <li><strong>:last-of-type</strong></li>
+                        <li><strong>:nth-of-type</strong></li>
+                        <li><strong>:modal</strong></li>
+                        <li><strong>:enabled</strong></li>
+                        <li><strong>:checked</strong></li>
+                        <li><strong>:required</strong></li>, and more
+                    </ul>
+                </section>
+                <section>
+                    <h2>
+                        What are examples of element user action Pseudo-classes?
+                    </h2>
+                    <h3>LESSON</h3>
+                    <p>
+                        User feedback is a crucial element of web design. For instance, it's important for users to receive visual cues when they interact with elements on a website, such as hovering over a button or clicking a link. This feedback helps users understand the state of interactive elements, like indicating whether a link has been visited or not.
+                    </p>
+                    <p>
+                        User action pseudo-classes in CSS are special keywords that allow you to provide this kind of feedback without needing JavaScript or other programming languages.
+                    </p>
+                    <p>
+                        These pseudo-classes include <strong>:hover, :active, :focus,:visited,</strong> among others. They enable you to change the appearance of elements based on user interactions, improving the overall user experience.
+                    </p>
+                    <p>
+                        Let's dive into some of the user action pseudo-classes we have and see how they work.
+                    </p>
+                    <p>
+                        The <strong>:active</strong> pseudo-class applies styles when an element is activated by the user. For example, when the user clicks a button or a link, it provides immediate visual feedback, showing users that their actions are being recognized.
+                    </p>
+                    <pre class="code-box">
+                        <code id="active-again">
+            <script>
+                const activeAgain = `
+                            <a href="#">LINK EXAMPLE</a>
+
+                CSS
+                    a:active {
+                    color: crimson;
+                }`
+                document.getElementById('active-again').textContent = activeAgain;
+                </script>
+                        </code>
+                    </pre>
+                    <p>
+                        The <strong>:hover</strong> pseudo-class is triggered when a user hovers over an element with their mouse or other pointing device. Developers often use it to create visual feedback for buttons, links, or any element that should respond to user attention. Here's a button a user would hover over before clicking:
+                    </p>
+                    <p>
+                        The <strong>:focus</strong> pseudo-class applies styles when an element gains focus, typically through keyboard navigation or when a user clicks into a form input. This is not just for feedback but also crucial for accessibility. It ensures that users who rely heavily on keyboards can easily identify which element they are interacting with.
+                    </p>
+                    <p>
+                        The <strong>:visited</strong> pseudo-class targets a link the user has visited. This can be useful for helping users distinguish between pages they have already visited and the ones they are yet to visit. Here is an example of changing the anchor text color to cyan when the link is visited:
+                    </p>
+                    <p>
+                        The <strong>:checked</strong> pseudo-class in CSS allows you to style form elements such as checkboxes and radio buttons when they are selected (checked). This pseudo-class is useful for customizing the appearance of these elements to enhance user experience, even though browsers provide default styles for them.
+                    </p>
+                    <p>
+                        Other examples of action pseudo-classes are:
+                    </p>
+                    <ul>
+                        <li><strong>focus-within:</strong> for applying styles to an element when it or any of its descendants have focus.</li>
+                        <li><strong>:enabled</strong> for targeting form buttons or other elements that are curently enabled.</li>
+                        <li><strong>:disabled</strong> for targeting form buttons or other elements that are disabled.</li>
+                        <li><strong>:target</strong>: for applying styles to an element that is the target of a URL fragment (the part of a URL after the #symbol)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>What Are Examples of input pseudo-classes?</h2>
+                    <h3>LESSON</h3>
+                    <p>
+                        The appearance and behavior of input elements matter when building web forms. A form with inputs that respond to user actions goes a long way in improving user experience, and it should not cause confusion or frustration.
+                    </p>
+                    <p>
+                        CSS provides several input pseudo-classes that can make your forms more intuitive and user-friendly. Let's look at these pseudo-classes in detail.
+                    </p>
+                    <p>
+                        The <strong>:focus</strong> pseudo-class allows you to target an input element when a user selects or clicks on it, drawing attention to the active input field. This helps users easily identify where they're currently typing:
+                    </p>
+                    <p>
+                        As the name implies, the <strong>:hover</strong> pseudo-class is triggered when the user places the cursor over an element. It provides visual feedback before the user interacts with the input, effectively alerting them that the input is ready for action.
+                    </p>
+                    <p>
+                        The <strong>:checked</strong> pseudo-class lets you style a radio button or checkbox differently when a user selects it. This way, the user can easily see which option they've chosen.
+                    </p>
+                    <p>
+                        <strong>:required</strong> targets input elements that have the required attribute. It signals to the user that they must fill out the field to submit the form.
+                    </p>
+                    <p>
+                        When validating forms, you can use the <strong>:valid</strong> pseudo-class to style the input fields that meet the validation criteria, and <strong>:invalid</strong> to style the input fields that do not meet the criteria. Typically, you will use green for a valid input and red for an invalid input.
+                    </p>
+                    <p>
+                        The <strong>:disabled</strong> pseudo-class allows you to select and style input elements that are disabled. These elements have the disabled attribute, which prevents users from interacting with them. When an input is disabled, it cannot be clicked, focused, or edited.
+                    </p>
+                    <p>
+                        The <strong>cursor: not-allowed</strong>; CSS property value changes the appearance of the cursor to indicate that an action is not permitted.
+                    </p>
+                    <p>
+                        When applied to an element, it shows a cursor with a circle-slash symbol (usually a circle with a diagonal line through it) to signal to users that the element is not interactive or cannot be clicked or interacted with.
+                    </p>
+                    <p>
+                        Here are some other examples of input pseudo-classes and what they do:
+                    </p>
+                    <ul>
+                        <li><strong>:autofill</strong>: applies styles to input fields that the browser automatically fills with saved data.</li>
+                        <li><strong>:optional</strong>: styles input elements tha are not requires and can be left empty.</li>
+                        <li><strong>:in-range</strong> and <strong>:out-of-range</strong>: style elements based on whether their values are within or outside specified range constraints.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>what Are Examples of location pseudo-classes?</h2>
+                    <h3>LESSON</h3>
+                    <p>
+                        Location pseudo-classes are used for styling links and elements that are targeted within the current document. They offer a way to apply styles based on whether a link is visited or whether an element is currently in focus.
+                    </p>
+                    <p>
+                        Examples of location pseudo-classes are:
+                    </p>
+                    <ul>
+                        <li><strong>:link</strong></li>
+                        <li><strong>:visited</strong></li>
+                        <li><strong>:any-link</strong></li>
+                        <li><strong>:local-link</strong></li>
+                        <li><strong>:target</strong></li>
+                    </ul>
+                    <p>
+                        Let's take a deeper look at each of these pseudo-classes.
+                    </p>
+                    <p>
+                        The <strong>:link</strong> pseudo-class allows you to target all unvisited links on a webpage. You can use it to style links differently before the user clicks on them. For example, you might want to make all unvisited links blue or your website's primary color:
+                    </p>
+                   <pre class="code-box">
+                    <code>
+                        a:link {
+                            color: magenta;
+                        }
+                    </code>
+                   </pre>
+                   <p>
+                    In this case, any link the user hasn't clicked yet will appear magenta. Once the user clicks the link, the <strong>:link</strong> style no longer applies, and the <strong>:visited</strong> pseudo-class takes over. The <strong>:visited</strong> pseudo-class comes into play after the user clicks the link, so you can use it to target links the user has already clicked.
+                   </p>
+                   <p>
+                    Here is an example of changing the visited link state to the color <strong>purple</strong>
+                   </p>
+                <pre>
+                    <code>
+            a:visited {
+                color: purple;
+            }
+                   </code>
+                </pre>
+                <p>
+                    The <strong>:visited</strong> pseudo-class helps users distinguish between links they have visited and those they have not.
+                </p>
+                <p>
+                    The <strong>:any-link</strong> pseudo-class is a combination of the <strong>:link</strong> and <strong>:visited</strong> pseudo-classes. So it matches any anchor element with an <strong>href</strong> attribute, regardless of whether it's visited or not.
+                </p>
+                <p>
+                    Here is an example of changing the link color for the <strong>:any-link</strong> pseudo-class to <strong>crimson</strong>
+                </p>
+                <pre class="code-box">
+                    <code>
+            a:any-link {
+                color: crimson;
+            }
+                    </code>
+                </pre>
+                <p>
+                    The <strong>:local-link</strong> pseudo-class targets links that point to the same document. It can be useful when you want to differentiate internal links from external ones. Currently, no browser supports the <strong>:local-link</strong> pseudo-class.
+                </p>
+                <p>
+                    The <strong>:target</strong> pseudo-class selects an element that matches the current URL fragment identifier, for example, <strong>#section1</strong>. It's very useful for pages with in-page navigation.
+                </p>
+                <p>
+                    Here's an HTML example that represents an in-page navigation. The CSS uses the <strong>:target </strong> to style the section that matches where the user navigates to:
+                </p>
+    <pre class="code-box">
+        <code id="target-pseudo-classes-action">
+            <script>
+    const targetPseudoClassesAction = `
+    HTML
+    <link rel="stylesheet" href="styles.css">
+    <nav id="table-of-contents">
+        <ul>
+            <li><a href="#section1">Introduction</a></li>
+            <li><a href="#section2">Features</a></li>
+        </ul>
+
+        <section id="section1">
+            <h2>Introduction</h2>
+            <p>This is the introduction section.</p>
+        </section>
+
+        <section id="section2">
+            <h2>Features</h2>
+            <p>This is describes the features.</p>
+        </section>
+    
+    CSS
+        section:target {
+            background-color: green;
+            border: 2px solid green;
+            padding: 10px;
+        }`
+        document.getElementById('target-pseudo-classes-action').textContent = targetPseudoClassesAction;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        When the user clicks on one of the navigation links, the background color for that respective section will change to green.
+                    </p>
+                </section>
+            </article>
+        </main>
+    </body>
+</html>
