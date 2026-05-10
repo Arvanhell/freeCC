@@ -627,6 +627,219 @@
             </p>
         </section>
         </article>
+        <article>
+            <h2>CSS Relative and Absolute Units Review</h2>
+            <p>
+            Open your mind to review concept like percentages, px, rem, em, and more
+            </p>
+            <section>
+                <h2>CSS RELATIVE AND ABSOLUTE UNITS REVIEW</h2>
+                <h3>LESSON</h3>
+                <p>
+                    Absolute Units
+                </p>
+                <ul>
+                    <li>
+                        <strong>px (Pixels)</strong>: This absolute unit is a fixed-size unit of measurement in CSS. It is the most common absolute unit and provides precise control over dimensions. <strong>1px</strong> is always equal to 1/96th of an inch.
+                    </li>
+                    <li>
+                        <strong>in (inch)</strong>: This absolute unit is equal to 96px.
+                    </li>
+                    <li>
+                        <strong>cm (Centimeters)</strong>: This absolute unit is equal to 25.2/64 of an inch.
+                    </li>
+                    <li>
+                        <strong>mm (Milimmeters)</strong>: This absolute unit is equal to 1/10th of a centimeter.
+                    </li>
+                    <li>
+                        <strong>q (Quarter-Millimeters)</strong>: This absolute unit is equal to 1/40th of a centimeter.
+                    </li>
+                    <li>
+                        <strong>pc (Picas)</strong>: This absolute unit is equal to 1/6th of an inch.
+                    </li>
+                    <li>
+                        <strong>pt (Points)</strong>: This absolute unit is equal to 1/72th of an inch.
+                    </li>
+                </ul>
+                <hr>
+<pre class="code-box">
+    <code id="examples-of-absolute-units">
+        <script>
+            const examplesOfAbsoluteUnits = `
+    HTML
+    <link rel="stylesheet" href="styles.css">
+    <div class="units">
+        <div class="unit px">px</div>
+        <div class="unit inch">in</div>
+        <div class="unit cm">cm</div>
+        <div class="unit mm">mm</div>
+        <div class="unit q">q</div>
+        <div class="unit pc">pc</div>
+        <div class="unit pt">pt</div>
+    </div>
 
+    CSS
+        .units {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .unit {
+            background: stelblue;
+            color: white;
+            text-align: center;
+            padding: 4px;
+        }
+
+        .px {
+            width: 40px;
+            height: 40px;
+        }
+
+        .inch {
+            width: 0.5in;
+            height: 0.5in;
+        }
+
+        .cm {
+            widt: 1cm;
+            height: 1cm;
+        }
+            
+        .mm {
+            width: 10mm;
+            height: 10mm;
+        }
+
+        .q {
+            width: 40q;
+            height: 40q;
+        }
+
+        .pc {
+            width: 6pc;
+            height: 6pc;
+        }
+
+        .pt {
+            width: 36pt;
+            height: 36pt;
+        }`
+        document.getElementById('examples-of-absolute-units').textContent = examplesOfAbsoluteUnits;
+        </script>
+    </code>
+</pre>
+                <p>
+                    <strong>Relative Units</strong>
+                </p>
+                <ul>
+                    <li>
+                        <strong>Percentages Unit</strong>: These relative units allow you to define sizes, dimensions, and other properties as a proportion of their parent element. For example, if you set width: 50%; on an element, it will occupy half the width of its parent container.
+                    </li>
+                    <li>
+                        <strong>em Unit</strong>: These units are relative to the font size of the element. If you are using ems for the font-size property, the size of the text will be relative to the font size of the parent element.
+                    </li>
+                    <li>
+                        <strong>rem Unit</strong>  : These units are relative to the font size of the root element, which is the html element.
+                    </li>
+                    <li>
+                        <strong>vh Unit </strong>: vh stands for "viewport height" and 1vh is equal to 1% of the viewport's height.
+                    </li>
+                    <li>
+                        <strong>vw Unit</strong>: vw stands for "viewport width" and 1vw is equal to 1% of the viewport's width.
+                    </li>
+                </ul>
+<pre class="code-box">
+    <code id="examples-of-relative-units">
+        <script>
+            const examplesOfRelativeUnits = `
+    HTML
+     <link rel="stylesheet" href="styles.css">
+     <div class ="parent">
+        <div class="box percent">50%</div>
+        <div class="box em">2em</div>
+        <div class="box rem">2rem</div>
+        <div class="box vh">10wh</div>
+        <div class="box vw">10vw</div>
+     </div>
+
+    CSS
+     html {
+        font-size: 16px;
+     }
+
+     .parent {
+        width: 200px;
+        font-size: 20px;
+        border: 2px dashed #555;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+     }
+
+     .box {
+        background: seagreen;
+        color: white;
+        text-align: center;
+        padding: 6px;
+     }
+
+     .percent {
+        width: 50%;
+     }
+
+     .em {
+        font-size: 2em;
+     }
+
+     .rem {
+        font-size: 2rem;
+     }
+
+     .vh {
+        height: 10wh;
+     }
+
+     .vw {
+        width: 10vw;
+     }`
+     document.getElementById('examples-of-relative-units').textContent = examplesOfRelativeUnits;
+        </script>
+    </code>
+</pre>
+                <p>
+                    <strong>calc</strong><em>Function</em>
+                </p>
+                <ul>
+                    <li>
+                        <strong>calc() Function</strong> With the calc() function, you can perform calculations directly within your stylesheets to determine property values dynamically. This means that you can create flexible and responsive user interfaces by calculating dimensions based on the 
+                    </li>
+                </ul>
+    <pre class="code-box">
+        <code id="calc-func">
+            <script>
+                const calcFunc = `
+    HTML
+     <link rel="stylesheet" href="styles.css">
+     <div class="calc-box">calc()</div>
+
+    CSS
+      .calc-box {
+        width: calc(100% - 40px);
+        padding: 10px;
+        background: steelblue;
+        color: white;
+        text-align: center;
+        border: 2px solid black;
+      }`
+      document.getElementById('calc-func').textContent = calcFunc;
+            </script>
+        </code>
+    </pre>
+            </section>
+        </article>
     </main>
 </html>
