@@ -52,6 +52,13 @@
     overflow-x: auto;          /* Suwak tylko dla tekstu kodu */
 }
 
+/* Twój blok kodu dostanie delikatną poświatę, gdy na niego najedziesz */
+.code-box:hover {
+    border-left-color: #f1c40f; /* Zmiana koloru paska na złoty */
+    transform: translateX(5px); /* Delikatne przesunięcie w prawo */
+    transition: all 0.3s ease;  /* Żeby ruch był płynny, a nie szarpany */
+}
+
         
         /* Obrazki */
         img {

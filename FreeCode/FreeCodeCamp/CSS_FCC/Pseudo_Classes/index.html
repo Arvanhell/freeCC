@@ -13,6 +13,7 @@
                 In these lectures, you will learn about pseudo-classes and pseudo-elements, alongside their examples and how they work.
             </p>
             <article>
+                <hr />
                 <section>
                 <h2>What Are Pseudo-classes, and how do they work?</h2>
                 <h3>
@@ -189,6 +190,7 @@
                         <li><strong>:required</strong></li>, and more
                     </ul>
                 </section>
+                <hr />
                 <section>
                     <h2>
                         What are examples of element user action Pseudo-classes?
@@ -245,6 +247,7 @@
                         <li><strong>:target</strong>: for applying styles to an element that is the target of a URL fragment (the part of a URL after the #symbol)</li>
                     </ul>
                 </section>
+                <hr />
                 <section>
                     <h2>What Are Examples of input pseudo-classes?</h2>
                     <h3>LESSON</h3>
@@ -287,11 +290,12 @@
                         <li><strong>:in-range</strong> and <strong>:out-of-range</strong>: style elements based on whether their values are within or outside specified range constraints.</li>
                     </ul>
                 </section>
+                <hr />
                 <section>
-                    <h2>what Are Examples of location pseudo-classes?</h2>
+                    <h2>What Are Examples of location pseudo-classes?</h2>
                     <h3>LESSON</h3>
                     <p>
-                        Location pseudo-classes are used for styling links and elements that are targeted within the current document. They offer a way to apply styles based on whether a link is visited or whether an element is currently in focus.
+                        Location pseudo-classes are *- for styling links and elements that are targeted within the current document. They offer a way to apply styles based on whether a link is visited or whether an element is currently in focus.
                     </p>
                     <p>
                         Examples of location pseudo-classes are:
@@ -390,6 +394,736 @@
                         When the user clicks on one of the navigation links, the background color for that respective section will change to green.
                     </p>
                 </section>
+                <hr />
+                <section>
+                    <h2>What Are Examples of Tree-structural Pseudo-classes?</h2>
+                    <h3>LESSON</h3>
+                    <p>
+                        Tree-structural pseudo-classes allow you to target and style elements based on their position within the document tree. The document tree refers to the hierarchical structure of elements in an HTML document.
+                    </p>
+                    <h4>Here is a list of tree-structural pseudo-classes:</h4>
+                    <ul>
+                        <li><strong>:root</strong></li>
+                        <li><strong>:empty</strong></li>
+                        <li><strong>:nth-last-child(n)</strong></li>
+                        <li><strong>:nth-child(n)</strong></li>
+                        <li><strong>:first-child</strong></li>
+                        <li><strong>:last-child</strong></li>
+                        <li><strong>:only-child</strong></li>
+                        <li><strong>:nth-of-type</strong></li>
+                        <li><strong>:first-of-type</strong></li>
+                        <li><strong>:last-of-type</strong></li>
+                        <li><strong>:only-of-type</strong></li>
+                    </ul>
+                    <p>Let's take a closer look at each of the tree-structural pseudo-classes, accompanied by examples.</p>
+                    <p>
+                        The <strong>:root</strong> pseudo-class is usually the root <strong>html</strong> element. It helps you target the highest level in the document so you can apply a common style to the entire document.
+                    </p>
+    <pre class="code-box">
+        <code id="root-for-entire-document">
+    <script>
+        const rootForEntireDoc = `
+     HTML   
+        <link rel="stylesheet" href="styles.css" />
+        <h1>Welcome to My Website</h1>
+        <p>This is a sample paragraph to demonstrate the :root pseudo-class.</p>
+     CSS
+        :root {
+            background: black;
+            color: aliceblue;
+        }  
+      HTML
+      <p> The :root pseudo-class is also commonly used in setting CSS variables:
+        
+    CSS
+        :root {
+            --main-font: 'Arial', sans-serif;
+            --primary-color: blue;
+            --secondary-color: green;
+        }`
+        document.getElementById('root-for-entire-document').textContent = rootForEntireDoc;
+    </script> 
+        </code>
+    </pre>
+                    <p>
+                        With CSS variables, you get to store values and reuse them in your stylesheet. You will learn more about these later on.
+                    </p>
+                    <p>
+                        Empty elements, that is, elements with no children other than white space, are also included in the document tree. That's why there's an <strong>:empty</strong> pseudo-class to target empty elements. For example, this HTML code has two empty list items. With the <strong>:empty</strong> pseudo-class, you can style the empty list items differently:
+                    </p>
+    <pre class="code-box">
+        <code id="empty-psd-class">
+            <script>
+    const emptyPseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <ul>
+            <li>Item 1</li>
+            <li></li> <!-- This is empty -->
+            <li>Item 2</li>
+            <li></li> <!-- This is also empty -->
+            <li>Item 3</li>
+        </ul>
+    CSS
+        :empty {
+            background: black;
+        }`
+        document.getElementById('empty-psd-class').textContent = emptyPseudoClass;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        The most practical thing to do with the empty list items is probably not displaying them at all:
+                    </p>
+   <pre class="code-box">
+    <code id="not-display-empty">
+        <script>
+    const notDisplayEmpty = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <ul>
+            <li>Item 1</li>
+            <li></li> <!-- Empty -->
+            <li>Item 2</li>
+            <li></li> <!-- Also Emty -->
+            <li>Item 3</li>
+        </ul>
+
+    CSS
+        :empty {
+            display: none;
+        }`
+        document.getElementById('not-display-empty').textContent = notDisplayEmpty;
+        </script>
+    </code>
+   </pre>
+                    <p>
+                        <strong>:nth-child(n)</strong> allows you to select elements based on their position within a parent, while <strong>:nth-last-child(n)</strong> enables you to select elements by counting from the end. The <strong>n</strong> can be a specific number or a keyword like <strong>odd</strong> or <strong>even</strong>. This is incredibly useful in styling table cells based on position: even and odd.
+                    </p>
+                    <p>
+                        Here's an HTML example of a fruit price list table. The CSS is using the <strong>:nth-child</strong> pseudo-class to target the table cells based on odd and even positions: 
+                    </p>
+    <pre class="code-box">
+        <code id="price-fruit-list">
+            <script>
+    const priceListFruit = `
+    HTML
+       <link rel="stylesheet" href="styles.css" />
+       <table>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <th>Apple</th>
+                <th>$1.00</th>
+            </tr>
+            <tr>
+                <th>Banana</th>
+                <th>$0.50</th>
+            </tr>
+            <tr>
+                <th>Orange/th>
+                <th>$0.80</th>
+            </tr>
+        </table>
+
+    CSS
+        th,
+        td {
+            border: 1px solid lightgray;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: orangered;
+        }
+
+        tr:nth-child(odd) {
+            background-color: lightgreen;
+        }`
+        document.getElementById('price-fruit-list').textContent = priceListFruit;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        The <strong>:first-child</strong>, <strong>:last-child</strong>, and <strong>:only-child</strong> pseudo-classes all act on items within a parent container or the entire document.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>:first-child</strong> selects the first element in a parent element or the document.
+                        </li>
+                        <li>
+                            <strong>:last-child</strong> selects the last element in a parent element or the document.
+                        </li>
+                        <li>
+                            <strong>:only-child</strong> selects the only element in a parent element or the document.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Using the <strong>:first-child</strong> and <strong>:last-child</strong> pseudo-classes will select both <strong>Item 1</strong> and <strong>Item 3</strong> in this example:
+                    </p>
+    <pre class="code-box">
+        <code id="f-child-l-child">
+    <script>
+        const fChildLastChild =`
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    
+    CSS
+        li:first-child {
+            background-color: orangered;
+        }
+
+        li:last-child {
+            background-color: lightgreen;
+        }`
+        document.getElementById('f-child-l-child').textContent = fChildLastChild;
+    </script>
+        </code>
+    </pre>
+                    <p>
+                        If you have more unordered lists on the page, you have to be more specific with the selection:
+                    </p>
+                    <p>
+                        To show you how the <strong>:only-child</strong> pseudo-class works, here's an HTML example with two separate <strong>div</strong> elements. Using the <strong>:only-child</strong> pseudo-class ensures only the <strong>div</strong> element with a single child is selected:
+                    </p>
+    <pre class="code-box">
+        <code id="separate-div">
+        <script>
+    const separateDiv = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="container">
+            <div> This is the only item in this container.</div>
+        </div>
+
+        <div class="container">
+            <div> This is one of two items in this container.</div>
+            <div> This is the second item.</div>
+        </div>
+
+    CSS
+        .container div:only-child {
+            border: 2px solid crimson;
+            padding: 10px;
+            background-color: lightblue;
+        }`
+        document.getElementById('separate-div').textContent = separateDiv;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        The <strong>:first-of-type</strong> and <strong>:last-of-type</strong> pseudo-classes select the first and last occurrence of a specific element type within its parent. They are useful for applying unique styles to the first or last instance of that element type among its siblings.
+                    </p>
+                    <p>
+                        In the example below, <strong>:first-of-type</strong> and <strong>:last-of-type</strong> applies to the first element and last element within the <strong>section</strong> element:
+                    </p>
+    <pre class="code-box">
+    <code id="first-of-type-last">
+    <script>
+        const firstOfTypeLast = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+
+        <section>
+            <h2>Introduction</h2>
+            <p>this is the first paragraph in the first section.</p>
+            <p>This is the second paragraph in the first section.</p>
+        </section>
+        <section>
+            <h2>Details</h2>
+            <p>This is the first paragraph in the second section.</p>
+            <p>This is the second paragraph in the second section.</p>
+        </section>
+
+    CSS
+        section p:first-of-type {
+            background-color: lightgreen;
+        }
+
+        section p:last-of-type {
+            background-color: lightblue;
+        }`
+        document.getElementById('first-of-type-last').textContent = firstOfTypeLast;
+    </script>
+    </code>
+    </pre>
+                    <p>
+                        <strong>:nth-of-type(n)</strong> allows you to select a specific element within its parent based on its position among siblings of the same type. For instance, in the HTML below. <strong>:nth-of-type(2)</strong> targets the second element in the container:
+                    </p>
+    <pre class="code-box">
+        <code id="select-specific-element-within-parent">
+        <script>
+        const selectSpecificElement = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+
+        <div class="container">
+            <p>First paragraph</p>
+            <p>Second paragraph</p>
+            <p>Third paragraph</p>
+        </div>
+
+    CSS
+        p:nth-of-type(2) {
+            color: red;
+            font-weight: bold;
+        }`
+        document.getElementById('select-specific-element-within-parent').textContent = selectSpecificElement;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        <strong>:only-of-type</strong> selects an elements if it's the only one of its type within its parent. This can be useful for emphasizing single items or ensuring that they are styled differently when they're not part of a group.
+                    </p>
+                    <p>
+                        In the example below, there are two <strong>div</strong> elements with one having a single element. The CSS only applies to the first container:
+                    </p>
+    <pre class="code-box">
+    <code id="two-div-ele">
+    <script>
+        const twoDivEle = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+
+        <div class="container">
+            <p>The only paragraph</p>
+        </div>
+
+        <div class="container">
+            <p>The first paragraph</p>
+            <p>The second paragraph</p>
+        </div>
+
+    CSS
+        p:only-of-type {
+            border: 4px solid green;
+        }`
+        document.getElementById('two-div-ele').textContent = twoDivEle;
+    </script>
+    </code>
+    </pre>
+    <hr />
+                </section>
+        <section>
+            <h2>What Are examples of Functional Pseudo-classes?</h2>
+            <h3>LESSON</h3>
+            <p>
+                Functional pseudo-classes allow you to select elements based on more complex conditions or relationships. Unlike regular pseudo-classes which target elements based on a state, for example, <strong>:hover</strong>, <strong>:focus</strong>, functional pseudo-classes accept arguments within parentheses, hence the name "functional pseudo-classes".
+            </p>
+            <h4>Examples of functional pseud0-classes are:</h4>
+
+            <ul>
+                <li><strong>:is()</strong></li>
+                <li><strong>:where()</strong></li>
+                <li><strong>:has()</strong></li>
+                <li><strong>:not()</strong></li>
+            </ul>
+            <p>
+                Let's take a deeper look at each of these functional pseudo-classes with examples.
+            </p>
+            <p>
+                The <strong>:is()</strong> pseudo-class is useful when you want to style a group of elements that share some, but not all, characteristics. For example, you might want to style different types of buttons on your website, including <strong>button</strong> elements, links styled as buttons, and <strong>input</strong> elements with types <strong>submit</strong> and <strong>reset</strong>. Here's an example representing that. Without the <strong>:is()</strong> function, you would have to write a complex selector like this:
+            </p>
+    <pre class="code-box">
+    <code id="is-pseudo-class">
+    <script>
+    const isPseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <button> Example Button </button>
+        <a href="#" class="button">Link styled like a button</a>
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+
+    CSS
+        button,
+        a.button,
+        input[type='submit'],
+        input[type='reset'] {
+            background-color: darkblue;
+            color: white;
+            border: 1px solid darkblue;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        button:hover,
+        a.button:hover,
+        input[type='submit']:hover,
+        input[type='reset']:hover {
+            background-color: blue;
+            border-color: blue;
+        }`
+        document.getElementById('is-pseudo-class').textContent = isPseudoClass;
+    </script>
+    </code>
+    </pre>
+    <p>
+        WIth the <strong>:is()</strong> function, you can write a more compact and understandable selector like this:
+    </p>
+    <pre class="code-box">
+    <code id="is-function-compact">
+    <script>
+        const isFunctionCOmpact =  `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <button>Example Button</button>
+        <a href="#" class="button">Link styled like a button</a>
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+
+    CSS
+        :is(button, a.button, input[type='submit'], input[type='reset']) {
+            background-color: darkblue;
+            color: white;
+            border: 1px solid darkblue;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        :is(button, a.button, input[type='submit'], input[type='reset']):hover {
+            background-color: blue;
+            border-color: blue;
+        }`
+        document.getElementById('is-function-compact').textContent = isFunctionCOmpact;
+    </script>
+    </code>
+    </pre>
+        <p>
+            The <strong>where()</strong> pseudo-class functions similarly to <strong>:is()</strong>, but it doesn't increase the specificity of your selectors. This makes it ideal for applying styles without affecting the specificity of other rules.
+        </p>
+        <p>
+            For example, you can use the <strong>:where()</strong> function to apply zero <strong>margin</strong> and <strong>padding</strong> to heading elements. This ensures that the reset won't interfere with more specific styles you might apply later. Here's an example for that:
+        </p>
+        <pre class="code-box">
+            <code id="where-margin-padding">
+            <script>
+        const whereMarginPadding = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <h1>Page Title</h1>
+        <h2>Subtitle</h2>
+        <h3>A point</h3>
+
+        <p>Example paragraph.</p>
+        <p>Example paragraph.</p>
+        <p>Example paragraph.</p>
+
+    CSS
+        :where(h1, h2, h3) {
+                margin: 0;
+                padding: 0;
+        }`
+        document.getElementById('where-margin-padding').textContent = whereMarginPadding;
+            </script>
+            </code>
+        </pre>
+        <p>
+            Styling a parent element based on its children's states was previously challenging until the <strong>:has()</strong> pseudo-class was introduced. It allows you to apply styles to a parent element based on the presence or state of its child elements.
+        </p>
+        <p>
+            For example, the CSS below will only apply to any <strong>article</strong> element that has an <strong>h2</strong> in it:
+        </p>
+    <pre class="code-box">
+    <code id="presence-or-state">
+        <script>
+    const presenceOrState = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <article>
+            <h2>Subheading</h2>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </article>
+        
+        <article>
+            <h3>A point</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </article>
+
+    CSS
+        article:has(h2) {
+            border: 2px solid hotpink;
+        }`
+        document.getElementById('presence-or-state').textContent = presenceOrState;
+        </script>
+    </code>
+    </pre>
+        <p>
+            The <strong>:not()</strong> pseudo-class is ideal for situations where you want to apply styles to a group of elements, excluding one or more specific exceptions. In the CSS below, any button that is not a primary button will have a grey background:
+        </p>
+    <pre class="code-box">
+    <code id="grey-background">
+        <script>
+    const greyBackground = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <button class="primary">Primary Button</button>
+        <button class="secondary">Secondary Button</button>
+        <button class="danger">Another Secondary</button>
+
+    CSS
+        button.primary {
+            background-color: deepskyblue;
+        }
+
+        button:not(.primary) {
+            background-color: grey;
+        }`
+        document.getElementById('grey-background').textContent = greyBackground;
+        </script>
+    </code>
+    </pre>
+        </section>
+        <hr />
+        <section>
+            <h2>What Are Pseudo-elements, and How do they work?</h2>
+            <h3>LESSON</h3>
+            <p>
+                One of the most interesting aspects of CSS is the use of pseudo-elements. In this context, "pseudo" means "not real", so pseudo-elements are virtual or synthetic elements that don't directly match any actual HTML elements. They allow you to style specific parts of an element or insert content without adding extra HTML.
+            </p>
+            <p>
+                apply a pseudo-element, attach it to the original element's selector using a double colon (<strong>::</strong>). Note that the selector can be any type, such as a class or ID selector. Here's what the basic syntax of pseudo-elements looks like:
+            </p>
+    <pre class="code-box">
+        <code id="short-one">
+            <script>
+                const short1 = `
+                selector::pseudo-element {
+                    property: value;
+                }`
+            document.getElementById('short-one').textContent = short1;
+            </script>
+        </code>
+    </pre>
+    <p>
+        This double colon is what distinguishes pseudo-elements from pseudo-classes, which use a single colon.
+    </p>
+    <p>
+        Pseudo-elements allow you to style specific parts of an element's content or insert content before or after it, but they cannot exist independently. The element to which a pseudo-element is attached is called its originating element.
+    </p>
+    <p>
+        Let's start by looking at examples for the <strong>::before</strong> and <strong>::after</strong> pseudo-elements. As their names suggest, <strong>::before</strong> lets you insert content just before the element's content while <strong>::after</strong> lets you insert content after it.
+    </p>
+    <p>
+        Here is an example of a button element. In the CSS, we will use absolute positioning and the <strong>::before</strong> pseudo-element to add a star before the button's <strong>Learn More</strong> text. You will learn more about absolute positioning in future lessons.
+    </p>
+    <pre class="code-box">
+        <code id="learn-more">
+            <script>
+    const learnMore = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <button class="cta-button">Learn More</button>
+
+    CSS
+        .cta-button {
+            background-color: lightseagreen;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cta-button::before {
+            content: 'STAR';
+            position: absolute;
+            left: 3px;
+            top: 8px;
+            font-size: 0.75rem;
+        }`
+        document.getElementById('learn-more').textContent = learnMore;
+            </script>
+        </code>
+    </pre>
+    <p>
+        The <strong>content</strong> property is used to represent the content you wish to add before the button text. In this example, we are adding a star. You'll notice that you can not only insert content but also style it. Here's an example of the <strong>::after</strong> pseudo-element with the same button:
+    </p>
+    <pre class="code-box">
+        <code id="btn-element-before">
+            <script>
+    const btnELementBefore = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <button class="cta-button">Learn More</button>
+
+    CSS
+        .cta-button {
+            background-color: lightseagreen;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cta-button::before {
+            content: "star bless";
+            position: absolute;
+            left: 3px;
+            top: 8px;
+            font-size: 0.75rem;
+        }`
+        document.getElementById('btn-element-before').textContent = btnELementBefore;
+            </script>
+        </code>
+    </pre>
+    <p>
+        The <strong>content</strong> property is used to represent the content you wish to add before the button text. In this example, we are adding a star. You'll notice that you can not only insert content but also style it. Here's an example of the <strong>::after</strong> pseudo-element with the same button:
+    </p>
+    <pre class="code-box">
+        <code id="add-before-button-text">
+    <script>
+        const addBeforeButtonText = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <button class="cta-button">Learn More</button>
+
+    CSS
+        .cta-button {
+            background-color: orange;
+            border: none;
+            padding: 10px 30px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cta-button::after {
+            content: '-';
+            position: absolute;
+            right: 5px;
+            bottom: 6px;
+            font-size: 1.125rem;
+            transition: transform 0.3s ease;
+        }`
+        document.getElementById('add-before-button-text').textContent= addBeforeButtonText;
+    </script>
+         </code>   
+    </pre>
+    <p>
+        In the <strong>::after</strong> pseudo-element, the <strong>transition</strong> property is used to animate changes over 0.3 seconds with an easing effect, creating a smooth and gradual transformation rather than a sudden one. You will learn more about the <strong>transition</strong> property in future lessons.
+    </p>
+    <p>
+        You can also attach a pseudo-class to the content you insert into another content with the <strong>::before</strong> and <strong>::after</strong> pseudo-elements. For example, a hover state for the content. Here's an example:
+    </p>
+    <pre class="code-box">
+        <code id="insert-another-with-before">
+        <script>
+        const insertAnotherWithBefore = `
+     HTML   
+        <link rel="stylesheet" href="styles.css">
+        <button class="cta-buton">Learn More</button>
+
+     CSS
+        .cta-button {
+            background-color: orange;
+            border: none;
+            padding: 10px 30px;
+            cursor: pointer;
+            position: relative;
+        }    
+
+        .cta-button::after {
+            content: '-';
+            position: absolute;
+            right: 5px;
+            bottom: 6px;
+            font-size: 1.125rem;
+            transition transforn 0.3s ease;
+        }
+
+        .cta-button:hover::after {
+            transform: translateX(2px);
+        }`
+        document.getElementById('insert-another-with-before').textContent = insertAnotherWithBefore;
+        </script>
+        </code>
+    </pre>
+            <p>
+                With <strong>transform: translateX(2px)</strong> in the hover state, the content gets pushed to the right by <strong>2px</strong> any time the user hovers on the button. The transition property in the <strong>::after</strong> itself ensures the process takes <strong>0.3s</strong>.
+            </p>
+            <p>
+                That's what the <strong>transform</strong> property does – it allows you to rotate, skew, scale, or translate an element in a particular direction. You will learn more about that in future lessons.
+            </p>
+            <p>
+                In the next example, we will look at the <strong>::first-letter</strong> pseudo-element. The <strong>::first-letter</strong> pseudo-element targets the first letter of an element's content, allowing you to style it. Here's an example of some paragraph text. If we want to style the first letter, we can use the <strong>::first-letter</strong> pseudo-element like this:
+            </p>
+    <pre class="code-box">
+        <code id="first-letter-pseudo">
+        <script>
+    const firstLetterPseudo = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <p>freeCodeCamp lets you learn to code without having to pay.</p>
+
+    CSS
+        p::first-letter {
+            font-size: 4rem;
+        }`
+        document.getElementById('first-letter-pseudo').textContent = firstLetterPseudo;
+        </script>
+            </code>
+        </pre>
+        <p>
+            In the last example, we will look at the <strong>::marker</strong> pseudo-element, which lets you select the marker, bullet or numbering of list items for styling. The <strong>::marker</strong> pseudo-element offers a way to enhance your website's brand identity by customizing list markers to match your color scheme.
+        </p>
+        <p>
+            Here's an example of an unordered list and an ordered list. To change the list item's marker color and size, you can use the <strong>::marker</strong> pseudo-element like this:
+        </p>
+    <pre class="code-box">
+        <code id="marker-pseudo-class">
+            <script>
+        const markerPseudoClass = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <ul>
+            <li>Unordered list item 1</li>
+            <li>Unordered list item 2</li>
+            <li>Unordered list item 3</li>
+        <ul>
+
+        <ol>
+            <li>Ordered list item 1</li>
+            <li>Ordered list item 2</li>
+            <li>Ordered list item 3</li>
+        <ol>
+
+    CSS
+        li::marker {
+            color: crimson;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }`
+        document.getElementById('marker-pseudo-class').textContent = markerPseudoClass;
+            </script>
+        </code>
+    </pre>
+    <p>
+        In this lesson, we have covered only a few pseudo-elements. But there are many more like the <strong>::placeholder</strong>, <strong>::spelling-error</strong> and <strong>::selection</strong> that I encourage you to explore on your own.
+    </p>
+        </section>
+        <hr />
             </article>
         </main>
     </body>
