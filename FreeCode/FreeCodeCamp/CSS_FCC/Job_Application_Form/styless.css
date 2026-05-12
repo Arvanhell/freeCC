@@ -1,0 +1,90 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+}
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Zadanie 1: Focus */
+input:focus, 
+textarea:focus {
+background-color: #ffffff; /* fCC często wymaga tła, by border był widoczny */
+outline: none;
+border-color: #007acc; 
+}
+
+/* Zadanie 2: Invalid */
+input:invalid, 
+select:invalid, 
+textarea:invalid {
+border-color: red; /* czerwony */
+}
+
+/* Zadanie 3: Valid */
+input:valid, 
+select:valid, 
+textarea:valid {
+border-color: green; /* zielony */
+}
+
+button:hover {
+background-color: purple;
+}
+
+.radio-group input[type="radio"]:checked {
+border-color: #007acc;     /* kolor ramki */
+background-color: #007acc; /* kolor wypełnienia */
+box-shadow: 0 0 5px #007acc;
+color: #007acc; /* Upewnij się, że używasz koloru podanego w zadaniu! */
+}
+
+input:checked + label {
+color: #007acc; 
+}
+
+input:first-of-type {
+/* Tu wpisz atrybut, o który prosi fCC, np: */
+margin-top: 20px; 
+border: 2px solid #007acc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
