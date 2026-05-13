@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colored Markers</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styless.css">
   </head>
   <body>
     <h1>CSS Color Markers</h1>
+    <section>
     <div class="container">
       <div class="marker red">
         <div class="cap"></div>
@@ -22,5 +23,216 @@
         <div class="sleeve"></div>
       </div>
     </div>
+    </section>
+    <article>
+        <h1>CSS COLORS REVIEW</h1>
+        <h2>LESSON</h2>
+        <h3>Color Theory</h3>
+        <section>
+            <ul>
+                <li>
+                    <strong>Color Theory Definition</strong>: This is the study of how colors interact with each other and jow they affect our perception. It covers color relationships, color harmony, and the psychological impact of color.
+                </li>
+                <lI>
+                    <strong>Primary Colors</strong>: These colors which are yellow, blue, and red, are the fundamental hues from which all other colors are derived.
+                </lI>
+                <li>
+                    <strong>Secondary Colors</strong>: These colors result from mixing equal amounts of two primary colors. Green, orange, and purple are examples of secondary colors.
+                </li>
+                <li>
+                    <strong>Tertiary Colors</strong>: These colors result from combining a primary color with a neighbouring secondary color. Yellow-Green, Blue-Green, and Blue-Violet are examples of tertiary colors.
+                </li>
+                <li>
+                    <strong>Warm Colors</strong>: These colors which include reds, oranges, and yellows, eveoke feelings of comfort, warmth, and coziness.
+                </li>
+                <li>
+                    <strong>Cool Colors</strong>: These colors which include blues, greeen, and purples, evoke feelings of calmness
+                </li>
+                <li>
+                    <strong>Color Wheel</strong>: The color wheel is a circular diagram that shows how colors relate to each other. It's an essential tool for designiners because it helps them to select color combinations.
+                </li>
+                <li>
+                    <strong>Analogous Color Schemes</strong>: These color schemes create cohesivve and soothing experiences. They have analogous colors, which are adjacent to each other in the color wheel.
+                </li>
+                <li>
+                    <strong>Complementary Color Schemes</strong>: These colors schemes create high contrast and visual impact. Their colors are located on the opposite ends of the color wheel, relative to each other.
+                </li>
+                <li>
+                    <strong>Triadic Color Scheme</strong>: This color scheme has vibrant colors. They are made from colors that are approximately equidistant from eachc other. If they are connected, they form an equilateral triangle on the color wheel.
+                </li>
+                <li>
+                    <strong>Monochromatic Color Scheme</strong>: For this color scheme, all the colors are derived from the same base color by adjusting its lightness, darkness, and saturation. This evokes a feeling of unity and harmony while still creating contrast.
+                </li>
+            </ul>
+</section>
+<section>
+            <h3>Different Ways to Work witth Colors in CSS</h3>
+            <hr />
+            
+            <ul>
+                <li>
+                    <strong>Named Colors</strong>: These colors are predefined color names recognized by browser. Examples include <strong><em>blue, darkred, lightgreen</em></strong>.
+                </li>
+                <li>
+                    <strong>rgb() Function</strong>: RGB stands for Red, Green, and BLue - the primary colors of light. These three colors are combined in different intensities to create a wide range of colors, the <strong><em>rgb()</em></strong> function allows you to define colors using the RGB color model.
+                </li>
+                <li>
+                    <strong>rgba() Function</strong>: This function adds a fourth value, alpha, that controls the transparency of the color. If not provided, the alpha value defaults to 1.
+                </li>
+                <li>
+                    <strong>hsl() Function</strong>: HSL stands for Hue, Saturation, and Lightness - three key components that define a color.
+                </li>
+                <li>
+                    <strong>hsla() Function</strong>: This function adds a fourth value alpa, that controls the opacity of the color.
+                </li>
+                <strong>Hexadecimal</strong>: A hex code (short for hexadecimal code) is a six-character string used to present colors in the RGB color model. The "hex" refers to the base -16 numbering system, which uses digits 0 to 9 and letters A to F
+            </ul>
+            <pre class="code-box">
+                <code id="rgb-function">
+                    <script>
+                const rgbFunction = `
+                        RGB
+     HTML
+        <link rel="stylesheet" href="styles.css">
+        <div>RGBA Background</div>
+            
+    CSS
+        div {
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+                    
+                        HSL
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <p>HSL Color</p>
+            
+    CSS
+        p {
+            color: hsl(120, 100%, 50%);
+        }
+                        HSLA
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div>HSLA Background</div>
+            
+    CSS
+        div {
+            background-color: hsla(0, 100%, 50%, 0.5);
+        }
+                        HEX
+    HTML
+        <link rel="stylesheet" href="styless.css">
+        <h1 class="hex-text">Hex Text</h1>
+        <p class="hex-bg">Hex Background</p>
+            
+    CSS
+        h1 {
+            color: #FF5733; /* A reddish - orange color */
+        }
+        p {
+            background-color: #4CAF50; /* A shade of green */
+        }`
+                document.getElementById('rgb-function').textContent = rgbFunction;
+                    </script>
+                </code>
+                </pre>
+            </section>                                
+            <section>
+            <h3> The <strong><em>box-shadow</em></strong></h3>
+<hr>
+            
+            <ul>
+                <li>
+                    <strong>Definition</strong>: The <strong><em>box-shadow</em></strong> property applies one or more shadows around an element.
+                </li>
+                <li>
+                    <strong>Offset Vakues</strong>: You must specify horizontal (<strong><em>offset-x</em></strong>) and vertical (<strong><em>offset-y</em></strong>) values. Positive <strong><em>offset-x</em></strong> moves the shadow to the right, while negative values move it to the left. Positive <strong><em>offset-y</em></strong> moves the shadow down, while negative values move it up. If a value is <b>0</b>, you do not need to include a unit.
+                </li>
+                <li>
+                    <strong>Blur Radius</strong>: This optional value controls how blury the shadow appears. If not included, it defaults to <b>0</b>, whichg creates sharp edges. The higher the value, the softer the shadow.
+                </li>
+                <li>
+                    <strong>Spread Radius</strong>: This optional value controls how much the shadow expands or shrinks, if not included, it default to <b>0</b>.
+                </li>
+                <li>
+                    <strong>inset</strong>Keyword: Adding the <strong>inset</strong> keyword places the shadow inside the element instead of outside.
+                </li>
+                <li>
+                    <strong>Applying Multiple Box Shadows</strong>: You can apply multiple shadows by separating them with commas. Shadows aer layered from front to back.
+                </li>
+            </ul>
+
+            <pre class="code-box">
+                <code id="box-shadow">
+                    <script>
+const boxShadow = `
+    Syntax
+        box-shadow: offset-x offset-y blur-radius spread-radius color;
+    
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="shadow-box">Shadow Color Example</div>
+
+    CSS
+        .shadow-box {
+            width: 200px;
+            padding: 20px;
+            background-color: lightblue;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+        }`
+        document.getElementById('box-shadow').textContent = boxShadow;
+                    </script>
+                </code>
+            </pre>
+            <h3>Linear and Radial Gradients</h3>
+            <hr>
+    
+
+    <ul>
+        <li>
+            <strong>Linear Gradients</strong>: these gradients create a gradual blend between colors along a straight line. You can control the direction of this line using keywords like <b>to top</b>, <b>to right</b>, <b>to bottom right</b>, or angles like <b>45deg</b>. You can use any valid CSS color and as many colors stops as you would like.
+        </li>
+    </ul>
+    <pre class="code-box">
+        <code id="linear-radial-gradients">
+        <script>
+       const linRadGrad = `
+        HTML
+            link rel="stylesheet" href="styles.css">
+            <div class="linear-gradient">Linear Gradient</div>
+    
+        CSS
+            .linear-gradient {
+                background: linear-gradient(45deg, red #33FF11, rgba(100, 100, 255, 0.5));
+                height: 40vh;
+            }` 
+       document.getElementById('linear-radial-gradients').textContent = linRadGrad;
+        </script>
+        </code>
+    </pre>
+    <ul>
+        <strong>Radial Gradients</strong>: These gradients create circular or eliptical gradients that radiate from a central point.
+    </ul>
+    <hr>
+    <pre class="code-box">
+    <code id="radial-gradient">
+        <script>
+    const radialGradient = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="radial-gradiant">Radiant Gradiant</div>
+
+    CSS
+        .radial-gradient {
+            background: radial-gradient(circle, red, blue);
+            height: 40vh;
+        }`
+    
+        document.getElementById('radial-gradient').textContent = radialGradient;
+        </script>
+    </code>
+    </pre>
+        </section>
+    </article>
   </body>
 </html>
