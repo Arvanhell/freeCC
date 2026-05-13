@@ -1,0 +1,295 @@
+          /* Plik styles.css */
+          :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        main {
+            max-width: 900px; /* Ograniczamy szerokość, żeby tekst się nie "rozlał" */
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Hierarchia Fontów */
+        h1 { font-size: 2.5rem; color: var(--primary-color); text-align: center; }
+        h2 { font-size: 1.8rem; margin-top: 30px; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; }
+        h3 { font-size: 1.4rem; color: var(--accent-color); }
+        
+        /* Bloki kodu (te Twoje pre) */
+       /* Opakowanie - definiuje ramę i suwak */
+.code-box {
+    background: #1e1e1e;       /* Nieco głębsza czerń */
+    padding: 0;                /* Resetujemy padding tutaj... */
+    border-radius: 8px;        /* Mocniejsze zaokrąglenie */
+    margin: 25px 0;
+    overflow: hidden;          /* Żeby code nie wystawał poza zaokrąglenia */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-left: 4px solid #3498db; /* Twój nowy znak rozpoznawczy */
+}
+
+/* Zawartość - tu dzieje się magia wizualna */
+.code-box code {
+    display: block;
+    padding: 20px;             /* ...i dodajemy go tutaj */
+    color: hsl(120, 50%, 50%);            /* Ciepły kolor kodu, łagodniejszy dla oka */
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;          /* Oddech między liniami */
+    overflow-x: auto;          /* Suwak tylko dla tekstu kodu */
+}
+
+/* Twój blok kodu dostanie delikatną poświatę, gdy na niego najedziesz */
+.code-box:hover {
+    border-left-color: #f1c40f; /* Zmiana koloru paska na złoty */
+    transform: translateX(5px); /* Delikatne przesunięcie w prawo */
+    transition: all 0.3s ease;  /* Żeby ruch był płynny, a nie szarpany */
+}
+
+        
+        /* Obrazki */
+        img {
+            max-width: 100%; /* To jest KLUCZ do skali! */
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+        }
+        /* Items for styling input accessible */
+        .accessibility-form {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0..5rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            font-size: 1rem;
+            border: 2px solid #555;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #111;
+        }
+
+        input[type="text"]:focus {
+            outline: 3px solid #1e90ff;
+            border-color: #1e90ff;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.6rem 1rem;
+            font-size: 1rem;
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #187bcd;
+        }
+
+        .accessibility-form2 {
+            max-width: 320px;
+            margin: 0 auto;    
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            font-size: 1rem;
+            border: 2px solid #555;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #111;
+        }
+
+        input[type="email"]::placeholder {
+            color: #555;
+            opacity: 1;
+            font-size: italic;
+        }
+
+        input[type="email"]:focus {
+            outline: 3px solid #1e90ff;
+            border-color: #1e90ff;
+        }
+
+        /*     -----      */
+        .accessible-form2 {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+            
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 2px solid #555;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #111;
+            resize: both:
+            box-sizing: border-box;
+        }
+
+        textarea::placeholder {
+            color: #555;
+            opacity: 1;
+        }
+
+        textarea:focus {
+            outline: 3px solid #1e90ff;
+        }
+        /* */
+        .accessible-form3 {
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100;
+            padding: 0.6rem 0.8rem;
+            font-size: 1rem;
+            border: 2px solid #666;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #111;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input::placeholder {
+            color: #555;
+            opacity: 1;
+        }
+
+        input:focus {
+            border-color: #1e90ff;
+            box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.4);
+            outline: none;
+        }
+        /* ----- */
+        .accessible-form3 {
+            max-width: 360px;
+            marign: 0 auto;
+        }
+
+        input.error {
+            border-color: #d93025;
+            background-color: #fff5f5;
+        }
+
+        input.error:focus {
+            border-color: #d93025;
+            box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.4);
+        }
+
+        .error-message {
+            color: #d93025;
+            font-size: 0.95rem;
+            margin-top: 0.4rem;
+        }
+
+        /* items from fCC for explanaition of Styling forms */
+
+        .checkbox {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            vertical-align: middle;
+        }
+
+        .checkbox:hover {
+            border-color: #888;
+        }
+
+        .checkbox:checked {
+            background-color: #4caf50;
+            border-color: #4caf50;
+        }
+
+        .checkbox:checked::after {
+            content: " ";
+            position: absolute;
+            left: 4px;
+            top: 0px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .checkbox:focus {
+            outline: 2px solid #90caf9;
+            outline-offset: 2px; 
+        }
+
+    /* --- */
+        input[type="color"] {
+            width: 60px;
+            height: 40px;
+            padding: 0;
+            border: 2px solid hsl(120, 50%, 50%);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    /*---- */
+    input[type="date"] {
+        padding: 6px 10px;
+        border: 2px solid #555;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    input[type="date"]::webkit-calendar-picker-indicator {
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
