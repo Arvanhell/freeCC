@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=content-width, initial-space=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Flex-Box</title>
+    </head>
+    <body>
+        <main>
+            <h1>Flex-Box</h1>
+            <p>
+                In these lectures, you will learn how CSS flexbox works, its properties, and when you should use it.
+            </p>
+            <article>
+                <section>
+                    <h3>What Is CSS Flexbox, and when should you use it?</h3>
+                    <h4>LESSON</h4>
+                    <p>
+                        CSS flexbox is a one-dimensional layout model that allows you to arrange elements in rows and columns within a container. You can also control their order and orientation. Web developers use it to create responsive websites and web applications that adapt to different screen sizes and orientations. We refer to flexbox as a one-dimensional layout model because it focuses on arranging elements along a single axis at a time. The axis can be either horizontal or vertical.
+                    </p>
+                    <p>
+                        There are two key concepts that you should know about before you start working with flexbox: flex container and flex item.
+                    </p>
+                    <p>
+                        A flex container is an HTML element with a flex layout. You can arrange and align elements in various ways within a flex container. To make an HTML element a flex container, you need to add <strong>display: flex</strong> to its CSS styles.
+                    </p>
+                    <p>
+                        Flex items are the direct children of a flex container. These elements can be arranged and aligned within a flex container based on its properties. They can also shrink or expand to fit the available space.
+                    </p>
+                    <p>
+                        This is ab example with a <strong>main</strong> container and three child <strong>div</strong> elements:
+                    </p>
+    <pre class="code-box">
+        <code id="main-div">
+            <script>
+        const mainDiv = `
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>`
+        document.getElementById('main-div').textContent = mainDiv;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        If you set only the <strong>width</strong>, <strong>height</strong>, and <strong>background-color</strong> of these <strong>div</strong> elements in the CSS stylesheet, every child element will be placed on its own row because the container is not flex by default.
+                    </p>
+        <pre class="code-box">
+            <code id="styling-flex">
+            <script>
+    const stylingFLex = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+    `
+        document.getElementById('styling-flex').textContent = stylingFLex;
+            </script>
+            </code>
+        </pre>
+                    <p>
+                        But if you add <strong>display: flex</strong> to the <strong>main</strong> container, the <strong
+                        >div</strong> elements will be rearranged to fit on the same row and they will shrink if necessary (to see the previews, enable the interactive editor):
+                    </p>
+    <pre class="code-box">
+        <code id="display-flex-main">
+        <script>
+    const displayFLexMain = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }`
+        document.getElementById('display-flex-main').textContent = displayFLexMain;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        By default, a flex container will be a block-level element, so the container itself will be on its own row relative to other elements and containers.
+                    </p>
+                    <p>
+                        Now that you know more about flex containers and flex items, you should also know about flex properties. These properties determine how flex items will be arranged, resized, and distributed within the flex container. Some of the most commonly used ones are <strong>flex-direction</strong>, <strong>justify-content</strong>, <strong>align-items</strong>, and <strong>flex-wrap</strong>.
+                    </p>
+                    <p>
+                        Great. Now let’s talk a little bit about the flex model. This model defines how flex items are arranged within a flex container. Every flex container has two axes:
+                    </p>
+                    <ul>
+                        <li>The main axis</li>
+                        <li>The cross axis</li>
+                    </ul>
+                    <p>
+                        The orientation of these axes determines how different properties will affect the layout and distribution of the flex items. By default, the main axis of a flex container is horizontal and the cross axis is vertical. Flex items are arranged in the direction of the main axis. The cross axis is perpendicular to the main axis.
+                    </p>
+                    <p>
+                        The <strong>flex-direction</strong> property sets the direction of the main axis. The default value of <strong>flex-direction</strong> is <strong>row</strong>, which places all the flex items on the same row, in the direction of your browser's default language (left to right or right to left):
+                    </p>
+    <pre class="code-box">
+        <code id="flex-direction">
+    <script>
+    const flexDirection = `
+        flex-direction: row; /* Default */
+    `
+    document.getElementById('flex-direction').textContent = flexDirection;
+    </script>
+        </code>
+    </pre>
+                    <p>
+                        To reverse the items in the row, you can use <strong>flex-direction</strong> <strong>row-reverse</strong>
+                    </p>
+    <pre class="code-box">
+        <code id="row-rewerse">
+        <script>
+        const rowRewerse = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            flex-direction: row-rewerse;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+        `
+        document.getElementById('row-rewerse').textContent = rowRewerse;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        This will reverse the order of the flex items. If you want to align the flex items vertically instead, you just need to set <strong>flex-direction</strong> to <strong>column</strong> in the flex container. This will change the direction of the main axis:
+                    </p>
+    <pre class="code-box">
+        <code id="flex-direction-column">
+            <script>
+        const flexDirectionColumn = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }    
+        `
+        document.getElementById('flex-direction-column').textContent = flexDirectionColumn;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        Now the <strong>div</strong> elements will be aligned vertically because the main axis will be vertical and the cross axis will be horizontal.
+                    </p>
+                    <p>
+                        You can also reverse the order of the flex items vertically with <strong>flex-direction</strong> <strong>column-reverse</strong>
+                    </p>
+    <pre class="code-box">
+        <code id="flex-direction-column-rewerse">
+            <script>
+    const flexDirectionColRew = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            flex-direction: column-rewerse;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+
+    `
+    document.getElementById('flex-direction-column-rewerse').textContent = flexDirectionColRew;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        CSS flexbox is a powerful layout model that provides a flexible and efficient way to arrange elements within a container. By understanding the key concepts of flex containers, flex items, and the various flex properties, you can create dynamic and responsive websites that adapt to different screen sizes and orientations.
+                    </p>
+                </section>
+                <section>
+                    <h3>What are some common flex properties, and how do they work?</h3>
+                    <h4>LESSON</h4>
+                    <p>
+                        Flex properties are properties that you can apply to flex containers to determine the distribution of child elements. We'll cover some of the most commonly used ones: <strong>flex-wrap</strong>, <strong>justify-content</strong>, and <strong>align-items</strong>.
+                    </p>
+                    <p>
+                        Let's start with <strong>flex-wrap</strong>. This property determines how flex items are wrapped within a flex container to fit the available space. <strong>flex-wrap</strong> can take three possible values: <strong>nowrap</strong>, <strong>wrap</strong>, and <strong>wrap-reverse</strong>. <strong>nowrap</strong> is the default value—flex items won't be wrapped onto a new line, even if their width exceeds the container's width.
+                    </p>
+                    <p>
+                        In the code below, we have three <strong>div</strong> elements. Let's focus on the <strong>width</strong>. The <strong>main</strong> container bordered in red has a <strong>width</strong> of <strong>200px</strong>, while its three child <strong>div</strong> elements combined have a <strong>width</strong> of <strong>240px</strong> (<strong>80px</strong> each):
+                    </p>
+                    <hr>
+                    <p>
+                        The width of the <strong>div</strong> elements exceeds the width of their container, but by default they will be shrunk to fit the available space. If you do want to wrap them when they exceed the width of their container, you can set <strong>flex-wrap: wrap</strong> on the flex container:
+                    </p>
+    <pre class="code-box">
+        <code id="flex-wrap">
+        <script>
+    const flexWrap = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            width: 200px;
+            display: flex;
+            flex-wrap: wrap;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+
+    `document.getElementById('flex-wrap').textContent = flexWrap;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        The <strong>div</strong> elements will be rearranged in rows when they exceed the width of their container. You can wrap flex items in reverse order with <strong>flex-wrap</strong> <strong>wrap-reverse</strong>. The <strong>flex-flow</strong> property is a shorthand property for <strong>flex-direction</strong> and <strong>flex-wrap</strong>. In this example, we set <strong>flex-direction</strong> to <strong>column</strong> and <strong>flex-wrap</strong> to <strong>wrap-reverse</strong>
+                    </p>
+    <pre class="code-box">
+        <code id="column-wrap-rewerse">
+        <script>
+    const columnWrapRewerse = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            width: 200px;
+            display: flex;
+            flex-wrap: column wrap-rewerse;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+    `
+    document.getElementById('column-wrap-rewerse').textContent = columnWrapRewerse;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        Great. Now let's talk about <strong>justify-content</strong>. <strong>justify-content</strong> aligns the child elements along the main axis of the flex container. If you assign the value <strong>flex-start</strong> to <strong>justify-content</strong>, the flex items will be aligned to the start of the main axis. This could be horizontal or vertical:
+                    </p>
+    <pre class="code-box">
+        <code id="flex-start">
+        <script>
+    const flexStart = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            justify-content: flex-start;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+    `
+    document.getElementById('flex-start').textContent = flexStart;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        With <strong>justify-content</strong> <strong>flex-end</strong>, flex items are aligned to the end of the main axis, horizontally or vertically.
+                    </p>
+    <pre class="code-box">
+        <code id="flex-end">
+        <script>
+        const flexEnd = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            justify-content: flex-end;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        } 
+        `
+        document.getElementById('flex-end').textContent = flexEnd;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        To center the flex items along the main axis, you can use <strong>justify-content: center</strong>.
+                    </p>
+    <pre class="code-box">
+        <code id="justify-content-center">
+            <script>
+    const justifyContentCenter = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            justify-content: center;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        } 
+    `
+    document.getElementById('justify-content-center').textContent = justifyContentCenter;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        To distribute the elements evenly along the main axis, you can use <strong>justify-content: space-between</strong>. This will add some space between the flex items if needed.
+                    </p>
+    <pre class="code-box">
+        <code id="justify-space-between">
+            <script>
+        const justifySpaceBetween = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+        `
+        document.getElementById('justify-space-between').textContent = justifySpaceBetween
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        <strong>justify-content:  space-around</strong> distributes flex items evenly within the main axis, adding a space before the first item and after the last item. This additional space is half of the space between each pair of adjacent items. If there's only one item to distribute, it will be centered.
+                    </p>
+    <pre class="code-box">
+        <code id="space-around">
+            <script>
+    const spaceAround = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            justify-content: space-around;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+    `
+    document.getElementById('space-around').textContent = spaceAround;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        And last but not least, we have <strong>justify-content: space-evenly</strong>, which distributes the items evenly along the main axis. The space between the items and the space before and after the first and last elements, are exactly the same:
+                    </p>
+    <pre class="code-box">
+        <code id="space-evenly">
+        <script>
+    const spaceEvenly = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+    `
+    document.getElementById('space-evenly').textContent = spaceEvenly;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        Great. Now you know how to distribute flex items along the main axis. But you may also want to distribute them along the cross axis. Remember that the cross axis is perpendicular to the main axis. You can do this with the <strong>align-items</strong> property. To center the items along the cross axis, you just need to add <strong>align-items: center</strong> to the flex container:
+                    </p>
+    <pre class="code-box">
+        <code id="align-items-center">
+        <script>
+    const alignItemsCenter = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            display: flex;
+            align-items: center;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+    `
+    document.getElementById('align-items-center').textContent = alignItemsCenter;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        In this example, the flex items are centered along the cross axis, which is vertical by default. If the cross axis is horizontal, they will be centered horizontally instead. In contrast, <strong>align-items: flex-start</strong> aligns the items to the start of the cross axis:
+                    </p>
+    <pre class="code-box">
+        <code id="align-items-flex-start">
+        <script>
+        const alignItemsFlexStart = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            height: 300px;
+            display: flex;
+            align-items: flex-start;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+        `
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        The opposite is <strong>align-items: flex-end</strong>. This will align flex items to the end of the cross axis, vertically or horizontally.
+                    </p>
+    <pre class="code-box">
+        <code id="align-items-flex-end">
+        <script>
+    const alignItemsFlexEnd = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        main {
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            border: 2px solid red;
+        }
+
+        div {
+            width: 80px;
+            height: 50px;
+        }
+
+        #first-div {
+            baclground-color: #4d70b2;
+        }
+
+        #second-div {
+            background-color: #5c4db2;
+        }
+
+        #third-div {
+            background-color: #4da3b2;
+        }
+    `
+    document.getElementById('align-items-flex-end').textContent = alignItemsFlexEnd;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        To stretch the flex items along the cross axis, you can use <strong>align-items: stretch</strong>. This also works with elements that are automatically sized, such as those without set <strong>width</strong> or <strong>height</strong>, or with only a minimum <strong>width</strong> or <strong>height</strong>. The flex items will stretch to fill the container in the direction of the cross axis.
+                    </p>
+    <pre class="code-box">
+        <code id="align-items-stretch">
+        <script>
+        const alignItemsStretch = `
+       HTML
+        <link rel="stylesheet" href="styles.css">
+        <main>
+            <div id="first-div"></div>
+            <div id="second-div"></div>
+            <div id="third-div"></div>
+        </main>
+
+    CSS
+        .container {
+            display: flex;
+            align-items: stretch;
+            border: 2px solid #444;
+            height: 200px;
+        }
+
+        .box {
+            width: 100px;
+            border: 1px solid #888;
+            background-color: lightblue;
+        }
+        `
+        document.getElementById('align-items-stretch').textContent = alignItemsStretch;
+        </script>
+        </code>
+    </pre>
+                    <p>
+                        And finally, you can use the <strong>align-self</strong> property to assign a different alignment on the cross axis to an individual flex item. For example, you can stretch it with <strong>align-self: stretch</strong>.
+                    </p>
+    <pre class="code-box">
+        <code id="align-self-flex-start">
+            <script>
+    const alignSelfFlexStart = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+        <div class="container">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box special">Three</div>
+        </div>
+
+    CSS
+        .container {
+            display: flex;
+            align-items: flex-start;
+            border: 2px solid #444;
+            height: 200px;
+        }
+
+        .box {
+            width: 100px;
+            border: 1px solid #888;
+            background-color: lightblue;
+            margin: 4px;
+
+        .special {
+            align-self: stretch;
+            background-color: lightcoral;
+        }
+    `
+    document.getElementById('align-self-flex-start').textContent = alignSelfFlexStart;
+            </script>
+        </code>
+    </pre>
+                    <p>
+                        You can center it with <strong>align-self: center;</strong>
+                    </p>
+    <pre class="code-box">
+        <code id="align-self-center">
+            <script>
+    const alignSelfCenter = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+        <div class="container">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box special">Three</div>
+        </div>
+
+    CSS
+        .container {
+            display: flex;
+            align-items: flex-start;
+            border: 2px solid #444;
+            height: 200px;
+        }
+
+        .box {
+            width: 100px;
+            border: 1px solid #888;
+            background-color: lightblue;
+            margin: 4px;
+
+        .special {
+            align-self: center;
+            background-color: lightcoral;
+        }`
+        document.getElementById('align-self-center').textContent = alignSelfCenter;
+        </script>
+        </code>
+        </pre>
+                    <p>
+                        You can align it to the start of the cross axis with <strong>align-self: flex-start</strong>.
+                    </p>
+<pre class="code-box">
+        <code id="align-self-flex-starts">
+            <script>
+    const alignSelfFlexStarts = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+        <div class="container">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box special">Three</div>
+        </div>
+
+    CSS
+        .container {
+            display: flex;
+            align-items: flex-start;
+            border: 2px solid #444;
+            height: 200px;
+        }
+
+        .box {
+            width: 100px;
+            border: 1px solid #888;
+            background-color: lightblue;
+            margin: 4px;
+
+        .special {
+            align-self: flex-start;
+            background-color: lightcoral;
+        }`
+        document.getElementById('align-self-flex-starts').textContent = alignSelfFlexStarts;
+        </script>
+        </code>
+        </pre>
+                    <p>
+                        Or you can align it to the end of the cross axis with <strong>align-self: flex-end</strong>.
+                    </p>
+    <pre class="code-box">
+        <code id="align-self-flex-end">
+            <script>
+    const alignSelfFlexEnd = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+        <div class="container">
+            <div class="box">One</div>
+            <div class="box">Two</div>
+            <div class="box special">Three</div>
+        </div>
+
+    CSS
+        .container {
+            display: flex;
+            align-items: flex-start;
+            border: 2px solid #444;
+            height: 200px;
+        }
+
+        .box {
+            width: 100px;
+            border: 1px solid #888;
+            background-color: lightblue;
+            margin: 4px;
+
+        .special {
+            align-self: flex-end;
+            background-color: lightcoral;
+        }`
+        document.getElementById('align-self-flex-end').textContent = alignSelfFlexEnd;
+        </script>
+        </code>
+        </pre>         
+                    <p>
+                        There are other flex properties and values that you can choose from to create the responsive layout that you envision, but these are the most commonly-used ones. With these CSS flex properties and your new knowledge of the CSS flex model, you can start creating responsive layouts to create a smooth and inclusive user experience across devices.
+                    </p>    
+                </section>
+            </article>
+        </main>
+    </body>
+</html>
