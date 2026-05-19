@@ -66,7 +66,7 @@
         }
 
         #first-div {
-            baclground-color: #4d70b2;
+            background-color: #4d70b2;
         }
 
         #second-div {
@@ -155,9 +155,9 @@
                         To reverse the items in the row, you can use <strong>flex-direction</strong> <strong>row-reverse</strong>
                     </p>
     <pre class="code-box">
-        <code id="row-rewerse">
+        <code id="row-reverse">
         <script>
-        const rowRewerse = `
+        const rowReverse = `
     HTML
         <link rel="stylesheet" href="styles.css">
         <main>
@@ -169,7 +169,7 @@
     CSS
         main {
             display: flex;
-            flex-direction: row-rewerse;
+            flex-direction: row-reverse;
         }
 
         div {
@@ -189,7 +189,7 @@
             background-color: #4da3b2;
         }
         `
-        document.getElementById('row-rewerse').textContent = rowRewerse;
+        document.getElementById('row-reverse').textContent = rowReverse;
         </script>
         </code>
     </pre>
@@ -242,9 +242,9 @@
                         You can also reverse the order of the flex items vertically with <strong>flex-direction</strong> <strong>column-reverse</strong>
                     </p>
     <pre class="code-box">
-        <code id="flex-direction-column-rewerse">
+        <code id="flex-direction-column-reverse">
             <script>
-    const flexDirectionColRew = `
+    const flexDirectionColRev = `
     HTML
         <link rel="stylesheet" href="styles.css">
         <main>
@@ -256,7 +256,7 @@
     CSS
         main {
             display: flex;
-            flex-direction: column-rewerse;
+            flex-direction: column-reverse;
         }
 
         div {
@@ -277,7 +277,7 @@
         }
 
     `
-    document.getElementById('flex-direction-column-rewerse').textContent = flexDirectionColRew;
+    document.getElementById('flex-direction-column-reverse').textContent = flexDirectionColRev;
             </script>
         </code>
     </pre>
@@ -302,9 +302,9 @@
                         The width of the <strong>div</strong> elements exceeds the width of their container, but by default they will be shrunk to fit the available space. If you do want to wrap them when they exceed the width of their container, you can set <strong>flex-wrap: wrap</strong> on the flex container:
                     </p>
     <pre class="code-box">
-        <code id="flex-wrap">
+        <code id="flex-wrapq">
         <script>
-    const flexWrap = `
+    const flexWrapq = `
     HTML
         <link rel="stylesheet" href="styles.css">
         <main>
@@ -336,9 +336,8 @@
 
         #third-div {
             background-color: #4da3b2;
-        }
-
-    `document.getElementById('flex-wrap').textContent = flexWrap;
+        }`
+        document.getElementById('flex-wrapq').textContent = flexWrapq;
         </script>
         </code>
     </pre>
@@ -346,9 +345,9 @@
                         The <strong>div</strong> elements will be rearranged in rows when they exceed the width of their container. You can wrap flex items in reverse order with <strong>flex-wrap</strong> <strong>wrap-reverse</strong>. The <strong>flex-flow</strong> property is a shorthand property for <strong>flex-direction</strong> and <strong>flex-wrap</strong>. In this example, we set <strong>flex-direction</strong> to <strong>column</strong> and <strong>flex-wrap</strong> to <strong>wrap-reverse</strong>
                     </p>
     <pre class="code-box">
-        <code id="column-wrap-rewerse">
+        <code id="column-wrap-reverse">
         <script>
-    const columnWrapRewerse = `
+    const columnWrapReverse = `
     HTML
         <link rel="stylesheet" href="styles.css">
         <main>
@@ -361,7 +360,7 @@
         main {
             width: 200px;
             display: flex;
-            flex-wrap: column wrap-rewerse;
+            flex-wrap: column wrap-reverse;
             border: 2px solid red;
         }
 
@@ -382,7 +381,7 @@
             background-color: #4da3b2;
         }
     `
-    document.getElementById('column-wrap-rewerse').textContent = columnWrapRewerse;
+    document.getElementById('column-wrap-reverse').textContent = columnWrapReverse;
         </script>
         </code>
     </pre>
@@ -516,7 +515,7 @@
         </code>
     </pre>
                     <p>
-                        To distribute the elements evenly along the main axis, you can use <strong>justify-content: space-between</strong>. This will add some space between the flex items if needed.
+                        To distribute the elements evenly along the main axis, you can use <strong>justify-content: space-between</strong>. This will add some space between the flex items `if needed.
                     </p>
     <pre class="code-box">
         <code id="justify-space-between">
@@ -693,7 +692,7 @@
     <pre class="code-box">
         <code id="align-items-flex-start">
         <script>
-        const alignItemsFlexStart = `
+        const alignItemsFlexStart1 = `
     HTML
         <link rel="stylesheet" href="styles.css">
         <main>
@@ -727,6 +726,7 @@
             background-color: #4da3b2;
         }
         `
+        document.getElementById('align-items-flex-start').textContent = alignItemsFlexStart1
         </script>
         </code>
     </pre>
@@ -963,6 +963,145 @@
                     <p>
                         There are other flex properties and values that you can choose from to create the responsive layout that you envision, but these are the most commonly-used ones. With these CSS flex properties and your new knowledge of the CSS flex model, you can start creating responsive layouts to create a smooth and inclusive user experience across devices.
                     </p>    
+                </section>
+            </article>
+            <article>
+                <h2>Design a Set of Colour Boxes</h2>
+                <section>
+                    <h3>Code project for Designing of Flex-box</h3>
+                    <h4>HTML</h4>
+    <pre class="code-box">
+        <code id="code-flex-box">
+        <script>
+    const codeFlexBox = `
+    HTML
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Colored Boxes</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<header>
+		<h1>Colored Boxes Layout</h1>
+	</header>
+	<div class="flex-container">
+		<div class="box box1">
+			<h2>Box 1</h2>
+			<p>Red</p>
+		</div>
+		<div class="box box2">
+			<h2>Box 2</h2>
+			<p>Orange</p>
+		</div>
+		<div class="box box3">
+			<h2>Box 3</h2>
+			<p>Yellow</p>
+		</div>
+		<div class="box box4">
+			<h2>Box 4</h2>
+			<p>Green</p>
+		</div>
+		<div class="box box5">
+			<h2>Box 5</h2>
+			<p>Blue</p>
+		</div>
+		<div class="box box6">
+			<h2>Box 6</h2>
+			<p>Indigo</p>
+		</div>
+	</div>
+</body>
+</html>
+    `
+    document.getElementById('code-flex-box').textContent = codeFlexBox;
+        </script>
+        </code>
+    </pre>
+    <h4>CSS</h4>
+    <pre class="code-box">
+    <code id="flex-box-css">
+    <script>
+    const flexBoxCss = `
+           
+    CSS
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .box {
+        max-height: 120px;
+        color: #000;
+        border: 1px solid #000;
+        display: flex;
+        flex: 0 0 150px;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+        font-weight: bold;
+        font-size: 1.125rem;
+        border-radius: 5px;
+        order: 0; 
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 70%;
+        height: 600px;
+        padding: 10px;
+        margin: 20px auto;
+        align-content: space-evenly;
+    }
+
+    .box1 {
+        background: #f16e79;
+        order: 1; 
+        flex-grow: 1;
+    }
+
+    .box2 {
+        background: #f4a261;
+        order: 0; 
+    }
+
+    .box3 {
+        background: #ffd166;
+        order: 2;
+        flex-shrink: 3; 
+    }
+
+    .box4 {
+        background: #4caf50;
+        order: 3; 
+    }
+
+    .box5 {
+        background: #457b9d;
+        order: 4;
+    }
+
+    .box6 {
+        background: #3f51b5;
+        order: 5;
+        flex-grow: 1;
+    } 
+    `
+    document.getElementById('flex-box-css').textContent = flexBoxCss
+    </script>
+    </code>
+    </pre>
+                </section>
+                <section>
+                    <h3>Design a Set of Colour Boxes </h3>
+                    <figure>
+                        <img src="assets/images/IMG_0537.jpeg" alt="Project concept image for Design a Set of Colorful Boxes"/>
+                        <figcaption>Project of Design of Colour Boxes.</figcaption>
+                    </figure>
                 </section>
             </article>
         </main>
