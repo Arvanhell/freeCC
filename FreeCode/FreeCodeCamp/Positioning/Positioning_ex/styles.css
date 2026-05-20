@@ -3,8 +3,9 @@
             --primary-color: #2c3e50;
             --accent-color: #3498db;
             --bg-color: #f4f4f4;
-            --text-color: #333;
-        }
+            --text-color: #333; 
+            }
+        
         
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
@@ -14,11 +15,13 @@
             margin: 0;
             padding: 20px;
         }
+
+
         
         main {
             max-width: 900px; /* Ograniczamy szerokość, żeby tekst się nie "rozlał" */
             margin: 0 auto;
-            background: white;
+            background: #eef2f5;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
