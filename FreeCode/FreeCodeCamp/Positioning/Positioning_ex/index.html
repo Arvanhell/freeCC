@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="styles.css">
+        <title>Positioning</title>
+    </head>
+    <body>
+        <main>
+            <h1>Positioning</h1>
+        <article>
+            <p>
+                In these lectures, you will learn how to use CSS positioning and floats. You will learn about <strong>absolute</strong>, <strong>relative</strong>, <strong>fixed</strong>, and <strong>sticky</strong> positioning. You will also use the <strong>z-index</strong> propoerty.
+            </p>
+            <section>
+                <h3>What are common use casses for using floats, and how do they work?</h3>
+                <h4>LESSON</h4>
+                <p>
+                    Floats in CSS are a technique originally designed to allow text to wrap around an element, such as an image. Over time, however, developers found new ways to use floats, applying them to layout design in creative ways. While modern layout methods like Flexbox and Grid are now more commonly used, understanding floats is still important, especially when working with older code or needing to achieve specific layout effects.
+                </p>
+                <p>
+                    When an element is floated, it's taken out of the normal document flow and pushed to the left or right of its container. The content that follows will wrap around the floated element, filling the remaining space. One classic use is wrapping text around images, where an image is floated to one side, and text wraps around it. This technique is still widely used, especially in articles and blogs where images need to be placed alongside text. Here is the code example:
+                </p>
+    <pre class="code-box">
+    <code id="float-boat">
+    <script>
+        const floatBoat = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="container">
+            <img src="https://placehold.co/150x150" alt="Placeholder Image">
+        </div>
+
+    CSS
+        .container {
+            border: left;
+            padding: 10px;
+        }
+
+        img {
+            float: left;
+            margin-right: 20px;
+        }
+        `
+        document.getElementById('float-boat').textContent = floatBoat;
+    </script>
+    </code>
+    </pre>
+            <p>
+                In the above example, the container doesn't wrap around the floated image. The image is out of the normal document flow, and the container collapsed to zero height because it doesn't "see" the floated children elements.
+            </p>
+            <p>
+                Floats were also popular for creating multi-column layouts before Flexbox and Grid became widespread. by floating elements next to each other, developers could create columns that aligned horizontaly. However, when using floats, it's important to handle the problem of collapsing parent elements when their child elements are floated. The clearfix technique solution is applied to the class <strong>container</strong> element to fix this issue.
+            </p>
+    <pre class="code-box">
+    <code id="clearfix-css">
+    <script>
+    const clearFix = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+        <div class="container">
+            <img src="https://placehold.co/150x150" alt="Placeholder Image" />
+            <p>
+                This is an example of text flowing wround a floated image.
+            </p>
+        </div>
+
+    CSS
+        .container {
+            border: 1px solid black;
+        }
+
+        /*   Clearfix CSS   */
+        .container::after {
+            content:"";
+            display: block;
+            clear: both;
+        }
+
+        img {
+            float: left;
+            margin-right: 20px;
+        }
+    `
+    document.getElementById('clearfix-css').textContent = clearFix;
+    </script>
+    </code>
+    </pre>
+                <ul>
+                    <li>
+                        <strong>::after</strong> is a pseudo-element that adds an invisible block after the content of the container
+                    </li>
+                    <li>
+                        <strong>content: ""</strong> ensures the pseudo-element is present but doesn't display any content.
+                    </li>
+                    <li>
+                        <strong>display: block</strong> makes the pseudo-element a block-level element
+                    </li>
+                    <li>
+                        <strong>clear: both</strong> ensures the pseudo-element clears both sides of any floated elements above it.
+                    </li>
+                </ul>
+                <p>
+                    In the above example, we've added a new paragraph element to make the collapse more noticable. Because the paragraph remains in the normal document flow, the container expands just enough to wrap around it. Then, we apply the clearfix technique to fix the collapse and make the container's border display correctly. You can try removing the clearfix rule to see the container collapse aggain.
+                </p>
+                <p>
+                    The clearfix technique ensures the parent element wraps around its floated children properly. Clearfix forces the parent container to "see" the floated child elements by adding a clear property after the floated content.
+                </p>
+                <p>
+                    While floats are no longer the go-to method for complex layouts due to more modern techniques like Flexbox and Grid, they still play an essential role in certain scenarios. Whether you're wrapping text around images or working on legacy projects, understanding how floats work and how to clear them properly is key to maintaining well-structured and responsive layouts.
+                </p>
+            </section>
+            <section>
+                <h3>What is relative positioning, and how does this differ from the default Static Positioning?</h3>
+                <h4>LESSON</h4>
+                <p>
+                    In CSS, positioning allows us to control how elements are laid our on a page. Two common types of positioning are static positioning and relative positioning. By default, elements are statically positioned. This means they follow the normal flow of the document, one after another, form top to bottom, left to right.
+                </p>
+                <p>
+                    Static positioning is the default for all elements and doesn't need any special declaration in CSS. You won't notice anything different when using static positioning because it just keeps elements where they naturally occur in the document. Here is an example of a paragraph using default static positioning:
+                </p>
+    <pre class="code-box">
+        <code id="static-positioning">
+            <script>
+        const staticPos = `
+    HTML    
+        <p>
+            This paragraph is statically positioned.
+        </p>
+        `
+        document.getElementById('static-positioning').textContent = staticPos
+            </script>
+        </code>
+    </pre>
+                <p>
+                    When rendered in the browser, this paragraph will appear in its natural position, following the normal document flow. No special styling is applied to move it, and its remains where it would naturally appear in the layout.
+                </p>    
+                <p>
+                    Relative positioning, on the other hand, allows an element to be shifted from its normal position without disrupting the flow of the document. Think of it as moving the element from its default static position by giving it new coordinates. Here is how you might apply relative positioning:
+                </p>
+    <pre class="code-box">
+    <code id="pos-relative">
+        <script>
+    const posRelative = `
+    HTML
+        <p class="relative">
+            This paragraph is positioned relatively.
+        </p>
+    
+    CSS
+        .body {
+            border: solid 1px black;
+        }
+
+        .relative {
+            position: relative;
+            top: 30px;
+            left: 30px;
+        }
+    `
+    document.getElementById('pos-relative').textContent = posRelative;
+        </script>
+    </code>
+    </pre>
+                <p>
+                    In this example, the paragraph will appear <strong>30px</strong> down and <strong>30px</strong> to the right from its original position. However, the space it would have occupied in the normal flow remains preserved. Relative positioning is very useful when you want to move an element slightly without affecting the rest of the layout.
+                </p>
+            </section>
+            <section>
+                <h3>What is Absolut Positioning, and how does it work?</h3>
+                <h4>LESSON</h4>
+                <p>
+                    Absolute positioning allows you to take an element out of the normal document flow, making it behave independently from other elements. When an element is positined absolutely, it is placed in its own layer, completely separate from everything else in the layout. This makes it useful for creating flloating UI features such as modals, tooltip, or dropdown menus, which can overlap other elements on the page.
+                </p>
+                <p>
+                    By default, absolutely positioned elements are placed relative to the closest positioned ancestor. If no positioned ancestor is found, the element will be positioned relative to the initial containing block, which is usually the browser's voewport. You can move the absolutely positioned element around using the <strong>top</strong>, <strong>bottom</strong>, <strong>left</strong>, and <strong>right</strong> properties to specify how far away it should be from the edges of its containing element.
+                </p>
+                <p>
+                    For example, setting<strong>top:30px</strong> and <strong>left:30px</strong> will move the element <strong>30px</strong> away from the top and left edges of the containing block. Here's an example of how to apply absolute positioning to an element in CSS:
+                </p>
+    <pre class="code-box">
+        <code id="absolute-pos">
+        <script>
+        const absolutePos = `
+    HTML
+        <div class="postioned">
+            Absolutely Positioned
+        </div>
+
+    CSS
+        body {
+            background-color: #eeeeee;
+        }
+
+        .positioned {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background-color: coral;
+        }
+        `
+        document.getElementById('absolute-pos').textContent = absolutePos;
+        </script>
+        </code>
+    </pre>
+                <p>
+                    When this code is applied, the element will be removed from the normal document flow and placed <strong>30px</strong> away from the top and left of its containing block.
+                </p>
+                <p>
+                    Absolute positioning can be especially helpful for creating elements that are meant to float over the rest of the content, like overlays or modal windows. However, since the element is removed from the document flow, it can also create gaps or cause other elements to collapse together if not hadled properly.
+                </p>
+            </section>
+            <section>
+                <h3>What is Fixed and Sticky Positioning, and how does it differ from Absolute Positioning.</h3>
+                <p>
+                    Fixed and sticky positioning are two important CSS positioning strategies, each offering distinct behaviors compared to absolute positioning. When an element is positioned with <strong>postition: fixed</strong>, it is removed from the normal document flow and placed relative to the viewport , meaning it stays in the same position even when the useer scrolls. This is often used for elements like headers or navigation bars that need to remain visible at all times. For example, if you want a heading to stay fixed at the top od the page, you can use the following code:
+                </p>
+    <pre class="code-box">
+    <code id="position-fixed">
+        <script>
+    const positionFixed = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        
+        <h1>Fixed Header</h2>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sad cursus ante dapibus diam.
+        </p>
+        <p>
+            Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
+        </p>
+        <p>
+            Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+        </p>
+        <p>
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.    
+        </p>
+        <p>
+            Curabitur sodales ligula in libero. Sed dignissim lacina nunc. Curabitur tortor.
+        </p>
+        <p>
+            Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis.
+        </p>
+        <p>
+            Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus.
+        </p>
+        <p>
+            Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+        </p>
+        <p>
+            Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.
+        </p>
+        <p>
+            Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquent egestas purus in blandit.
+        </p>
+
+    CSS
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1 {
+            position: fixed;
+            top: 0;
+            width: 500px;
+            background: white;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        p {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+            `
+    document.getElementById('position-fixed').textContent = positionFixed;
+    </script>
+    </code>
+    </pre>
+                <p>
+                    In this example, the <strong>h1</strong> element will stick to the top of the viewport, and even when the user scrolls, it will remain in place. This is especially useful for creating persistent UI elements, like sticky headers or always-visible navigation.
+                </p>
+                <p>
+                    Here are some key differences between absolute, fixed and sticky positioning:
+                </p>
+                <uL>
+                    <li>Absolute positioning removes an element from the document flow and postions it relative to the nearest positioned ancestor, or the initial containing block if none exists. The element stays in that position regardles of scrolling.</li>
+                    <li>
+                        Fixed positioning also removes the element from the document flow but fixes it relative to the viewport, meaning it will stay visible in the same spot even as the page is scrolled.
+                    </li>
+                    <li>
+                        Sticky positioning keeps the element in the normal flow initially but allows it to stick in place after scrolling past a defined treshold.
+                    </li>
+                </uL>
+                <p>
+                    These strategies allow you to create layouts that include floating elements, sticky headers, and more dynamic UI components, enhancing user experience by making important information always accesible.
+                </p>
+            </section>
+            <section>
+                <h3>What is the Z-index Property, and how does it work to control the stacking of positioned elements?</h3>
+                <h4>LESSON</h4>
+                <p>
+                    The <strong>z-index</strong> property in CSS is used to control the vertical stacking order of positioned elements that overlap on the page. When multiple elements are stacked on top of each other, the <strong>z-index</strong> value determines which element appears on top. The higher the <strong>z-index</strong> value, the closer the element is to the viewer, while lower values place the element farther back in the stack.
+                </p>
+                <p>
+                    However, the <strong>z-index</strong> only works on elements that are positioned, which means the element must have a position value other than <strong>static</strong>, such as <strong>relative</strong>, <strong>absolute</strong>, or <strong>fixed</strong>. The default <strong>z-index</strong> value is <strong>auto</strong>, which places the element in the default stacking order. Let's take a look at an example with three boxes:
+                </p>
+    <pre class="code-box">
+        <code id="three-boxes">
+        <script>
+            const threeBoxes = `
+    <div class="container">
+        <div class="box1">Box 1</div>
+        <div class="box2">Box 2</div>
+        <div class="box3">Box 3</div>
+    </div> `
+    document.getElementById('three-boxes').textContent = threeBoxes;
+        </script>
+        </code>
+    </pre>
+                <p>
+                    Now we can apply some styles to position the boxes to overlap on each other like this:
+                </p>
+    <pre class="code-box">
+        <code id="overlap">
+        <script>
+    const overLap = `
+    HTML
+        <div class="container">
+            <div class="box1">Box 1</div>
+            <div class="box2">Box 2</div>
+            <div class="box3">Box 3</div>
+        </div>
+
+    CSS
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        .box1 {
+            position: absolute;
+            z-index: 1;
+            background: lightcoral;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .box2 {
+            position: absolute;
+            z-index: 3;
+            background: gold;
+            top: 40px;
+            left: 40px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .box3 {
+            postion: absolute;
+            z-index: 2;
+            background: lightgreen;
+            top: 60px;
+            left: 60px;
+            width: 100px;
+            height: 100px;
+        }
+    `
+    document.getElementById('overlap').textContent = overLap;
+        </script>
+        </code>
+    </pre>
+    <p>
+        For the container, the positioning will be set to <strong>relative</strong> and all of the boxes nested inside will be set to <strong>absolute</strong> positioning. Each box has a different value for the <strong>z-index</strong> which result in the boxes being layered on top of each other.
+    </p>
+    <p>
+        You can think of <strong>z-index</strong> as a way to create layers on a webpage, and elements with higher <strong>z-index</strong> values will be placed above those with lower values. This is especially useful for controlling how overlapping elements behave in complex layouts, such as modals, pop-ups, or tooltips.
+    </p>
+            </section>
+        </article>    
+        <article>
+            <h3>Build a Cat Painting</h3>
+            <p>
+                Mastering CSS positioning is essential for creating visually appealing and responsive web layouts. In this workshop, you will build a cat painting. You'll learn about how to work with absolute positioning, the <strong>z-index</strong> property, and the <strong>transform</strong> property.
+            </p>
+            <h4>HTML</h4>
+    <pre class="code-box">
+        <code id="cat-head">
+        <script>
+        const catHead = `
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fCC Cat Painting</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <main>
+      <div class="cat-head">
+        <div class="cat-ears">
+          <div class="cat-left-ear">
+            <div class="cat-left-inner-ear"></div>
+          </div>
+          <div class="cat-right-ear">
+            <div class="cat-right-inner-ear"></div>
+          </div>
+        </div>
+
+        <div class="cat-eyes">
+          <div class="cat-left-eye">
+            <div class="cat-left-inner-eye"></div>
+          </div>
+          <div class="cat-right-eye">
+            <div class="cat-right-inner-eye"></div>
+          </div>
+        </div>
+        
+        <div class="cat-nose"></div>
+
+        <div class="cat-mouth">
+          <div class="cat-mouth-line-left"></div>
+          <div class="cat-mouth-line-right"></div>
+        </div>
+
+        <div class="cat-whiskers">
+          <div class="cat-whiskers-left">
+            <div class="cat-whisker-left-top"></div>
+            <div class="cat-whisker-left-middle"></div>
+            <div class="cat-whisker-left-bottom"></div>
+          </div>
+          <div class="cat-whiskers-right">
+            <div class="cat-whisker-right-top"></div>
+            <div class="cat-whisker-right-middle"></div>
+            <div class="cat-whisker-right-bottom"></div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+</body>
+</html>
+        `
+        document.getElementById('cat-head').textContent = catHead;
+        </script>
+        </code>
+    </pre>
+            <h4>CSS</h4>
+    <pre class="code-box">
+        <code id="cat-head-css">
+        <script>
+        const catHeadCss = `
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #c9d2fc;
+    }
+
+    .cat-head {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: linear-gradient(#5e5e5e 85%,  #45454f 100%);
+        width: 205px;
+        height: 180px;
+        border: 1px solid #000;
+        border-radius: 46%;
+    }
+
+    .cat-left-ear {
+        position: absolute;
+        top: -26px;
+        left: -31px;
+        z-index: 1;
+        border-top-left-radius: 90px;
+        border-top-right-radius: 10px;
+        transform: rotate(-45deg);
+        border-left: 35px solid transparent;
+        border-right: 35px solid transparent;
+        border-bottom: 70px solid #5e5e5e;
+    }
+
+    .cat-right-ear {
+        position: absolute;
+        top: -26px;
+        left: 163px;
+        z-index: 1;
+        transform: rotate(45deg);
+        border-top-left-radius: 90px;
+        border-top-right-radius: 10px;
+        border-left: 35px solid transparent;
+        border-right: 35px solid transparent;
+        border-bottom: 70px solid #5e5e5e;
+    }
+
+    .cat-left-inner-ear {
+        position: absolute;
+        top: 22px;
+        left: -20px;
+        border-top-left-radius: 90px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 40%;
+        border-bottom-left-radius: 40%;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 40px solid #3b3b4f;
+    }
+
+    .cat-right-inner-ear {
+        position: absolute;
+        top: 22px;
+        left: -20px;
+        border-top-left-radius: 90px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 40%;
+        border-bottom-left-radius: 40%;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 40px solid #3b3b4f;
+    }
+
+    .cat-left-eye {
+        position: absolute;
+        top: 54px;
+        left: 39px;
+        border-radius: 60%;
+        transform: rotate(25deg);
+        width: 30px;
+        height: 40px;
+        background-color: #000;
+    }
+
+    .cat-right-eye {
+        position: absolute;
+        top: 54px;
+        left: 134px;
+        border-radius: 60%;
+        transform: rotate(-25deg);
+        width: 30px;
+        height: 40px;
+        background-color: #000;
+    }
+
+    .cat-left-inner-eye {
+        position: absolute;
+        top: 8px;
+        left: 2px;
+        width: 10px;
+        height: 20px;
+        transform: rotate(10deg);
+        background-color: #fff;
+        border-radius: 60%;
+    }
+
+    .cat-right-inner-eye {
+        position: absolute;
+        top: 8px;
+        left: 18px;
+        transform: rotate(-5deg);
+        width: 10px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 60%;
+    }
+
+    .cat-nose {
+        position: absolute;
+        top: 108px;
+        left: 85px;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        transform: rotate(180deg);
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 20px solid #442c2c;
+    }
+
+    .cat-mouth div {
+        width: 30px;
+        height: 50px;
+        border: 2px solid #000;
+        border-radius: 190%/190px 150px 0 0;
+        border-color: black transparent transparent transparent;
+    }
+
+    .cat-mouth-line-left {
+        position: absolute;
+        top: 88px;
+        left: 74px;
+        transform: rotate(170deg);
+    }
+
+    .cat-mouth-line-right {
+        position: absolute;
+        top: 88px;
+        left: 91px;
+        transform: rotate(165deg);
+    }
+
+    .cat-whiskers-left div {
+        width: 40px;
+        height: 1px;
+        background-color: #000;
+    }
+
+    .cat-whiskers-right div {
+        width: 40px;
+        height: 1px;
+        background-color: #000;
+    }
+
+    .cat-whisker-left-top {
+        position: absolute;
+        top: 120px;
+        left: 52px;
+        transform: rotate(10deg);
+    }
+
+    .cat-whisker-left-middle {
+        position: absolute;
+        top: 127px;
+        left: 52px;
+        transform: rotate(3deg);
+    }
+
+    .cat-whisker-left-bottom {
+        position: absolute;
+        top: 134px;
+        left: 52px;
+        transform: rotate(-3deg);
+    }
+
+    .cat-whisker-right-top {
+        position: absolute;
+        top: 120px;
+        left: 109px;
+        transform: rotate(-10deg);
+    }
+
+    .cat-whisker-right-middle {
+        position: absolute;
+        top: 127px;
+        left: 109px;
+        transform: rotate(-3deg);
+    }
+
+    .cat-whisker-right-bottom {
+        position: absolute;
+        top: 134px;
+        left: 109px;
+        transform: rotate(3deg);
+    }
+        `
+        document.getElementById('cat-head-css').textContent = catHeadCss;
+        </script>
+        </code>
+    </pre>
+            <figure>
+                <img src="assets/img/IMG_0538.jpeg" alt="Image of cat head made by positioning elements within css properties">
+                <figcaption>Cat Painting</figcaption>
+            </figure>
+        </article>
+        </main>
+    </body>
+</html>
