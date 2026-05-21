@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8">
+        <title>Attribute Selectors</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Attribute Selectors</h1>
+        <main>
+            <article>
+              <h2>Working with Attribute Selector</h2>
+              <section>
+                <h3>What is the Attribute Selector, and how Can it be Used to Target Links with the href and title Attributes?</h3>
+                <p>
+                  The attribute selector in CSS is a powerful tool that allows you to target HTML elements based on their attributes. This means you can apply styles to elements that have specific attributes or even certain values for those attributes.
+                </p>
+                <p>
+                  It's particularly useful when you want to style elements dynamically or when class names alone don't provide enough specificity.
+                </p>
+                <p>
+                  For example, you can use the attribute selector to target all links that have a <strong>href</strong> attribute. This is especially handy when you want to apply a uniform style to all links on a page.
+                </p>
+                <p>
+                  Here's how you can use the attribute selector to target links with the <strong>href</strong> attribute:
+                </p>
+  <pre class="code-box">
+    <code id="link-without-href-attribute">
+      <script>
+    const linkWithoutHrefAttribute = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+        <a href="https://example.com">
+          Example link with an href attribute
+        </a>
+        <a>
+          Example link without an href attribute</a>
+
+    CSS
+       a {
+          display: block;
+       }
+
+       a[href] {
+          color: blue;
+          text-decoration: underline;
+       }
+    `
+    document.getElementById('link-without-href-attribute').textContent = linkWithoutHrefAttribute;
+      </script>
+    </code>
+  </pre>
+                <p>
+                  This CSS rule will apply a blue color and an underline to any link that includes an <strong>href</strong> attribute, ensuring that all clickable links are styled consistently.
+                </p>
+                <p>
+                  But attribute selectors can be more specific. Suppose you want to target only the links that have a <strong>title</strong> attribute.
+                  The <strong>title</strong> attribute often provides additional information about the link, and you might want to style these links differently to indicate that they have extra information available. Here's how you can do it:
+                </p>
+  <pre class="code-box">
+    <code id="extra-information">
+      <script>
+  const extraInformation = `
+  HTML
+      <a href="https://example.com" title="Example link with a title attribute">
+        Example link with a title attribute
+      </a>
+      <a>
+        Example link without a title or href attribute
+      </a>
+
+  CSS
+      a {
+        display: block;
+      }
+
+      a[title] {
+        font-weight: bold;
+        text-decoration: none;
+      }
+  `
+  document.getElementById('extra-information').textContent = extraInformation;
+      </script>
+    </code>
+  </pre>
+                <p>
+                  This rule applies bold text and removes the underline from any link with a <strong>title</strong> attribute. It's a great way to visually differentiate these links from others on the page.
+                </p>
+                <p>
+                  You can also combine attribute selectors to get even more precise. For example, if you want to style links that have both <strong>href</strong> and <strong>title</strong> attributes, you can do this:
+                </p>
+  <pre class="code-box">
+    <code id="both-in-one">
+    <script>
+    const bothInOne = `
+  HTML
+      <a href='https://example.com' title="Example adress with href and title attribute">
+        Example link with a title and href attribute
+      </a>
+      <a>
+        Example link without a title or href attributes
+      </a>
+
+  CSS
+      a {
+        display: block;
+      }
+
+      a[href][title] {
+        display: block;
+        color: green;
+      }
+    `
+    document.getElementById('both-in-one').textContent = bothInOne;
+    </script>
+    </code>
+  </pre>
+                  <p>
+                    In this case, only links that contain both <strong>href</strong> and <strong>title</strong> attributes will be sctyled with green text. This level of control is what makes attribute selectors so powerful in CSS.
+                  </p>
+                  <p>
+                    Another example for an attribute selector is to match a single value within a space-separated list of values in an attribute.
+                  </p>
+                  <p>
+                    Here is an example of an anchor element with multiple classes:
+                  </p>
+  <pre class="code-box">
+    <code id="multiple-classes">
+      <script>
+  const multipleClasses = `
+    <a href="https://example.com" class="btn primary large">
+      Visit Example Site
+    </a>
+  `
+  document.getElementById('multiple-classes').textContent = multipleClasses;
+      </script>
+    </code>
+  </pre>
+                <p>
+                  To target this specific anchor element, you can use the following selector:
+                </p>
+  <pre class="code-box">
+    <code id="target-specific">
+    <script>
+    const targetSpecific = `
+    HTML
+      <a href="https://example.com" class="btn primary large">
+        Visit Example Site
+      </a>
+
+    CSS
+      a[class~="primary"] {
+        color: red;
+        font-weight: bold;
+      }
+    `
+    document.getElementById('target-specific').textContent = targetSpecific;
+    </script>
+    </code>
+  </pre>
+                  <p>
+                    The <strong>[attr~=value]</strong> syntax is used here to target all anchor element where the class attribute contains the word <strong>"primary"</strong>.
+                  </p>
+                  <p>
+                    If you need to target an element where the attribute value is prefixed by specific value, then you can use the <strong>[attr^=value]</strong> syntax. Here is an example:
+                  </p>
+  <pre class="code-box">
+    <code id="home-dash-att">
+      <script>
+    const homeDashAtt = `
+  HTML
+      <a href="https://example.com" class="btn primary large">
+        Visit Example Site
+      </a>
+
+  CSS
+      a[href^="https://"] {
+        color: green;
+        text-decoration: underline;
+      }
+    `
+    document.getElementById('home-dash-att').textContent = homeDashAtt;
+      </script>
+    </code>
+  </pre>
+                  <p>
+                    In this example, the <strong>a[href^="https://"]</strong> selector will target all anchor elements where the <strong>href</strong> attribute value starts with <strong>"https://"</strong>.
+                  </p>
+                  <p>
+                    To target elements where the attribute value ends with a specific value, you can use the <strong>[attr$=value]</strong> syntax. Here is an example:
+                  </p>
+  <pre class="code-box">
+    <code id="dolor-attr">
+    <script>
+    const dolorAtt = `
+    HTML
+      <a href="https://example.com">
+        Visit Example Site
+      </a>
+
+    CSS
+      a[href$=".com"] {
+      color: darkgreen;
+      text-decoration: underline dotted;
+      }
+    `
+    document.getElementById('dolor-attr').textContent = dolorAtt;
+    </script>
+    </code>
+  </pre>
+                  <p>
+                    In this example, the <strong>a[href$=".com</strong> selector will target all anchor elements where the <strong>href</strong> attribute value ends with <strong>.com</strong>.
+                  </p>
+                  <p>
+                    Using attribute selectors not only enhances the styling of your webpage but also improves accesibility by making interactive elements like links more distinguishable based on their attributes.
+                  </p>
+              </section>
+              <section>
+                <h3>How to Use the Attribute Selector to rarget Elements with the langand data-lang Attributes?</h3>
+                <h4>LESSON</h4>
+                <p>
+                  When building multilingual websites or handling custom data attributes, you often need to style elements based on the language they contain or specific data values.
+                </p>
+                <p>
+                  The <strong>lang</strong> and <strong>data-lang</strong> attributes are commonly used for these purposes, and the attribute selector in CSS allows you to apply styles based on these attributes effectively.
+                </p>
+                <p>
+                  The <strong>lang</strong> attribute is used in HTML to specify the language of the content within an element. You might want to style elements differently based on the language they are written in, especially on a multilingual website.
+                </p>
+                <p>
+                  Here's an example of how you can use the attribute selector to target elements with a specific <strong>lang</strong> attribute:
+                </p>
+  <pre class="code-box">
+    <code id="lang-data-att">
+      <script>
+    const langDataAtt = `
+  HTML
+      <link rel="stylesheet" href="styles.css">
+      
+      <p lang="en">
+        This is an English paragraph.
+      </p>
+      <p lang="fr">
+        Ceci est un paragraphe en français.
+      </p>
+
+  CSS
+      p[lang="en"] {
+        font-style: italic;
+      }`
+    document.getElementById('lang-data-att').textContent = langDataAtt;
+      </script>
+    </code>
+  </pre>
+                <p>
+                  This CSS rule applies italic styling to any paragraph element where the <strong>lang</strong> attribute is set to English (<strong>en</strong>). This could be useful for emphasizing English text in a document that includes multiple languages.
+                </p>
+                <p>
+                  Similarly, you can use the attribute selector to target elements with a <strong>data-lang</strong> attribute.
+                </p>
+                <p>
+                  Custom data attributes like <strong>data-lang</strong> are commonly used to store additional information in elements, such as specifying the language used within a specific section of text.
+                </p>
+                <p>
+                  Here's how you can use CSS to target and style elements based on the <strong>data-lang</strong> attribute:
+                </p>
+  <pre class="code-box">
+    <code id="data-lang">
+      <script>
+  const dataLang = `
+    HTML
+        <p data-lang="fr">
+          Ceci est un paragraphe en français.
+        </p>
+        <p data-lang="en">
+          This is a paragraph in English.
+        </p>
+    CSS
+        p[data-lang="fr"] {
+          color: blue;
+        }
+  `
+  document.getElementById('data-lang').textContent = dataLang;
+      </script>
+    </code>
+  </pre>
+                <p>
+                  In this case, any <strong>p</strong> element with a <strong>data-lang</strong> attribute set to French (<strong>fr</strong>) will have its text color changed to blue. This allows you to quickly identify and style section of content based on the language information stored in the <strong>data-lang</strong> attribute.
+                </p>
+                <p>
+                  Attribute selectors like these provide a powerful way to apply conditional styling based on the metadata embedded within your HTML, making your web pages more dynamic and context-aware.
+                </p>
+              </section>
+              <section>
+                <h3>How to Use the Attribute Selector to Target Ordered List Elements with the type Attribute?</h3>
+                <h4>LESSON</h4>
+                <p>
+                  When working with ordered lists in HTML, the <strong>type</strong> attribute allows you to specify the style of numbering used, such as numerical, alphabetical, or Roman numerals.
+                </p>
+                <p>
+                  the <strong>type</strong> attribute can be set on an <strong>ol</strong> (ordered list) element to control the numbering format:
+                </p>
+                <ul>
+                  <li>
+                    <strong>1</strong> for numerical lists (such as 1,2,3,...),
+                  </li>
+                  <li>
+                    <strong>A</strong> for uppercase alphabetical list (such as A, B, C,...),
+                  </li>
+                  <li>
+                    <strong>a</strong> for lowercase alphabetical lists (such as a, b, c,...),
+                  </li>
+                  <li>
+                    <strong>I</strong> for uppercase Roman numerals (such as I, II, III,...),
+                  </li>
+                  <li>
+                    <strong>i</strong> for lowercase Roman numerals (such as i, ii, iii, ...)
+                  </li>
+                </ul>
+                <hr />
+                <hr />
+                <p>
+                  Here's how you can use the attribute selector to target an ordered list with a specific <strong>type</strong> attribute:
+                </p>
+  <pre class="code-box">
+    <code id="specific-type">
+    <script>
+      const specificType = `
+  HTML
+      <link rel="stylesheet" href="styles.css">
+      
+      <ol type="A">
+        <li>
+          Item 1
+        </li>
+        <li>
+          Item 2
+        </li>
+      </ol>
+
+  CSS
+      ol[type="A"] {
+        color: purple;
+        font-weight: bold;
+      }
+      `
+      document.getElementById('specific-type').textContent = specificType;
+    </script>
+    </code>
+  </pre>
+                  <p>
+                    In this example, the CSS rule will apply purple text and bold font weight to any ordered list that uses uppercase alphabetical numbering, which is specified by <strong>type="A"</strong>.
+                  </p>
+                  <p>
+                    Similarly, you can target ordered lists that use lowercase Roman numerals by selecting those with <strong>type="i"</strong>:
+                  </p>
+  <pre class="code-box">
+    <code id="type-i">
+      <script>
+  const typeI= `
+  HTML
+      <link rel="stylesheet" href="styles.css">
+      <ol type="i">
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ol>
+    
+  CSS
+      ol[type="i"] {
+        color: green;
+      }
+  `
+  document.getElementById('type-i').textContent = typeI;
+      </script>
+    </code>
+  </pre>
+                <p>
+                  This rule will change the text color to green for any ordered list that uses lowercase Roman numerals.
+                </p>
+                <p>
+                  The ability to style ordered lists based on their <strong>type</strong> attribute gives you greater control over the appearance of list in your document, allowing for customization based on how content is structured.
+                </p>
+              </section>
+            </article>
+            <article>
+              <h2>Build a Balance Sheet</h2>
+              <section>
+                <p>
+                  In this section, you'll build a balance sheet using pseudo selectors. You'll learn how to change the style of an element when you hover over it with your mouse, and trigger other events on your webpage.
+                </p>
+                <h4>HTML</h4>
+    <pre class="code-box">
+      <code id="html-html">
+      <script>
+      const htmlHtml =`
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balance Sheet</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>
+          <span class="flex">
+            <span>AcmeWidgetCorp</span>
+            <span>Balance Sheet</span>
+          </span>
+        </h1>
+        <div id="years" aria-hidden="true">
+          <span class="year">2019</span>
+          <span class="year">2020</span>
+          <span class="year">2021</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>
+              Assets
+            </caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th><span class="sr-only year">2019</span></th>
+                <th><span class="sr-only year">2020</span></th>
+                <th class="current"><span class="sr-only year">2021</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data">
+                <th>Cash <span class="description">This is the cash we currently have on hand.</span></th>
+                <td>$25</td>
+                <td>$30</td>
+                <td class="current">$28</td>
+              </tr>
+              <tr class="data">
+                <th>Checking <span class="description">Our primary transactional account.</span></th>
+                <td>$54</td>
+                <td>$56</td>
+                <td class="current">$53</td>
+              </tr>
+              <tr class="data">
+                <th>Savings <span class="description">Funds set aside for emergencies.</span></th>
+                <td>$500</td>
+                <td>$650</td>
+                <td class="current">$728</td>
+              </tr>
+              <tr class="total">
+                <th>Total <span class="sr-only">Assets</span></th>
+                <td>$579</td>
+                <td>$736</td>
+                <td class="current">$809</td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <caption>
+              Liabilities
+            </caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th><span class="sr-only">2019</span></th>
+                <th><span class="sr-only">2020</span></th>
+                <th><span class="sr-only">2021</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data">
+                <th>Loans <span class="description">The outstanding balance on our startup loan.</span></th>
+                <td>$500</td>
+                <td>$250</td>
+                <td class="current">$0</td>
+              </tr>
+              <tr class="data">
+                <th>Expenses <span class="description">Annual anticipated expenses, such as payroll.</span></th>
+                <td>$200</td>
+                <td>$300</td>
+                <td class="current">$400</td>
+              </tr>
+              <tr class="data">
+                <th>Credit <span class="description">The outstanding balance on our credit card.</span></th>
+                <td>$50</td>
+                <td>$50</td>
+                <td class="current">$75</td>
+              </tr>
+              <tr class="total">
+                <th>Total <span class="sr-only">Liabilities</span></th>
+                <td>$750</td>
+                <td>$600</td>
+                <td class="current">$475</td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <caption>
+              Net Worth
+            </caption>
+            <thead>
+              <tr>
+                <td></td>
+                <th><span class="sr-only">2019</span></th>
+                <th><span class="sr-only">2020</span></th>
+                <th><span class="sr-only">2021</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="total">
+                <th>Total <span class="sr-only">Net Worth</span></th>
+                <td>$-171</td>
+                <td>$136</td>
+                <td class="current">$334</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+        `
+        document.getElementById('html-html').textContent = htmlHtml;
+      </script>
+      </code>
+    </pre>
+    <h4>CSS</h4>
+  <pre class="code-box">
+    <code id="css-css">
+    <script>
+      const cssCss = `
+  span[class~="sr-only"] {
+      border: 0 !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+      clip-path: inset(50%) !important;
+      height: 1px !important;
+      width: 1px !important;
+      position: absolute !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      padding: 0 !important;
+      margin: -1px !important;
+  }
+
+  html {
+      box-sizing: border-box;
+  }
+
+  body {
+      font-family: sans-serif;
+      color: #0a0a23;
+  }
+
+  h1 {
+      max-width: 37.25rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem;
+  }
+
+  h1 .flex {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 1rem;
+  }
+
+  h1 .flex span:first-of-type {
+      font-size: 0.7em;
+  }
+
+  h1 .flex span:last-of-type {
+      font-size: 1.2em;
+  }
+
+  section {
+      max-width: 40rem;
+      margin: 0 auto;
+      border: 2px solid #d0d0d5;
+  }
+
+  #years {
+      display: flex;
+      justify-content: flex-end;
+      position: sticky;
+      z-index: 999;
+      top: 0;
+      background: #0a0a23;
+      color: #fff;
+      padding: 0.5rem calc(1.25rem + 2px) 0.5rem 0;
+      margin: 0 -2px;
+  }
+
+  #years span[class] {
+      font-weight: bold;
+      width: 4.5rem;
+      text-align: right;
+  }
+
+  .table-wrap {
+      padding: 0 0.75rem 1.5rem 0.75rem;
+  }
+
+  table {
+      border-collapse: collapse;
+      border: 0;
+      width: 100%;
+      position: relative;
+      margin-top: 3rem;
+  }
+
+  table caption {
+      color: #356eaf;
+      font-size: 1.3em;
+      font-weight: normal;
+      position: absolute;
+      top: -2.25rem;
+      left: 0.5rem;
+  }
+
+  tbody td {
+      width: 4rem;
+  }
+
+  tbody th {
+      width: calc(100% - 12rem);
+  }
+
+  tr[class="total"] {
+      border-bottom: 4px double #0a0a23;
+      font-weight: bold;
+  }
+
+  tr[class="total"] th {
+      text-align: left;
+      padding: 0.5rem 0 0.25rem 0.5rem;
+  }
+
+  tr.total td {
+      text-align: right;
+      padding: 0 0.25rem;
+  }
+
+  tr.total td:nth-of-type(3) {
+      padding-right: 0.5rem;
+  }
+
+  tr.total:hover {
+      background-color: #99c9ff;
+  }
+
+  td.current {
+      font-style: italic;
+  }
+
+  tr.data {
+      background-image: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem);
+  }
+
+  tr.data th {
+      text-align: left;
+      padding-top: 0.3rem;
+      padding-left: 0.5rem;
+  }
+
+  tr.data th .description {
+      display: block;
+      font-weight: normal;
+      font-style: italic;
+      padding: 1rem 0 0.75rem;
+      margin-right: -13.5rem;
+  }
+
+  tr.data td {
+      vertical-align: top;
+      padding: 0.3rem 0.25rem 0;
+      text-align: right;
+  }`
+      document.getElementById('css-css').textContent = cssCss;
+    </script>
+    </code>
+  </pre>
+                  <figure>
+                    <img src="assets/img/IMG_0540.jpeg" alt="Balance Sheet Project">
+                    <img src="assets/img/IMG_0541.jpeg" alt="Balance Sheet Project">
+                    <figcaption>Balance Sheet</figcaption>
+                  </figure>
+              </section>
+            </article>
+        </main>
+    </body>
+</html>
