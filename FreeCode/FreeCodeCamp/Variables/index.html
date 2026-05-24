@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Variables</h1>
+<main>
+    <nav id="nav-bar">
+        <ul>
+            <li>
+                <a href="#sec-1">Custom Properties</a>
+            </li>
+            <li>
+                <a href="#sec-2">Property Rules</a>
+            </li>
+            <li>
+                <a href="#bb">Build a City Skyline</a>
+            </li>
+        </ul>
+    </nav>
+<article>
+    <h2>Working with CSS Variables</h2>
+  <section>
+    <h3 id="sec-1">What are CSS Custom Properties, and how do they work?</h3>
+    <h4>LESSON</h4>
+    <p>
+        CSS custom properties, also known as CSS variables, are entities defined by CSS authors that contain specific values to be reused throughout a document. They are a powerful feature that allows for more efficient, maintainable, and flexible stylesheets.
+    </p>
+    <p>
+        The syntax for declaring a custom property is straightforward. It begins with two dashes(<strong>--</strong>) followed by the property name:
+    </p>
+    <pre class="code-box">
+    <code id="syntax-custom-properties">
+        <script>
+        const syntaxCustomProperties = `
+        :root {
+            --main-color: #3498db;
+        }
+        `
+        document.getElementById('syntax-custom-properties').textContent = syntaxCustomProperties;
+        </script>
+    </code>
+    </pre>
+    <p>
+        In this example, we're declaring a custom property named <strong>--main-color</strong> with a value of, <strong>#3498db</strong>. The <strong>:root</strong> pseudo-class is commonly used to declare global custom properties, as it represents the highest-level parent in the DOM tree.
+   </p>
+   <p>
+    To use custom property, you employ the <strong>var()</strong> function:
+   </p>
+   <pre class="code-box">
+    <code id="var-employ">
+    <script>
+    const varEmploy = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+        <button class="button">Click Me</button>
+
+    CSS
+        :root {
+            --main-color: #3498db;
+        }
+
+        .button {
+            background-color: var(--main-color);
+        }
+    `
+    document.getElementById('var-employ').textContent = varEmploy;
+    </script>
+    </code>
+   </pre>
+   <p>
+    This sets the bacground color of elements with the class <strong>button</strong> to the value stored in <strong>--main-color</strong>.
+   </p>
+   <p>
+    One of the features of custom properties is that they follow the CSS cascade. This means that you can redefine them for specific elements or contexts:
+   </p>
+   <pre class="code-box">
+    <code id="cascade-feature">
+    <script>
+    const cascadeFeature = `
+    HTML
+        <div class="alert">
+            This is an alert message.
+        </div>
+
+    CSS
+        .alert {
+            --main-color: #e74c3c;
+            background-color: var(--main-color);
+        }
+    `
+    document.getElementById('cascade-feature').textContent = cascadeFeature;
+    </script>
+    </code>
+   </pre>
+   <p>
+    IOn this case, elements with the class <strong>alert</strong> will use a different <strong>--main-color</strong> value, overriding the global definition.
+    </p>
+    <p>
+        Custom properties also support fallback values. If a custom property is not defined or is invalid, you can provide a fallback value:
+    </p>
+    <pre class="code-box">
+    <code id="fallback-value">
+    <script>
+    const fallbackValue = `
+    HTML
+        <div class="text">
+            This is some text.
+        </div>
+    
+    CSS
+        :root {
+            --text-color: green;
+        }
+
+        .text {
+            color: var(--text-color, green);
+        }
+    `
+    document.getElementById('fallback-value').textContent = fallbackValue;
+    </script>
+    </code>
+    </pre>
+    <p>
+        Here, if <strong>--text-color</strong> is not defined, the <strong>color</strong> will default to <strong>green</strong>.
+    </p>
+    <p>
+        Custom properties are particularly useful in creating themeable designs. You can define a set of properties for different themes:
+    </p>
+    <pre class="code-box">
+    <code id="different-themes">
+    <script>
+    const differentThemes = `
+    HTML
+        <div class="light-theme">
+            <p>
+                This is some light themed text.
+            </p>
+        </div>
+
+    CSS
+        :root {
+            --bg-color: black;
+        }
+
+        body {
+            background-color: var(--bg-color);
+        }
+
+        .light-theme {
+            --bg-color: white;
+            --text-color: black;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 10px;
+        }
+    `
+    document.getElementById('different-themes').textContent = differentThemes;
+    </script>
+    </code>
+    </pre>
+    <p>
+        Switching themes becomes as simple as adding or removing a class from the <strong>body</strong> element.
+    </p>
+    <p>
+        Custom properties can also be used with media queries to create responsive design:
+    </p>
+    <pre class="code-box">
+    <code id="custom-querries">
+        <script>
+        const customQuerries = `
+    HTML
+        <div class="card>
+            <h2>
+                Responsive Design.
+            </h2>
+            <p>
+                Resize the window to see the card adapt!
+            </p>
+        </div>
+
+    CSS
+        :root {
+            --card-width: 90%;
+            --card-bg: #f0f0f0;
+            --card-padding: 1rem;
+            --text-color: #333;
+        }
+
+        /* Tablet screens and up */
+
+        @media (min-width: 600px) {
+            :root {
+                --card-width: 70%;
+                --card-bg: #e8f5r9;
+                --card-padding: 1.5rem;
+            }
+        }
+
+        /* Desktop screens and up */
+
+        @media (min-width: 1024px) {
+            :root {
+                --card-width: 50%;
+                --card-bg: #d0f0ff;
+                --card-padding: 2rem;
+            }
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fafafa;
+        }
+
+        .card {
+            width: var(--card-width);
+            background-color: var(--card-bg);
+            padding: var(--card-padding);
+            color: var(--text-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3 ease;
+        }
+        `
+        document.getElementById('custom-querries').textContent = customQuerries;
+        </script>
+    </code>
+    </pre>
+    <p>
+        This approach allows for moremaintainable rresponsive layouts, as you can change values in one place rather than throughout your stylesheet. This can significantly reduce repetition in your stylesheets, especially for frequently used, complex values.
+    </p>
+    <p>
+        Custom properties can also reference other custom properties:
+    </p>
+    <pre class="code-box">
+    <code id="custom-properties-reference">
+    <script>
+    const customPropertiesReference = `
+    HTML
+        <buttom class="button">Click Me</button>
+
+    CSS
+        :root {
+            --primary-color: #3498db;
+            --button-bg: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--button-bg);
+        }
+    `
+    document.getElementById('custom-properties-reference').textContent = customPropertiesReference;
+    </script>
+    </pre>
+    <p>
+        This allows for creating relationship between different styles aspects, making it easier to maintain consistent themes across your side.
+    </p>
+    <p>
+        While custom properties offer many advantages, it's important to be aware of their browser support. They are well-supported in modern browsers, but older browseers may not recognize them. Always have a fallback plan when using cutting-edge features.
+    </p>    
+    <p>
+        In conclusion, CSS custom properties provide a powerful way to create more dynamic, flexible, and maintainable stylesheets. They allow for the creation of themeable designs, simplify responsive layouts, and enable runtime manipulation of styles.
+    </p>
+    <p>
+        As web development continues to evolve, custom properties are becoming an increasingly important tool in a developer's toolkit, offering new possibilities ffor creating adaptable and efficient CSS.
+    </p>
+  </section>
+  <section>
+    <h3 id="sec-2">
+        What is the @property Rule, and How Does It Work with Fallback?
+    </h3>
+    <h4>LESSON</h4>
+    <p>
+        The <strong>@property</strong> rule is a powerful CSS feature that allows developers to define custom properties with greater control over their behavior, including how they animate and their values. 
+    </p>
+    <p>
+        This rule provides a way to enhance the functionality of CSS custom properties and offers more flexibiliity in their application.
+    </p>
+    <p>
+        The basic syntax of the <strong>@property</strong> rule is as follows:
+    </p>
+    <pre class="code-box">
+    <code id="property-syntax">
+        <script>
+    const propertySyntax = `
+        @property --property-name {
+            syntax: '<type>';
+            inherits: true | false;
+            initial-value: <value>;
+        }
+    `
+    document.getElementById('property-syntax').textContent = propertySyntax;
+        </script>
+    </code>
+    </pre>
+    <p>
+        The <strong>--property-name</strong> us the name of the custom property you're defining. Like all custtom properties, it must start with two dashes.
+    </p>
+    <p>
+        <strong>syntax</strong> defines the type of the property, which can be things like <strong>&lt;color&gt;</strong>, <strong>&lt;length&gt;</strong>, <strong>&lt;number&gt;</strong>, <strong>&lt;percentage&gt;</strong>, or more complex types.
+    </p>
+    <p>
+        <strong>inherits</strong> specifies whether the property should inherit its value from its parent element. 
+    </p>
+    <p>
+        <strong>initial-scale</strong> sets the default value of the property.
+    </p>
+    <p>
+        Here's practical example of using the <strong>@property</strong> rule:
+    </p>
+    <pre class="code-box">
+    <code id="property-rule-ex">
+    <script>
+    const propertyRuleEx = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <button class="button">Click Me</button>
+
+    CSS
+        @property --main-color {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: #3498db;
+        }
+
+        .button {
+            background-color: var(--main-color);
+        }
+    `
+    document.getElementById('property-rule-ex').textContent = propertyRuleEx;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this example, we're defining a custom property <strong>--main-color</strong> as a <strong>color</strong> value, setting it to not inherit, and giving it an initial of <strong>#3498db</strong>.
+    </p>
+    <p>
+        One of the key benefits of the <strong>@property</strong> rule is that it allows for animation of custom properties, which wasn't possible before:
+    </p>
+    <pre class="code-box">
+    <code id="animation-property">
+        <script>
+        const animationProperty = `
+    HTML
+        <div class="gradient-box"></div>
+
+    CSS
+        @property --gradient-angle {
+            syntax: '<angle>';
+            inherits: false;
+            initial-value: 0deg;
+        }
+
+        .gradient-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(var(--gradient-angle), red, blue);
+            transittion: --gradient-angle 0.5s;
+        }
+
+        .gradient-box:hover {
+            --gradient-angle: 90deg;
+        }
+        `
+        document.getElementById('animation-property').textContent = animationProperty;
+        </script>
+    </code>
+    </pre>
+    <p>
+        The code above creates a gradient that smoothly animates when the element is hovered over, something that wasn't achievable with standard custom properties.
+    </p>
+    <p>
+        Now, let's discuss how the <strong>@property</strong> rule works with fallbacks.
+    </p>
+    <p>
+        Fallbacks are crucial in CSS to ensure that styles degrade gracefully in browsers that don't support certain features. With the <strong>@property</strong>, fallbacks work on two levels: for the rule itself and for the use of the custom property.
+    </p>
+    <p>
+        For browsers that don't support the <strong>@property</strong> rule, you can provide a fallback by declaring the custom property in the traditional way:
+    </p>
+    <pre class="code-box">
+    <code id="fallback-traditional">
+    <script>
+        const fallbackTraditional = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+
+    CSS
+        :root {
+            --main-color: #3498db;
+        }
+
+        @property -- main-color {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: #3498db;
+        }
+
+        body {
+            background-color: var(--main-color);
+        }
+        `
+        document.getElementById('fallback-traditional').textContent = fallbackTraditional;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this case, browsers that support <strong>@property</strong> will use the more strictly defined version, while others will fall back to the standard custom property declaration.
+    </p>
+    <p>
+        When using the custom property, you can provide a fallback value using the <strong>var()</strong> function, just as you would with standard custom properties:
+    </p>
+    <pre class="code-box">
+    <code id="no-idea-what">
+    <script>
+        const noIdeaWhat = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <button class="button">Click Me</button>
+
+    CSS
+        .button {
+            background-color: var(--main-color, #3498db);
+        }
+        `
+        document.getElementById('no-idea-what').textContent = noIdeaWhat;
+    </script>
+    </code>
+    </pre>
+    <p>
+        this ensures that even if the <strong>--main-color</strong> property is not defined or is invalid, the button will still have a background color.
+    </p>
+    <p>
+        The <strong>@property</strong> rule also allows for more complex fallback scenarios. For instance, you can use it to provide type-safe fallbacks:
+    </p>
+    <pre class="code-box">
+    <code id="type-safe-fallback">
+    <script>
+    const typeSafeFallback = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="box">Colored box</div>
+
+    CSS
+        @property --padding {
+            syntax: '<length>';
+            inherits: false;
+            initial-value: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: darkred;
+            color: white;
+            padding: var(--padding);
+        }
+    `
+    document.getElementById('type-safe-fallback').textContent = typeSafeFallback;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this case, if someone tries to set <strong>--padding</strong> to an invalid value, like a color, the browser will fall back to the initial value of <strong>10px</strong>, maintaining type safety.
+    </p>
+    <p>
+        The CSS <strong>@property</strong> rule is considered widely available across all major modern browser engines (like Chromw, Edge, Opera, Firefox, and Safari) since early-2024. If you want to support earlier browsers you need to provide fallback CSS as explained above.
+    </p>
+    <p>
+        In conclusion, the <strong>@property</strong> rule represents a significant advancment in how we work with custom properties in CSS. It provides more control and enables new possibilities like animation of custom properties. However, it's important to use it judicioulsly and always provide appropriate fallback to ensure a good experience across all browsers. As with any cutting-edge web technology, the key is to enhance the experience for browsers that support it while ensuring basic functionality for those that don't.
+    </p>
+  </section>
+</article>
+<article>
+    <h3>Build a City Skyline</h3>
+    <p>
+        CSS variables help you organize your styles and reuse them. In this workshop, you'll build a city skyline. Practice how to configure CSS variables so you can reuse them whenever you want.
+    </p>
+    <section id="bb">
+        <h4>HTML</h4>
+    <pre class="code-box">
+    <code id="html-bb">
+        <script>
+    const htmlBb = `
+    <!DOCTYPE html>
+<html lang="en">    
+  <head>
+    <meta charset="UTF-8">
+    <title>City Skyline</title>
+    <link href="styles.css" rel="stylesheet" />   
+  </head>
+
+  <body>
+    <div class="background-buildings sky">
+      <div></div>
+      <div></div>
+      <div class="bb1 building-wrap">
+        <div class="bb1a bb1-window"></div>
+        <div class="bb1b bb1-window"></div>
+        <div class="bb1c bb1-window"></div>
+        <div class="bb1d"></div>
+      </div>
+      <div class="bb2">
+        <div class="bb2a"></div>
+        <div class="bb2b"></div>
+      </div>
+      <div class="bb3"></div>
+      <div></div>
+      <div class="bb4 building-wrap">
+        <div class="bb4a"></div>
+        <div class="bb4b"></div>
+        <div class="bb4c window-wrap">
+          <div class="bb4-window"></div>
+          <div class="bb4-window"></div>
+          <div class="bb4-window"></div>
+          <div class="bb4-window"></div>
+        </div>
+      </div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="foreground-buildings">
+      <div></div>
+      <div></div>
+      <div class="fb1 building-wrap">
+        <div class="fb1a"></div>
+        <div class="fb1b"></div>
+        <div class="fb1c"></div>
+      </div>
+      <div class="fb2">
+        <div class="fb2a"></div>
+        <div class="fb2b window-wrap">
+          <div class="fb2-window"></div>
+          <div class="fb2-window"></div>
+          <div class="fb2-window"></div>
+        </div>
+      </div>
+      <div></div>
+      <div class="fb3 building-wrap">
+        <div class="fb3a window-wrap">
+          <div class="fb3-window"></div>
+          <div class="fb3-window"></div>
+          <div class="fb3-window"></div>
+        </div>
+        <div class="fb3b"></div>
+        <div class="fb3a"></div>
+        <div class="fb3b"></div>
+      </div>
+      <div class="fb4">
+        <div class="fb4a"></div>
+        <div class="fb4b">
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+          <div class="fb4-window"></div>
+        </div>
+      </div>
+      <div class="fb5"></div>
+      <div class="fb6"></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+</html>
+    `
+    document.getElementById('html-bb').textContent = htmlBb;
+        </script>
+    </code>
+    </pre>
+        <h4>CSS</h4>
+    <pre class="code-box">
+    <code id="css-bb">
+        <script>
+    const cssBb = `
+    :root {
+  --building-color1: #aa80ff;
+  --building-color2: #66cc99;
+  --building-color3: #cc6699;
+  --building-color4: #538cc6;
+  --window-color1: #bb99ff;
+  --window-color2: #8cd9b3;
+  --window-color3: #d98cb3;
+  --window-color4: #8cb3d9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.background-buildings, .foreground-buildings {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 0;
+}
+
+.building-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.window-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sky {
+  background: radial-gradient(
+      closest-corner circle at 15% 15%,
+      #ffcf33,
+      #ffcf33 20%,
+      #ffff66 21%,
+      #bbeeff 100%
+    );
+}
+
+/* BACKGROUND BUILDINGS - "bb" stands for "background building" */
+.bb1 {
+  width: 10%;
+  height: 70%;
+}
+
+.bb1a {
+  width: 70%;
+}
+  
+.bb1b {
+  width: 80%;
+}
+  
+.bb1c {
+  width: 90%;
+}
+
+.bb1d {
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(
+      var(--building-color1) 50%,
+      var(--window-color1)
+    );
+}
+
+.bb1-window {
+  height: 10%;
+  background: linear-gradient(
+      var(--building-color1),
+      var(--window-color1)
+    );
+}
+
+.bb2 {
+  width: 10%;
+  height: 50%;
+}
+
+.bb2a {
+  border-bottom: 5vh solid var(--building-color2);
+  border-left: 5vw solid transparent;
+  border-right: 5vw solid transparent;
+}
+
+.bb2b {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 6%,
+      var(--window-color2) 6%,
+      var(--window-color2) 9%
+    );
+}
+
+.bb3 {
+  width: 10%;
+  height: 55%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color3),
+      var(--building-color3),
+      var(--window-color3) 15%
+    );
+}
+
+.bb4 {
+  width: 11%;
+  height: 58%;
+}
+
+.bb4a {
+  width: 3%;
+  height: 10%;
+  background-color: var(--building-color4);
+}
+
+.bb4b {
+  width: 80%;
+  height: 5%;
+  background-color: var(--building-color4);
+}
+  
+.bb4c {
+  width: 100%;
+  height: 85%;
+  background-color: var(--building-color4);
+}
+
+.bb4-window {
+  width: 18%;
+  height: 90%;
+  background-color: var(--window-color4);
+}
+
+/* FOREGROUND BUILDINGS - "fb" stands for "foreground building" */
+.fb1 {
+  width: 10%;
+  height: 60%;
+}
+
+.fb1a {
+  border-bottom: 7vh solid var(--building-color4);
+  border-left: 2vw solid transparent;
+  border-right: 2vw solid transparent;
+}
+
+.fb1b {
+  width: 60%;
+  height: 10%;
+  background-color: var(--building-color4);
+}
+  
+.fb1c {
+  width: 100%;
+  height: 80%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color4),
+      var(--building-color4) 10%,
+      transparent 10%,
+      transparent 15%
+    ),
+    repeating-linear-gradient(
+      var(--building-color4),
+      var(--building-color4) 10%,
+      var(--window-color4) 10%,
+      var(--window-color4) 90%
+    );
+}
+
+.fb2 {
+  width: 10%;
+  height: 40%;
+}
+
+.fb2a {
+  width: 100%;
+  border-bottom: 10vh solid var(--building-color3);
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+}
+
+.fb2b {
+  width: 100%;
+  height: 75%;
+  background-color: var(--building-color3);
+}
+
+.fb2-window {
+  width: 22%;
+  height: 100%;
+  background-color: var(--window-color3);
+}
+
+.fb3 {
+  width: 10%;
+  height: 35%;
+}
+  
+.fb3a {
+  width: 80%;
+  height: 15%;
+  background-color: var(--building-color1);
+}
+  
+.fb3b {
+  width: 100%;
+  height: 35%;
+  background-color: var(--building-color1);
+}
+
+.fb3-window {
+  width: 25%;
+  height: 80%;
+  background-color: var(--window-color1);
+}
+
+.fb4 {
+  width: 8%;
+  height: 45%;
+  position: relative;
+  left: 10%;
+}
+
+.fb4a {
+  border-top: 5vh solid transparent;
+  border-left: 8vw solid var(--building-color1);
+}
+
+.fb4b {
+  width: 100%;
+  height: 89%;
+  background-color: var(--building-color1);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fb4-window {
+  width: 30%;
+  height: 10%;
+  border-radius: 50%;
+  background-color: var(--window-color1);
+  margin: 10%;
+}
+
+.fb5 {
+  width: 10%;
+  height: 33%;
+  position: relative;
+  right: 10%;
+  background: repeating-linear-gradient(
+      var(--building-color2),
+      var(--building-color2) 5%,
+      transparent 5%,
+      transparent 10%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--building-color2),
+      var(--building-color2) 12%,
+      var(--window-color2) 12%,
+      var(--window-color2) 44%
+    );
+}
+
+.fb6 {
+  width: 9%;
+  height: 38%;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--building-color3),
+      var(--building-color3) 10%,
+      transparent 10%,
+      transparent 30%
+    ),
+    repeating-linear-gradient(
+      var(--building-color3),
+      var(--building-color3) 10%,
+      var(--window-color3) 10%,
+      var(--window-color3) 30%
+    );
+}
+
+@media (max-width: 1000px) {
+          :root {
+    --building-color1: #000;
+    --building-color2: #000;
+    --building-color3: #000;
+    --building-color4: #000;
+    --window-color1: #777;
+    --window-color2: #777;
+    --window-color3: #777;
+    --window-color4: #777;
+  }
+
+    .sky {
+    background: radial-gradient(
+        closest-corner circle at 15% 15%,
+        #ccc,
+        #ccc 20%,
+        #445 21%,
+        #223 100%
+      );
+  }
+}
+    
+    `
+    document.getElementById('css-bb').textContent = cssBb;
+        </script>
+    </code>
+    </pre>
+    </section>
+    <figure>
+        <img src="assets/img/IMG_0550.jpeg" alt="Image of City Skyline at night. responsive variables" lazy>
+        <figcaption>City Skyline during the night (rersponsive style)</figcaption>
+    </figure>
+    <figure>
+        <img src="assets/img/IMG_0551.jpeg" alt="Image of City Skyline durring the day. Rsponsive design ">
+        <figcaption>City Skyline during the day (responsive style) </figcaption>
+    </figure>
+</article>
+</main>
+</body>
