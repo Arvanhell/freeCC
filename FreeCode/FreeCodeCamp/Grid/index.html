@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grid</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <h1>Grid</h1>
+
+    <main>
+        <h2>Working with CSS Grid</h2>
+        <p>
+            In these lectures, you will learn about CSS grid, its several properties and how to use them, and how CSS grid differs from flexbox.
+        </p>
+        <ul>
+            <li>
+                <a href="#section-1">What is CSS Grid, and how is differ from Flexbox?</a>
+            </li>
+            <li>
+                <a href="#section-2">How can you create Flexible Grids with the fr unit?</a>
+            </li>
+            <li>
+               <a href="#section-3"> How can you create gaps between tracks in Grid?</a>
+            </li>
+            <li>
+                <a href="#section-4">How can you repeat track listing in a grid layout</a>
+            </li>
+            <li>
+                <a href="#section-5">What is the difference between an implicit and explicit grid?</a>
+            </li>
+            <li>
+                <a href="#section-6">What is the minmax() Function and how does it work?</a>
+            </li>
+            <li>
+                <a href="#section-7">How do the grid-column and grid-row properties work?</a>
+            </li>
+            <li>
+                <a href="section8">
+                    How can you position items on the grid using the grid-template-areas property?
+                </a>
+            </li>
+        </ul>
+    <section id="section-1">
+        <h3>What is CSS Grid, and how does it differ from Flexbox?</h3>
+        <h4>LESSON</h4>
+    <p>
+        CSS Grid is a powerful layout system that allows web developers to create complex and responsive web page layouts with ease.
+    </p>
+    <p>
+        Imagine you're arranging furniture in a room - CSS Grid is like having an invisible grid on your floor that helps you position everything precisely where you want it.
+    </p>
+    <p>
+        Wheb we build websites, we often need to arrange different elements on the page.
+    </p>
+    <p>
+        Before CSS Grid, this was sometimes tricky, especialy for complex layouts. CSS Grid simplifies this process by dividing your web page into rows and columns, creating a grid-like structure.
+    </p>
+    <p>
+        Let's imagine you were working with a container <strong>div</strong> with several items nested inside like this:
+    </p>
+    <pre class="code-box">
+      <code id="grid-simplifies">
+    <script>
+        const gridSimplifies = `
+    HTML
+        <div class="container"    
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+        </div>
+        `
+        document.getElementById('grid-simplifies').textContent = gridSimplifies;
+    </script>
+      </code>
+    </pre>
+    <p>
+        If you wanted to style those elements in a grid format, you can set the <strong>display</strong> to <strong>grid</strong> and apply columns like this:
+    </p>
+    <pre class="code-box">
+        <code id="grid-columns">
+      <script>
+          const gridColumns = `
+      HTML
+          <div class="container"    
+              <div class="item">Item 1</div>
+              <div class="item">Item 2</div>
+              <div class="item">Item 3</div>
+              <div class="item">Item 4</div>
+              <div class="item">Item 5</div>
+              <div class="item">Item 6</div>
+          </div>
+
+     CSS
+        .containert {
+          display: grid;
+          grid-template-colums: 1fr 1fr 1fr;
+          grid-gap: 20px;
+        }
+
+        .item {
+          background-color: lightgray;
+          padding: 20px;
+          text-align: center;
+          border: 1px solid #ccc;
+        }
+          `
+          document.getElementById('grid-columns').textContent = gridColumns;
+      </script>
+        </code>
+      </pre>
+      <p>
+        In this code, we're telling the browser to create a grid with three equal-width columns, that's what the <strong>1fr 1fr 1fr</strong> means, and we're adding a 20-pixel gap between each grid item.
+      </p>
+      <p>
+        Now, you might be wondering: "What about Flexbox? Isn't that also used for layouts?"
+      </p>
+      <p>
+        You're right! Flexbox is another CSS layout model, and it's quite useful too. But there are some key differences.
+      </p>
+      <p>
+        Flexbox is one-dimensional, while Grid is two-dimensional. This means Flexbox work great for laying things out in a single row or column, while Grid excels at creating layouts with both rows and columns.
+      </p>
+      <p>
+        Flexbox is content-first, meaning it adjust the layout based on the content. Grid, on the other hand, is layout-first, allowing you to create the layout and then place items into it. Grid gives you more precise control over placement. You can tell an item exactly which row and column to occupy.
+      </p>
+
+      <p>
+        Here's a flexbox example for comaprison.
+      </p>
+      <pre class="code-box">
+        <code id="flex-simplifies">
+      <script>
+          const flexSimplifies = `
+      HTML
+          <div class="container"    
+              <div class="item">Item 1</div>
+              <div class="item">Item 2</div>
+              <div class="item">Item 3</div>
+              <div class="item">Item 4</div>
+              <div class="item">Item 5</div>
+              <div class="item">Item 6</div>
+          </div>
+        
+     CSS
+        .container {
+          display: flex;
+          justify-content: space-between;
+        }
+          `
+          document.getElementById('flex-simplifies').textContent = flexSimplifies;
+      </script>
+        </code>
+      </pre>
+      <p>
+        This create a flex container where the items are spaced evenly along the main axis.
+      </p>
+      <p>
+        Both Grid and Flexbox have their strengths, and often, the best layouts use a combination of both. You might use Grid for the overall page layout, and then use Flexbox for allingning items within each grod area.
+      </p>
+      <p>
+        In summary, CSS Grid is a powerful tool that allows for precise, two-dimensional layouts. While it might seem complex at first, with practice, it becomes an invaluable tool for creating responsive and complex web layouts.
+      </p>
+    </section>
+    <section id="section-2">
+        <h3>How can you create flexible grids with the fr unit?</h3>
+        <h4>LESSON</h4>
+        <p>
+            In the previous lesson, you were introduced to CSS grid which can be used to create complex and fluid laouts in your web pages. In this lesson, we will explore how to create flexible grid layouts using th <strong>fr</strong> unit.
+        </p>
+        <p>
+            Let's start with this HTML markup which is going to represent our grid container:
+        </p>
+        <pre class="code-box">
+        <code id="grid-container">
+            <script>
+        const gridContainer = `
+        <div class="grid-container">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        `
+        document.getElementById('grid-container').textContent = gridContainer;
+            </script>
+        </code>
+        </pre>
+        <p>
+            Inside the CSS, we set the display property to grid for the container.
+        </p>
+    <pre class="code-box">
+        <code id="grid-container-display">
+            <script>
+        const gridContainerDisplay = `
+    HTML
+        <div class="grid-container">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+
+    CSS
+        html,
+        body {
+            width: 90%;
+            height: 50%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            gap: 15px;
+            background-color: darkgray;
+            height: 100%;
+        }
+
+        .col {
+            background-color: darkslateblue;
+        }
+        `
+        document.getElementById('grid-container-display').textContent = gridContainerDisplay;
+            </script>
+        </code>
+        </pre>
+        <p>
+            <strong>grid-template-columns</strong> is used to set the size for each column. In this case, column size will be <strong>25%</strong> of the container. Then the gap property is used to create space around each column.
+        </p>
+        <p>
+            So far we have been using percentages for the column size but we can also use the <strong>fr</strong> unit.
+        </p>
+        <p>
+            The <strong>fr</strong> unit is a fractional unit which represents a fraction of the space for the grid container.
+        </p>
+        <p>
+            Here is what the code will look lik when it is refactored to use <strong>fr</strong> units instead of percentages.
+        </p>
+        <pre class="code-box">
+        <code id="grid-container-col-fr">
+        <script>
+        const gridContainerColFr = `
+    HTML
+        <link rel="stylesheet" href="styles.css" />
+        <div class="grid-container">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+
+    CSS
+        html, 
+        body {
+            width: 90%;
+            height: 50%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            background-color: darkgray;
+            height: 100%;
+        }
+
+        .col {
+            background-color: darkslateblue;
+        }
+        `
+        document.getElementById('grid-container-col-fr').textContent = gridContainerColFr
+        </script>
+        </code>
+        </pre>
+        <p>
+            Each column will take up one fraction of the available space. Since there are four columns, each column will have an equal share of the space available in the grid container.
+        </p>
+        <p>
+            As you start to build your grid layouts, you will find yourself wanting to use <strong>fr</strong> units more often because they provide a flexible, proportional way to distribute space, allowing you to create responsive layouts that adapt to varying screen sizez without needing to manually adjust pixel values.
+        </p>
+    </section>
+    <section id="section-3">
+    <h3>How can you create gaps between tracks in Grid?</h3>
+    <h4>LESSON</h4>
+    <p>
+        the previous lessons, we talked a little bit about how to create space between grid items. But in this lesson, we will dive into more detail about how to use the <strong>row-gap</strong>, <strong>column-gap</strong> and <strong>gap</strong>> properties in a grid layout.
+    </p>
+    <p>
+        But first we need to review what a track is in CSS grid. A track is the space between two neighboring grid lines. These lines are automatically created when you use CSS Grid. In this context, tracks generally refer to the rows and columns that make up the grid layout.
+    </p>
+    <p>
+        To create gaps between columns in a CSS Grid, you can use the <strong>column-gap</strong> property. Acceptable values for this property include pixels, the <strong>em</strong> unit, percentages, or the <strong>normal</strong> keyword.
+    </p>
+    <p>
+        you use the <strong>normal</strong> value for the <strong>column-gap</strong> property, then the result will be <strong>0</strong> for grid layouts and <strong>1em</strong> for multi-column layouts.
+    </p>
+    <pre class="code-box">
+    <code id="four-column-grid-layout">
+        <script>
+        const fourColumnGridLayout = `
+        <div class="grid-container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        `
+        document.getElementById('four-column-grid-layout').textContent = fourColumnGridLayout;
+        </script>        
+    </code>
+    </pre>
+    <p>
+        For the CSS, we set the display to grid and the <strong>column-gap</strong> property to 10 pixels:
+    </p>
+    <pre class="code-box">
+        <code id="four-column-gap-prop">
+            <script>
+            const fourColumnGapProp = `
+    HTML
+        <div class="grid-container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    CSS
+        .grid-container {
+            display: grid;
+            height: 100px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 10px;
+        }
+
+        .grid-container div {
+            background-color: darkblue;
+        }
+            `
+            document.getElementById('four-column-gap-prop').textContent = fourColumnGapProp;
+            </script>        
+        </code>
+        </pre>
+    <p>
+        If we wanted to change the example to have two rows of blue boxes and create more space between the rows, we can use the <strong>row-gap</strong> property:
+    </p>
+
+    <pre class="code-box">
+    <code id="row-gap">
+    <script>
+        const rowGap = `
+    HTML
+        <div class="grid-container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+    CSS
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 10px;
+            row-gap: 30px;
+        }    
+
+        .grid-container div {
+            height: 100px;
+            background-color: darkblue;
+        }
+    `
+        document.getElementById('row-gap').textContent = rowGap;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this revised example, we are setting the <strong>row-gap</strong> property to 30 pixels and changing the <strong>grid-template-columns</strong> to use just two <strong>1fr</strong> units instead of four to create two rows of boxes.
+    </p>
+    <p>
+        Just like the <strong>column-gap</strong> property, acceptable values for the <strong>row-gap</strong> property can include percentages, <strong>em</strong>, and pixels.
+    </p>
+    <p>
+        If you want to use a shorthand for creating gaps between rows and columns, you can use the <strong>gap</strong> property. Here is the basic syntax:
+    </p>
+
+    <pre class="code-box">
+    <code id="gap-property-ex">
+    <script>
+    const gapPropertyGap = `
+        gap: row-value optional-column-value;`
+    document.getElementById('gap-property-ex').textContent = gapPropertyGap;
+    </script>
+    </code>
+    </pre>
+    <p>
+        If you specify one value for the <strong>gap</strong> property, then that value will be applied to both rows and columns. If you specify two values, then the first value will go to the row and the second will be applied to the column:
+    </p>
+    <pre class="code-box">
+    <code id="grid-col-gap-ex">
+    <script>
+        const gridColGapEx = `
+    HTML
+        <div class="grid-container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+    CSS
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px 10px;
+        }    
+
+        .grid-container div {
+            height: 100px;
+            background-color: darkblue;
+        }
+        `
+        document.getElementById('grid-col-gap-ex').textContent = gridColGapEx;
+    </script>
+    </code>
+    </pre>
+    <p>
+        Acceptable values for the <strong>gap</strong> shorthand property include percentages, pixels, <strong>em</strong> and even <strong>calc()</strong> values. But you cannot use <strong>fr</strong> units here.
+    </p>
+    <p>
+        The <strong>row-gap</strong>, <strong>column-gap</strong>, and <strong>gap</strong> properties provide flexible ways to control spacing between items in CSS Grid layout. By usung these properties, you can easily create visually appealing grids with consistant and adjustable gaps between rows and columns.
+    </p>
+    </section>
+    <section id="section-4">
+        <h3>How can you repeat track listing in a grid layout</h3>
+        <h4>LESSON</h4>
+        <p>
+            In the previous lesson, we have been working with the <strong>grid-template-columns-units</strong> property and setting the value to a few fractional units.
+        </p>   
+        <pre class="code-box" >
+        <code id="grid-template-columns-units">
+        <script>
+        const gridTemplateColumnUnits = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid-container">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+    CSS
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: darkblue:
+        }
+        `
+        document.getElementById('grid-template-columns-units').textContent = gridTemplateColumnUnits;
+        </script>
+        </code>
+        </pre>
+        <p>
+            While the following code is completely valid, there is an easier way to repeat a section or all of your track listings.
+        </p>
+        <p>
+            The <strong>repeat()</strong> function is used to repeat a section or all of the tracks for columns or rows. This function takes in a repeat count and the tracks you wish to repeat. 
+        </p>
+        <p>
+            Here is a revised version of the earlier example using the repeat fuunction:
+        </p>
+        <pre class="code-box">
+        <code id="repeat-function">
+        <script>
+        const repeatFunction = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid-container">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+    CSS
+        .grid-container {
+            displaY; grid;
+            grid-template-columns: repeat(4. 1fr);
+            column-gap: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: darkblue;
+        }
+        `
+        document.getElementById('repeat-function').textContent = repeatFunction;
+        </script>
+        </pre>
+        <p>
+            There won't be a change for the styles in the browser, but this is a more concise way to write repeated values for the columns.
+        </p>
+        <p>
+            The <strong>repeat()</strong> function will accept any valid pattern that you can use for rows or columns.
+        </p>
+        <p>
+            Here is an example using the <strong>repeat()</strong> function to set the first and third columns to 20 pixels and the second and fourth columns to the fractional unit. 
+        </p>
+    <pre class="code-box">
+    <code id="repeat-fractional-unit">
+        <script>
+        const repeatFractionalUnit = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid-container">
+            <div class="box"></box>
+            <div class="box"></box>
+            <div class="box"></box>
+            <div class="box"></box>
+        </div>
+
+    CSS
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 20px, 1fr);
+            column-gap: 10px;
+        }
+
+        .grid-container div {
+            height: 10px;
+            baclground-color: darkblue;
+        }
+        `
+        document.getElementById('repeat-fractional-unit').textContent = repeatFractionalUnit;
+        </script>
+    </code>
+    </pre>
+    <p>
+        Sometimes, you might opt to write out each individual value instead of using the <strong>repeat()</strong> function. But there are times when this function comes in handy, especially when you want to repeat a particular pattern for a track listing.
+    </p>
+    </section>
+    <section id="section-5">
+        <h3>
+            What is the difference between an implicit and explicit grid?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            Implicit grid refers to the rows and columns automatically created by the browser when placing items in a grid layout- those not explicitly defined using <strong>grid-template-rows</strong> or <strong>grid-template-columns</strong>.
+        </p>
+        <p>
+            The properties that control the columns and rows created implicitily by the browser are <strong>grid-auto-columns</strong> and <strong>grid-auto-rows</strong>.
+        </p>
+        <p>
+            Implicit grid also refers to the additional rows and columns the browser automatically generates when you place an item outside the exolicitly defined rows and columns.
+        </p>
+        <p>
+            For instance, let's say you define only two explicit columns in a grid layout this way:
+        </p>
+        <pre class="code-box">
+        <code id="explicit-col-grid">
+            <script>
+        const explicitColGrid = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid-container">
+            <div class="grid-item">Item 1</div>
+            <div class="grid-item">Item 2</div>
+            <div class="grid-item">Item 3</div>
+            <div class="grid-item">Item 4</div>
+            <div class="grid-item">Item 5</div>
+            <div class="grid-item">Item 6</div>
+        </div>
+
+    CSS
+        .grid-container {
+            display: grid;
+            grid-template-columns: 100px 100px; 
+            /* Only 2 explicit columns */
+        }
+
+        .grid-item {
+            background-color: burlywood;
+            border: 1px solid orangered;
+            padding: 0.5rem;
+            margin: 0.5rem;
+        }
+        `
+        document.getElementById('explicit-col-grid').textContent = explicitColGrid;
+            </script>
+        </code>
+        </pre>
+        <p>
+            Two items filled the first row using the two explicit columns- <strong>Item 1</strong> in the first column and <strong>Item 2</strong> in the second column.
+        </p>
+        <p>
+            The next items start a new row with <strong>Item 3</strong> going in the first column of the second row and <strong>Item 4</strong> in the second column of the second row, and so on.
+        </p>
+        <p>
+            As you've already seen, explicit grids are the areas of the grid you intentionally set up. That is, the rows and columns you explicitly define for a grid layout using the <strong>grid-template-rows</strong> and <strong>grid-template-columns</strong> properties.
+        </p>
+        <legend>Difference between inplicit adn explicit grids</legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Explicit Grid</th>
+                    <th>Implicit Grid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>
+                        Fully cusomizable using <strong>grid-template-rows</strong> and <strong>grid-template-columns</strong>
+                    </td>
+                    <td>
+                        Controlled by <strong>grid-auto-rows</strong> and <strong>grid-auto-columns</strong>, or defaults to <strong>auto</strong>.
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>    
+                    <td>
+                        Does not change unless explicitly defined
+                    </td>
+                    <td>
+                        Automaticaly adapts to items placed outside the explicit grid.
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        Requires more planning for layout structure
+                    </td>
+                    <td>
+                        Easier to implement for unstructured or variable content.
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        Rigid structure with defined rows and columns.
+                    </td>
+                    <td>
+                        Flexible and adapts to dynamically placed content.
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>    
+                    <td>
+                        Potentially more performant as the layout is predefined.
+                    </td>
+                    <td>
+                        May require additional browser computations for implicit grid generation.
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        Useful when the grid structure is predictable and defined upfront.
+                    </td>
+                    <td>
+                        Useful for dynamic layouts where content is unknown or changes frequently.
+                    </td>
+                </tr>
+                             
+            </tbody>
+        </table>
+    </section>
+    <section id="section-6">
+        <h3>What is the minmax() Function and how does it work?</h3>
+        <h4>LESSON</h4>
+        <p>
+            The <strong>minimax()</strong> function defines the range for the size of a grid track, specifying how much space a row or column can occupy.
+        </p>
+        <p>
+            Remember that you can set the track size with units like <strong>px</strong> (pixels), <strong>rem</strong>, or even <strong>em</strong>, and with fractional units (<strong>fr</strong>).
+        </p>
+        <p>
+            The <strong>minimax()</strong> function takes things a bit futher by allowing you to set a minimum size and a maximum size for the grid track.
+        </p>
+        <p>
+            Here's the syntax of the <strong>minimax()</strong> function:
+        </p>
+        <pre class="code-box">
+        <code id="syntax-min-max">
+        <script>
+        const syntaxMinMax = `
+            minmax(min, max)
+        `
+        document.getElementById('syntax-min-max').textContent = syntaxMinMax;
+        </script>
+        </code>
+        </pre>
+        <p>
+            <strong>min</strong> is the minimum size of the grid track, which can be set using pixels, percentage, or <strong>auto</strong>. And <strong>max</strong> is the maximum size of the grid track which you can set with the same units.
+        </p>
+        <p>
+            The two values work together this way:
+        </p>
+        <ul>
+            <li>
+                The <strong>min</strong> value ensures the grid track will never shrink bellow a set size.
+            </li>
+            <li>
+                The <strong>max</strong> value limits how large the grid track can grow.
+            </li>
+        </ul>
+        <p>
+            The grid track size adjust dynamically between the <strong>min</strong> and <strong>max</strong> values based on content and container size.
+        </p>
+        <p>
+            Let's look at a practical example:
+        </p>
+        <pre class="code-box">
+        <code id="min-max-based-on-content">
+        <script>
+            const minMaxBasedOnContent = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid-container">
+            <div>
+                <h2>Item 1</h2>
+            </div>
+            <div>
+                <h2>Item 2</div>
+            </div>
+        </div>
+
+    CSS
+        .grid-container {
+            display: grid;
+            grid-template-columns: minmax(150px, 300px) 1fr;
+            gap: 20px;
+        }
+
+        .girl-container > div {
+            background: crimson;
+            padding: 20px;
+            text-align: center;
+        }
+            `
+            document.getElementById('min-max-based-on-content').textContent = minMaxBasedOnContent;
+        </script>
+        </code>
+        </pre>
+        <p>
+            What's happening here?
+        </p>
+        <p>
+            The first column, <strong>minmax(150px, 300px)</strong>, will always be at least <strong>150px</strong> and at most <strong>300px</strong>, depending on the available space.
+        </p>
+        <p>
+            On the other hand, the second column, <strong>1fr</strong>, will take up any available remaining space in the grid container since there are no additional columns to share the space with.
+        </p>
+        <p>
+            the advantage of the <strong>minmax()</strong> function over fixed sizes and even <strong>fr</strong> units is that it is more flexible, making it ideal for adaptability and responsiveness.
+        </p>
+    </section>
+    <section id="section-7">
+        <h3>How do the grid-column and grid-row properties work?</h3>
+    <h4>LESSON</h4>
+    <p>
+        The <strong>grid-column</strong> and <strong>grid-row</strong> properties let you specify the horizontal and vertical placement of grid items within a grid layout.
+    </p>
+    <p>
+        In the words, they both allow you to control where a grid item begins and ends by referencing grid lines. These grid lines are the boundaries that separate rows and column you have already defined using the <strong>grid-template-rows</strong> and <strong>grid-template-columns</strong> properties.
+    </p>
+    <p>
+        Let's take a look at the syntaxes of both <strong>grid-row</strong> and <strong>grid-column</strong>, and also a practical example.
+    </p>
+    <p>
+        Here's the syntax of the <strong>grid-row</strong> property:
+    </p>
+    <pre class="code-box">
+    <code id="grid-row-prop">
+        <script>
+        const gridRowProp = `
+        grid-row: <start-line> / <end-line>;`
+            document.getElementById('grid-row-prop').textContent = gridRowProp;
+    </script>
+    </code>
+    </pre>
+    <p>
+        And of <strong>grid-column</strong>;
+    </p>
+    <pre class="code-box">
+    <code id="grid-col-prop">
+        <script>
+        const gridColProp = `
+        grid-column: <start-line> / <end-line>;`
+            document.getElementById('grid-col-prop').textContent = gridColProp;
+    </script>
+    </code>
+    </pre>
+    <p>
+        <strong>&lt;start-line&gt;</strong> is the grid line where the item starts and <strong>&lt;end-line&gt;</strong> ist the grid line where the item ends. Both are 1- indexed, that is, you start counting them from 1, not 0.
+    </p>
+    <p>
+        Remember, grid lines for rows are generated based on the number of rows specified in the <strong>grid-template-rows</strong> property. The same applies to columns with the <strong>grid-template-columns</strong> property.
+    </p>
+    <p>
+        For the practical example, let's start with the lines generated by the browser when you use both the <strong>grid-template-rows</strong> and the <strong>grid-template-columns</strong> properties.
+    </p>
+    <p>
+        Here is an example grid with 4 columns and 3 rows:
+    </p>
+    <pre class="code-box">
+    <code id="four-col-three-rows">
+        <script>
+        const fourColThreeRows = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid">
+            <div class="item1">1</div>
+            <div class="item2">2</div>
+            <div class="item3">3</div>
+            <div class="item4">4</div>
+            <div class="item5">5</div>
+            <div class="item6">6</div>
+            <div class="item7">7</div>
+            <div class="item8">8</div>
+            <div class="item9">9</div>
+            <div class="item10">10</div>
+            <div class="item11">11</div>
+            <div class="item12">12</div>
+        </div>
+
+    CSS
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) /* 4 equal columns */
+            grid-template-rows: repeat(3, 100px); /* 3 equal rows */
+            gap: 10px;
+        }
+
+        .grid > div {
+            display: grid;
+            place-items: center;
+            background: crimson;
+            color: white;
+            font-size: 4rem;
+        }
+        `
+        document.getElementById('four-col-three-rows').textContent = fourColThreeRows;
+        </script>
+    </code>
+    </pre>
+    <p>
+        Inspecting the grid container (the class <strong>grid</strong>) shows that each row and column is bounded by two lines - a start line at the beginning of the row or column, and an end line at the end of the row or column.
+    </p>
+    <p>
+        You can target these lines to start using the <strong>grid-row</strong> and <strong>grid-column</strong> properties to determine where you should place an item.
+    </p>
+    <p>
+        Here's how you can make the first grid item occupy the first two columns:
+    </p>
+    <pre class="code-box">
+    <code id="first-grid-item">
+    <script>
+        const firstGridItem = `
+    HTML
+        <link rel="stylesheet"   href="styles.css">
+        <div class="grid">
+            <div class="item1">1</div>
+            <div class="item2">2</div>
+            <div class="item3">3</div>
+            <div class="item4">4</div>
+            <div class="item5">5</div>
+            <div class="item6">6</div>
+            <div class="item7">7</div>
+            <div class="item8">8</div>
+            <div class="item9">9</div>
+            <div class="item10">10</div>
+            <div class="item11">11</div>
+            <div class="item12">12</div>
+        </div>    
+    
+    CSS
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns. */
+            grid-template-rows: repeat(3, 100px); /* 3 equal rows */
+            gap: 10px;
+        }
+
+        .grid > div {
+            display: grid;
+            place-items: center;
+            background: crimson;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .item {
+            grid-column: 1 / 3;
+        }
+            `
+        document.getElementById('first-grid-item').textContent = firstGridItem;
+    </script>
+    </code>
+    </pre>
+    <p>
+        With thism you're saying the first grid item should start at column 1 and end just before column 3.
+    </p>
+    <p>
+        The first item will now occupy two columns, and the fourth item gets pushed to the second row. Cool!
+    </p>
+    <p>
+        If you also want the first item to occupy two rows, you can specify a <strong>grid-row</strong> of <strong>1 / 3</strong>:
+    </p>
+    <pre class="code-box">
+    <code id="one-three">
+    <script>
+    const oneThree = `
+    HTML
+        <link rel="stylesheet"   href="styles.css">
+        <div class="grid">
+            <div class="item1">1</div>
+            <div class="item2">2</div>
+            <div class="item3">3</div>
+            <div class="item4">4</div>
+            <div class="item5">5</div>
+            <div class="item6">6</div>
+            <div class="item7">7</div>
+            <div class="item8">8</div>
+            <div class="item9">9</div>
+            <div class="item10">10</div>
+            <div class="item11">11</div>
+            <div class="item12">12</div>
+        </div>
+
+    CSS
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);  /* 4 equal columns */
+            grid-template-rows: repeat(3, 100px); /* 3 equal rows */
+            gap: 10px;
+        }
+
+        .grid > div {
+            display: grid;
+            place-items: center;
+            background: crimson;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .item1 {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+    `
+    document.getElementById('one-three').textContent = oneThree;
+    </script>
+    </code>
+    </pre>
+    <p>
+        You can also use the <strong>span</strong> keyword to tell the grid item which row and column to span across. For example , <strong>1 / 3</strong> is the same as <strong>1 / span 2</strong>:
+    </p>
+    <pre class="code-box">
+    <code id="one-three-span">
+    <script>
+    const oneThreeSpan = `
+    HTML
+        <link rel="stylesheet"   href="styles.css">
+        <div class="grid">
+            <div class="item1">1</div>
+            <div class="item2">2</div>
+            <div class="item3">3</div>
+            <div class="item4">4</div>
+            <div class="item5">5</div>
+            <div class="item6">6</div>
+            <div class="item7">7</div>
+            <div class="item8">8</div>
+            <div class="item9">9</div>
+            <div class="item10">10</div>
+            <div class="item11">11</div>
+            <div class="item12">12</div>
+        </div>
+
+    CSS
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);  /* 4 equal columns */
+            grid-template-rows: repeat(3, 100px); /* 3 equal rows */
+            gap: 10px;
+        }
+
+        .grid > div {
+            display: grid;
+            place-items: center;
+            background: crimson;
+            color: white;
+            font-size: 4rem;
+
+        .item1 {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }`
+        document.getElementById('one-three-span').textContent = oneThreeSpan;
+        </script>
+        </code>
+        </pre>
+        <p>
+            You can continue to apply this technique to any item on the grid and place them whenever you want. 
+        </p>
+        <p>
+            Continuing the process, here's how we made a masonry layout with the items.
+        </p>
+        <p>
+            This is a new example:
+        </p>
+    <pre class="code-box">
+    <code id="last-drop-grid">
+    <script>
+        const lastDropGrid = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid">
+            <div class="item1">1</div>
+            <div class="item2">2</div>
+            <div class="item3">3</div>
+            <div class="item4">4</div>
+            <div class="item5">5</div>
+            <div class="item6">6</div>
+            <div class="item7">7</div>
+        </div>
+
+    CSS
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+            grid-template-rows: repeat(4, 100px); /* 4 equal rows */
+            gap: 10px;
+        }
+
+        .grid > div {
+            display: grid;
+            place-items: center;
+            background: crimson;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .item1 {
+            grid-column: 1 / span 2;
+        }
+
+        .item4 {
+            grid-column: 1 / span 3;
+        }
+
+        .item6 {
+            grid-column: 1 / span 2;
+        }
+
+        .item7 {
+            grid-column: 3 / span 2;
+        }
+        `
+        document.getElementById('last-drop-grid').textContent = lastDropGrid;
+    </script>
+    </code>
+    </section>
+    <section id="section8">
+        <h3>How can you position items on the grid using the grid-template-areas property?</h3>
+        <h4>LESSON</h4>
+        <p>
+            The <strong>grid-template-areas</strong> property lets you design a visual grid layout by using named labels.
+        </p>
+        <p>
+            You then assign the labels to specific grid items using the grid-area property. So, in other words, those named labels are also called "grid area names".
+        </p>
+        <p>
+            Here's the basic syntax of the <strong>grid-template-areas</strong> property:
+        </p>    
+    <pre class="code-box">
+    <code id="grid-template-areas-syntax">
+    <script>
+        const gridTemplateAreaSyntax = `
+        grid-template-areas:
+        'header header header'
+        'left-sidebar main right-sidebar'
+        'footer footer footer';`
+        document.getElementById('grid-template-areas-syntax').textContent = gridTemplateAreaSyntax;
+    </script>
+    </code>
+    </pre>
+    <p>
+
+        Here are points to take away from the basic syntax:
+    </p>
+    <ul>
+        <li>
+            Values like <strong>header</strong> and <strong>main</strong> are the names of the grid areas.
+        </li>
+        <li>
+            Each space-separated value within a string corresponds to a column.
+        </li>
+        <li>
+            Each string represents a row in the grid.
+        </li>
+    </ul>
+    <p>
+        So, in the syntax, we have a 3 by 3 grid container.
+    </p>
+    <p>
+        After defining the template, you then have to use the <strong>grid-area</strong> property and the named labels (or areas) as values to tell CSS that a specific element belongs in that area of the grid.
+    </p>
+    <p>
+        The <strong>grid-area</strong> property connects the grid item to the named region you define in the <strong>grid-template-areas</strong>.
+    </p>
+    <p>
+        A popular way to demonstrate the capabilities of the <strong>grid-template-areas</strong> property is by creating the classic Holy Grail layout.
+    </p>
+    <p>
+        If you don't know what it is, the Holy Grail layout is a web design pattern with a header, footer, two sidebars, and a main content area. It ensures the main content takes priority, while sidebars and other sections adjust responsively within the layout.
+    </p>
+    <p>
+        Many solutions exist to implement the holy grail layout, but using <strong>grid-template-areas</strong> and the <strong>grid-area</strong> property is the most straightforward way to create it.
+    </p>
+    <p>
+        Here's an example for the holy grail layout:
+    </p>
+<pre class="code-box">
+<code id="holy-grail-layout">
+<script>
+const holyGrailLayout = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="grid-container">
+            <div class="header">
+                <h2>Header</h2>
+            </div>
+            <div class="sidebar-left">
+                <h2>Left Sidebar</h2>
+            </div>
+            <div class="main">
+                <h2>Main Content</h2>
+            </div>
+            <div class="sidebar-right">
+                <h2> Right Sidebar</h2>
+            </div>
+            <div class="footer">
+                <h2>Footer</h2>
+            </div>
+
+    CSS
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header'
+                'sidebar-left main sidebar-right'
+                'footer footer footer';
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .header {
+            grid-area: sidebar-left;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar-left {
+            grid-area: sidebar-left;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar-right {
+            grid-area: sidebar-right;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+`
+document.getElementById('holy-grail-layout').textContent = holyGrailLayout;
+</script>
+</code>
+</pre>
+    <p>
+        Please note that both the <strong>grid-template-areas</strong> and <strong>grid-area</strong> properties can be used independently of each other.
+    </p>
+    <p>
+        The <strong>grid-template-areas</strong> property is specifically used to define a visual layout by mapping out named grid areas within the grid container.
+    </p>
+    <p>
+        On the other hand, the <strong>grid-area</strong> property is used to position individual grid items, either by specifying their row and column positions or by referencing the named areas defined with the <strong>grid-template-areas</strong> property.
+    </p>
+    </section>
+    </main>
+    </body>
+</html>
