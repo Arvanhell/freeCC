@@ -81,7 +81,10 @@
             background-color: rgba(226, 166, 13, 0.05); /* Very delicate golden bloom */
             transition: 0.3s;
         }
-        
+         nav a {
+            text-decoration: none;
+             
+        }
         
         /* Code blocks (your pre) */
        /* Packaging - defines the frame and slider */

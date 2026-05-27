@@ -14,6 +14,7 @@
         <p>
             In these lectures, you will learn about CSS grid, its several properties and how to use them, and how CSS grid differs from flexbox.
         </p>
+        <nav>
         <ul>
             <li>
                 <a href="#section-1">What is CSS Grid, and how is differ from Flexbox?</a>
@@ -41,7 +42,13 @@
                     How can you position items on the grid using the grid-template-areas property?
                 </a>
             </li>
+            <li>
+                <a href="#section9">
+                    Design Newspaper Layout
+                </a>
+            </li>
         </ul>
+    </nav>
     <section id="section-1">
         <h3>What is CSS Grid, and how does it differ from Flexbox?</h3>
         <h4>LESSON</h4>
@@ -98,7 +105,7 @@
      CSS
         .containert {
           display: grid;
-          grid-template-colums: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
           grid-gap: 20px;
         }
 
@@ -539,7 +546,7 @@
 
         .grid-container div {
             height: 10px;
-            baclground-color: darkblue;
+            background-color: darkblue;
         }
         `
         document.getElementById('repeat-fractional-unit').textContent = repeatFractionalUnit;
@@ -1217,6 +1224,128 @@ document.getElementById('holy-grail-layout').textContent = holyGrailLayout;
         On the other hand, the <strong>grid-area</strong> property is used to position individual grid items, either by specifying their row and column positions or by referencing the named areas defined with the <strong>grid-template-areas</strong> property.
     </p>
     </section>
+    <article id="section9">
+        <h3>Design Newspaper Layout</h3>
+        <p>
+            In this article, will be design a newspaper layout using CSS Grid, including concept like grid rows and grid columns.
+        </p>
+        <h4>The Science and Phenomena Magazine</h4>
+    <h4>HTMl</h4>
+    <pre class="code-box">
+    <code id="html-newspaper">
+    <script>
+        const htmlNewspaper = `
+        <!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>The Science and Phenomena Magazine</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<main class="newspaper-layout">
+<figure class="cover-image">
+<img src="https://static.wixstatic.com/media/b502bd_6b3bbaf0fccf4700b7ec31d640290200~mv2.jpg/v1/fill/w_516,h_427,al_c,lg_1,q_80,enc_avif,quality_auto/b502bd_6b3bbaf0fccf4700b7ec31d640290200~mv2.jpg" alt="Space lights in the sky...is it a UFO?" >
+</figure>
+<header class="title">
+<h1>The Science and Phenomena Magazine</h1>
+<article class="feature-article">
+<h2>Operation Bluefly</h2>
+<p>
+An otherwise secret goverment project tasked with cataloging all objects that fall to earth from space.  Although its "all objects" mandate includes meteorites that make it through the atmosphere, parts of satellites and rockets and other routine debris, it most specifically refers to UFO retrieval.  Reportedly, there is a huge catalog on file of all the UFO debris and craft that ahve been retrieved by the United States since 1947. See Stone, Clifford
+A former U.S. Army specialist, Stone has written that he had a UFO encounter when he was a young child in souther Ohio, an encounter that somehow got reported to the Army.  After his enlistment, he was ordered to visit a special movie-screening room at Fort Belvoir, where he said he saw a film of a UFO retrieval.  Stone was ultimately assigned to a Nuclear/Biological/Chemical unit--essentially a hazardous materials team--which, he says, was a cover for a UFO retrievals unit.
+​
+As a result of his experiences retrieving downed UFOs, Stone began searching for documents under the Freedom of Information Act that would allow him to disclose the governement's role in covering up the existence of flying saucers and the alien entities who pilot them.  His efforts have resulted in, among other disclosures, the revelation of Operations Moondust and BlueFly, dealing with the retrieval of extraterrrestrial objects and the cataloging of these objects.
+</p>
+</article>
+<article class="small-article1">
+<h3>Varginha</h3>
+<p>A great UFO crash for the US to fully disclose this year, in our opinion, would be the Varginha, Brazil crash in 1996. Though the Brazilian official investigation concluded that nothing extraterrestrial was found, this event was very well described by the people who experienced the close encounter in James Fox's "Moment of Contact", a 2022 documentary, wherein he interviews people who saw the crash and the ET(s) that were on the loose. If you have not seen Moment of Contact. Mr. Fox re-released his documentary in January this year, renaming it "Moment of Contact: New Revelations of Alien Encounters", bookending this version, opening with Congressional disclosure testimony and interview snippets and closing with a compelling interview with a medical doctor present in the hospital, in the same room with an ET, until the Brazilian military came to claim the creature.
+The ship and at least one creature were taken to a regional military base, and then apparently, the US Government flew in and took all of it—the craft and the creature(s).</p>
+</article>
+<article class="small-article2">
+<h3>Not at ALL Surprised the Military did not Deliver the Videos to Rep. Luna's Committee</h3>
+<p>Since the Federal agencies are so far behind on meeting their public reporting requirements, this is just more of the same.
+
+Today, this headline crossed my screen: Pentagon misses UAP video deadline. Rep. Luna eyes subpoena.  We are not the least bit surprised, given, as we mentioned in our last post, that AARO has still not delivered a 2025 annual report--this may be because even other government agencies tasked with revealing this information are not getting it.
+
+We do not believe that a subpoena is going to matter, either.  The Department of War will claim its resources are extended with its Middle East action, and Congress will have no response.</p>
+</article>
+<article class="small-article3">
+<h3>Varginha</h3>
+<p>We point to this close encounter because it happened in the recent past, rather than 80 years ago. There are still many people alive in Brazil who witnessed the event, and the US military purportedly removed the ship and non-human being(s) to the United States. If the US Government is in possession of at least this ship and creature, kick off full disclosure by showing them to us. It would also be a vindication to the people of Varginha, validating what they experienced, despite years of official denials. We are not really interested in seeing more tic tac videos. Again, we really do not need to hear from Representatives Burchett and Luna telling us they have "seen non-human stuff" in SCIFs, or more interviews with Grusch, Elizondo, and Gallaudet, insinuating, but not saying, what they actually know. We are ready for the full bonanza of disclosure. Knock our socks off.</p>
+</article>
+<article class="secondary-article">
+<h2></h2>
+<p>
+The UFO Team has been curating our back issues and are pleased to offer Issue 1 of the magazine from the Fall of 1986 and Issues from 1987 through 1991.  You can click on the cover, table of contents and editor letter for a sneak peak at the issues.
+We are offering these digital downloads at their original cover prices.   Get your piece of history now!
+</p>
+</article>
+</header>
+</main>
+</body>
+
+</html>`
+        document.getElementById('html-newspaper').textContent = htmlNewspaper;
+    </script>
+    </code>
+    </pre>
+    <h4>CSS</h4>
+    <pre class="code-box">
+    <code id="css-newspaper">
+    <script>
+        const cssNewspaper = `
+       .newspaper-layout {
+  display: grid;
+  grid-template-areas:
+   'title title title'
+   'feature-article feature-article cover-image'
+   'secondary-article secondary-article cover-image'
+   'small-article1 small-article2 small-article3';
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.feature-article {
+  grid-area: feature-article;
+}
+
+.cover-image {
+  grid-area: cover-image;
+}
+
+.secondary-article {
+  grid-area: secondary-article;
+}
+
+.small-article1 {
+  grid-area: small-article1;
+}
+
+.small-article2 {
+  grid-area: small-article2;
+}
+
+.small-article3 {
+  grid-area: small-article3;
+}
+
+img { 
+max-width: 100%;
+} `
+        document.getElementById('css-newspaper').textContent = cssNewspaper;
+    </script>
+    </code>
+    </pre>
+    </article>
     </main>
     </body>
 </html>
