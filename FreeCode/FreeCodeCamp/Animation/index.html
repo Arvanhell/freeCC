@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation and Accessibility</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Animation</h1>
+<main>
+    <article>
+    <h2>Animation and Accessibility.</h2>
+    <ul>
+        <li>
+            <a href="#section1">What are CSS Animations, and how do they work?</a>
+        </li>
+        <li>
+            <a href="#section2">What are Accessibility Concerns around using Animations, and how can prefers-reduced-motion Help?</a>
+        </li>
+    </ul>
+    <section id="section1">
+        <h3>What Are CSS Animations, and How Do They Work?</h3>
+        <h4>LESSON</h4>
+        <p>
+            CSS animations allow you to create dynamic, visually engaging effects on web pages without the need for JavaScript or complex programming. They provide a way to smoothly transition elements between different styles over a specified duration.
+        </p>
+        <p>
+            At its core, a CSS animation consists of two main components: the <strong>@keyframes</strong> rule and the animation property.
+        </p>
+        <p>
+            The <strong>@keyframes</strong> rule defines the stages and styles of the animation. It specifies what styles the element should have at various points during the animation.
+        </p>
+        <p>
+            Here's an example:
+        </p>
+    <pre class="code-box">
+    <code id="keyframes-id">
+        <script>
+        const keyframes = `
+        @keyframes slide-in {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        `
+        document.getElementById('keyframes-id').textContent = keyframes;
+        </script>
+    </code>
+    </pre>
+    <p>
+        This <strong>@keyframes</strong> rule, named <strong>slide-in</strong>, defines an animation that moves an element from left to right. The percentages represent the progress of the animation, with <strong>0%</strong> being the start and <strong>100%</strong> being the end.
+    </p>
+    <p>
+        The <strong>translateX</strong> function in your <strong>@keyframes</strong> animation is controlling the horizontal position of an element as it animates into view.
+    </p>
+    <p>
+        To apply this <strong>animation</strong> to an element, you use the animation property. This example also repeats the animation infinitely so you can see it in action (you will need to enable the interactive editor to see previews):
+    </p>
+    <pre class="code-box">
+    <code id="sliding-element">
+      <script>
+    const slidingElement = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="sliding-element">
+            Hello, I slide in!
+        </div>
+
+    CSS
+        @keyframes slid-in {
+            0% {
+                transform: translateX(-100);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .sliding-element {
+            animation: slide-in 2x ease-out infinite;
+        }
+    `
+    document.getElementById('sliding-element').textContent = slidingElement;
+      </script>  
+    </code>
+    </pre>
+    <div class="sliding-element">
+        Hello, I slide in!
+    </div>
+    <p>
+        This applies the <strong>slide-in</strong> animation to the element with a duration of 2 seconds and an <strong>ease-out</strong> timing function.
+    </p>
+    <p>
+        The <strong>animation</strong> property is actually a shorthand for several individual properties:
+    </p>
+    <p>
+        <strong>animation-name</strong> which specifies the <strong>@keyframes</strong> rule to use.
+    </p>
+    <p>
+        <strong>animation-duration</strong> which sets how long the animation should take to complete.
+    </p>
+    <p>
+        <strong>animation-timing-function</strong> which defines how the animation progress over time - such as <strong>ease</strong>, <strong>linear</strong>, <strong>ease-in-out</strong>.
+    </p>
+    <p>
+        <strong>animation-delay</strong> which specifies a delay before the animation starts.
+    </p>
+    <p>
+        <strong>animation-iteration-count</strong> which sets how many times the animation should repeat.
+    </p>
+    <p>
+        <strong>animation-direction</strong>
+        which determines whether the animation should play forwards, backwards, or alternate.
+    </p>
+    <p>
+        <strong>animation-fill-mode</strong> which specifies how the element should be styled before and after the animation.
+    </p>
+    <p>
+        <strong>animation-play-state</strong> which allows you to pause and resume the animation.
+    </p>
+    <p>
+        You can use these properties individually for more precise control:
+    </p>
+    <pre class="code-box">
+    <code id="properties-precise-control">
+        <script>
+        const propertiesPreciseControl = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <div class="complex-animation">
+            Watch my colors change!
+        </div>
+
+    CSS
+        .complex-animation {
+            animation-name: color-change;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframe color-change {
+            0% {
+                background-color: red;
+            }
+            50% {
+                background-color: blue;
+            }
+            100% {
+                background-color: green;
+            }
+        }
+
+        `
+        document.getElementById('properties-precise-control').textContent = propertiesPreciseControl;
+        </script>
+    </code>
+    </pre>
+    <div id="complex-animation">
+        Watch my colors change!
+    </div>
+    <p>
+        his creates an animation that continuously transitions an element's background color between red, blue, and green.
+    </p>
+    <p>
+        CSS animations can be triggered by various events, such as hovering over an element:
+    </p>
+    <pre class="code-box">
+    <code id="various-events">
+    <script>
+    const variousEvents = `
+    HTML
+        <link rel="stylesheet" href="styles.css">
+        <button class="button">Hover over me!</button>
+
+    CSS
+        .button {
+            background-color: blue;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: red;
+        }
+    `
+    document.getElementById('various-events').textContent = variousEvents;
+    </script>
+    </code>
+    </pre>
+    <p>
+        While this example uses the <strong>transition</strong> property, which is simpler for basic effects, it demonstrates how CSS can create interactive animated elements.
+    </p>
+    <p>
+        It's important to note that while CSS animations are powerful, they should be used in moderation. Overuse of animations can lead to poor performance and may be distracting or problematic for users with certain accessibility needs. Always consider providing options to reduce or disable animations for users who prefer less motion.
+    </p>
+    <p>
+        CSS animations offer a way to create engaging, interactive web experiences without relying on JavaScript. By undertstanding the principles of <strong>@keyframes</strong> and <strong>animation</strong> properties, you can bring your web designs to life in a performant and accessible manner.
+    </p>
+    </section>
+    <section id="section2">
+        <h3>What are Accessibility Concerns around using Animations, and how can prefers-reduced-motion Help?</h3>
+        <h4>DESCRIPTION</h4>
+        <p>
+            Animations can greatly enhance the visual appeal and user experience of a website. However, they can also pose significant accessibility challenges for certain users. It's crucial to understand these concerns and implement solutions to ensure your website remains accessible to all users.
+        </p>
+        <p>
+            One of the primary accessibility concerns with animations is that they can cause discomfort or even physical harm to some users. People with vestibular disorders or motion sensitivity may experience dizziness, nausea, or headaches when exposed to certain types of movement on screen.
+        </p>
+        <p>
+            Additionally, animations can be distracting for users with cognitive disabilities or attention disorders. Rapid flashing or strobing effects are particularly problematic. They can trigger seizures in people with photosensitive epilepsy. As a general rule, avoid any content that flashes more than three times per second.
+        </p>
+        <p>
+            Another issue is that animations can make it difficult for some users to focus on or read content. This is especially true for users with low vision or reading difficulties who may struggle to track moving text or shifting layouts.
+        </p>
+        <p>
+            To address these concerns, CSS provides the <strong>prefers-reduced-motion</strong> media query. This feature allows web developers to detect if the user has requested minimal animations or motion effects at the system level.
+        </p>
+        <p>
+            Here's how you can use <strong>prefers-reduced-motion</strong>:
+        </p>
+        <pre class="code-box">
+            <code id="prefers-reduced-motion">
+            <script>
+            const prefersReducedMotion = `
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation-duration: 0.01ms !important;
+                    animation-iteraion-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                    scroll-behavior: auto !important'
+                }
+            }
+            `
+            document.getElementById('prefers-reduced-motion').textContent = prefersReducedMotion;
+            </script>
+        </pre>
+        <p>
+            This CSS code snippet effectively disables most animations and transitions for users who have indicated a preference for reduced motion. Let's break it down:
+        </p>
+        <p>
+            The <strong>@media</strong> query rule checks if the user prefers reduced motion. If true, it applies the enclosed styles.Inside the media query, we're targeting all elements (<strong>*</strong>) and overriding animation and transition properties.
+        </p>
+        <p>
+            We set <strong>animation-duration</strong> and <strong>transition-duration</strong> to an extremely small value (<strong>0.01ms</strong>). This essentially turns off the animations while still allowing them to complete, which can be important for certain functionality.
+        </p>
+        <p>
+            <strong>animation-iteration-count: 1</strong> ensurres that any looping animations only play once.
+        </p>
+        <p>
+            <strong>scroll-behavior: auto</strong> disables smooth scrolling effects. The <strong>!important</strong> declaration is used to ensure these rules take precedence over other animation styles. 
+        </p>
+        <p>
+            It's important to note that while this method effectively reduces motion, it's a blanket approach. For more precise control, you might want to define specific reduced-motion alternatives for your animations.
+        </p>
+        <p>
+            Here's an example of a more targeted apporach:
+        </p>
+        <pre class="code-box">
+        <code id="targeted-approach">
+        <script>
+            const targetedApproach = `
+            .animated-element {
+                transition: transform 0.3s ease-in-out;
+            }
+
+            @media (prefers-rreduced-motion: reduce) {
+                .animated-element {
+                    transition: none;
+                }
+            }
+            `
+            document.getElementById('targeted-approach').textContent = targetedApproach;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In this case, we're only disabling the <strong>transition</strong> for a specific element when reduced motion is preferred. This allows you to provide alternative, less motion-intensive experiences for users who need them.
+        </p>
+        <p>
+            Remember, the goal is not to completely remove all motion from your site, but to provide options that allow all users to comfortably interact with your content. Some motion can still be beneficial for usability and feedback, even for users who prefer reduced motion.
+        </p>
+        <p>
+            When implementing animations, consider using them thoughtfully rather than just for decoration. Avoid large, unexpected movements and provide controls to pause, stop, or hide animations when possible. Importantly, use the <strong>prefers-reduced-motion</strong> query to offer a low-motion alternative, ensuring your content remains accessible and comfortable for all users, including those sensitive to motion.
+        </p>
+        <p>
+            By being mindful of these accessibility concerns and utilizing tools like <strong>prefers-reduced-motion</strong>, you can create engaging, animated experiences that are inclusive and accessible to all users.
+        </p>
+    </section>
+    </article>
+</main>
+</body>
+</html>
