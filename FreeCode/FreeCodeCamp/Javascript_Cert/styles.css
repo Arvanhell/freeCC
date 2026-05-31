@@ -1,0 +1,177 @@
+          /*  styles.css */
+          :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f4f4;
+            --text-color: #333; 
+            }
+        
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+
+        
+        main {
+            max-width: 900px; /* We limit the width so that the text does not "spill"*/
+            margin: 0 auto;
+            background: #eef2f5;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Font Hierarchy */
+        h1 { font-size: 2.5rem; color: var(--primary-color); text-align: center; }
+        h2 { font-size: 1.8rem; margin-top: 30px; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; }
+        h3 { font-size: 1.4rem; color: var(--accent-color); }
+
+        h4 {
+            display: inline-block;      /* So that the background does not run across the entire width */
+            background-color: #3b3b4f;  /* Dark background fCC */
+            color: #ffffff;
+            padding: 4px 10px;
+            font-size: 0.75rem;         /* Small, technical print font */
+            letter-spacing: 2px;        /* Letter spacing for the "Label" style */
+            text-transform: uppercase;  /* Always capital letters */
+            border-radius: 4px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+
+        strong {
+            background-color: #f1be32; /* Your golden color from the checkboxes */
+            color: #000;              /* Black text reads better on a light background */
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        ul, ol  {
+            list-style: none;         /* We're getting rid of the standard dots */
+            padding-left: 20px;       /* A place for our own tags */
+            margin: 20px 0;
+        }
+        
+        li {
+            position: relative;
+            margin-bottom: 12px;      /* Larger spacing between dots – better readability */
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Our own "bullet" - a small golden square or line */
+        li::before {
+            content: "■";             /* You can also use "•" or "→" */
+            position: absolute;
+            left: -20px;
+            color: #e2a60d;           /* Your golden color from the borders */
+            font-size: 0.8rem;
+            top: 2px;
+        }
+        
+        li:hover {
+            background-color: rgba(226, 166, 13, 0.05); /* Very delicate golden bloom */
+            transition: 0.3s;
+        }
+         nav a {
+            text-decoration: none;
+            
+        }
+        
+        /* Code blocks (your pre) */
+       /* Packaging - defines the frame and slider */
+.code-box {
+    background: #1e1e1e;       /* Slightly deeper black */
+    padding: 0;                /* We are resetting the padding here... */
+    border-radius: 8px;        /* Stronger rounding */
+    margin: 25px 0;
+    overflow: hidden;          /* So that the code does not stick out beyond the roundings */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-left: 4px solid #3498db; /* Your new trademark */
+}
+
+/* Content - This is where the visual magic happens */
+.code-box code {
+    display: block;
+    padding: 20px;             /* ...and we add it here */
+    color: hsl(120, 90%, 50%);    
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;          /* Breathing between the lines */
+    overflow-x: auto;          /* Code text only slider */
+}
+
+/* Your code block will get a soft glow when you hover over it */
+.code-box:hover {
+    border-left-color: #f1c40f; /* Change the color of the strap to gold */
+    transform: translateX(5px); /* Slight shift to the right */
+    transition: all 0.3s ease;  /* So that the movement is smooth and not jerky */
+}
+
+        /* Styl dla całego kontenera z obrazkiem i opisem */
+figure {
+    background-color: #ffffff; /* The white background of the image will stand out nicely against the yellow background of the page */
+    border: 2px solid hsl(40, 20%, 60%); /*  */
+    border-radius: 4px; /* A subdued frame that matches the old paper */
+    padding: 15px; /* The space between the picture and the frame */
+    margin: 20px auto; /* Top/Bottom Margin and Centering */
+    max-width: 500px; /* So that the frame doesn't spread across the entire screen */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); /* A delicate shadow to make the image "stick out" from the paper */
+}
+
+/* Style for the image itself in the middle */
+figure img {
+    width: 100%; /* The picture will fit perfectly into the frame */
+    display: block;
+}
+
+/* Photo caption style */
+figcaption {
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    color: hsl(40, 20%, 40%); /* Darkened color to match the overall look */
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed hsl(40, 20%, 60%); /* A dotted line separating the photo from the description */
+}
+
+/* Table structure */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: left;
+}
+
+/* Pierwsza kolumna (pusta) - dajemy jej mniejszą szerokość */
+td:first-child, th:first-child {
+    width: 50px; 
+    background-color: #fcfcfc; /* Bardzo delikatne tło */
+}
+
+/* Nagłówki Explicit i Implicit - wyróżnione */
+th:nth-child(2), th:nth-child(3) {
+    background-color: #eef2f3;
+    font-size: 1.1em;
+}
+
+
+
+
+
+
+
