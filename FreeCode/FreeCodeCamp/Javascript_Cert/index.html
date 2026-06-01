@@ -9,9 +9,10 @@
     <body>
     <h1>JavaScript</h1>
     <nav>
+        <h2>Variables and Strings</h2>
         <ol>
             <li>
-                Variables and Strings
+                Introduction to JavaScript
             </li>
             <ul>
                 <li >
@@ -47,6 +48,26 @@
                     What is String Concatenation, and how can you concatenate strings with variables?
                    </a>
                 </li>
+                <li>
+                    <a href="#section7">
+                        What is a console.log Used for, and how does it work?
+                    </a>
+                </li>
+                </ul>
+                <li>
+                    Understanding Code Clarity
+                </li>
+                <ul>
+                    <li>
+                        <a href="#section8">
+                            What is Role of semicolons in javaScript, and programming in general.
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section9">
+                            What Are Comments in JavaScript, and When Should You Use Them?
+                        </a>
+                    </li>
                 </ul>
         </ol>
     </nav>
@@ -500,6 +521,7 @@
             </section>
         </article>
         <article>
+            <h2>Introduction to Strings</h2>
             <section id="section5">
                 <h3>What is a String in JavaScript, and what is String Immutability?</h3>
         <p>
@@ -566,8 +588,319 @@
             What is String Concatenation, and how can you concatenate strings with variables?
         </h3>
         <h4>LESSON</h4>
-        
+    <p>
+        In JavaScript, working with text is an essential part of coding, and often, you'll need to combine or join pieces of text together. This process is called string concatenation.
+    </p>    
+    <p>
+        In this lessonm we'll focus on how string concatenation works, specifically using the <strong>+</strong> operator, the <strong>+=</strong> operator, and the <strong>concat()</strong> method.
+    </p>
+    <p>
+        The <strong>+</strong> operator is one of the simplest and most frequently used methods to concatenate strings. It allows you to join multiple strings or combine strings with variables that hold text.
+    </p>
+    <pre class="code-box">
+    <code id="operators-operandi">
+    <script>
+        const operatorsOperandi = `
+    let firstName = "John";
+    let lastName = "Doe";
+
+    let fullName = firstName + " " + lastName;
+    console.log(fullName);  // John Doe
+        `
+        document.getElementById('operators-operandi').textContent = operatorsOperandi;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this example, we used the <strong>+</strong> operator to concatenate the <strong>firstName</strong> and <strong>lastName</strong> variables along with a space (<strong>" "</strong>) to create the full name.
+    </p>
+    <p>
+        One disadvantage of using the <strong>+</strong> operator for string concatenation is that it can lead to spacing issues if you don't carefully manage the spacing between the concatenated strings.
+    </p>
+    <p>
+        Here is an example where a space is missing:
+    </p>
+    <pre class="code-box">
+    <code id="space-is-missing">
+    <script>
+    const spaceIsMissing = `
+    let firstName = "John";
+    let lastName = "Doe";
+
+    let fullName = firstName + lastName;
+    console.log(fullName);  // "JohnDoe"
+    `
+    document.getElementById('space-is-missing').textContent = spaceIsMissing;
+    </script>
+    </code>
+    </pre>
+    <p>
+        Whenever you use the <strong>+</strong> operator to concatenate strings, it is important to double check for any potential spacing issues.
+    </p>
+    <p>
+        If you need to add or append to an existing string, then you can use the <strong>+=</strong> operator. This is helpful when you want to build upon a string by adding more text to it over time.
+    </p>
+    <p>
+        Here's an example of appendind one string to another using th <strong>+=</strong> operator:
+    </p>
+    <pre class="code-box">
+        <code id="plus-equal-append">
+        <script>
+            const plusEqualAppend = `
+            let greeting = 'Hello';
+            greeting += ', John!';
+
+            console.log(greeting); // "Hello, John!"
+            `
+            document.getElementById('plus-equal-append').textContent = plusEqualAppend;
+        </script>
+        </code>
+    </pre>
+    <p>
+        It is important to remember that strings are immutable which means once a string is created you can not alter it.
+    </p>
+    <p>
+        In this case, the original string of <strong>Hello</strong> is not modified. Instead, greeting  now references the new string of <strong>Hello, John!</strong>
+    </p>
+    <p>
+        Another way you can concatenate strings is to ude the <strong>concat()</strong> method.
+    </p>
+    <p>
+        Before we begin learning about the <strong>concat()</strong> method, it is important to first understand what a method and a function are at a higher level.
+    </p>
+    <p>
+        In programing, a function is a reusable block of code that performs a specific task and can be called with various inputs. A method, on the other hand, is a type of function that is associated with an object, meaning it operates on the data contained within that object.
+    </p>
+    <p>
+    Here's an example of using the <strong>concat()</strong> method to join two string together:
+    </p>
+    <pre class="code-box">
+    <code id="concat-function">
+    <script>
+        const concatFunction = `
+        let str1 = 'Hello';
+        let str2 = 'World';
+
+        let result = str1.concat(' ', str2);
+        console.log(result);  // Hello World
+        `
+        document.getElementById('concat-function').textContent = concatFunction;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this example, we use the <strong>concat()</strong> method to join <strong>str1</strong>, a space (<strong>' '</strong>), and <strong>str2</strong> into a single string.
+    </p>
+    <p>
+        To conclude, <strong>+</strong> operator is best for simple concatenation, especially when you need to combine a few strings or variables.
+    </p>
+    <p>
+        The <strong>+=</strong> operator is useful when building up a string step by step or appending new content to an existing string variable.
+    </p>
+    <p>
+        Finally, the <strong>concat()</strong> method is beneficial when you need to concatenate multiple strings together.
+    </p>
     </section>
+    <section id="section7">
+        <h3>What is a console.log Used for, and how does it work?</h3>
+        <h4>LESSON</h4>
+        <p>
+            The prior lessons introduced you to <strong>console.log()</strong> but this lesson will dive deeper into its purpose and usage.
+        </p>
+        <p>
+            In JavaScript, <strong>conasole.log()</strong> is a simple yet powerful tool used to display messages or output information to the browser's console. It's mostly used by developers to debug and inspect code while working on their programs.
+        </p>
+        <p>
+            You can use <strong>console.log()</strong> to log text or variables to the console and ensure your code is running correctly.
+        </p>
+        <p>
+            To use <strong>console.log()</strong>, you call the method with the value or message you want to output inside the parentheses. Here are some examples:
+        </p>
+        <pre class="code-box">
+        <code id="console-log">
+        <script>
+        const consoleLog = `
+        console.log("Hello, world!");
+
+        let num = 5;
+        console.log(num);  // 5
+        `
+        document.getElementById('console-log').textContent = consoleLog;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The first example prints <strong>Hello, world!</strong> in the browser's console, while the second example prints the value <strong>5</strong>.
+
+            Here is another example of working with <strong>console.log()</strong>:
+        </p>
+        <pre class="code-box">
+        <code id="console-console">
+        <script>
+        const consoleConsole = `
+        let name = "Alice";
+        console.log("Hello, " + name + "!"); // Hello, Alice!
+
+        // You can also pass multiple values separated by commas. 
+
+        let name = "Alice";
+        let age = 25;
+        console.log("Name:", name, "Age:", age);
+        //Name: Alice Age: 25
+        `
+        document.getElementById('console-console').textContent = consoleConsole;
+        </script>
+        </code>
+        </pre>
+        <p>
+            This is helpful for logging multiple pieces of information at once.
+        </p>
+        <p>
+            The <strong>conole.log()</strong> method helps you monitor your code as it runs, making it easier to spot mistakes and understand how your program behaves.
+        </p>
+    </section>
+        </article>
+        <article>
+            <h2>Understanding Code Clarity</h2>
+            <section id="section8">
+                <h3>What is Role of semicolons in javaScript, and programming in general.</h3>
+                <h4>LESSON</h4>
+                <p>
+                    What is Role of semicolons in javaScript, and programming in general
+                </p>
+                <p>
+                    In JavaScript, a semicolon (<strong>;</strong>) is used to indicate the end of a statement.
+                </p>
+                <p>
+                    Just as a period (<strong>.</strong>) marks the end of a sentence in English, a semicolon signifies the end of an executable line of code. This allows the JavaScript engine to distinguish between separate commands.
+
+                    For example:
+                </p>
+    <pre class="code-box">
+    <code id="seicolon-original">
+    <script>
+    constt seicolonOriginal = `
+        let variableOne = 5; // Declare a variable and assign a value
+        let variableTwo = 10; // Declar another variable and assign a value
+    `
+    document.getElementById('seicolon-original').textContent = seicolonOriginal;
+    </script>
+    </pre>
+    <p>
+        In this code, the semicolons at the end of each line mark the end of each statement. Without them, the JavaScript engine might have trouble interpreting where one statement ends and another begins.
+    </p>
+    <p>
+        Semicolons are primarily used to mark the end of a statement. This helps the JavaScript engine understand the separation of individual instructions, which is important for correct execution.
+    </p>
+    <pre class="code-box">
+    <code id="statements-ends-starts">
+    <script>
+        const stateentsStartEnds = `
+        let a = 1; // Statements ends here
+        let b = 2; // Another statements starts here
+        `
+        document.getElementById('statements-ends-starts').textContent = stateentsStartEnds;
+    </script>
+    </code>
+    </pre>
+    <p>
+        While JavaScript has Automatic Semicolon Insertion (ASI) that can add semicolons automatically, explicitly including them improves code clarity and helps prevent errors that may arise from unexpected ASI behavior.
+    </p>
+    <p>
+        Semicolons are used in many programming languages, including C, C++, and Java.
+    </p>
+    <p>
+        Semicolons mark the end of statements or instructions, helping the compiler or interpreter parse the code correctly. A compiler translates high-level programming language code into machine-readable code, which creates an executable file.
+    </p>
+    <p>
+        By clearly delineating statements, semicolons contribute to the readability and maintainability of code. Semicolons help prevent ambiguities in code execution and ensure that statements are correctly terminated.
+    </p>
+    <p>
+        Semicolons are a fundamental part of JavaScript and many other programming languages.
+    </p>
+    <p>
+        They mark the end of statements, improve code readability, and help avoid errors related to Automatic Semicolon Insertion.
+    </p>    
+    <p>
+        By understanding and using semicolons properly, you can write more reliable and maintainable code.
+    </p>
+            </section>
+            <section id="section9">
+                <h3>What Are Comments in JavaScript, and When Should You Use Them?</h3>
+                <h4>
+                    LESSON
+                </h4>
+    <p>
+        Comments in programming are used to provide additional context for the code or leave notes for yourself and others.
+    </p>
+    <p>
+        Comments are lines or blocks of text that are ignored by the JavaScript engine when your code is executed. They are there solely for the benefit of people reading the code, whether that's you or someone else.
+    </p>
+    <p>
+        JavaScript provides two ways to add comments to your code: single-line comments and multi-line comments.
+    </p>
+    <p>
+        Single-line comments are created using two forward slashes (<strong>//</strong>). Here is an example:
+    </p>
+    <pre class="code-box">
+    <code id="comment-examples">
+    <script>
+    const commentExample = `
+    // I am a single line comment in JavaScript
+    `
+    document.getElementById('comment-examples').textContent = commentExample;
+    </script>
+    </code>
+    </pre>
+    <P>
+        Comments like this are important for those working on teams for two reasons:
+    </P>
+    <ol>
+        <li>
+            Other developers working on the project will understand the purpose of this code.
+        </li>
+        <li>
+            It helps prevent unnecessary changes or deletions without consulting the team, which could lead to bugs or issues.
+        </li>
+    </ol>
+    <p>
+        Another type of comment is multi-line  comments. Here is the basic syntax.
+    </p>
+    <pre class="code-box">
+    <code id="multi-comment-synt">
+    <script>
+        const multiCommentSynt = `
+        /*
+            I am a multiline comment.
+            This is helpful for longer explanations.
+        */
+        `
+        document.getElementById('multi-comment-synt').textContent = multiCommentSynt;
+    </script>
+    </code>
+    </pre>
+    <p>
+        Multi-line comments are useful when need to write longer descriptions, explanations, or notes in your code.
+    </p>
+    <p>
+        Just like before, ignore all of the JavaScript code because it uses concepts that haven't been taught yet. Instead, focus on the comment left by the developer.
+    </p>
+    <p>
+        A developer on the team, or even a new contributor working on the project, can understand why this piece of code is here and have the full context before working on this area of the project.
+    </p>
+    <p>
+        While comments are useful in programming, it is important to avoid over-commenting. You don't need to comment on every single line of code, especially if the code is straightforward and self-explanatory
+    </p>
+    <p>
+        If you want to add comments to your personal projects as you are learning to code, that is fine. But once you start working on real world projects with other developers, it is important not to use comments for code that is self-explanatory.
+    </p>
+    <p>
+        It is also important not to use comments to help explain away confusing, overly complicated, or poorly written code. In those situations, it is best to refactor, or change, your code so other developers will better understand what is going on.
+    </p>
+    <p>
+        Comments are powerful tools for documenting your code and making it easier to understand. You should use comments to provide context or leave notes for yourself and others.
+    </p>
+            </section>
         </article>
     </main>
     </body>
