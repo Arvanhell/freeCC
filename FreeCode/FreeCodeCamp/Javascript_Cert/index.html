@@ -69,6 +69,21 @@
                         </a>
                     </li>
                 </ul>
+                <li>
+                    Working with Data Types.
+                </li>
+                <ul>
+                    <li>
+                        <a href="#section10">
+                            What is dynamic typing in javaScript, and how does it differ from statistically typed languages?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section11">
+                            How does the typeof Operator WOrk, and what is the typeof null bug in javaScript?
+                        </a>
+                    </li>
+                </ul>
         </ol>
     </nav>
 <main>
@@ -900,6 +915,91 @@
     <p>
         Comments are powerful tools for documenting your code and making it easier to understand. You should use comments to provide context or leave notes for yourself and others.
     </p>
+            </section>
+        </article>
+        <article>
+            <h2>
+                Working with Data Types
+            </h2>
+            <section id="section10">
+                <h3>What is dynamic typing in javaScript, and how does it differ from statistically typed languages?</h3>
+                <p>
+                    JavaScript is a dynamically types language, meaning you don't need to specify the data type of a variable when you declare it. Instead, the type determined based on the value assigned to the variable while the program is running. This allows you to change the type of a variable throughout the program.
+                </p>
+                <p>
+                    Let's look at an example:
+                </p>
+    <pre class="code-box">
+    <code id="reassignment-easy-pease">
+    <script>
+    const reasignmentEasyPeasy = `
+    let example = "Hello";
+    example = 42;
+    `
+    document.getElementById('reassignment-easy-pease').textContent = reasignmentEasyPeasy;
+    </script>
+    </code>
+    </pre>
+        <p>
+            In this examample, we have a variable called <strong>example</strong> with the data type of string. But then we update value to be a number instead.
+        </p>
+        <p>
+            The flexibility of dynamic typing makes JavaScript more forgiving and easy to work with for quick scripting, but it can also introduce bugs that may be harder to catch, especially as your program grows larger.
+        </p>
+        <p>
+            In statically typed languages like C# or C++, you must declare the data type of a variable when you create it, and that type cannot change.
+        </p>
+        <p>
+            For instance, if you declare a variable as <strong>integer</strong>, you can only assign it integer values. If you try to assign it a different type, the program will throw an error.
+        </p>
+        <p>
+            Here's an example in C# language:
+        </p>
+        <pre class="code-box">
+        <code id="c-language">
+        <script>
+            const cLang =  `
+            int data = 42; // data must always be an integer
+            data = "Hello"; // This would cause an error in C#
+            `
+            document.getElementById('c-language').textContent = cLang;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The difference between dynamic typing and static typing lies in the flexibility vs. the safety of your code. Dynamically typed languages offer flexibility but at the cost of potential runtime errors.
+        </p>
+        <p>
+            Statically typed languages enforce stricter rules that can prevent certain errors, but they require more upfront declaration and offer less flexibility in changing types.
+        </p>
+        <p>
+            Here is another example of creating a variable with a type set to <strong>number</strong> then changing it to later be of type <strong>string</strong>:
+        </p>
+        <pre class="code-box">
+        <code id="numb-string">
+        <script>
+        const numbString = `
+        lat data = 100; // Initially a number
+        data = "New data"; //Dynamically changes to a sttring
+        `
+        document.getElementById('numb-string').textContent = numbString;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In a statically typed language, this kind of change would not be allowed, as the data type would be fixed.
+        </p>
+        <p>
+            In conclusion, JavaScript's dynamic typing allows variables ot change types freely, whoch offers flexibility but can lead to unexpected errors during execution.
+        </p>
+        <p>
+            Statically typed languages like Java require you to specify variable types upfront, which helps catch errors before the program runs but offers less flexibility.
+        </p>
+            </section>
+            <section id="section11">
+                <h3>
+                    How does the typeof Operator WOrk, and what is the typeof null bug in javaScript?
+                </h3>
             </section>
         </article>
     </main>
