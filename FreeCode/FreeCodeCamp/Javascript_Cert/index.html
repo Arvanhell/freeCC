@@ -923,6 +923,7 @@
             </h2>
             <section id="section10">
                 <h3>What is dynamic typing in javaScript, and how does it differ from statistically typed languages?</h3>
+                <h4>LESSON</h4>
                 <p>
                     JavaScript is a dynamically types language, meaning you don't need to specify the data type of a variable when you declare it. Instead, the type determined based on the value assigned to the variable while the program is running. This allows you to change the type of a variable throughout the program.
                 </p>
@@ -1000,6 +1001,78 @@
                 <h3>
                     How does the typeof Operator WOrk, and what is the typeof null bug in javaScript?
                 </h3>
+                <h4>LESSON</h4>
+            <p>
+                The <strong>typeof</strong> operator in JavaScript is a simple yet powerful tool that lets you see the data type of a variable or value. It always returns a string indicating the type.
+            </p>
+            <p>
+                Let's take a look at a few examples:
+            </p>
+    <pre class="code-box">
+        <code id="first-example-typeof">
+        <script>
+        const firstExampleTypeof = `
+            let num = 42;
+            console.log(typeof num);
+            // "number"
+        `
+        document.getElementById('first-example-typeof').textContent = firstExampleTypeof;
+        </script>
+        </code>
+    </pre>    
+        <p>
+            In this first example, we have created a variable called <strong>num</strong> and assigned the number <strong>42</strong>. When you use the <strong>typeof</strong> operator on the variable named <strong>num</strong>, it will return the string <strong>number</strong>.
+        </p>
+        <p>
+            Here is another example of using the <strong>typeof</strong> operator on variable called <strong>isUserLoggedIn</strong>
+        </p>    
+        <pre class="code-box">
+        <code id="second-example-typeof">
+        <script>
+            const secondExampleTypeof = `
+                let isUserLOggedIn = true;
+                console.log(typeof isUserLoggedIn);
+                // "boolean"
+            `
+            document.getElementById('second-example-typeof').textContent = secondExampleTypeof;
+        </script>
+        </code>
+        </pre>
+        <p>
+            When you use the <strong>typeof</strong> operator on the <strong>isUserLoggedIn</strong> variable, it will return a string <strong>boolean</strong> because the boolean <strong>true</strong> was assigned to the variable.
+        </p>
+        <p>
+            Using the <strong>typeof</strong> operator can be especially useful when you're debugging or trying to understand what kind of data you're working with in your code.
+        </p>
+        <p>
+            However, there's a well-known quirk in JavaScript when it comes to <strong>null</strong>.
+        </p>
+        <p>
+            Let's take a look at an example:
+        </p>
+        <pre class="code-box">
+        <code id="third-example-typeof">
+        <script>
+            cosnt thirdExampleTypeof = `
+            let exampleVariable = null;
+            console.log(typeof exampleVariable);
+            // "object"
+            `
+            document.getElementById('third-example-typeof').textContent = thirdExampleTypeof;
+        </script>
+        </pre>
+        <p>
+            In this example, we have a variable called <strong>exampleVariable</strong> and have assigned it the value of <strong>null</strong>. But when we use the <strong>typeof</strong> operator, it returns the string <strong>object</strong>.
+        </p>
+        <p>
+            This is widely considered a bug in JavaScript, dating back to its early days. The reason for this behavior is rooted in the way JavaScript was originally designed.
+        </p>
+        <p>
+            Whan the language was first implemented, values like <strong>null</strong> were represented as a special type of object, leading to this unexpected result.
+        </p>
+        <p>
+            Unfortunately, this has become a part of the language, and while it's confusing, it's something you'll need to be aware of.
+        </p>
             </section>
         </article>
     </main>
