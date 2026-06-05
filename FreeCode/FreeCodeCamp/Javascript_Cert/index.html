@@ -84,6 +84,9 @@
                         </a>
                     </li>
                 </ul>
+                <li>
+                    <a href="#section12">JavaScript Variables and Data Types Review</a>
+                </li>
         </ol>
     </nav>
 <main>
@@ -1073,6 +1076,339 @@
         <p>
             Unfortunately, this has become a part of the language, and while it's confusing, it's something you'll need to be aware of.
         </p>
+            </section>
+        </article>
+        <article>
+            <section id="section12">
+                <h3>JavaScript variables and data types review</h3>
+                <h4>LESSON</h4>
+    <p>
+        Working with HTML, CSS, JavaScript
+    </p>
+    <p>
+        While HTML and CSS provide website structure, JavaScript brings interactivity to websites by enabling complex functionality, such as handling user input, animating elements, and even building full web applications.
+    </p>
+    <p>
+        Data Types in JavaScript
+    </p>
+    <p>
+        Data types help the program understand the kind of data it's working with, whether it's a number, text, or something else.
+    </p>
+    <ul>
+        <li>
+            <b>Number</b>: A number represents both integers and floating-point values. Examples of integers include 7, 19, and 90.
+        </li>
+        <li>
+            <b>Floating point</b> A floating point number is a number with a decimal point. Examples include 3.14, 0.5, and 0.0001.
+        </li>
+        <li>
+            <b>String</b>: A string is a sequence of characters, or text, enclosed in quotes. <strong>"I like coding"</strong> and <strong>'JavaScript is fun'</strong> are examples of strings.
+        </li>
+        <li>
+            <b>Boolean</b>: A boolean represents one of two possible values: <strong>true</strong> or <strong>false</strong>. You can use a boolean to represent a condition, such as <strong>isLoggedIn = true</strong>.
+        </li>
+        <li>
+            <b>Undefined and Null</b>: An <strong>undefined</strong> value is a variable that has been declared but not assigned a value. A <strong>null</strong> value is an empty value, or a variable that has intentionally been assigned a value of <strong>null</strong>
+        </li>
+        <li>
+            <b>Object</b>: An object is a collection of key-value pairs. The key is the property name, and the value is the property value.
+        </li>
+    
+    <p>
+        Here, the <strong>pet</strong> object has three properties or keys: <strong>name</strong>, <strong>age</strong>, and <strong>type</strong>. The values are <strong>Fluffy</strong>, <strong>3</strong>, and <strong>dog</strong>, respectively.
+    </p>
+    <pre class="code-box">
+    <code id="object-exam-rev">
+        <script>
+            const objRevExample = `
+            let pet = {
+                name = "Fluffy",
+                age = 3,
+                type = "dog"
+            };
+            `
+            document.getElementById('object-exam-rev').textContent = objRevExample;
+        </script>
+    </code>
+    </pre>
+            <li>
+                <b>Symbol</b>: The Symbol data type is a unique and immutable value that may be used as an identifier for object properties.
+            </li>
+            <p>
+                In this example below, two symbols are created with the same description, but they are not equal.
+            </p>
+    <pre class="code-box">
+    <code id="symbo-example-review">
+        <script>
+        const symbolExReview = `
+    JS
+        const crypticKey1 = Symbol("saltNpepper");
+        const cripticKey2 = Symbol("saltNpepper");
+        console.log(crypticKey1 === crypticKey2);
+        // false
+        `
+        document.getElementById('symbo-example-review').textContent = symbolExReview;
+        </script>
+    </code>
+    </pre>
+    <li>
+        <b>BigInt</b>: When the number is too large for the <strong>Number</strong> data type, you can use the BigInt data type to represent integers of arbitrary length.
+    </li>
+    <p>
+        By adding <strong>n</strong> to the end of the number, you can create a BigInt.
+        <br />
+        <strong>const veryBigNumber = 1231231231231312123123123n;</strong>
+    </p>
+    
+        </ul>
+        <hr>
+        <h4><b>Variables in JavaScript</b></h4>
+        <ul>
+            <li>
+                Variables can be declared using <strong>let</strong> keyword. 
+            <br />
+            <br />
+            <strong> let cityName; </strong>
+            </li>
+            <li>
+                To assign a value to a variable, you can use the assignment operator <strong>=</strong>.
+                 <br />
+                 <br />
+                <strong>cityName = "New York" </strong>
+            </li>
+            <li>
+                Variables declared using <strong>let</strong> can be reassigned a new value.
+            </li>
+        
+        <pre class="code-box">
+        <code id="reassigned-value-rev">
+        <script>
+            const reaasignedValue =`
+    JS
+        let cityName = "New York";
+        cityName = "Los Angeles"        ;
+        console.log(cityName);
+        // Los Angeles
+    `
+            document.getElementById('reassigned-value-rev').textContent = reaasignedValue;
+        </script>
+        </code>
+        </pre>
+        <li>
+            Apart from <b>let</b>, you can also use <strong>const</strong> to declare a variable. Hovewer, a <strong>const</strong> variable cannot be reassigned a new value.
+        </li>
+        <p>
+            <strong>const cityName = "New York";</strong>
+            <br />
+            cityName = "Las Vegas"; 
+            <br />
+            // TypeError: Assignment to constant variable 
+        </p>
+        <li>
+            Variables declared using <strong>const</strong> find uses in declaring constants, that are not allowed to change throughout the code, such as <strong>PI</strong> or <strong>MAX_SIZE</strong>.
+        </li>
+    </ul>
+    <hr>
+    <h4>
+    <b>Variable Naming Conventions</b>
+    </h4>
+    <ul>
+        <li>
+            Variable names should be descriptive and meningful.
+        </li>
+        <li>
+            Variable names should be camelCase like <strong>cityName</strong>, <strong>isLoggedIn</strong>, and <strong>veryBigNumber</strong>.
+        </li>
+        <li>
+            Variable names should not start with a number. They must begin with a letter, <strong>_</strong> or <strong>$</strong>.
+        </li>
+        <li>
+            Variables names shoulf not contain spaces or special characters, except for <strong>_</strong> and <strong>$</strong>.
+        </li>
+        <li>
+            Variable names should not be reserved keywords.
+        </li>
+        <p>
+            VAriable names are case-sensitive. <strong>age</strong> and <strong>Age</strong> are different variables.
+        </p>
+    </ul>
+    <h4>Strings and string immutability in JavaScript</h4>
+    <ul>
+        <li>
+            Strings are sequences of characters enclosed in quotes. They can be created using single quotes and double quotes.
+        </li>
+        <p>
+            <b>
+                let correctWay = 'This is a string';
+                <br/>
+                let alsoCorrect = "This is also a string";
+            </b>
+        </p>
+        <li>
+            Strings are immutable in JavaScript. This means that once a string is created, you cannot change the characters in the string. However, you can still reassign strings to a new value.
+        </li>
+        <p>
+            <b>let firstName = "John";
+                <br/>
+            firstName = "Jane"; 
+            <br />
+            //Reassigning the string to a new value
+            </b>
+        </p>
+    </ul>
+    <h4>String concatenation in JavaScript</h4>
+    <ul>
+        <li>
+            Concatenation is the process of joining multiple strings or combining strings with variables that hold text. The <strong>+</strong> operator is one of the simplest and most frequently used methods to concatenate srtings.
+        </li>
+    <pre class="code-box">
+    <code id="concatenation-review-variable">
+    <script>
+    const concatVariaRewiev = `
+    JS
+        let studentName = 'Hummel';
+        let studentAge = 23;
+        let studentInfo = student + " is " + studentAge + " years old.";
+        console.log(studentinfo);
+        // Hummel is 23 years old.
+    `
+    document.getElementById('concatenation-review-variable').textContent = concatVariaRewiev;
+    </script>
+    </pre>
+    <li>
+        If you need to add or append to an existing string, then you can use the <strong>+=</strong> operator. This is helpful when you want to build upon a string by adding more text to it over time.
+    </li>
+    <pre class="code-box">
+    <code id="plus-equal-example-rewiev">
+        <script>
+        const plusEaualExampleRew = `
+    JS
+        let message = "Welcome to programming, ";
+        message = "Yoko!";
+        console.log(message);
+        // Welcome to programming, Yoko!
+        `
+        document.getElementById('plus-equal-example-rewiev').textContent = plusEaualExampleRew;
+        </script>
+    </code>
+    </pre>
+        <li>
+            Another way you can concatenate strings is to use the <strong>concat()</strong> method. This method joins two or more strings together.
+        </li>
+        <pre class="code-box">
+            <code id="cpncat-method-rev">
+            <script>
+                const concatMethodRew = `
+                let firstName = "John";
+                let lastName = "Doe";
+                let fullName = firstName.concat(" ", lastName);
+                console.log(fullName);
+                //John Doe
+                `
+                document.getElementById('cpncat-method-rev').textContent = concatMethodRew;
+            </script>
+            </code>
+        </pre>
+    </ul>
+    <h4> Logging Message with<strong>console.log()</strong></h4>
+    <ul>
+        <li>
+            The <strong>console.log()_</strong> method is used to log messages to the console. It's helpful tool for debugging and testing your code.
+        </li>
+        <p>
+            <b>
+                console.log("Hello, World!");
+                <br />
+                //Output: Hello, World!
+            </b>
+        </p>
+    </ul>
+    <h4>Semicolon in javascript</h4>
+    <ul>
+        <li>
+            Semicolons are primarly used to mark the end of a statement. This helps the JavaScript engine understand the separation of individual instructions, which is crucial for correct exacution.
+        </li>
+        <p>
+            <b>
+                let message = "Hello, World!"; // First statement ends here
+                <br />
+                let number = 42; // Second statement starts here
+            </b>
+        </p>
+        <li>
+            Semicolons help prevent ambiguities in code exacution and ensure that statement are correctly terminated.
+        </li>
+    </ul>
+    <h4>Comments in JavaScript</h4>
+    <ul>
+        <li>
+            Any line of code that is commented out is ignored by the JavaScript engine. Comments are used to explain code, make notes or temporarily disable code.
+        </li>
+        <li>
+            Single- line comments created using <strong>//</strong>.
+            <b>// this is a single comment and will be ignored by the JS engine</b>
+        </li>
+        <li>
+            Multi-line comments are created using <strong>/*</strong>to start the comment and <strong>*/</strong> to end the comment.
+            <br />
+            <b>
+                /*
+                <br />
+                this is a multi- line comment.
+                <br />
+                It can span multiple lines.
+                <br />
+                */
+            </b>
+        </li>
+    </ul>
+    <h4>JavaScript as a Dynamically Typed Language</h4>
+    <ul>
+        <li>
+            JavaScript is a dynamically typed language, which means that you don't have to specify the data type of a variable when you declare it. The JavaScript engine automatically determines the data type based on the value assigned to the variable.
+        </li>
+        <p>
+            <b>
+                let error = 404; //javaScript trats error as a number
+                <br / >
+                error = "Not Found"; // JavaScript now treats error as a string
+            </b>
+        </p>
+        <li>
+            Other languages, like C#, that are not dinamically typed would result in an error:
+        </li>
+    </ul>
+    <h4>Using the <strong>typeof</strong> Operator</h4>
+    <ul>
+        <li>
+            The <strong>typeof</strong> operator is used to check the data of a variable. It returns a string indicating the type of the variable.
+        </li>
+        <pre class="code-box">
+        <code id="type-off-again">
+        <script>
+            const typeOfAgain = `
+    JS
+        let age = 25;
+        console.log(typeof age); // "number"
+
+        let isLoggedIn = true;
+        console.log(typeof isLoggedIn); // "boolean"
+            `
+            document.getElementById('type-off-again').textContent = typeOfAgain;
+        </script>
+        </code>
+        </pre>
+        <li>
+            However, there's a well-known quirk in JavaScript when it comes to <strong>null</strong>. The <strong>typeof</strong> operator returns <strong>"object"</strong> for <strong>null</strong> values.
+        </li>
+        <p>
+            <b>
+                let user = null;
+                <br />
+                console.log(typeof user); // "object"
+            </b>
+        </p>
+    </ul>
             </section>
         </article>
     </main>
