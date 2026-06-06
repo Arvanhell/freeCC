@@ -168,8 +168,26 @@ th:nth-child(2), th:nth-child(3) {
     background-color: #eef2f3;
     font-size: 1.1em;
 }
+/* Button scrolol to top */
 
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
+}
 
+#scrollToTopBtn:hover {
+    background-color: #555;
+}
 
 
 

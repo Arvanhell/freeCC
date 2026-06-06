@@ -87,6 +87,34 @@
                 <li>
                     <a href="#section12">JavaScript Variables and Data Types Review</a>
                 </li>
+                <li>Working with Strings in JavaScript</li>
+                <ul>
+                    <li>
+                    <a href="#section1a">
+                        What is Bracket Notation, and how do you access characters from a string?
+                    </a>
+                    </li>
+                    <li>
+                        <a href="#section2a">
+                            How do you create a Newline in Strings and Escape Strings?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section3a">
+                            What are Template Literals, and what is string interpolation?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section4a">
+                            How can you find the position of substring in a string?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section5a">
+                            What is the Prompt Method, and how does it work?
+                        </a>
+                    </li>
+                </ul>
         </ol>
     </nav>
 <main>
@@ -1411,6 +1439,421 @@
     </ul>
             </section>
         </article>
+        <article>
+            <h2>Working with String in JavaScript</h2>
+            <p>
+                In these lectures, you will lern how to work with strings in JavaScript. You will learn how to access characters from a string, how to use template literals and interpolation, how to create a new line in string, and much more.
+            </p>
+            <section id="section1a">
+                <h3>What is Bracket Notation, and how do you access characters from a string?</h3>
+                <h4>LESSON</h4>
+        <p>
+            In JavaScript, strings are treated as sequences of characters, and each character in a string can be accessed using bracket notation. This allows you to retrieve a specific character from a string based on its position, which is called its index.
+        </p>
+        <p>
+            An index is the position of a character within a string, and it is zero-based. This means that the first character of a string has an index of <strong>0</strong>, the second character has an index of <strong>1</strong>, and so on.
+        </p>
+        <p>
+            For example, in the string <strong>hello</strong>, the character <strong>h</strong> is at index <strong>0</strong>, <strong>e</strong> is at index <strong>1</strong>, <strong>l</strong> is at index <strong>2</strong>, and so on.
+        </p>
+        <p>
+            bracket notation uses square brackets (<strong>[]</strong>) and the index of the character you want to access. Let's look at an example:
+        </p>
+    <pre class="code-box">
+    <code id="bracket-notation-first-example">
+    <script>
+        const bracketNotationFirstExample = `
+    JS
+        let greeting = "hello";
+        console.log(greeting[1]);
+        // "e"
+        `
+        document.getElementById('bracket-notation-first-example').textContent = bracketNotationFirstExample;
+    </script>
+    </code>
+    </pre>
+        <p>
+            In this example, we can access the character at index <strong>1</strong>, which is <strong>e</strong>.
+        </p>
+        <p>
+            To get the last character of a string, you can use the length of the string minus one. The <strong>length</strong> property of a string tells you how many characters it contains, so to access the last character, you would substract one from the length:
+        </p>
+    <pre class="code-box">
+    <code id="last-character-first-example">
+    <script>
+        const lastCharacterFirstExample = `
+    JS
+        let greeting = "hello";
+        let firstTwo = greeting[0] + greeting[1];
+        console.log(firstTwo);
+        // "he"
+        `
+        document.getElementById('last-character-first-example').textContent = lastCharacterFirstExample;
+    </script>
+    </pre>
+        <p>
+            In this example, we are concatenating the first and second characters using bracket notation to form the string <strong>he</strong>.
+        </p>
+        <p>
+            Bracket notation is useful when you need to access specific characters is a string, such as extracting initials from a name or checking a specific letter for validation.
+        </p>
+            </section>
+            <section id="section2a">
+        <h3>
+            How do you create a Newline in Strings and Escape Strings?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            When working with strings in JavaScript, there are times when you need to include special characters that the JavaScript engine might otherwise misinterpret.
+        </p>
+        <p>
+            Two common tasks involve creating a newline within a string and escaping certain characters (like quotes) to make sure they appear correctly.
+        </p>
+        <p>
+            In many programming languages, including JavaScript, you can create a newline in a string using a special character called an escape sequence. The most common escape sequence for newlines is <strong>\n</strong>.
+        </p>
+        <p>
+            For example, if you want to break a string into multiple lines, you would use <strong>\n</strong> where you want the new line to begin:
+        </p>
+    <pre class="code-box">
+    <code id="escape-sequence-example">
+    <script>
+        const escapeSequenceExample = `
+    JS
+        let poem = "Roses are red,\nViolets are blue,\JavaScript is fun,\nAnd so are you.";
+        console.log(poem);
+        `
+        document.getElementById('escape-sequence-example').textContent = escapeSequenceExample;
+    </script>
+    </pre>
+        <p>
+            The <strong>\n</strong> escape sequence tells JavaScript to insert a line break at that point, which result in the string being displayed across multiple lines.
+        </p>
+        <p>
+            Another important concept when working with strings is escaping characters. Sometimes, you need to include characters in your string that JavaScript normally uses for something else, such as quotes.
+        </p>
+        <p>
+            If you simply use quotes inside a string without escaping characters. Sometimes, you need to include characters in your string that JavaScript normally uses for something else, such as quotes.
+        </p>
+        <p>
+            If you simply use quotes inside a string without escaping them, it can cause an error because JavaScript will think you're trying to end the string.
+        </p>
+        <p>
+            For example, this cause an error:
+        </p>
+        <p>
+            <b><strong>let statement = "She said, "Hello! "";
+            </strong>
+            </b>
+        </p>
+        <p>
+            JavaScript gets confused because it thinks the string ends after the word <strong>"said, "</strong> but, you want to quotes around <strong>"Hello!"</strong> to be part of the string.
+        </p>
+        <p>
+            To fix this, you can escape the inner quotes by placing a backslash (<strong>\</strong>)before them:
+        </p>
+        <pre class="code-box">
+        <code id="breaking-pooint-fix">
+        <script>
+            breakingPointFix = `
+    JS
+        let statement = "She said, \"Hello!\"";
+        console.log(statement); 
+        // She said, "Hello!"
+            `
+            document.getElementById('breaking-pooint-fix').textContent = breakingPointFix;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The backslash tells JavaScript to treat the quotes as literal characters, so they appear correctly in the output.
+        </p>
+        <p>
+            You can also escape other special characters, such as the backslash itself(<strong>\\</strong>), or a single quotes within a string surrounded by single quotes(<strong>\'</strong>).
+        </p>
+        <p>
+            Here's another example using single quotes:
+        </p>
+        <pre class="code-box">
+        <code id="another-single-quotes">
+        <script>
+            const anotherSingleQuotesEx =  `
+    JS
+        let quote = 'It\'s a beautiful day!'
+        console.log(quote);
+        // It's a beautiful day!
+            `
+            document.getElementById('another-single-quotes').textContent = anotherSingleQuotesEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            By escaping the single quote with <strong>\'</strong>. JavaScript knows to include it as part of the string rather than ending the string early.
+        </p>
+        <p>
+            Escaping and creating newlines are essential when you're formatting output or handling special characters in strings. These techniques help you prevent errors and ensure your text appears exactly as intended.
+        </p>
+            </section>
+            <section id="section3a">
+                <h3>
+                    What are Template Literals, and what is string interpolation?
+                </h3>
+                <h4>LESSON</h4>
+        <p>
+            In JavaScript, template literals are a powerful and flexible way to work with strings. Unlike regular strings, which use single (<strong>'</strong>) or double (<strong>"</strong>) quotes, template literals are defined with bacstics (<strong>`</strong>).
+        </p>
+        <p>
+            They allow for easier string manipulation, including embedding variables directly inside a string, a feature known as string interpolation.
+        </p>
+        <p>
+            Template literals make it easier to create strings that span multiple lines or include expressions (like variables or even JavaScript code) directly within a string.
+        </p>
+        <p>
+            Here's an example of a template literal:
+        </p>
+        <p>
+            <b>const name = "Alice";<br>
+            const greeting = `Hello, ${name}!;</b>
+        </p>
+        <p>
+            Notice the use backtics instead of single or double quotes. The <strong>${name}</strong> syntax is an example of string interpolation, where the value of the variable <strong>name</strong> is directly inserted into the string.
+        </p>
+        <p>
+            String interpolation allows you to embed variables and expressions inside a string. This is a significant improvement over the older method, where you would concatenate strings and variables using the <strong>+</strong> operator.
+        </p>
+        <p>Here is an example using string concatenation and the (<strong>+</strong>) operator:
+        </p>
+        <pre class="code-operator-pluss">
+        <script>
+            const codeOperatorPluss = `
+    JS
+        const name = "Alice";
+        const age = 25;
+        const message = "My name is " + name + " and I am " + age + " years old.";
+        console.log(message);
+            `
+            document.getElementById('code-operator-pluss').textContent = codeOperatorPluss;
+        </script>
+        </pre>
+        <p>
+            And there is an example using template literals and string interpolation:
+        </p>
+        <p>
+            <b>
+            JS<br>
+            const name = "Alice"; <br>
+            const age = 22; <br>
+            const message = `My name is ${name} and I am ${age} years old.`;
+            console.log(message);
+            </b>
+        </p>
+        <p>
+            As you can see, string interpolation with template literals is mych cleaner and easier to read, especially when you're working with multiple variables.
+        </p>
+        <p>
+            Another great feature of template literals is that they support multiline strings. With regular strings, you would need to use escape characters (<strong>\n</strong>) to create new lines. With template literals, you can simply write the string across multiple lines, and the formatting is preserved:
+        </p>
+        <p>
+            <b>
+                let poem = `Roses are red, <br>
+                Violets are blue, <br>
+                JavaScript is fun, <br>
+                And so are you.`;<br>
+                <br>
+                console.log(poem);
+            </b>
+        </p>
+        <p>
+            Another feature of template literals is that they allow you to embed JavaScript expressions directly within the string, like in this example:
+        </p>
+        <p>
+            <b>
+                const song = "Bohemian Rhapsody"; <br>
+                const score = 9.5; <br>
+                const highestScore = 10; <br>
+                const output = `One of my favorite songs is "$${song}". I rated it ${ <br>
+                    (score / highestScore) * 100 <br>
+                }%.`;<br>
+                console.log(output);
+            </b>
+        </p>
+        <p>
+            Template literals are particularly useful when you need to include variables or expressions in strings, format comples strings, or work with multiline text. They are more concise and readable compared ot traditional string concatenation.
+        </p>
+            </section>
+            <section id="section4a">
+            <h3>
+                How can you find the position of substring in a string?
+            </h3>
+            <h4>LESSON</h4>
+            <p>
+                When working with strings in JavaScript, there may be times when you need to locate the position of a specific substring within a larger string.
+            </p>
+            <p>
+                A substring is a sequence of characters that appears within a larger string. For example, in the string <strong>hello world</strong>, <strong>hello</strong> and <strong>world</strong> are substrings.
+            </p>
+            <p>
+                To locate the position of a substring inside of a string, you can use the <strong>indexOf()</strong> method. The <strong>indexOf()</strong> method in JavaScript allows you to search for a substring within a string.
+            </p>
+            <p>
+                If the substring is found, <strong>indexOf()</strong> returns the index (or position) of the first occurrence of that substring. If the substring is not found, <strong>indexOf()</strong> returns <strong>-1</strong>, which indicates that the search was unsuccessful.
+            </p>
+            <p>
+                The <strong>indexOf()</strong> method takes two arguments: the first is the substring you want to find within the larger string, and the second is an option starting position for the search. If you don’t provide a starting position, the search will begin at the start of the string.
+            </p>
+            <p>
+                In this context, an <b>argument</b> is a value you give to a function or method when you call it, enabling that function or method to perform its task using the specific information you provide. You will learn more about arguments in future lessons.
+            </p>
+            <p>
+                Here is an example of using the <strong>indexOf()</strong> method to find the position for the string <strong>awesome</strong>:
+            </p>
+            <pre class="code-box">
+            <code id="indexing-of-awesome">
+            <script>
+            const indexingOfAwesome = `
+    JS
+        let sentence = "JavaScript is awesome!";
+        let position = sentence.indexOf("awesome!");
+        console.log(position);
+        // 14
+            `
+            document.getElementById('indexing-of-awesome').textContent = indexingOfAwesome;
+            </script>
+            </code>
+            </pre>
+            <p>
+                In this example, the word <strong>awesome</strong> starts at index <strong>14</strong> in the string <strong>JavaScript is Awesome!</strong>, so the <strong>indexOf()</strong> method returns <strong>14</strong>.
+            </p>
+            <p>
+                Now, let's see what happens when the substring isn't found:
+            </p>
+            <pre class="code-box">
+            <code id="subs-not-found-ex">
+            <script>
+                const subsNotFoundExample = `
+    JS
+        let sentence = "JavaScript is awesome!";
+        let position = sentence.indexOf("fantastic");
+        console.log(position); 
+        // -1
+                `
+                document.getElementById('subs-not-found-ex').textContent = subsNotFoundExample;
+            </script>
+            </code>
+            </pre>
+            <p>
+                Since the word <strong>fantastic</strong> does not appear in the string, the method returns <strong>-1</strong>.
+            </p>
+            <p>You can also specify where to begin searching within the string by providing a second argument to <strong>indexOf()</strong>. Here's an example:
+            </p>
+            <pre class="code-box">
+            <code id="specific-area-of-search">
+            <script>
+                const specificAreaPfSearch = `
+    JS
+        let sentence = "JavaScript is awesome, and JavaScript is powerful!";
+        let position = sentence.indexOf("JavaScript", 10);
+        console.log(position);
+        // 27
+                `
+                document.getElementById('specific-area-of-search').textContent = specificAreaPfSearch;
+            </script>
+            </code>
+            </pre>
+            <p>
+                In this case, the search for <strong>JavaScript</strong> begins after the 10th character, and so the second occurrence of <strong>JavaScript</strong> is found at index <strong>27</strong>
+            </p>
+            <p>
+                It is important to note that the <strong>indexOf()</strong> method is case sensitive.
+            </p>
+            <p>
+                In this example, the following would return <strong>-1</strong> because the capital letter <strong>F</strong> is not found in the string <strong>freeCodeCamp</strong>.
+            </p>
+            <p>
+                <b>
+                    console.log("freeCodeCamp".indexOf("F")) <br>
+                    // -1
+                </b>
+            </p>
+            <p>
+                Using <strong>indexOf()</strong> can be very useful when you need to check if a substring is present in a string and to determine its position for further operations.
+            </p>
+            </section>
+            <section id="section5a">
+        <h3>
+            What is the Prompt Method, and how does it work?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            The <strong>prompt()</strong> method is an important part of JavaScript's interaction with the user. It’s one of the simplest ways to get input from a user through a small pop-up dialog box.
+        </p>
+        <p>
+            You'll often see it used in cases where the webpage needs a piece of information from the user, such as a name or some other form of text input.
+        </p>
+        <p>
+            So, what exactly does the <strong>prompt()</strong> method do? It opens a dialog box that asks the user for some input, and then it returns the text entered by the user as a string.
+        </p>
+        <p>
+            The <strong>prompt()</strong> method takes two arguments: The first one is the message which will appear inside the dialog box, typically prompting the user to enter information. And the second one is a default value which is optional and will fill the input field initially.
+        </p>
+        <p>
+            <b>
+                prompt(message, default);
+            </b>
+        </p>
+        <pre class="code-box">
+        <code id="code-prompt-example">
+        <script>
+            const codePromptExample = `
+    HTML
+        <button id="prompt-btn">Show Prompt</button>
+        <p id="output"></p>
+        <script src="index.js"></script>
+
+    JS
+        const btn = document.getElementById("prompt-btn");
+        const output = document.getElementById('output');
+        btn.addEventListener("click", () => {
+            const userName = prompt("What is your name?", "Guest");
+            output.textContent = "Hello, " + userName + "!";
+        });
+            `
+            document.getElementById('code-prompt-example').textContent = codePromptExample;
+        </script>
+        </pre>
+        <p>
+            In this example, when the user clicks on the button, the <strong>prompt()</strong> method displays a dialog box with the message <strong>What is your name?</strong> and an input field that initially contains the value <strong>Guest</strong>
+        </p>
+        <p>
+            the user types their name and presses "OK", the <strong>userName</strong> variable will store the entered value. If the user presses "Cancel," the <strong>userName</strong> variable will be set to <strong>null</strong>. <strong>null</strong> signifies that the user did not provide any input. The output paragraph will then display a greeting message using the provided name or <strong>null</strong> if the user canceled. You will learn techniques to avoid displaying <strong>null</strong> when a user cancels the prompt in future lessons.
+        </p>
+        <p>
+            Keep in mind that the <strong>prompt()</strong> method will halt the execution of the script until the user interacts with the dialog box.
+        </p>
+        <p>
+            This means the rest of your JavaScript code won’t run until the user either provides input and clicks "OK", or cancels the prompt.
+        </p>
+        <p>
+            One other point to consider is that while <strong>prompt()</strong> is useful for quick testing or small applications, it's generally avoided in modern, complex web applications due to its disruptive nature and inconsistent behavior across different browsers.
+        </p>
+        <p>
+            By understanding the <strong>prompt()</strong> method, you gain a simple way to interact with users and retrieve information directly through the browser, even though it may not be widely used in modern web applications.
+        </p>
+            </section>
+        </article>
+        <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
+
     </main>
     </body>
+    <script>
+        const topBtn = document.getElementById("scrollToTopBtn");
+
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+    </script>
 </html>
