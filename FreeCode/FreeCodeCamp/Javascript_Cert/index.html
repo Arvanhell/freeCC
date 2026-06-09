@@ -1841,6 +1841,84 @@
         </p>
             </section>
         </article>
+        <article>
+            <h3>
+                Build a Teacher Chatbot
+            </h3>
+            <p>
+                In this workshop, continue to learn more about JavaScript strings by building a chatbot. Learn how to work with template literals, and the <strong>indexOf</strong> method.
+            </p>
+            <pre class="code-box">
+            <code id="teacher-chatbot">
+            <script>
+const chatBot = `
+    // there is missing template sign within template literal sentences for reason and dolar sign for reason this is only for reading no misttake taken
+
+console.log("Hi there!");
+    //Hi there!
+
+const botName = "teacherBot";
+const greeting = 'My name is {botName}.';
+
+console.log(greeting);
+    // My name is teacherBot.
+
+const subject = "JavaScript";
+const topic = "strings";
+const sentence = 'Today, you will learn about {topic} in {subject}.';
+
+console.log(sentence);
+    // Today, you will learn about strings in JavaScript.
+const strLengthIntro = 'Here is an example of using the length property on the word {subject}.';
+
+console.log(strLengthIntro);
+    // Here is an example of using the length      property on the word JavaScript.
+console.log(subject.length);
+    // 10
+
+console.log('Here is an example of using the length property on the word {topic}.');
+
+    // Here is an example of using the length property on the word strings.
+
+console.log(topic.length);
+   // 7
+
+console.log('Here is an example of accessing the first letter in the word {subject}.');
+    // Here is an example of accessing the frist letter in the word JavaScript.
+console.log(subject[0]);
+   // J
+console.log('Here is an example of accessing the second letter in the word {subject}.');
+    // Here is an example of accessing the second letter in the word JavaScript
+    // a
+console.log('Here is an example of accessing the last letter in the word {subject}.');
+    // Here is an example of accessing the last letter in the word JavaScript
+const lastCharacter = subject[subject.length - 1];
+console.log(lastCharacter);
+    // t
+
+const learningIsFunSentence = "Learning is fun.";
+
+console.log("Here are examples of finding the positions of substrings in the sentence.");
+    // Here are examples of finding the positions of substrings in the sentence.
+
+console.log(learningIsFunSentence.indexOf("Learning"));
+    // 0 
+
+console.log(learningIsFunSentence.indexOf("fun"));
+   // 12
+console.log(learningIsFunSentence.indexOf("learning"));
+   // - 1
+   
+console.log("I hope you enjoyed learning today.");
+   // I hope you enjoyed learning today.
+`
+
+document.getElementById('teacher-chatbot').textContent = chatBot;
+            </script>
+            </code>
+            </pre>
+        </article>
+        
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
 
     </main>
