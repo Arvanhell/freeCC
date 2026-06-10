@@ -115,6 +115,31 @@
                         </a>
                     </li>
                 </ul>
+                <li>
+                    Working with String Character methods.
+                </li>
+                <ul>
+                    <li>
+                        <a href="#section5a">
+                            What Is ASCii, and how does it work with charCodeAt() and fromCharCode()?
+                        </a>
+                    </li>
+                </ul>
+                <li>
+                    Working with string search and slice methods.
+                </li>
+                <ul>
+                    <li>
+                        <a href="#section6a">
+                            How can you test if a string contains a substring?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section6a">
+                            How can you extract a substring from a string?
+                        </a>
+                    </li>
+                </ul>
         </ol>
     </nav>
 <main>
@@ -1918,7 +1943,362 @@ document.getElementById('teacher-chatbot').textContent = chatBot;
             </code>
             </pre>
         </article>
+        <article>
+            <section id="section5a">
+                <h2>
+                    Working with string character methods.
+                </h2>
+                <h3>
+                    What Is ASCii, and how does it work with charCodeAt() and fromCharCode()?
+                </h3>
+                <h4>LESSON</h4>
+        <p>
+            In programmingm understanding how characters are represented as numbers is fundamental. This is where ASCii comes in. ASCII, short for American Standard Code for Information Interchange, is a character encoding standard used in computers to represent text. It assigns a numeric value to each character, which is universally recognized by machines.
+        </p>        
+        <p>
+            In this lesson, we will explore what ASCII is, how it works, and how JavaScript methods like <strong>charCodeAt()</strong> and <strong>fromCharCode()</strong> relate to character encoding. 
+            While JavaScript strings use Unicode (UTF-16) internally, ASCII values match hte first 128 Unicode characters, which is why ASCII- based examples work in JavaScript.
+        </p>
+        <p>
+            ASCii is a system for encoding characters such as letters, digits, and symbols into numerical values. Each character is mapped to aspecific number.
+        </p>
+        <p>
+            ASCII is a system for encoding characters such as letters, digits, and symbols into numerical values. Each character is mapped to a specific number.
+        </p>
+        <p>
+            For example, the capital letter <strong>A</strong> is represented by the number <strong>65</strong> in ASCII, while the lowercase <strong>a</strong> is represented by <strong>97</strong>. This encoding allows computers to store and manipulate text.
+        </p>
+        <p>
+            The ASCII standard covers 128 characters including:
+        </p>
+        <ul>
+            <li>
+                Uppercase and lowercase English letters (A-Z, a-z).
+            </li>
+            <li>
+                Numbers (0-9).
+            </li>
+            <li>
+                Common punctuation marks and symbols (!, @, #, and so on).
+            </li>
+            <li>
+                Control characters (such as newline and tab).
+            </li>
+        </ul>
+       <p>
+        In JavaScript, you can access the bnumeric code at character using the <strong>charCodeAt()</strong> method. This method returns the UTF-16 code unit of the character at a specific index. For the first 128 characters, this value matches the ASCII code.
+       </p>
+        <pre class="code-box">
+        <code id="letter-A">
+        <script>
+            const letterA = `
+    JS
+        let letter = "A";
+        console.log(letter.charCodeAt(0));
+
+        // 65
+            `
+            document.getElementById('letter-A').textContent = letterA;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>A</strong> is the first character of the string, and calling <strong>charCodeAt(0)</strong> return its numeric code (which matches its ASCII value for basic Latin characters), <strong>65</strong>.
+        </p>
+        <p>
+            You can also use this method with other characters to find their numeric code values:
+        </p> 
+        <pre class="code-box">
+        <code id="special-char-index-value">
+        <script>
+            const specialCharIndVal = `
+    JS
+        let symbol = "!";
+        console.log(symbol.charCodeAt(0));
+
+        // 33
+            `
+            document.getElementById('special-char-index-value').textContent = specialCharIndVal;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Here, the numeric code for the exclamation mark <strong>!</strong>. is returned as <strong>33</strong> (which matches its ASCII value).
+        </p>
+        <p>
+            While <strong>charCodeAt()</strong> helps you retrieve the numeric code of character, the <strong>fromCharCode()</strong> method allows you to do the opposite: conver a UTF-16 code unit (which matches ASCII for basic characters) into its corresponding character.
+        </p>
+        <p>
+            Let's see this in action:
+        </p>
+        <pre class="code-box">
+            <code id="special-char-index-valuee">
+            <script>
+                const specialCharIndVall = `
+    JS
+        let char = String.fromCharCode(65);
+        console.log(char);
+    
+        // A
+                `
+                document.getElementById('special-char-index-valuee').textContent = specialCharIndVall;
+            </script>
+            </code>
+            </pre>
+            <p>
+                In this example, <strong>fromCharCode(65)</strong> converts the numeric code <strong>65</strong> (which matches the ASCII value for <strong>A</strong>) back to the character <strong>A</strong>.
+            </p>
+            <p>
+                Another example would be converting the number <strong>97</strong> to its corresponding lowercase letter:
+            </p>
+            <pre class="code-box">
+                <code id="special-char-index-valueee">
+                <script>
+                    const specialCharIndValll = `
+    JS
+        let char = String.fromCharCode(97);
+        console.log(char);
         
+        // a
+                    `
+                    document.getElementById('special-char-index-valueee').textContent = specialCharIndValll;
+                </script>
+                </code>
+                </pre>
+                <p>
+                    These methods are particularly useful when you need to manipulate or compare characters based on their numeric code values.
+                </p>
+                <p>
+                    For instance, you might use <strong>charCodeAt()</strong> to check if a character is uppercase, lowercase, or a digit by comparing its ASCII value.
+                </p>
+                <p>
+                    On the other hand <strong>fromCharCode()</strong> can be used to dynamically generate characters from their ASCII codes.
+                </p>
+            </section>
+            </article>
+            <article>
+            <section id="section6a">
+                <h2>
+                    Working with string search and slice methods.
+                </h2>
+                <h3>
+                    How can you test if a string contains a substring?
+                </h3>
+                <h4>LESSON</h4>
+                <p>
+                    When working with strings in JavaScript, there are many cases where you might need to check whether a string contains a specific substring, which is a smaller part of that string.
+                </p>
+                <p>
+                    For example, you might want to check if a user's input includes a specific word or character before performing some action. One way to achieve this is by using the <strong>includes()</strong> method.
+                </p>
+                <p>
+                    The <strong>includes()</strong> method is used to check if a string contains a specific substring. If the substring is found within the string, the method returns <strong>true</strong> otherwise, it returns <strong>false</strong>.
+                </p>
+                <p>
+                    Here's the basic syntax:
+                </p>
+                <p>
+                    <b>
+                        string.includes(searchValue);
+                    </b>
+                </p>
+                <p>
+                    For the syntax, that <strong>searchValue</strong> is the substring you want to look for within the string. And here's an example:
+                </p>
+    <pre class="code-box">
+    <code id="phrase-search-value">
+    <script>
+        const phraseSearchValue = `
+    JS
+        let phrase = "JavaScript is awesome!";
+        let result = phrase.includes("awesome");
+
+        console.log(result);
+        // true
+        `
+        document.getElementById('phrase-search-value').textContent = phraseSearchValue;
+    </script>
+    </code>
+    </pre>
+            <p>
+                In this example, the word <strong>awesome</strong> is found within the string <strong>JavaScript is awesome!</strong>, so the <strong>includes()</strong> method returns <strong>true</strong>.
+            </p> 
+            <p>
+                It's important to note that the <strong>includes()</strong> method is case-sensitive. This means that the exact match of the characters is required, including their case.
+            </p>
+            <p>
+                For example:
+            </p>
+    <pre class="code-box">
+    <code id="phrase-not-include">
+    <script>
+        const phraseNotInclude = `
+    JS
+        let phrase = "JavaScript is awesome!";
+        let result = phrase.includes("Awesome");
+
+        console.log(result);
+        // false
+        `
+        document.getElementById('phrase-not-include').textContent = phraseNotInclude;
+    </script>
+    </code>
+    </pre>
+        <p>
+            Since <strong>Awesome</strong> (with an uppercase <strong>A</strong>) does not match <strong>awesome</strong> (with a lowercase <strong>a</strong>), the result is <strong>false</strong>.
+        </p>
+        <p>
+            You can also use the <strong>includes()</strong> method to check for a substring starting at a specific index in the string by providing a second parameter:
+        </p>
+    <pre class="code-box">
+    <code id="second-parameter-includes">
+    <script>
+        const secondParameterIncludes = `
+    JS 
+        let text = "Hello, JavaScript world!";
+        let result = text.includes("JavaScript, 7");
+
+        console.log(result);
+        // true
+        `
+        document.getElementById('second-parameter-includes').textContent = secondParameterIncludes;
+    </script>
+    </pre>
+        <p>
+            Here, the search for the substring <strong>JavaScript</strong> starts from the 7th position in the string, ensuring it skips any characters before this position.
+        </p>
+        <p>
+            The <strong>includes()</strong> method only returns a <strong>true</strong> or <strong>false</strong> result. It does not provide information on where the substring is located in the string or how many times it occurs. If you need that level of detail, other methods, such as the <strong>indexOf()</strong> method might be more suitable.
+        </p>
+            </section>
+            <section id="section6a">
+                <h3>
+                    How can you extract a substring from a string?
+                </h3>
+                <h4>LESSON</h4>
+        <p>
+            When working with strings in JavaScript, you often need to extract a portion or substring from a larger string.
+        </p>
+        <p>
+            For example, you may want to extract part of word, a specific character sequence, or just a fragment of a sentence.
+        </p>
+        <p>
+            For example, you may want to extract part of a word, a specific character sequence, or just a fragment of a sentence.
+        </p>
+        <p>
+            JavaScript provides several methods for this task, one of the most commonly used being the <strong>slice()</strong> method.
+        </p>
+        <p>
+            The <strong>slice()</strong> method allows you to extract a portion of a string and returns a new string, without modyfing the original string. It takes two parameters: the starting index and the optional ending index,
+        </p>
+        <p>
+            Basic syntax:
+        </p>
+        <p>
+            <b>
+                string.slice(startIndex, endIndex);
+            </b>
+        </p>
+        <p>
+            <strong>startIndex</strong> is the position where the extraction starts. <br>
+            <strong>endIndex</strong> is where the extraction ends. If not provided. <br>
+            <strong>slice()</strong> extract until the end of the string.
+        </p>
+        <p>
+            Let's look at a simple example of extracting part of a string:
+        </p>
+    <pre class="code-box">
+    <code id="slice-part-off">
+    <script>
+        const slicePartOff = `
+    JS
+        let message = "Hello, world!";
+        let greeting = message.slice(0, 5);
+
+        console.log(greeting);
+        // Hello
+        `
+        document.getElementById('slice-part-off').textContent = slicePartOff;
+    </script>
+    </code>
+    </pre>
+        <p>
+            In this example, <strong>slice(0, 5)</strong> extracts characters starting form index <strong>0</strong> up to but not including index <strong>5</strong>. As a result, thw eord <strong>Hello</strong> is extracted.
+        </p>
+        <p>
+            If you omit the second parameter, <strong>slice()</strong> will extract everything from the start index to the end of the string:
+        </p>
+    <pre class="code-box">
+    <code id="omit-slice-off">
+    <script>
+        const omitSliceOff = `
+    JS
+        let message = "Hello, world!";
+        let world = message.slice(7);
+
+        console.log(world);
+        // world!
+        `
+        document.getElementById('omit-slice-off').textContent = omitSliceOff;
+    </script>
+    </code>
+    </pre>
+        <p>
+            Here, <strong>slice(7)</strong> extract the string from index <strong>7</strong> to the end of the string, resulting in <strong>world!</strong>.
+        </p>
+        <p>
+            You can also use negative numbers as indexes. When you use a negative numnber, it counts backward from the end of the string:
+        </p>
+    <pre class="code-box">
+    <code id="minus-index-slice-off">
+    <script>
+        const minusIndexSliceOff = `
+    JS
+        let message = "JavaScript is fun!";
+        let lastWord = message.slice(-4);
+
+        console.log(lastWord);
+        // fun!
+        `
+        document.getElementById('minus-index-slice-off').textContent = minusIndexSliceOff;
+    </script>
+    </code>
+    </pre>
+        <p>
+            In this case, <strong>slice(-4)</strong> extract the last four characters from the string, giving us <strong>fun!</strong>.
+        </p>
+        <p>
+            Let's say you want to extract a section from the middle of a string. You can provide both the starting and ending indexes to precisely control which part of the string you want:
+        </p>
+    <pre class="code-box">
+    <code id="precisely-extraction-slice-off">
+    <script>
+        const precExtractionSliceOff = `
+    JS
+        let message = "I love JavaScript!";
+        let language = message.slice(7, 17);
+
+        console.log(language);
+        // JavaScript
+        `
+        document.getElementById('precisely-extraction-slice-off').textContent = precExtractionSliceOff;
+    </script>
+    </code>
+    </pre>
+        <p>
+            Here, <strong>slice(7, 17)</strong> extracts the substring starting at index 7 and ending right before index <strong>17</strong>, which is the rord <strong>JavaScript</strong>.
+        </p>
+        <p>
+            The <strong>slice()</strong> method is a powerful tool for extracting parts of a string in JavaScript.
+        </p>
+        <p>
+            You specify the start and end indexes, and the method returns a new string that contains the extracted portion.
+        </p>
+        <p>
+            Which options for positive, negative, and omitted indexes, you can adapt it to various situations without altering the original string.
+        </p>
+            </section>
+        </article>   
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
 
     </main>
