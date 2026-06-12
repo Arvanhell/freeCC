@@ -140,6 +140,21 @@
                         </a>
                     </li>
                 </ul>
+                <li>
+                    Working with String Formating Methods.
+                </li>
+                <ul>
+                    <li>
+                        <a href="section7a">
+                            How can you change the casing for a string?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section8a">
+                            How can you trim whitespace from a string?
+                        </a>
+                    </li>
+                </ul>
         </ol>
     </nav>
 <main>
@@ -2299,6 +2314,179 @@ document.getElementById('teacher-chatbot').textContent = chatBot;
         </p>
             </section>
         </article>   
+        <article>
+            <h2>Working with String Formating Methods</h2>
+            <section id="section7a">
+                <h3>
+                    How can you change the casing for a string?
+                </h3>
+                <h4>LESSON</h4>
+                <p>
+                    When working with strings in JavaScript, there are many situations where you might need to adjust the case of the text, such as transforming all letters to uppercase for a heading or converting text to lowercase for uniformity.
+                </p>
+                <p>
+                    Luckily, JavaScript makes this easy with two built-in methods: <strong>toUpperCase()</strong> and <strong>toLowerCase()</strong>.
+                </p>
+                <p>
+                    The <strong>toUpperCase()</strong> method converts all the characters to uppercase letters and returns a new string with all uppercase characters. This is useful when you want to emphasize text or create consistency in the format of strings.
+                </p>
+                <p>
+                    Let's see an example:
+                </p>
+        <pre class="code-box">
+        <code id="to-upper-case">
+        <script>
+            const toUpperCaseUp = `
+    JS
+        let greeting = "Hello, World!";
+        let uppercaseGreeting = greeting.toUpperCase();
+
+        console.log(uppercaseGreeting);
+        // "HELLO, WORLD!"
+            `
+            document.getElementById('to-upper-case').textContent = toUpperCaseUp;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In this code, the <strong>toUpperCase()</strong> method transforms the entire string into uppercase letters.
+        </p>
+        <p>
+            The original string remains unchanged because <strong>toUpperCase()</strong> return a new string, rather than modifying the original one.
+        </p>
+        <p>
+            On the flip side, the <strong>toLowerCase()</strong> method converts all characters in a string to lowercase. This is helpful when you need to standarize input, such as when comparing user-provided text or making case-sensitive checks.
+        </p>
+        <p>
+            Let's look at an example:
+        </p>
+    <pre class="code-box">
+    <code id="lower-case-lower">
+    <script>
+        const lowerCaseLower = `
+    JS
+        let shout = "I AM LEARNING JAVASCRIPT!";
+        let lowercaseShout = shout.toLowerCase();
+
+        console.log(lowercaseShout);
+        // "i am learning javascript!"
+        `
+        document.getElementById('lower-case-lower').textContent = lowerCaseLower
+    </script>
+    </code>
+    </pre>
+    <p>
+        The <strong>toLowerCase()</strong> method converts all characters to lowercase, making the string less aggressive, while leaving the original string unchanged.
+    </p>
+    <p>
+        In summary, the <strong>toUpperCase()</strong> and <strong>toLowerCase()</strong> methods in JavaScript are powerful tools for transforming strings into all uppercase or lowercase letters.
+    </p>
+    <p>
+        These methods are particularly useful for standarizing text input, making case-insensitive comparisons, and ensuring design consistency.
+    </p>
+    <p>
+        With these simple yet effective methods, you can handle textt manipulation in a more controlled and predictable way.
+    </p>
+            </section>
+            <section id="section8a">
+            <h3>
+                How can you trim whitespace from a string?
+            </h3>       
+            <h4>
+                LESSON
+            </h4>
+            <p>
+                When working with strings in JavaScript, it's common to encounter unwanted whitespace at the beginning or end of a string. Whitespace can interfere with operations like comparison, storage, or display, which is why it's important to know how to remove it efficiently.
+            </p>
+            <p>
+                In this lesson, we'll explore how you can trim whitespace using JavaScript's <strong>trim</strong>, <strong>trimStart()</strong>, and <strong>trimEnd()</strong> methods.
+            </p>
+            <p>
+                Whitespace refers to spaces, tabs, or line breaks that occur in a string but are visible characters. For example:
+            </p>
+            <p>
+                <b>
+                    let greeting = "  Hello, world!    ";
+                </b>
+            </p>
+            <p>
+                In this case, there are spaces before and after the visible text, <strong>Hello, world!</strong>.
+            </p>
+            <p>
+                The <strong>trim()</strong> method is the most commonly used way to remowe whitespace from both the beginning and the end of a string.
+                Here's an example:
+            </p>
+    <pre class="code-box">
+    <code id="trim-trim-ex">
+    <script>
+        const trimTrimTrim = `
+    JS
+        let message = "   Hello!    ";
+        console.log(message);
+        // "   Hello!    "
+
+        let trimmedMessage = message.trim();
+        console.log(trimmedMessage);
+        // "Hello!"
+        `
+        document.getElementById('trim-trim-ex').textContent = trimTrimTrim;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this case, the <strong>trim()</strong> methods removes all the leading and trailing spaces, leaving just <strong>Hello!</strong>. Note that any whitespace within the string (between words, for example) is left untouched by <strong>trim()</strong>.
+    </p>
+    <p>
+        Sometimes, you may only want to remove whitespace from either the beginning or the end of a string, but not both. This is where <strong>trimStart()</strong> and <strong>trimEnd()</strong> come in.
+    </p>
+    <p>
+        <strong>trimStart()</strong> removes whitespace from the beginning (or start) of the string.
+    </p>
+    <pre class="code-box">
+    <code id="trim-start">
+    <script>
+    const trimStartStart = `
+    JS
+        let greeting = "  Hello!   ";
+        console.log(greeting); 
+        // "  Hello!   " 
+
+        let trimmedStart = greeting.trimStart();
+        console.log(trimmedStart);
+        // "Hello!   "
+    `
+    document.getElementById('trim-start').textContent = trimStartStart;
+    </script>
+    </code>
+    </pre>
+    <p>
+        <strong>trimEnd()</strong> removes whitespace from the end of the string.
+    </p>
+    <pre class="code-box">
+    <code id="trim-end-end">
+    <script>
+        const trimEndEnd = `
+    JS
+        let greeting = "  Hello!    ";
+        console.log(greeting);
+        // "  Hello!    "
+
+        let trimmedEnd = greting.trimEnd();
+        console.log(trimEnd);
+        // "  Hello!"
+        `
+        document.getElementById('trim-end-end').textContent = trimEndEnd;
+    </script>
+    </code>
+    </pre>
+    <p>
+        These methods give you more precise control over which part of the string you want to clean up.
+    </p>
+    <p>
+        In summary, trimming whitespace is an essential part of working with strings in JavaScript. Whether you want to clean up input data or ensure consistent string comparison,s you use <strong>trim()</strong> to remove whitespace from both sides of a string, or use <strong>trimStart()</strong> and <strong>trimEnd()</strong> to target specific sides.
+    </p>
+            </section>
+        </article>
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
 
     </main>
