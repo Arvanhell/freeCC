@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>JavaScript</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+              <li><a href="index.html/#home">Home</a></li>
+              <!--li><a href="js-notes.html">JS Notes</a></li-->
+              <!--li><a href="about.html">About Me</a></li-->
+            </ul>
+          </nav>
+        <h1>Boolean with Numbers and Arithmetic Operators</h1>
+        <p>
+            In these lecturtes you will learn about the numnber type, arithmetic operators, and using them with numbers and string.
+        </p>
+        <article>
+            <h2>
+                Working with Numbers and Arithmetic Operators
+            </h2>            
+            <section id="section1">
+                <h3>
+                    What is the number type in JavaScript, and what are the different types of numbers available?
+                </h3>
+                <h4>LESSON</h4>
+        <p>
+            The <strong>Number</strong> type is one of the most used data types in JavaScript and other programming languages. Numbers might seem simple, but there's a lot explore when it comes to numbers in JavaScript. So, let's take a deeper look. In JavaScript, the <strong>Number data</strong> type represents a numeric value.
+        </p>
+        <p>
+            Unlike many other programming languages that separate integers and floating-point numbers into different types, JavaScript uses one unified <strong>Number</strong> type to account for numbers. This means you can work with whole numbers, decimals, and even special n umeric values all under the same <strong>Number</strong> data type umbrella.
+        </p>
+        <p>
+            Here's basic example showing you integers, floating point numbers, and negative numbers are all of type number:
+        </p>       
+        <pre class="code-box">
+        <code id="whole-decimal-negative">
+        <script>
+            const wholeDecimalNegative = `
+    JS
+        const wholeNumber = 50;
+        const decimalNumber = 4.5;
+        const negativeNumber = -7;
+        
+        console.log(typeof wholeNumber);
+        // number
+        console.log(typeof decimalNumber);
+        // number
+        console.log(typeof negativeNumber);
+        // number
+    `
+            document.getElementById('whole-decimal-negative').textContent = wholeDecimalNegative;
+        </script>
+        </code>
+        </pre>
+        <p>
+            JavaScript's <strong>Number</strong> type includes various kinds of numeric values, ranging from simple integers and floating-point numbers to special cases like <strong>Infinity</strong> and <strong>NaN</strong>, or "Not a Number". Let's break down the main types you'll encounter. Integers are whole numbers without any fractional or decimal part. They can be positive, negative, or zero. Here are some examples:
+        </p>
+        <pre class="code-box">
+        <code id="pos-neg-zero">
+            <script>
+            const posNegZero = `
+    JS
+        const positiveInteger = 100;
+        const negativeInteger = -25;
+        const zero = 0;
+
+        console.log(typeof positiveInteger);
+        // number
+        console.log(negativeInteger);
+        // number
+        console.log(typeof zero);
+        // number
+            `
+            document.getElementById('pos-neg-zero').textContent = posNegZero;
+            </script>
+        </code>
+        </pre>
+        <p>
+            Floating point numbers are numbers with decimal points. They're often referred to as just "floats" by JavaScript developers. Floats are useful when you need more precision, such as when you're dealing with measurements or currencies. Here are some example:
+        </p>
+        <pre class="code-box">
+        <code id="floatinf-another-one">
+        <script>
+            const floatingAnotherOne =`
+    JS
+        const floatingPointNumber = 3.5;
+        const anotherFloat = 85.45;
+        const oneMoreFloat = 12.567;
+
+        console.log(typeof floatingPointNumber);
+        // number
+        console.log(typeof anotherFloat);
+        // number
+        console.log(typeof oneMoreFloat);
+        // number
+            `
+            document.getElementById('floatinf-another-one').textContent = floatingAnotherOne;
+        </script>
+        </code>
+        </pre>
+        <p>
+            JavaScript can represent numbers that are beyond the maximym limit with <strong>Infinity</strong>. You'll encounter this when you try to divide a number by zero or on rare occasions, exceed the upper bounduary of the <strong>Number</strong> type. Her's an example:
+        </p>
+        <pre class="code-box">
+        <code id="infinite-number-ex">
+        <script>
+            const infiniteNumberEx = `
+    JS
+        const infiniteNumber = 1 / 0;
+        console.log(infiniteNumber); 
+        // Infinity
+        console.log(typeof infiniteNumber);
+        // number
+            `
+            document.getElementById('infinite-number-ex').textContent = infiniteNumberEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Sometimes in JavaScript, some mathematical operations don't result in a valid number. For instance, if you try to perform a mathematical operations don't result in valid number. For instance, if you try to perform a mathematical operation on something that isn't a number, you'll get <strong>NaN</strong>, which stands for "Not a Number".
+        </p>
+        <pre class="code-box">
+        <code id="not-a-number-ex">
+        <script>
+            const notANumnberEx = `
+    JS
+        const notANmuber = 'hello world' / 2;
+        console.log(notANumber);
+        // NaN       
+    `
+            document.getElementById('not-a-number-ex').textContent = notANumnberEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Suprisingly, the type of <strong>NaN</strong> is also <strong>Number</strong>
+        </p>
+        <pre class="code-box">
+        <code id="number-not-number">
+        <script>
+            const numberNotNumber = `
+    JS
+        const notANumber = 'hello world' / 2;
+        console.log(typeof notANumber);
+        // number
+            `
+            document.getElementById('number-not-number').textContent = numberNotNumber;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Apart from the standard decimal system (base 10), JavaScript also supports numbers in different bases such as binary, octal, and hexidecimal. Binary is a base-2 system that uses only digits 1 and 0. Octal is a base-8 system that uses only digits 0 to 7. Hexadecimal is a base-16 system that uses digits 0 to 9 and letters a to f, like you see in CSS hex colors.
+        </p>
+        </section>
+        <section id="section2">
+        <h3>
+            What are the Different Arithmetic Operators in JavaScript?
+        </h3> 
+        <h4>
+            LESSON
+        </h4>       
+        <p>
+           JavaScript provides tools to perform basic arithmetic operations on numbers, such as addition, substraction, multiplication, and division. JavaScript also includes operators for more complex arithmetic operations, such as remainder and exponentiation. 
+        </p>
+        <p>
+            all these tools are called arithetic operators. Let's look at these operators in detail, how to use them and how to combine them.
+        </p>
+        <p>
+            The addition operator is a plus sign (<strong>+</strong>). The addition operator allows you to find the total of two or more numbers. In addition operations, the order of the numbers doesn't matter:
+        </p>
+        <pre class="code-box">
+        <code id="plus-operator-ex">
+        <script>
+            const plusOperatorEx = `
+    JS
+        const num1 = 10;
+        const num2 = 5;
+        const num3 = 15;
+
+        const result1 = num1 + num2;
+        const result2 = num2 + num1;
+        const result3 = num2 + num1 + num3;
+
+        console.log(result1); // 15
+        console.log(result2); // 15
+        console.log(result3); // 30
+            `
+            document.getElementById('plus-operator-ex').textContent = plusOperatorEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The substraction operator is minus sign (<strong>-</strong>). It allows you to find the difference between two numbers. Use the minus sign when you want to substracxt a number from another number, usually a smaller one from a bigger one:
+        </p>
+        <pre class="code-box">
+        <code id="minus-operator-ex">
+        <script>
+            const minusOperatorEx = `
+    JS
+        const difference = 10 - 5;
+        console.log(difference); // 5
+
+    // if smaller number comes first, you will get negative result:
+
+        const difference2 = 5 - 10;
+        console.log(difference2); // -5
+
+    // You can also assign the numbers to variables and do the substraction with the variable names:
+
+        const num1 = 10;
+        const num2 = 5;
+        const result = num1 - num2;
+
+        console.log(result); // 5
+            `
+            document.getElementById('minus-operator-ex').textContent = minusOperatorEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In JavaScript, the multiplication operator is represented by an asterisk (<strong>*</strong>) and is used to find the product of two or more numbers. The order of the numbers you're multiplying does not matter:
+        </p>
+        <pre class="code-box">
+        <code id="multiplication-matter-ex">
+        <script>
+            const mulitplicationMatterEx = `
+    JS
+        const num1 = 10;
+        const num2 = 5;
+        const num3 = 15;
+
+        const result1 = num1 * num2;
+        const result2 = num2 * num1;
+        const result3 = num2 * num3 * num1;
+
+        console.log(result1); // 50
+        console.log(result2); // 50
+        console.log(result3); // 750
+            `
+            document.getElementById('multiplication-matter-ex').textContent = mulitplicationMatterEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In JavaScript, the division operator is a slash (<strong>/</strong>), which differs from the division symbol used in traditional math (<strong>÷</strong>). You perform division operations with the division operator. The order of the numbers you're dividing matters in this case:
+        </p>
+        <pre class="code-box">
+        <code id="division-matter-ex">
+        <script>
+            const divisionMatterEx = `
+    JS
+        const num1 = 10;
+        const num2 = 5;
+        const num3 = 15;
+
+        const result1 = num1 / num2;
+        cosnt result2 = num2 / num1;
+        const result3 = num2 / num1 / num3;
+
+        console.log(result1); // 2
+        console.log(result2); // 0.5
+        console.log(result3); // 0.03333333333333
+            `
+            document.getElementById('division-matter-ex').textContent = divisionMatterEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            It's important to note that if you try to divide by zero, JavaScript will return <strong>Infinity</strong>:
+        </p>
+        <pre class="code-box">
+        <code id="infinity-zero-zero">
+        <script>
+            const subZero = `
+    JS
+        const result = 10 / 0;
+
+        console.log(result) // Infinity
+            `
+            document.getElementById('infinity-zero-zero').textContent = subZero;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Make sure to avoid those types of calculations so you don't end up with unexpected result in your code.
+        </p>
+        <p>
+            The remainder operator, represented by a percentage sign(<strong>%</strong>), returns the remainder of a division. The remainder in math is the leftover value after performing division:
+        </p>
+        <pre class="code-box">
+        <code id="remainder-operator-ex">
+        <script>
+        const remainderOperatorEx = `
+    JS
+        const num1 = 10;
+        const num2 = 3;
+        const remainder = num1 % num2;
+
+        console.log(remainder); // 1
+        `
+        document.getElementById('remainder-operator-ex').textContent = remainderOperatorEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            the exponentiaion operator, represented by a double asterisk (<strong>**</strong>), rasises one number to the power of another:
+        </p>
+        <pre class="code-box">
+        <code id="exponentation-power-another">
+        <script>
+            const exponentPowerAnother = `
+    JS
+        const num1 = 2;
+        const num2 = 3;
+        const exponent = num1 ** num2;
+        console.log(exponent); // 8            
+`
+            document.getElementById('exponentation-power-another').textContent = exponentPowerAnother;
+        </script>
+        </code>
+        </pre>
+        <p>
+            It's possible to mix operators in a single operation or expression:
+        </p>
+        <pre class="code-box">
+        <code id="mix-operators-example">
+        <script>
+            const mixOperatorExample = `
+    JS
+        const result = 10 + 5 * 2 - 8 / 4;
+        console.log(result);  // 18        
+    `
+            document.getElementById('mix-operators-example').textContent = mulitplicationMatterEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            When you mix different operators in a single expression, the JavaScript engine follow a system called operator precedense to detemrine the order of operations. Operator precedence determines the order in which operations are executed in expressions. 
+        </p>
+        </section>
+        <section id="section3">
+            <h3>What Happens when you try to do calculations with numbers and strings?</h3>
+            <h4>LESSON</h4>
+            <p>
+                JavaScript is a language where things sometimes work in surprising, or even weird, ways. One such surprise occurs when you mix numbers and strings in calculations. The first thing you'll probably try is to add a number and a string. In JavaScript, the + operator does double duty. It handles both addition and string concatenation, which is a way to join two strings together.
+            </p>
+            <p>
+                When you use <strong>+</strong> with a number and a string, JavaScript decides to treat them both as strings and joins them together. If you check the type of the result with the <strong>typeof</strong> operator, you'd see it's indeed a string:
+            </p>
+        </section>
+    </article>
+        <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
+
+    </body>
+    <script>
+        const topBtn = document.getElementById("scrollToTopBtn");
+
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+    </script>
+    </html>

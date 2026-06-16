@@ -6,15 +6,22 @@
         <link rel="stylesheet" href="styles.css">
         <title>JavaScript</title>
     </head>
-    <body>
+    <body id="home">
+        <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="js-notes.html">JS Notes</a></li>
+          <li><a href="about.html">About Me</a></li>
+        </ul>
+      </nav>
     <h1>JavaScript</h1>
-    <nav>
-        <h2>Variables and Strings</h2>
         <ol>
             <li>
+                <h4>
                 Introduction to JavaScript
+            </h4>
             </li>
-            <ul>
+            <ul class="custom-list">
                 <li >
                 <a href="#section1">
                     What is JavaScript, and how does it work with HTML and CSS?
@@ -35,9 +42,11 @@
                 </li> 
             </ul>
             <li>
+                <h4>
                 Introduction to Strings
+            </h4>
             </li>
-                <ul>
+                <ul class="custom-list">
                 <li>
                     <a href="#section5">
                     What is a String in JavaScript, and what is String Immutability?
@@ -55,9 +64,11 @@
                 </li>
                 </ul>
                 <li>
+                    <h4>
                     Understanding Code Clarity
+                </h4>
                 </li>
-                <ul>
+                <ul class="custom-list">
                     <li>
                         <a href="#section8">
                             What is Role of semicolons in javaScript, and programming in general.
@@ -70,9 +81,11 @@
                     </li>
                 </ul>
                 <li>
+                    <h4>
                     Working with Data Types.
+                    </h4>
                 </li>
-                <ul>
+                <ul class="custom-list">
                     <li>
                         <a href="#section10">
                             What is dynamic typing in javaScript, and how does it differ from statistically typed languages?
@@ -87,8 +100,12 @@
                 <li>
                     <a href="#section12">JavaScript Variables and Data Types Review</a>
                 </li>
-                <li>Working with Strings in JavaScript</li>
-                <ul>
+                <li>
+                    <h4>
+                    Working with Strings in JavaScript
+                </h4>
+                </li>
+                <ul class="custom-list">
                     <li>
                     <a href="#section1a">
                         What is Bracket Notation, and how do you access characters from a string?
@@ -116,9 +133,11 @@
                     </li>
                 </ul>
                 <li>
+                    <h4>
                     Working with String Character methods.
+                </h4>
                 </li>
-                <ul>
+                <ul class="custom-list">
                     <li>
                         <a href="#section5a">
                             What Is ASCii, and how does it work with charCodeAt() and fromCharCode()?
@@ -126,9 +145,11 @@
                     </li>
                 </ul>
                 <li>
+                    <h4>
                     Working with string search and slice methods.
+                </h4>
                 </li>
-                <ul>
+                <ul class="custom-list">
                     <li>
                         <a href="#section6a">
                             How can you test if a string contains a substring?
@@ -141,9 +162,11 @@
                     </li>
                 </ul>
                 <li>
+                    <h4>
                     Working with String Formating Methods.
+                </h4>
                 </li>
-                <ul>
+                <ul class="custom-list">
                     <li>
                         <a href="section7a">
                             How can you change the casing for a string?
@@ -156,22 +179,47 @@
                     </li>
                 </ul>
                 <li>
+                    <h4>
                     Working with string modification methods.                
+                </h4>
                 </li>
-                <ul>
+                <ul class="custom-list">
                     <li>
                         <a href="#section9a">
                             How can you replace parts of a string with another?
                         </a>
                     </li>
                     <li>
-                        <a href="section10a">
+                        <a href="#section10a">
                             How Can you repeat a string x number of times?
                         </a>
                     </li>
                 </ul>
+                <li>
+                    <h4>
+                    Boolean with Numbers and Arithmetic Operators
+                </h4>        
+                </li>
+                <ul class="custom-list">
+                        <li>
+                            <a href="index_2.html/#section1">
+                            What is the Number type in JavaScript, and what are the different types of numbers available?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index_2.html/#section2">
+                                What are the different arithmetic operators in JavaScript?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index_2.html/#section3">
+                                What happens when you try to do calculations with numbers and strings?
+                            </a>
+                        </li>
+                </ul>
         </ol>
-    </nav>
+        
+
 <main>
     <article id="#article1">
         <h2>Variables and Strings</h2>
@@ -2752,6 +2800,8 @@ document.getElementById('teacher-chatbot').textContent = chatBot;
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
 
     </main>
+    
+      
     </body>
     <script>
         const topBtn = document.getElementById("scrollToTopBtn");
