@@ -14,10 +14,96 @@
               <!--li><a href="about.html">About Me</a></li-->
             </ul>
           </nav>
-        <h1>Boolean with Numbers and Arithmetic Operators</h1>
+          <h1>Boolean with Numbers and Arithmetic Operators</h1>
         <p>
             In these lecturtes you will learn about the numnber type, arithmetic operators, and using them with numbers and string.
         </p>
+          <ol>
+            <li>
+                <h4>
+                Boolean with Numbers and Arithmetic Operators
+            </h4>        
+            </li>
+            <ul class="custom-list">
+                    <li>
+                        <a href="#section1">
+                        What is the Number type in JavaScript, and what are the different types of numbers available?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section2">
+                            What are the different arithmetic operators in JavaScript?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section3">
+                            What happens when you try to do calculations with numbers and strings?
+                        </a>
+                    </li>
+            </ul>
+            <li>
+                <h4>
+                    Working with Operators Behavior
+                </h4>
+            </li>
+            <ul class="custom-list">
+                <li>
+                    <a href="#section4">
+                        How does operator precedense work?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section5">
+                        How to the increment and decrement operators work?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section6">
+                        What are compound assignment operators in JavaScript, and how do they work?
+                    </a>
+                </li>
+            </ul>
+            <li>
+                <h4>
+                    Working with Comparison and boolean operators.
+                </h4>
+            </li>
+                <ul class="custom-list">
+                    <li>
+                        <a href="#section7">
+                            What are booleans, and how to they work with equality and inequality operators?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section8">
+                            What are comparison operators, and how do they work?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section9">
+                            What are comparison operators, and how do they work?
+                        </a>
+                    </li>
+                </ul>
+                <li>
+                    <h4>
+                        Working with Unary and Botwise operators
+                    </h4>
+                </li>
+                <ul class="custom-list">
+                    <li>
+                        <a href="#section10">
+                            What are Unary Operators, and how do they work?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section11">
+                            What are Bitwise Operators, and how to they work?
+                        </a>
+                    </li>
+                </ul>
+          </ol>
+        
         <article>
             <h2>
                 Working with Numbers and Arithmetic Operators
@@ -727,7 +813,7 @@
             So, if you need the update value right away, use prefix. If you want the current value first and you don't care about the increment until later, go with postfix.
         </p>
         </section>
-        <sectiom id="section6">
+        <section id="section6">
            <h3>
             What are compound assignment operators in JavaScript, and how do they work?
            </h3> 
@@ -862,7 +948,247 @@
             Bitwise OR assignment operator (<strong>|=</strong>), which performs a bitwise OR operation with the specified number and reasigns the result to the variable.
         </li>
     </ul>
-        </sectiom>
+        </section>        
+        </article>
+        <article>
+            <h2>
+                Working with Comparison and boolean operators.
+            </h2>
+            <p>
+                In these lectures you will learn about booleans, and equality operators, and other comparison operators.
+            </p>
+            <section id="section7">
+                <h3>
+                    What are booleans, and how do they work with equality and inequality operators?
+                </h3> 
+                <h4>
+                    LESSON
+                </h4>
+                <p>
+                    In an earlier lesson, you were first introduced to the concept of booleans, but in this lesson, we will dive deeper into how booleans work and how the equality and inequlaity operators work.
+                </p>
+                <p>
+                    Booleans are a data type with only <strong>true</strong> and <strong>false</strong> values. They're useful because they allow you to do something based on some conditions. Booleans are essential when you want to evaluate whether something should happen or not, like deciding if someone can access a certain feature in your app. Here is an example of setting the value <strong>true</strong> to a variable called <strong>isOldEnoughToDrive</strong>
+                </p>
+    <pre class="code-box">
+    <code id="variable-isOldEnoughToDrive">
+    <script>
+        const variableIsOldEnoughToDrive = `
+    JS
+        let isOldEnoughToDrive = true;
+
+        console.log(variable-isOldEnoughToDrive); // true
+        `
+        document.getElementById('variable-isOldEnoughToDrive').textContent = variableIsOldEnoughToDrive;
+    </script>
+    </code>
+    </pre>
+    <p>
+        You can use this variable inside a conditional like this:
+    </p>
+
+    <pre class="code-box">
+        <code id="variables-isOldEnoughToDrive">
+        <script>
+            const variablesIsOldEnoughToDrive = `
+        JS
+            let isOldEnoughToDrive = true;
+            
+            if (isOldEnoughToDrive) {
+                console.log("You're old enough to drive"); // You're old enough to drive
+                } else {
+                 console.log("Sorry, you are not old enough to drive");
+            }            
+            `
+            document.getElementById('variables-isOldEnoughToDrive').textContent = variablesIsOldEnoughToDrive;
+        </script>
+        </code>
+        </pre>
+        <p>
+            A conditional helps you make decision in your code based on a condition. This example uses what is called an <strong>if/else</strong> statement.
+        </p>
+        <p>
+            If <strong>isOldEnoughToDrive</strong> is <strong>true</strong>, then the sentence <strong>You're old enought to drive</strong> will be logged to the console. Otherwise, if the <strong>isOldEnoughToDrive</strong> is <strong>false</strong>, then the sentence <strong>Sorry, you are not old enough to drive</strong> will be logged to the console. Since the <strong>isOldEnoughToDrive</strong> variable is seto to <strong>true</strong>, the first sentence will be logged to the console. 
+        </p>
+        <p>
+            To compare two values, you can use either the equality or strick equality operator. The result of the comparison will be a boolean of either <strong>true</strong> or <strong>false</strong>. Here is an example of using the equality operator to compare a string and a number. The equality operator is represented by a double equals sign(<strong>==</strong>).
+        </p>
+        <pre class="code-box">
+        <code id="double-equals-sign">
+        <script>
+            const doubleEqualSign = `
+    JS 
+            console.log(5 == "5"); // true
+            `
+            document.getElementById('double-equals-sign').textContent = doubleEqualSign;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In this example, JavaScript converts the string <strong>"5"</strong> into the number <strong>5</strong> and then checks if they are equal. Since both values are now the same, the result is true. the equality operator uses type coercion before checking if each value is equal.
+        </p>
+        <p>
+            This differs from the strict equality operator, which does not perform type coercion. The strict equality operator will check if the types are the same and if the values are the same. Here's an example using the strict equality operator to compare a number and string. This operator is represented by a triple equals sign (<strong>===</strong>).
+        </p>
+    <pre class="code-box">
+    <code id="triple-equals-sign">
+    <script>
+        const tripleEqualsSign = `
+    JS
+        console.log(5 === '5'); // false
+        `
+        document.getElementById('triple-equals-sign').textContent = tripleEqualsSign;
+    </script>
+    </code>
+    </pre>
+    <p>
+        The following comparison will be <strong>false</strong>, because a string data type is not the same as a number data type. If you need to check if something is not equal to another value, then you can use the inequality or strick inequality operators. Here is an example of using the inequality operator (<strong>!=</strong>) to compare a number with a string.
+    </p>
+    <pre class="code-box">
+    <code id="inequality-comparison-example">
+    <script>
+        const inequalityComparisonEx = `
+    JS
+        console.log(5 != "5"); // false
+    `
+        document.getElementById('inequality-comparison-example').textContent = inequalityComparisonEx;
+    </script>
+    </code>
+    </pre>
+    <p>
+        In this example, the result would be <strong>false</strong> because the inequlity operator first converts the string value to a number and then compares the values. Since the values would be the same it will return <strong>false</strong>. If you tried to use the strict inequality operator, then you would get a different result. The strict inequality operator is represented by an exclamation mark followed by two equal signs(<strong>!==</strong>).
+    </p>
+    <pre class="code-box">
+    <code id="two-equals-sign-example">
+    <script>
+        const twoEqualSignComparisonEx = `
+    JS
+        console.log(5 !== "5"); // true
+        `
+        document.getElementById('two-equals-sign-example').textContent = twoEqualSignComparisonEx;
+    </script>
+    </code>
+    </pre>
+    <p>
+        The result would be <strong>true</strong> because the strict inequality operator does not perform any type coercion. SInce the number <strong>5</strong> is not equal to the string <strong>"5"</strong>, then the result is <strong>true</strong>.
+    </p>
+    <p>
+        It is considered best practice to use strict inequality and equality operators whenever possible, as they do not perform type coercion. Most of the time in professional projects, you will see codebases that usually prefer these two operators over the inequality and equality operators.
+    </p>
+        </section>
+        <section id="section9">
+            <h3>
+                What are comparison operators, and how do they work?
+            </h3>
+            <h4>
+                LESSON
+            </h4>
+            <p>
+                Comparison operators allow you to compare two values and return a <strong>true</strong> or <strong>false</strong> result. You can then use the result to make a decision or control the flow of your program. You use comparison in <strong>if</strong> statements, loops, and many other situations where you need to make decisions based on certain conditions. Let's dive into the most common comparison operators and see how they work.
+            </p>
+            <p>
+                The greater than operator, represented by a right-angle bracket (<strong>></strong>), checks if the value on the left is greater than the one on the right:
+            </p>
+        <pre class="code-box">
+        <code id="right-greater-operator">
+        <script>
+            const greaterOperatorRight =`
+    JS
+        let a = 6;
+        let b = 9;
+
+        console.log(a > b); // false
+        console.log(b > a); // true
+            `
+            document.getElementById('right-greater-operator').textContent = greaterOperatorRight;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The greater operator than or equal operator, represented by a right- angle bracket and the equals sign (<strong>>=</strong>), checks if the value on the left is either greater than or equal to the one on the right:
+        </p>
+        <pre class="code-box">
+        <code id="greater-or-equal-now">
+        <script>
+            const greaterOrEqualNow = `
+    JS
+        let a = 6;
+        let b = 9;
+        let c = 6;
+
+        console.log(a >= b) // false
+        console.log(b >= a) // true
+        console.log(a >= c) // true
+            `
+            document.getElementById('greater-or-equal-now').textContent = greaterOrEqualNow;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The lesser than operator, represented by a left-angle bracket (<strong>&lt;</strong>) works similiarly to <strong>></strong>, but in reverse. It checks if the value on the left is smaller than the one on the right:
+        </p>
+        <pre class="code-box">
+        <code id="lesser-by-left-angle">
+        <script>
+            const lesserByLeftAngle = `
+    JS
+        let a = 6;
+        let b = 9;
+
+        console.log(a < b);  // true
+        console.log(b < a);  // false
+        `
+            document.getElementById('lesser-by-left-angle').textContent = lesserByLeftAngle;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The less than or equal operator, represented by a left-angle bracket and the equals sign (<strong>&lt;=</strong>)checks if the value on the left is smaller than or equal to the one on the right:
+        </p>
+        <pre class="code-box">
+        <code id="less-than-or-equall-ex">
+        <script>
+            const lessThanOrEqualEx = `
+    JS
+        let a = 6;
+        let b = 9;
+        let c = 6;
+
+        console.log(a <= b);  // true
+        console.log(b <= a);  // false
+        console.log(a <= c);  // true
+            `
+            document.getElementById('less-than-or-equall-ex').textContent = lessThanOrEqualEx;
+        </script>
+        </code>
+        </pre>
+        </section>
+    </article>
+    <article>
+        <h2>
+            Working with unary and bitwise operators.
+        </h2>
+        <p>
+            In these lectures, you will learn about unary and bitwise operators.
+        </p>
+        <section id="section10">
+            <h3>
+                What are unary operators, and how do they work?
+            </h3>
+            <h4>LESSON</h4>
+        <p>
+            Unary operators act on a single operand to perform operations like type conversion, value manipulation, or checking certain conditions. Let's look at some common unary operators and how they work.
+        </p>  
+        <p>
+            The unary plus operator converts its operand into number. If the operand is already a number, it remains unchanged.
+        </p>
+        
+        </section>
+        <section id="section11">
+            <h3>
+                What are Bitwise Operators, and how do they work?
+            </h3>
+        </section>
     </article>
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
 
