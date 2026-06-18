@@ -102,6 +102,28 @@
                         </a>
                     </li>
                 </ul>
+                <li>
+                    <h4>
+                        Working with Conditional Logic and Math Methods.
+                    </h4>
+                </li>
+                <ul class="custom-list">
+                    <li>
+                    <a href="#section12">
+                        What are conditional statements, and how do if/Else if/Else Statement Work?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section13">
+                        What are binary logical operators, and how do they work?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section14">
+                        What is the math object in JavaScript, and what are some common methods?
+                    </a>
+                </li>
+                </ul>
           </ol>
         
         <article>
@@ -1182,12 +1204,642 @@
         <p>
             The unary plus operator converts its operand into number. If the operand is already a number, it remains unchanged.
         </p>
-        
+        <pre class="code-box">
+        <code id="plus-operator-operand-ex">
+        <script>
+            const plusOperatorOperandEx = `
+    JS
+        const str = '42';
+        const strToNum = +str;
+
+        console.log(strToNum); / 42
+        console.log(typeof str); // string
+        console.log(typeof strToNum); // number
+        `
+            document.getElementById('plus-operator-operand-ex').textContent = plusOperatorOperandEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Unary plus is handy when you want to make sure you're working with a numeric value. As you might guess, there's a unary negation operator. It negates the value of the operand. It works similarly to the unary plus, except it flips the sign.
+        </p>
+        <pre class="code-box">
+        <code id="unary-minus-opera-ex">
+        <script>
+            const unaryMinusOperaEx = `
+    JS
+        const str = '42';
+        const strToNegativeNum = -str;
+
+        console.log(strToNegativeNum); // -42
+        console.log(typeof str); // string
+        console.log(typeof strToNegativeNum); // number
+            `
+            document.getElementById('unary-minus-opera-ex').textContent = unaryMinusOperaEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The logical NOT operator, represented by an exclamation mark (<strong>!</strong>), is another unary operator. It flips the boolean value of its operand. So, if the operand is <strong>true</strong>, it becomes <strong>false</strong>, and if it's <strong>false</strong>, it becomes <strong>true</strong>.
+        </p>
+        <pre class="code-box">
+        <code id="not-operator-example">
+        <script>
+            const notOperatorExample = `
+    JS
+        let isOnline = true;
+        console.log(!isOnline); // false
+
+        let isOffline = false;
+        console.log(!isOffline); // true
+        `
+            document.getElementById('not-operator-example').textContent = notOperatorExample;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The bitwise NOT operator is a less commonly used unary operator. Represented by a tilde,<strong>~</strong>, it inverts the binary representation of a number. Computers store numbers in binary format (1s and 0s). The <strong>~</strong> operator flips every bit, meaning it changes all 1s to 0s and all 0s to 1s.
+        </p>
+        <pre class="code-box">
+        <code id="binary-not-operator-tilde">
+        <script>
+            const binOpeTilde = `
+    JS
+        const num = 5; // The binary for 5 is 00000101
+
+        console.log(~num); // -6
+            `
+            document.getElementById('binary-not-operator-tilde').textContent = binOpeTilde;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>5</strong> became <strong>-6</strong> because by applying the <strong>~</strong> operator to <strong>5</strong>, you ger <strong>- (5 + 1)</strong>, which equals <strong>-6</strong> due to two's complement representation. Two's complement is a way computers represent negative numbers in binary. You probably won't use the bitwise NOAT often unless you're working with low level programming tasks like manipulating bits directly.
+        </p>
+        <p>
+            The <strong>void</strong> keywords is a unary operator that evaluates an expression and returns <strong>undefined</strong>.
+        </p>
+        <pre class="code-box">
+        <code id="void-keywords-example">
+        <script>
+            const voidKeywordExample = `
+    JS
+        const result = void (2 + 2);
+
+        console.log(result); // undefined
+    `
+            document.getElementById('void-keywords-example').textContent = voidKeywordExample;
+        </script>
+        </code>
+        </pre>
+        <p>
+            <strong>void</strong> is also commonly used in hyperlinks to prevent navigation:
+        </p>
+        <p>
+            <b>
+                &lt;a href="javascript: void(0);" &gt;Click Me&lt;/a&gt;
+            </b>
+        </p>
+        <p>
+            Finally, there is the <strong>typeof</strong> operator which you learned about in previous lessons. This return type of its operand as a string.
+        </p>
         </section>
         <section id="section11">
             <h3>
                 What are Bitwise Operators, and how do they work?
             </h3>
+            <h4>LESSON</h4>
+            <p>
+                Bitwise operators in JavaScript are special operators that work on the binary representations of numbers. To understand bitwise operator, we first need ot grasp the concept of bits and binary numbers. In computing, a bit is the most basic unit of information. It can have only two values: <strong>0</strong> or <strong>1</strong>. Binary is a number system that uses only these two digits to represent all numbers.
+            </p>
+            <p>
+                For example, the binary representation of the decimal number <strong>10</strong> is <strong>1010</strong>. In this system, each digit represents a power of <strong>2</strong>, starting from the rightmost digit and increasing as we move left.
+            </p>
+            <table>
+                <tr>
+                   <th>
+                    1
+                </th> 
+                <th>                
+                    0
+                </th>
+                <th> 
+                    1                   
+                </th>
+                <th>
+                    0
+                </th>
+                <tr>                
+                    <td>
+                    
+                        1 * 2
+                    </td>
+                    <td>
+                        0 * 2
+                    </td>
+                    <td>
+                        1 * 2
+                    </td>
+                    <td>
+                        0 * 2
+                    </td>
+                    <tr>
+                        <th>
+                        8
+                    </th>
+                    <th>
+                        0
+                    </th>
+                    <th>
+                        2
+                    </th>
+                    <th>
+                        0
+                    </th>                
+            </table>
+            <p>
+                In the table above, the first row show the binary number <strong>1010</strong>. the second row shows the power of <strong>2</strong> represented by each binary position, and the third row shows the result of each multiplication, If you add all the values in the third row, they total <strong>10</strong>.
+            </p>
+            <p>
+                Now, let's dive into bitwise operators. These operators perform operations on the binary representations of numbers. JavaScript provides several bitwise operators, including AND (<strong>&</strong>), OR (<strong>|</strong>). XOR (<strong>^</strong>), NOT (<strong>~</strong>), left shift (<strong>&lt;&lt;</strong>), and right shift (<strong>>></strong>).
+            </p>
+            <P>
+                The bitwise OR (<strong>|</strong>) operator returns a <strong>1</strong> in each bit position for which the correspondending bits of either or both operands are <strong>1</strong>. For example:
+            </P>
+        <pre class="code-box">
+        <code id="bitwise-or-operator">
+        <script>
+            const bitwiseOROperator = `
+    JS
+        let a = 5; // Binary: 101
+        let b = 3; // Binary: 011
+        console.log( a | b); // 7 (Binary: 111)
+            `
+            document.getElementById('bitwise-or-operator').textContent = bitwiseOROperator;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Here, the result is <strong>7</strong> (<strong>111</strong> in binary) because at least one of the bits is <strong>1</strong> in each position.
+        </p>
+        <p>
+            The bitwise XOR (<strong>^</strong>) operator returns a <strong>1</strong> in each bit position for which the corresponding bits of either, but not both, operands are <strong>1</strong>. For instance:
+        </p>
+        <pre class="code-box">
+        <code id="xor-operator-ex">
+        <script>
+            const xorOperatorEx = `
+    JS
+        let a = 5; // Binary: 101
+        let b = 3; // Binary: 011
+        console.log(a ^ b); // 6 (Binary: 110)
+            `
+            document.getElementById('xor-operator-ex').textContent = xorOperatorEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            The result is <strong>6</strong>(<strong>110</strong> in binary) because the first and second bits from the right are different in the two numbers.
+        </p>
+        <p>
+            The bitwise NOT (<strong>~</strong>) operator inverts all the bits of its operand. For example:
+        </p>
+        <pre class="code-box">
+        <code id="bitwise-NOT-operator-example">
+        <script>
+            const bitwiseNOToperatorEx = `
+    JS
+        let a = 5; // Binary: 101
+        console.log(~a); // -6
+            `
+            document.getElementById('bitwise-NOT-operator-example').textContent = bitwiseNOToperatorEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            This might seem surprising, but it's because of how negative numbers are represented in binary using two's complement.
+        </p>
+        <p>
+            The left shift (<strong>&lt;&lt;</strong>) operator shifts all bits to the left by a specified number of positions. For example:
+        </p>
+        <pre class="code-box">
+        <code id="shift-to-left-ex">
+        <script>
+            const shiftToLeftEx = `
+    JS
+        let a = 5; // Binary: 101
+        console.log(a << 1); // 10 (Binary: 1010)
+            `
+            document.getElementById('shift-to-left-ex').textContent = shiftToLeftEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Here, all bits are shifted one position to the left, effectively multiplying the number by 2.
+        </p>
+        <p>
+            The right shift(<strong>>></strong>) operator shifts all bits to the right. For example:
+        </p>
+        <pre class="code-box">
+        <code id="bits-operator-shift-right">
+        <script>
+            const bitsOperatorToRight = `
+    JS
+        let a = 5;  // Binary: 101
+        console.log( a >> 1); // 2 (Binary: 10)
+            `
+            document.getElementById('bits-operator-shift-right').textContent = bitsOperatorToRight;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Here, all bits are shifted one position to the right, effectively dividing the number bby <strong>2</strong> and rounding down.
+        </p>
+        <p>
+            Bitwise operators are often used in low-level programming and cryptography. While they may not be as commonly used in everyday JavaScript programming, understanding them can be beneficial for certain specialized tasks and can depen your understanding of how computers work at a fundamental level.
+        </p>
+        </section>
+    </article>
+    <article>
+        <h2>
+            Working with Conditional Logic and Math Methods.
+        </h2>
+        <p>
+            In thesee lectures, you will learn about conditional statements, binary logical operators, and the <strong>Math</strong> object.
+        </p>
+        <section id="section12">
+            <h3>
+                What are Conditional Statements, and how do if/Else if/Else Statements Work? 
+            </h3>
+            <h4>LESSON</h4>
+        <p>
+            Conditional statements let you make decision in your JavaScript code. They allow your program to flow in a particular way based on certain conditions. Let's take a look at how <strong>if</strong>, <strong>else if</strong>, <strong>else</strong>, and the ternary operator work to let you control the flow of your code.
+        </p>
+        <p>
+            An <strong>if</strong> statement takes a condition and runs a block of code if that condition is truthy. Truthy values are any values that result in <strong>true</strong> when evaluated in a Boolean context like an <strong>if</strong> statement. Here are examples of truthy values:
+        </p>
+        <ul class="custom-list">
+            <li>
+                non-empty strings, for example, <strong>hello</strong>
+            </li>
+            <li>
+                any number other than <strong>0</strong> and <strong>-0</strong>, for example, <strong>4</strong>, <strong>-5</strong>, and others
+            </li>
+            <li>
+                arrays
+            </li>
+            <li>
+                objects
+            </li>
+            <li>
+                the boolean <strong>true</strong>
+            </li>
+        </ul>
+        <p>
+            On the other hand, falsy values are values that evaluate to <strong>false</strong> in boolean context. JavaScript has few falsy values, which makes them easy to remember. Here are a feeew falsy values:
+        </p>
+        <ul class="custom-list">
+            <li>
+                boolean <strong>false</strong>
+            </li>
+            <li>
+                <strong>0</strong> (zero)
+            </li>    
+            <li>
+                <strong>""</strong> (empty string)
+            </li>
+            <li>
+                <strong>null</strong>
+            </li>
+            <li>
+                <strong>undefined</strong>
+            </li>
+            <li>
+                <strong>NaN</strong> (Not a Number)
+            </li>
+        </ul>
+        <p>
+            Now, that we have a basic understanding of truthy and falsy values, let's see how it works with <strong>if</strong> statements. In this first example, we are using a couple of <strong>if</strong> statements to check against truthy and falsy values:
+        </p>
+        <pre class="code-box">
+        <code id="null-values-as-falsy">
+        <script>
+            const nullValuesAsFalsy = `
+    JS
+        if (null) {
+            console.log("this will not run.");
+        }
+
+        if ("freeCodeCamp") {
+            console.log("This will run.");
+        }
+            `
+            document.getElementById('null-values-as-falsy').textContent = nullValuesAsFalsy;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Since <strong>null</strong> is a falsy value, the message inside the block will never be logged to the console. But for the second <strong>if</strong> statement, the string <strong>freeCodeCamp</strong> is a truthy value, and will be considered <strong>true</strong> in this boolean context of the <strong>if</strong> statement. As a result, the message <strong>This will be run.</strong> will be logged to the console.
+        </p>
+        <p>
+            Let's take a look at a few more examples on how <strong>if</strong> statement work with different comparison operators. Here is an example of using an <strong>if</strong> statement to check if the user is eligible to vote:
+        </p>
+        <pre class="code-box">
+        <code id="if-eligible-to-vote-ex">
+        <script>
+            const ifEligibleToVote =`
+    JS
+        const age = 22;
+
+        if (age >= 18) {
+            console.log("You're eligible to vote"); // You're eligible to vote
+        }
+            `
+            document.getElementById('if-eligible-to-vote-ex').textContent = ifEligibleToVote;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In this example, since <strong>age</strong> is currently <strong>22</strong>. this mean the condition will evaluate to <strong>true</strong> because <strong>22</strong> is greater than or equal to <strong>18</strong>. So the message <strong>You're eligible to vote</strong> will be logged to the console. If we change the example so <strong>age</strong> is now <strong>15</strong>, then the condition will evaluate to <strong>false</strong> and the message will not be logged to the console:
+        </p>
+        <pre class="code-box">
+        <code id="not-evaluate-false-stat">
+        <script>
+            const notEvaluateFalseStat = `
+    JS
+        const age = 15;
+
+        if (age >= 18) {
+            console.log("You're eligible to vote"); // Code not running beccause age is less than 18
+        }
+    `
+            document.getElementById('not-evaluate-false-stat').textContent = notEvaluateFalseStat;
+        </script>
+        </code>
+        </pre>
+        <p>
+            When a condition is <strong>false</strong>, then you can use an <strong>else</strong> clause:
+        </p>
+        <pre class="code-box">
+        <code id="else-clause-if-ex">
+        <script>
+            const elseIfClauseIfEx = `
+    JS
+        const age = 15;
+
+        if (age >= 18) {
+            console.log("You're eligible to vote");
+        } else {
+            console.log("You're not eligible to vote"); // You're not eligible to vote
+        }
+            `
+            document.getElementById('else-clause-if-ex').textContent = elseIfClauseIfEx;
+        </script>
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>15</strong> is not greater than or equal to <strong>18</strong>, so the condition would be <strong>false</strong>. The code inside the <strong>else</strong> block will run in this case.
+        </p>
+        <p>
+            If you want to check multiple conditions, you can use an <strong>else if</strong> block. this allows your program to choose between more than two paths.
+        </p>
+        <pre class="code-box">
+        <code id="more-than-one-path">
+        <script>
+            const moreThanOnePath = `
+    JS
+        const score = 87;
+
+        if (score >= 90) {
+            console.log('You got an A');
+        } else if (score >= 80) {
+            console.log('You got a B'); // You got a B
+        } else if (score >= 70) {
+            console.log('You got a C');
+        } else {
+            console.log('You failed! You need to study more!');
+        }
+            `
+            document.getElementById('more-than-one-path').textContent = moreThanOnePath;
+        </script>
+        </code>
+        </pre>
+        <p>
+            Since the <strong>score</strong> is currently <strong>87</strong>, then the message of <strong>You got a B</strong> would be logged to the console.
+        </p>
+        <p>
+            The ternary operator is a compact way to write simple <strong>if/else</strong> statements. It has three parts: a condition, a result if the condition is true, and result if it is false. Here's the basic syntax:
+        </p>
+        <p>
+            <b>condition ? expressionIfTrue : expressionIfFalse;</b>
+        </p>
+        <p>
+            Here's an example dealing with weather temperature in Celsius:
+        </p>
+        <pre class="code-box">
+        <code id="ternary-operator-short-mode">    
+    JS
+        const temperature = 30;
+        const weather = temperature > 25 ? 'sunny'. : 'cool';
+
+        console.log(`It's a ${weater} day!`);
+        </code>
+        </pre>
+        <p>
+            If <strong>temperature</strong> is greater than <strong>25</strong>, the code above logs <strong>It's a sunny day!</strong>. If <strong>temperature</strong> is ever less than or equal to <strong>25</strong>, it logs <strong>It's a cool day!</strong>.
+        </p>
+        <p>
+            So, wich should you use between an if statement and a ternary? Use a ternary while dealing with a single condition or single expressions, or when you wnat a compact syntax for simple logic. Use <strong>if/else</strong> statements when you're dealing with complex conditions and multiple statements, as things become unreadable if you nest ternaries.
+        </p>
+        </section>
+        <section id="section13">
+            <h3>
+                What are bu=inary logical operators, and how do they work?
+            </h3>
+            <h4>LESSON</h4>
+            <p>
+                Binary logical operators help you evaluate two expressions and return a result based on their truthiness. Let's look at the. three most common binary logical operators: logical AND, logical OR, and the nullish coalescing operator.
+            </p>
+            <p>
+                The logical AND operator is represented by a double ampersand (<strong>&&</strong>). It checks if both operands are true and returns a result. If both operands are truthy, it returns the second value, that is, the one on the right:
+            </p>
+            <pre class="code-box">
+                <code>
+    JS
+        const result = true && 'hello';
+
+        console.log(result);  //hello
+                </code>
+            </pre>
+            <p>
+                In the example above, the text <strong>hello</strong> is logged to the console because both operands are <strong>true</strong>. If either operand is falsy it returns the falsy value:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const result = 0 && 3;
+
+        console.log(result); // 0
+            </code>
+            </pre>
+            <p>
+                Since <strong>0</strong> is falsy value, the number <strong>0</strong> is logged to the console. And if both operands are falsy, it returns the first falsy value:
+            </p>
+            <pre class="code-box">
+                <code>
+    JS
+        const result = false && 0;
+
+        console.log(result); // false
+                </code>
+            </pre>
+            <p>
+                Since <strong>false</strong> is a falsy value, then <strong>false</strong> is logged to the console. The logical AND operator is useful when you want to check multiple conditions and ensure that all are true before proceding. Herre is an example:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        if (2 < 3 && 3 < 4) {
+            console.log('The if block runs');
+        } else {
+            console.log('The else block runs');
+        }
+            </code>
+            </pre>
+            <p>
+                In the condition, since <strong>2</strong> is less than <strong>3</strong> AND <strong>3</strong> is less than <strong>4</strong>, then the sentence <strong>The if block runs</strong> will be logged to the console.
+            </p>
+            <p>
+                The logical OR operator checks if at least one of the operands is truthy. If the first operand is truthy, it returns that value:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS 
+        const result = 'This is truthy' || false;
+
+        console.log(result); // this is truthy
+            </code>
+            </pre>
+            <p>
+                If the first operand is falsy but the second is truthy, the second value will be logged to the console:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const result = 0 || 'This is truthy';
+
+        console.log(result); // this is truthy
+        </code>
+            </pre>
+            <p>
+                It is common to use the logical OR operator in <strong>if/else</strong> statements like this:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let userInput;
+
+        if (userInput || 'Guest') {
+            console.log('A user is present');
+        } else {
+            console.log('No user detected');
+        }
+            </code>
+            </pre>
+            <p>
+                Since we didn't assign a value to the <strong>userInput</strong> variable, it is currently <strong>undefined</strong>. The condition in the <strong>if</strong> statement checks if either the <strong>userInput</strong> variable or the string <strong>Guest</strong> are truthy. Since the string <strong>Guest</strong> is true in a boolean context like this, the string <strong>A user is present</strong> will be logged to the console.
+            </p>
+            <p>
+                The nullish coalescing operator is more sophisticated than logical OR and logical AND. Represented by a double question mark(<strong>??</strong>), it helps in scenarios where you want to return a value only if the first one is <strong>null</strong> or <strong>undefined</strong>. Here is an example of working with the nullish coalescing operator:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS 
+        const result = null ?? 'default';
+
+        console.log(result); // default
+            </code>
+            </pre>
+            <p>
+                since <strong>null</strong> is a nullish value, the string <strong>default</strong> would be logged to the console. The nullish coalescing operator is incredibly useful in situations where <strong>null</strong> or <strong>undefined</strong> are the only values that should trigger a fallback or default value. Here is an example of dealilng with a user's preference settings:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const userSetting = {
+            theme: null,
+            volume: 0,
+            notifications: false,
+        };
+
+        let theme = userSettings.them ?? 'light';
+        console.log(theme); // light
+            </code>
+            </pre>
+            <p>
+                In the example above, we havve an object called <strong>userSettings</strong> that contains <strong>theme</strong>, <strong>volume</strong>, and<strong>notifications</strong> properties. We are accessing the <strong>theme</strong> using dot notation like <strong>userSettings.theme</strong>. You will learn more about how to work with objects in a future lesson. Since the user's <strong>theme</strong> is currently set to <strong>null</strong>, then the string <strong>light</strong> will be logged to the console.
+            </p>
+        </section>
+        <section id="section14">
+            <h3>
+                What is the math object in JavaScript,a nd what are some common methods?
+            </h3>
+            <h4>LESSON</h4>
+            <p>
+                When diving into JavaScript, you'll quickly discover that performing mathematical operations is a common task. While basic arithmetic operators can handle simple calculations, JavaScript offers a built-in <strong>Math</strong> object to tackle more complex math challenges.
+            </p>
+            <p>
+                This handy tool provides a variety of methods that make it easier to perform advanced calculations and manipulate numbers. Let's explore these methods and see how they can simplify your coding experience. 
+            </p>
+            <p>
+                The <strong>Math.random()</strong> method generates a random floating-point number between <strong>0</strong> (inclusive) and <strong>1</strong> (exclusive). This means the possible output can be <strong>0</strong>, but it will never actually reach <strong>1</strong>. Here is an example working with the <strong>Math.random()</strong> method:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const randomNum = Math.random();
+
+        console.log(randomNum);
+        // any number between 0 and 1 - 0 inclusive and 1 exclusive
+            </code>
+            </pre>
+            <p>
+                <strong>Math,min()</strong> and <strong>Math.max()</strong> both take a set of numbers and return the minimum and maximum value, respectively. Here is an example of working both of those methods:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const smallest = Math.min(1, 5, 3, 9);
+        console.log(smallest); // 1
+
+        const largest = Math.max(1, 5, 3, 9);
+        console.log(largest); // 9
+            </code>
+            </pre>
+            <p>
+                The first <strong>console.log()</strong> will log the number <strong>1</strong>, since <strong>1</strong> is the smallest in that list of numbers. And the second <strong>console.log()</strong> will log the number <strong>9</strong>, since <strong>9</strong> is the largest numbers in that list.
+            </p>
+            <p>
+                If you wanted to round numbers up or down to the neareest whole integer, you could use the <strong>Math.cell()</strong> and <strong>Math.floor()</strong> methids. Here is an example of working wiht <strong>Math.cell()</strong>:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Math.cell(4.3)); // 5
+            </code>
+            </pre>
+            <p>
+                <strong>Math.cell()</strong> will round <strong>4.3</strong> up to the nearest whole integer, which is <strong>5</strong> in this case. Now, let's take a look at rounding a number down:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Math.floor(4.7)) // 4
+            </code>
+            </pre>
+            <p>
+                <strong>Math.floor()</strong> will round <strong>4.7</strong> down to the nearest whole integer, which is <strong>4</strong> in this case. <strong>Math.round()</strong> is the hybrid of <strong>Math.cell()</strong> and <strong>Math.floor()</strong>. It rounds a number to its nearest integer, taking the decimal point into account:
+            </p>
         </section>
     </article>
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
