@@ -124,6 +124,28 @@
                     </a>
                 </li>
                 </ul>
+                <li>
+                    <h4>
+                        Working with Numbers and Common Number Methods.
+                    </h4>
+                </li>
+                <ul class="custom-list">
+                    <li>
+                        <a href="#section15">
+                            How does isNaN Work?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section16">
+                            How do the parseFloat() and parseInt() Methods work?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section17">
+                            What is the toFixed() Method, and How does it work?
+                        </a>
+                    </li>
+                </ul>
           </ol>
         
         <article>
@@ -1840,6 +1862,248 @@
             <p>
                 <strong>Math.floor()</strong> will round <strong>4.7</strong> down to the nearest whole integer, which is <strong>4</strong> in this case. <strong>Math.round()</strong> is the hybrid of <strong>Math.cell()</strong> and <strong>Math.floor()</strong>. It rounds a number to its nearest integer, taking the decimal point into account:
             </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Math.round(2.3)); // 2
+        console.log(Math.round(4.5)); // 5
+        console.log(Math.round(4.8)); // 5
+            </code>
+            </pre>
+            <p>
+                So, if the decimal points is less than <strong>5</strong>, the number is rounded down. And if the decimal point is <strong>5</strong> or greater, the number is rounded up. A practical application of <strong>Math.floor()</strong> and <strong>Math.random()</strong> is to generate a random numnber between two whole numbers. Here's the syntax for that:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const max = 10;
+        const min = 5;
+        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(randomNum);
+            </code>
+            </pre>
+            <p>
+                Generating a random number between <strong>20</strong> and <strong>1</strong> would look like this:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const randomNumBtw1And20 = Math.floor(Math.random() * 20) + 1;
+        console.log(randomNumBtw1And20);
+            </code>
+            </pre>
+            <p>
+                Another helpul <strong>Math</strong> method would be the <strong>Math.trunc()</strong> method. <strong>Math.trunc()</strong> removes the decimal part of a number, returning only the integer portion, without rounding:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Math.trunc(2.9)); // 2
+        console.log(Math.trunc(9.1)); // 9
+            </code>
+            </pre>
+            <p>
+                If you need to get the square root or cube root of a number, you can use the <strong>Math.sqrt()</strong> and <strong>Math.cbrt()</strong> methods, respectively:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Math.sqrt(81)); // 9
+        console.log(Math.cbrt(27)); // 3
+            </code>
+            </pre>
+            <p>
+                The first log statement, will log<strong>9</strong> because the square root of <strong>81</strong> is <strong>9</strong>, while the second log statement will log <strong>3</strong> because the cube root of <strong>27</strong> is <strong>3</strong>. If you need to get the absolute value of a number you can use the <strong>Math.abs()</strong> method:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Math.abs(-5)); // 5
+        console.log(Math.abs(5)); // 5
+            </code>
+            </pre>
+            <p>
+                <strong>Math.abs()</strong> returns the absolute value of a number. turning negatives into positives. The last method we will look at will be the <strong>Math.pow()</strong> method:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Math.pow(2, 3)); // 8
+        console.log(Math.pow(8, 2)); // 64
+            </code>
+            </pre>
+            <p>
+                <strong>Math.pow()</strong> takes two numbers and raise the first to the power of the second. There are many more methods that belong to the <strong>Math</strong> object, that you can explore on your own. However, these are just a few of the more commonly used ones found in JavaScript codebases.
+            </p>
+        </section>
+    </article>
+    <article>
+        <h2>
+            Working with Numbers and Common Number Methods.
+        </h2>
+        <p>
+            In these lectures, you will learn about numbers and common numbers methods. These include <strong>isNaN</strong>, <strong>parseInt()</strong>, <strong>parseFloat()</strong>, and <strong>toFixed()</strong>.
+        </p>
+        <section id="section15">
+            <h3>
+                How does isNaN work?
+            </h3>
+            <h4>LESSON</h4>
+            <p>
+                In JavaSccript, <strong>NaN</strong> stand for "Not a Number". It's special value that represents an unrepresentable or undefined numerical result. <strong>NaN</strong> is a property of the global object, and it's also considered a type of number in JavaScript, which might seem counterintuitive at first.
+            </p>
+            <p>
+                <strong>NaN</strong> is typically the result of operations that should return a number but can't produce a meaningful numerical value. For example:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let result = 0 / 0;
+        console.log(result); // NaN
+            </code>
+            </pre>
+            <p>
+                In this case, dividing zero by zero is mathematically undefined, so JavaScript returns <strong>NaN</strong>. One perculiar property of <strong>NaN</strong> is that it's not equal to anything, including itself:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(NaN === NaN); // false
+            </code>
+            </pre>
+            <p>
+                this unique behavior it challenging to check if a value is <strong>NaN</strong> using standard comparison operators. to address this, JavaScript provides the <strong>isNaN()</strong> function. The <strong>isNaN</strong> function property is used to determine whether a value is <strong>NaN</strong> or not. However, it's important to understand how <strong>isNaN()</strong> works, as it can sometimes produce unexpected results. Here's how <strong>isNaN()</strong> behaves:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(isNaN(NaN));         // true
+        console.log(isNaN(undeffined));  // true
+        console.log(isNaN({}))           // true
+
+        console.log(isNaN(true));        // false
+        console.log(isNaN(null));        // false
+        console.log(isNaN(37));          // false
+
+        console.log(isNaN("37"));        // false: "37" is converted to 37
+        console.log(isNaN("37.37"));     // false: "37.37" is converted to 37.37
+        console.log(isNaN(""));          // false: empty string is converted to 0
+        console.log(isNaN(' '));         // false: string with space is converted to 0
+
+        console.log(isNaN("blabla"));    // true: "blabla" is not a number
+            </code>
+            </pre>
+            <p>
+                As you can see, <strong>isNaN()</strong> first attempts to convert the parameter to a number. If it can't converted, it returns <strong>true</strong>. This behavior can leas to some surprising results, especially when dealing with strings that can be coerced into numbers.
+            </p>
+            <p>
+                Due to these potential inconsistencies, ES6 (the sixt edition of javaScript, released in 2015) introduced <strong>Number.isNaN()</strong>. This method does not attempt to convert the parameter to a number before testing. It only returns <strong>true</strong> if the value is exactly <strong>NaN</strong>:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(Number.isNaN(NaN));         // true
+        console.log(Number.isNaN(Number.NaN));  // true
+        console.log(Number.isNaN(0 / 0));       // true
+
+        console.log(Number.isNaN("NaN"));       // false
+        console.log(Number.isNaN(undefined));   // false
+        console.log(Number.isNaN({}));          // false
+        console.log(Number.isNaN("blabla"));    // false
+            </code>
+            </pre>
+            <p>
+                <strong>Number.isNaN()</strong> provides a more reliable way to check for <strong>NaN</strong> values, especially in cases where type coercion might lead to unexpected results with the global <strong>isNaN()</strong> function. In practice, when dealing with numerical operations or user inputs that should be nummbers, it's often necessary to check for <strong>NaN</strong> to handle errors or unexpected inputs gracefully. For example:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let a = 0;
+        let b = 0;
+        let result = a / B
+
+        if (Number.isNaN(result)) {
+            result = "Error: Division resulted in NaN";
+        }
+
+        console.log(result); // "Error: Division resulted in NaN"
+            </code>
+            </pre>
+            <p>
+                In this example, we're using <strong>Number.isNaN()</strong> to catch cases where the division operation result in <strong>NaN</strong>, allowing us to handle this scenario appropriately. Understanding <strong>NaN</strong> and how to properly check for it is crucial for writing robust JavaScript code, especially when dealing with mathematical operations or parsing user inputs.
+            </p>
+        </section>
+        <section id="section16">
+            <h3>
+                How do the parseFloat() and parseInt() Methods work?
+            </h3>
+            <h4>LESSON</h4>
+            <p>
+                <strong>parseFloat()</strong> and <strong>parseInt()</strong> are two essential methods in JavaScript for converting strings to numbers. These methods are particularly useful when dealing with user input or processing data that comes in string format but needs to be treated as numerical values.
+            </p>
+            <p>
+                Let's start with <strong>parseFLoat()</strong>.This method parses a string argument and returns a floating-point number. It's designed to extract a number from the beginning of a string, even if the string contains non-numeric characters later on. Remember that floats are numbers with decimal points. Here's how <strong>parseFloat()</strong> works:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(parseFloat("3.14"));      // 3.14
+        console.log(parseFloat("3.14 abc"));  // 3.14
+        console.log(parseFloat("3.14.5"));    // 3.14
+        console.log(parseFloat("abc 3.14"));  // NaN
+            </code>
+            </pre>
+            <p>
+                As you can see, <strong>parseFloat()</strong> starts parsing from the beginning of the string and continues until it encounters a character that can't be part of a floating-point number. If it can't find a valid number at the start of the string, it returns <strong>NaN</strong> ( Not a Number).
+            </p>
+            <p>
+                <strong>parseInt()</strong>, on the other hand, parses a string argument and returns an integer. Like <strong>parseFloat()</strong>, it starts from the beginning of the string, but stops at the first non-digit character. Here's how <strong>parseInt()</strong> works:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(parseInt("42"));        // 42
+        console.log(parseInt("42px"));      // 42
+        console.log(parseInt("3.14"));      // 3
+        console.log(parseInt("abc123"));    // NaN
+            </code>
+            </pre>
+            <p>
+                <strong>parseInt()</strong> stops parsing at the first non-digit it encounters. For floating-point numbers, it returns only the integer part. If it can't find a valid integer at start of the string, it returns <strong>NaN</strong>.
+            </p>
+            <p>
+                Both methods have some noteworthy behaviors. They ignore leading whitespace:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(parseFloat("   3.14"));     // 3.14
+        console.log(parseInt("  42"));          // 42
+            </code>
+            </pre>
+            <p>
+                They handle plus and minus signs at the beginning of the string:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(parseFloat("+3.14"));       // 3.144
+        console.log(parseInt( "-42"));          // -42
+            </code>
+            </pre>
+            <p>
+                It's worth noting that while these methods are powerful, they have some limitations. For instance, they don't handle all number formats, such as scientific notation, directly. For more complex parsing needs, you might need to use additional techniques or libraries.
+            </p>
+            <p>
+                In conclusion, <strong>parseFloat()</strong> and <strong>parseInt()</strong> are valuable tools for converting strings to numbers in JavaScript. Understanding how they work and their specific behaviors allows you to handle numeric data more effectively in your applications, especially when dealing with user inputs or external data sources.
+            </p>
+        </section>
+        <section id="section17">
+            <h3>
+                What is the toFixed() Method, and how does it work?
+            </h3>
+            <h4>LESSON</h4>
+            
         </section>
     </article>
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
