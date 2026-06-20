@@ -146,6 +146,23 @@
                         </a>
                     </li>
                 </ul>
+                <li>
+                    <h4>
+                        Understanding Comparison and Conditionals Review.
+                    </h4>
+                </li>
+                <ul class="custom-list">
+                    <li>
+                        <a href="#section18">
+                            How do Comparison work with null and undefined data types?
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section19">
+                            What are switch statements and how do they differ from if/Else Chains?
+                        </a>
+                    </li>
+                </ul>
           </ol>
         
         <article>
@@ -2103,8 +2120,247 @@
                 What is the toFixed() Method, and how does it work?
             </h3>
             <h4>LESSON</h4>
-            
+            <p>
+                The <strong>.toFixed()</strong> method is a built-in JavaScript function that formats a number using fixed-point notation. It's particularly useful when you need. to control the number, especially for displaying currency values or when working with precise measurements.
+            </p>
+            <p>
+                The <strong>.toFixed()</strong> method is called on a number and takes one optional argument, whicj is the number of digits to appear after the decimal point. It returns a string representation of the number with the specified number of decimal places. Here's a basic example of how <strong>.toFixed()</strong> works:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let num = 3.14159;
+        console.log(num.toFixed(2));  // "3.14"
+            </code>
+            </pre>
+            <p>
+                In this case, we're limiting the number of decimal places to two. So, <strong>3.14159</strong> becomes <strong>3.14</strong>. It's important to note that <strong>toFixed()</strong> returns a string, not a number. This is because the method is promarily intended for formatting numbers for display, not for further calculations.
+            </p>
+            <p>
+                The <strong>.toFixed()</strong> method rounds the number to the nearest value that can be represented with the specified number of decimal places. This rounding behavior is important to understand:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log((3.14159).toFixed(3));     // "3.142"
+        console.log((3.14449).toFixed(3));     // "3.144"
+        console.log((3.14550).toFixed(3));     // "3.146"
+            </code>
+            </pre>
+            <p>
+                As you can see, <strong>.toFixed()</strong> rounds up when the next digit is <strong>5</strong> or greater, and rounds down otherwise. If you call <strong>.toFixed()</strong> without arguments, it defaults to <strong>0</strong> decimal places:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let num = 3.14159;
+        console.log(num.toFixed());   // "3"
+            </code>
+            </pre>
+            <p>
+                The to <strong>.toFixed()</strong> method can be particularly useful when working with financial calculations or displaying prices:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let price = 19.99;
+        let taxRate = 0.08;
+        let total = price + (price * taxRate);
+
+        console.log("Total: $" + total.toFixed(2));  // "Total: $21.59"
+            </code>
+            </pre>
+            <p>
+                In this example, <strong>toFixed(2)</strong> ensures that the total is always displayed with two decimal places, which is standard for currency in many countries. 
+            </p>
+            <p>
+                In conclusion, the <strong>.toFixed()</strong> method is a powerful tool for formatting numbers in JavaScript, particularly when you need to control the display of decimal places. While it's primarily used for fotmatting output, remember its behavior, especially when precise calculations are needed.
+            </p>
         </section>
+    </article>
+    <article>
+        <h2>
+            Understanding Comparison and Conditionals Review.
+        </h2>
+        <p>
+            In these lectures, you will learn about comparison operators and conditionals. You will learn how the various conditionals differ from one another, and how comparisons work with <strong>null</strong> and <strong>undefined</strong>.
+        </p>
+        <section id="section18">
+            <h3>
+                How to Comparisons Work with Null and Undefined Data Types?
+            </h3>
+            <h4>LESSON</h4>
+            <p>
+                In JavaScript, <strong>null</strong> and <strong>undefined</strong> are two distinct data types that represent the absence of a value, but they behave differently in comparisons. Understanding how these types interact in various comparison scenarios is crucial for writing robust and bug-free code.
+            </p>
+            <p>
+                Let's start with the <strong>undefined</strong> type. A variable is <strong>undefined</strong> when it has been declared but hasn't been assigned a value. It's the default value of unitialized variables and function parameters that weren't provided an argument.
+            </p>
+            <p>
+                The <strong>null</strong> type, on the other hand, is an assignment value thar represents a deliberate non-value. It's often used to indicate that a variable intentionally has no value.
+            </p>
+            <p>
+                When comparing <strong>null</strong> and <strong>undefined</strong> using the equality operator (<strong>==</strong>), JavaScript performs type coercion. this means it tries to convert the operands to the same type before making the comparison. In this case, <strong>null</strong> and <strong>undefined</strong> are considered equal:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(null == undefined);    // true
+            </code>
+            </pre>
+            <p>
+                However, when using the strict equality operator (<strong>===</strong>), which checks both value and type without performing type coercion, <strong>null</strong> and <strong>undeffined</strong> are not equal:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(null === undefined);    // false
+            </code>
+            </pre>
+            <p>
+                This difference is important to keep in mind when writing conditional statements or performing equality checks in your code. When comparing <strong>null</strong> or <strong>undefined</strong> with other values using the equality operator (<strong>==</strong>), the behavior can be unexpected. For example:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(null == 0);        // false
+        console.log(null == '');       // false
+        console.log(undefined == 0);   // false
+        console.log(undefined == '');  // false
+            </code>
+            </pre>
+            <p>
+                These comparisons return <strong>false</strong> because <strong>null</strong> and <strong>undefined</strong> are only equal to each other (and themselves) when using the equality operator. The behavior of <strong>null</strong> in other comparisons is particularly tricky:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(null > 0);      // false
+        console.log(null == 0);     // false
+        console.log(null >= 0);     // true
+            </code>
+            </pre>
+            <p>
+                <strong>undefined</strong>, on the other hand, always convers to <strong>NaN</strong> in numeric context, which makes all numeric comparisons with <strong>undefined</strong> return <strong>false</strong>:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        console.log(undefined > 0);     // false
+        console.log(undefined < 0);     // false
+        console.log(undefined == 0);    // false
+            </code>
+            </pre>
+            <p>
+                Given these nuances, it's generally recommended to use the strict equality operator when comparing values, especially when dealing with <strong>null</strong> and <strong>undefined</strong>. This approach helps avoid unexpected type coercion and makes your code's behavior more predictable.
+            </p>
+            <p>
+                In summary, while <strong>null</strong> and <strong>undefined</strong> are both used to represent the absence of value, they behave differently in comparisons. Understandin these differences is key to writing clear and error-free javaScript code.
+            </p>
+        </section>
+        <section id="section19">
+            <h3>
+                What are Switch Statements and How do they Differ from if/Else Chains?
+            </h3>
+            <h4>LESSON</h4>
+            <p>
+                <strong>swithc</strong> statements and <strong>if/else if/else</strong> chains are both control flow structures in programming that allow us to execute different code blocks based on certain conditions. However, they have distinct characteristics and use cases.
+            </p>
+            <p>
+                A <strong>switch</strong> statement evaluates an expression and matches its value against a series of <strong>case</strong> clauses. When a match is found, the code block associated with that <strong>case</strong> is executed. Here's a basic structure of a <strong>switch</strong> statement:
+            </p>
+            <pre class="code-box">
+            <code>
+    switch (expression) {
+        case value1:
+            // code to be executed if expression === value1
+            break;
+        case value2:
+            // code to be executed if expression === value2
+            break;
+        default;
+           // code to be executed if expression doesn't match any case
+    }
+            </code>
+            </pre>
+            <p>
+                The <strong>break</strong> statement at the end of each <strong>case</strong> is crucial. It tells the program to exit the switch block once a matching <strong>case</strong> has been executed. Without it, the program would continue executing subsequent cases, a behavior known as "fall-through".
+            </p>
+            <p>
+                <strong>switch</strong> statements are typically used when you're comparing a single variable against multiple possible values. They're especially useful when you have may potential conditions to check against a single variable. Here is an example using a <strong>switch</strong> statement for the days of the week:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let dayOfWeek = 3;
+
+        swithc (dayOfWeek) {
+            case 1:
+                console.log("It's Monday! Time to start the week strong.");
+                break;
+            case 2:
+                console.log("It's Tuesday! Keep the momentum going.");
+                break;
+            case 3:
+                console.log("It's Wednesday! We're halfway there.");
+                break;
+            case 4:
+                console.log("It's Thursday! Almost the weekend.");
+                break;
+            case 5:
+                console.log("It's Friday! The weekend is near.");
+                break;
+            case 6:
+                console.log("It's Saturday! Enjoy your weekend.");
+                break;
+            case 7:
+                console.log("It's Sunday! Rest and recharge.");
+                break;
+            default:
+                console.log("Invalid day! Please enter a number between 1 and 7.");
+        }
+            </code>
+            </pre>
+            <p>
+                <strong>switch</strong> statements can be more readable and concise when dealing with many possible values for a single variable.
+            </p>
+            <p>
+                <strong>if/else if</strong> statements on the other hand are more flexible. They can evaluate complex conditions an different variables in each clause. This make them suitable for a wider range of scenarios. Here is an example of when you might use an <strong>if/else</strong> statement over a <strong>switch</strong> statement:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let creditScore = 720;
+        let annualIncome = 60000;
+        let loanAmount = 200000;
+
+        let eligibilityStatus;
+
+        if (creditScore >= 750 && annualIncome >= 80000) {
+            eligibilityStatus = "Eligible for premium loan rates.";
+        } else if (creditScore >= 700 && annualIncome >= 50000) {
+            eligibilityStatus = "Eligible for standard loan rates." 
+        } else if (creditScore >= 650 && annualIncome >= 40000) {
+            eligibilityStatus = "Eligible for subprime loan rates.";
+        } else if (creditScore < 650) {
+            eligibilityStatus = "Not eligible due to low credit score.";
+        } else {
+            eligibilityStatus = "Not eligible due to insufficient income.";
+        }
+
+        console.log(eligibilityStatus);
+            </code>
+            </pre>
+            <p>
+                In this example, we have a person's annual income and credit score and checking what types of loan they would qualify for. Since we are dealing with more complex logical evaluations and multiple variables, it is better to use an <strong>if/else</strong> statement here versus a <strong>switch</strong> statement.
+            </p>
+            <p>
+                It's worth noting that <strong>switch</strong> statements in JavaScript use strict comparison (<strong>===</strong>), which means they don't perform type coercion. This can eb an advantage in terms of predictability and avoiding subtle bugs.
+            </p>
+            <p>
+                In summary, while both <strong>switch</strong> statements and <strong>if/else if</strong> chains allow for multiple-branch logic in your code, they have different strengths. <strong>switch</strong> statements excel at handling multiple possible values for a single variable, while <strong>if/else if</strong> chains offer more flexibility for complex conditions. The choice between them often comes down to the specific requirements of your code and personal or team coding style preferences.
+            </p>
+        </section>        
     </article>
         <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
 
