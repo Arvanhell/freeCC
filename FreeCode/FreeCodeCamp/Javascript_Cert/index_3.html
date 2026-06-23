@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>JavaScript</title>
+    </head>
+    <body>
+     <nav>
+      <ul>
+        <li><a href="index.html/#home">Home</a></li>
+              <!--li><a href="js-notes.html">JS Notes</a></li-->
+              <!--li><a href="about.html">About Me</a></li-->
+        </ul>
+     </nav>
+     <main>
+        <h1>Functions</h1>
+        <ol>
+            <li>
+                <h4>
+                    Working with Functions
+                </h4>
+            </li>
+            <ul class="custom-list">
+                <li>
+                    <a href="#section1">
+                        What is the purpose of Functions, and how do they work?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section2">
+                        What are Arrow Functions, and how do they work?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section3">
+                        What is Scope in Programming, and how does Global, Local, and Block Scope Work?
+                    </a>
+                </li>
+            </ul>
+        </ol>
+        <article>
+            <h2>Working with Functions</h2>
+            <p>
+                In these lectures, you will learn how to reuse a block of code with functions.You will learn what the purpose of a function is and how they work, and how scope works in programing.
+            </p> 
+            <section id="section1">
+                <h3>
+                    What is the purpose of Functions, and how do the work?
+                </h3>
+                <h4>LESSON</h4>
+    <p>
+        Function are reusable pieces of code that perform a specific task or calculate a value. Thin of functions as a machine that takes some input, does some operations on it, and then produces an output. Here is an example of derclaring a function:
+    </p>
+    <pre class="code-box">
+    <code>
+        function greet() {
+            console.log("Hello, Jessica!");
+        }
+    </code>
+    </pre>
+    <p>
+        In this example, we have declared a function called <strong>greet</strong>. Inside that function, we have a <strong>console.log</strong> that logs the message <strong>Hello,Jessica!</strong>. If we tried to run this code, we would not see the message appear in the console. This is because we need to call the function.
+    </p>
+    <P>
+        A function call, or invocation, is when we actually use or execute the function. To call a function, you will need to reference the function name followed by a set of parentheses:
+    </P>
+    <pre class="code-box">
+    <code>
+    JS
+        function greet() {
+            console.log("Hello, Jessica!");
+        }
+
+        greet();   // "Hello, Jessica!"
+    </code>
+    </pre>
+    <p>
+        Now the massage of <strong>Hello, Jessica!</strong> will be logged to the console. But what if we wantet the message to say <strong>Hello, Nick!</strong> or <strong>Hello, Anna!</strong>? We don't want to write a new function each time we greet a different user. Instead, we can create a reusable function that uses function parameters and arguments.
+    </p>
+    <p>
+        Parameters act as placeholders for the values that will be passed to the function when it is called. They allow functions to accept input and work with that input. Arguments are the actual values passed to the function when it is called. Herre is an updated version of the <strong>greet</strong> function that used parameters and arguments:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function greet(name) {
+            console.log("Hello, " + name + "!");
+        }
+
+        greet("Alice"); // Hello, Alice!
+        greet("Nick");  // Hello, Nick!
+    </code>
+    </pre>
+    <p>
+        the <strong>name</strong> serves as the parameter while the strings <strong>Alice</strong> and <strong>Nick</strong> serve as the arguments. Now we have a reusable function that can be used dozen of times throughout our code with different arguments.
+    </p>
+    <p>
+        When a function finishes its execution, it will always return a value. By default, the return value will be <strong>undefined</strong>. Here is an example:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function doSomething() {
+            console.log("Doing something...");
+        }
+
+        let result = doSomething();
+        console.log(result)     // undefined
+    </code>
+    </pre>
+    <p>
+        If you need your function to return a specific value, then you will need to use the <strong>return</strong> statement. Here is an example of using a <strong>return</strong> statement to return the sum of two values:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS 
+        function calculateSum(num1, num2) {
+            return num1 + num2
+        }
+
+        console.log(calculateSum(3, 4));  // 7
+    </code>
+    </pre>
+    <p>
+        Often times you will be using the <strong>return</strong> statement, because you can use that value that was output from the function later on in your code.
+    </p>
+    <p>
+        So far, we've been working with named functions, but you can also create what's called an anonymous function. An anonymous function is a function without a name that can be assigned to a variable like this:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        const sum = function (num1, num2) {
+            return num1 + num2
+        };
+
+        console.log(sum(3, 4));  // 7
+    </code>
+    </pre>
+    <p>
+        In this example, we have a <strong>const</strong> variable called <strong>sum</strong> and we are assigning it an anonymous function that returns the sum of <strong>num1</strong> and <strong>num2</strong>. We are then able to call <strong>sum</strong> and pass in the numbers <strong>3</strong> and <strong>4</strong> to get the result of <strong>7</strong>.
+    </p>
+    <p>
+        Function support default parameters, allowing you to set default values for parameters. These default values arre used if the function is called without an argument for that parameter. Here's an example:
+    </p>
+    <pre class="code-box">
+        <code>
+    JS
+        function greetings(name = "Guest") {
+            console.log("Hello, " + name + "!");
+        }
+
+        greetings();         // Hello, Guest!
+        greetings("Anna");   // Hello, Anna!
+        </code>
+    </pre>
+    <p>
+        In this example, if no arguments is provided for <strong>name</strong>, it defaults to <strong>Guest</strong>.
+    </p>
+    <p>
+        In summary, functions allow you to write reusable and organised code. They can take inputs (parameters), perform actions, and return outputs.
+    </p>
+        </section>       
+        <section id="section2">
+            <h3>
+                What are Arrow Functions, and how do they work?
+            </h3>
+            <h4>LESSON</h4>
+        <p>
+            In the previous lesson, you learned how to work with functions, which are reusable pieces of code that help make your code more modular, easier to maintain, and more efficient. All previous examples used the regular function syntax, like this:
+        </p>
+        <pre class="code-box">
+        <code>
+        function greetings(name) {
+            console.log("Hello, " + name + "!");
+        }
+        </code>
+        </pre>
+        <p>
+            But another way to write functions in JavaScript is to create an arrow function expression. Here is how you can refactor the previous example to use arrow function syntax instead:
+        </p>
+        <pre class="code-box">
+        <code>
+        const greetings = (name) => {
+            console.log("Hello, " + name + "!");
+        };
+        </code>
+        </pre>
+        <p>
+            In this revised example, we are creating a <strong>const</strong> variable called <strong>greetings</strong> and assigning it an anonymous function. Most of the syntax will look familiar to you except for the missing <strong>function</strong> keyword and the addition of the arrow(<strong>=></strong>) between the <strong>name</strong> parameter and the function body. If your parameter list onlu has one parameter in it, then you can remove the parentheses like this:
+        </p>
+        <pre class="code-box">
+            <code>
+    const greetings = name => {
+        console.log("Hello, " + name + "!");
+    };
+            </code>
+            </pre>
+            <p>
+                If your arrow function has no parameters, then you must use the parentheses like this:
+            </p>
+    <pre class="code-box">
+        <code>
+    const greetings = () => {
+        console.log("Hello");
+    }
+        </code>
+        </pre>
+        <p>
+            When first learning about functions, you had to wrap the function body in curly braces. But if your function body only contains a single line of code, you can remove the curly braces like this:
+        </p>
+        <pre class="code-box">
+            <code>
+    const greetings = name => console.log("Hello " + name + "!");
+            </code>
+            </pre>
+            <p>
+                It is important to note that removing the parentheses and curly braces for regular function syntax will not work. You will get errors if you tried to do something like this:
+            </p>
+            <pre class="code-box">
+                <code>
+    // This will produce syntax errors
+    function greetings name console.log("Hello, " + name + "!");
+                </code>
+                </pre>
+            <p>
+                These types of one line functions only work if you are using arrow syntax. Another key concept is the <strong>return</strong> statement. Here is an example of using the arrow function syntax to calculate the area:
+            </p>
+            <pre class="code-box">
+                <code>
+    JS
+        const calculateArea = (width, height) => {
+            const area = width * height;
+            return area;
+        };
+
+        console.log(calculateArea(5, 3));  // 15
+                </code>
+                </pre>
+        <p>
+            We creating a variable inside the function called <strong>area</strong> and then returning that variable. But we could clean up our code a bit and return the calculation itself:
+        </p>
+        <pre class="code-box">
+            <code>
+    JS
+        const calculateArea = (width, height) => {
+            return width * height;
+        };
+
+        console.log(calculateArea(5, 3));  // 15
+            </code>
+        </pre>
+        <p>
+            If you tried to remove the curly braces and place the calculation on the same line, then you would get an <strong>Uncaught SyntaxError: Unexpected token 'return'</strong> message:
+        </p>
+        <pre class="code-box">
+            <code>
+    const calculateArea = (width, height) => return width * height;
+            </code>
+            </pre>
+            <p>
+                The reason why are getting this error, is because you need to remove the <strong>return</strong> statement. When you remove that <strong>return</strong> statement, the error will disappear and the function will still implicitly return calculation.
+            </p>
+            <pre class="code-box">
+                <code>
+    const calculateArea = (width, height) => width * height;
+                </code>
+                </pre>
+            <p>
+                So when should you use the arrow function syntax? Well, it depends. Many developers use it consistently in their personal projects. However, when working on a team, the choice usually depends on whether the existing codebase uses regular functions or arrow functions. 
+            </p>
+        </section>
+        <section id="section3">
+        <h3>
+            What is Scope in programming, and how does global, local, and block scope work?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            Scope in programming refers to the visibility and accessibility of variables in different parts of your code. It determines where variables can be accessed or modified. In JavaScript, understanding scope is crucial for writing clean, efficient, and bug-free code. There are three main types of scope: global scope, local scope, and block scope.
+        </p>
+        <p>
+            Global scope is the outermost scope in a JavaScript program. Variables declared in the global scope are accessible from anywhere in your code, including within functions and blocks. These variables are often called global variables. While global variables can be convenient, they should be used sparingly as they can lead to naming conflicts and make your code harder to maintain. Here's an example of a global variable:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let globalVar = "I'm a global variable";
+
+        function printGlobalVar() {
+            console.log(globalVar);
+        }
+        
+        printGlobalVar();   // "I'm global variable"
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>globalVar</strong> is declared in the global scope and can be accessed inside the <strong>printGlobalVar</strong> function.
+        </p>
+        <p>
+            Local scope, on the other hand, refers to variables that are only accessible within a function. Here's an example of local scope:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        function greet() {
+            let message = "Hello, local scope!";
+            console.log(message);
+        }
+
+        greet();                // "Hello, local scope!"
+        console.log(message);   // This will throw an error
+        </code>
+        </pre>
+        <p>
+            In this code, <strong>message</strong> is local variable within the <strong>greet</strong> function. It can be used inside the function, but trying to access it outside the function will result in an error.
+        </p>
+        <p>
+            Block scope is a concept introduced with the <strong>let</strong> and <strong>const</strong> keywords in ES6. A block is any code section within curly braces, <strong>{}</strong>, such as in <strong>if</strong> statementsm <strong>for</strong> loops, or <strong>while</strong> loops. The concept of loops will be taught in an upcoming lesson. 
+        </p>
+        <p>
+            Variable declared with <strong>let</strong> or <strong>const</strong> inside a block are only accessible within that block. Here's an example of block scope:
+        </p>
+        <pre class="code-box">
+        <code>
+        if (true) {
+            let blockVar = "I'm in a block";
+            console.log(blockVar);       // I'm in a block"
+        }
+        console.log(blockVar); // This will throe an error
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>blockVar</strong> is only accessible within the <strong>if</strong> block. Trying to access it outside the block will result in an error. Understanding these different types of scope is essential for managing variable accessibility and avoiding unintended side effects in your code.
+        </p>
+        <p>
+            Global variables should be used sparingly, as they can lead to naming conflicts and make your code hader to maintain. Local variables help to keep different parts of your code isolated, which is especially useful in larger programs. Block scoping with <strong>let</strong> and <strong>const</strong> provides even finer control over variable accessibility, helping to prevent errors and make your code more predictble. Mastering these basic concepts of global, local. and block scope will provide a solid fouundation for understanding more advanced topics.
+        </p>
+        </section>
+    </article>
+    </main>
+     <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
+     </body>
+     <script>
+        const topBtn = document.getElementById("scrollToTopBtn");
+
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+    </script>
+    </html>
