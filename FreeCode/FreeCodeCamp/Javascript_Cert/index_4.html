@@ -66,19 +66,470 @@
                     What are the Key Characteristics of JavaScript Arrays?
                 </h3>
                 <h4>LESSON</h4>
-            </section>
+    <p>
+        An array in JavaScript is an ordered collection of values, each identified by a nu eric index. The values in a JavaScript array can be of different data types, including numbsers, strings, booleans, objects, and even other arrays.
+    </p>
+    <p>
+        To create an array in JavaScript, you can use square brackets, <strong>[]</strong>, and separate the values with commas. Here's an example:
+    </p>
+    <p>
+        <b>
+            let fruits = ["apple", "banana", "orange"];
+        </b>
+    </p>
+    <p>
+        In this example, we declare a variable <strong>fruits</strong> and assign it an array containing three string values: <strong>apple</strong>,<strong>banana</strong>, and <strong>orange</strong>.
+    </p>
+    <p>
+        One of the key characteristics of arrays is that they are zero- indexed, meaning that the first element in an array has an index of <strong>0</strong>, the second element has an index of <strong>1</strong>, and so on. You can access individual elements in an array using their index. For example:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        let fruit = ["apple", "banana", "orange"];
+        console.log(fruit.lenght); // 3
+    </code>
+    </pre>
+    <p>
+        Another key characteristic of arrays in JavaScript is that they are dynamic, meaning that their size can change after they are created. You can add or remove elements from an array using various array methods, such as <strong>push()</strong>, <strong>pop()</strong>, <strong>shift()</strong>, <strong>unshift</strong>, <strong>splice()</strong>, and more. These methods will be learned in future lessons.
+    </p>
+    <p>
+        JavaScript arrays arre versatile and useful when it comes to data storage inside your programs. Throughout this module, you'll get see firsthand how working with arrays will help you efficiently manage and manipulate collection of data.
+    </p>
+        </section>
+        <section id="section2">
+        <h3>
+            How do you access and update Elements in an Array?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            In the previous lesson, you were inroduced to working with arrays and accessing different elements in arrays. Here is a reminder of how to access the second element in an array:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const fruits = ["apple", "banana", "cherry"];
+
+        console.log(fruits[1]); // "banana"
+        </code>
+        </pre>
+        <p>
+            Since arrays are zero-based indexed, the first element will be at index <strong>0</strong>, the second element is at index <strong>1</strong>, and so on. It's important to note that if you try to access an index that doesn't exist in the array, JavaScript will return <strong>undefined</strong>.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let fruits = ["apple", "banana", "cherry"];
+
+        console.log(fruits[3]); // undefined
+        </code>
+        </pre>
+        <p>
+            In this example, there is no element at index <strong>3</strong> for the <strong>fruits</strong> array. So the log will show <strong>undefined</strong>. Now, let's look at how to update elements in an array. You can update an element by assigning a new value to a specific index.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let fruits = ["apple", "banana", "cherry"];
+        fruits[1] = "blueberry";
+        console.log(fruits); 
+        // ["apple", "blueberry", "cherry"];
+        </code>
+        </pre>
+        <p>
+            In this example, we replaced <strong>banana</strong> with <strong>blueberry</strong> at index <strong>1</strong>. This method allows you to change any element in the array, as long as you know its index. You can also add new elements to an array by assigning a value to an index that doesn't yet exist:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let fruits = ["apple", "banana", "cherry"];
+        fruits[3] = "date";
+        console.log(fruits);
+        //["apple", "banana", "cherry", "data"];
+        </code>
+        </pre>
+        <p>
+            However, exercise caution when doing this. If you assign a value to an index that is much larger than the current length of the array, you will create undefined elements for the indices in between, which can lead to unexpected behavior. As you continue to work with JavaScript, you'll find that these methods of accessing and updating array elements are fundamental to many programming tasks. Whether you're building a simple todo list or processing complex data structures, these skills will be invaluable.
+        </p>
+        </section>
+        <section id="section3">
+        <h3>
+            How do you Add and Remove Elements from the Beginning and End of an Array?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            Arrays in JavaScript are dynamic, which means you can easily add or remove elements from them. There are four main methods for adding and removing elements from the beginning and end of an array: <strong>push()</strong>, <strong>pop()</strong>, <strong>shift()</strong>, and <strong>unshift()</strong>. Let's explore each of these methods in detail.
+        </p>
+        <p>
+            The <strong>push()</strong> method is used to add one or more elements to the end of an array. The return value for the <strong>push()</strong> method is the new length of the array. Here's an example of adding a new fruit to the existing <strong>fruits</strong> array:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const fruits = ["apple", "banana"];
+        const newLength = fruits.push("orange");
+        console.log(newLength); // 3
+        console.log(fruits); // ["apple", "banana", "orange"]
+        </code>
+        </pre>
+        <p>
+            In this example, we start with an array called <strong>fruits</strong> which contain two elements. We then use the <strong>push()</strong> method to add the string <strong>orange</strong> to the end of the array.
+        </p>
+        <p>
+            You might have noticed that we are using <strong>const</strong> when we declaring the <strong>fruits</strong> array. But why is it possible to add more elements to this <strong>fruits</strong> array when <strong>fruits</strong> is a constant? This is possible because declaring an array with the <strong>const</strong> keyword creates a reference to the array. While the array itself is mutable and can be mofified, you cannot reassign a new value to the <strong>fruits</strong> constant, like this:
+        </p>
+        <pre class="code-box">
+        <code>
+        You can't 
+        const fruits = ["apple", "banana"];
+        fruits = ["this", "will", "not", "work"];
+        console.log(fruits);  //Uncaught TypeError: Assignment to constant variable.
+        </code>
+        </pre>
+        <p>
+            The next method we will look at is the <strong>pop()</strong> method. The <strong>pop()</strong> methid removes the last element from an array and returns that element. It also modifies the original array. Here's how it works:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let fruits = ["apple", "banana", "orange"];
+        let lastFruit = fruits.pop();
+        console.log(fruits); // ["apple", "banana"];
+        console.log(lastFruit); // "orange"
+        </code>
+        </pre>
+        <p>
+            In this example, we start with an array of three fruits. The <strong>pop()</strong> method removes the last element (<strong>orange</strong>) from the array and returns it. The original <strong>fruits</strong> array is mofified and contains only two elements. 
+        </p>
+        <p>
+            The <strong>unshift()</strong> methid adds one or more elements to the beginning of an array and returns its new length. It works similarly to <strong>push()</strong>, but modifies the start of the array insted of the end. Here's an example:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let numbers = [2, 3];
+        let newLength = numbers.unshift(1);
+        console.log(numbers); //[1, 2, 3]
+        console.log(newLength); // 3
+        </code>
+        </pre>
+        <p>
+            In this example, we use <strong>unshift()</strong> to add the number <strong>1</strong> to the beginning of the <strong>numbers</strong> array. The method returns the new length of the array, which is <strong>3</strong>.
+        </p>
+        <p>
+            Finally, the <strong>shift()</strong> method removes the first element from an array and returns that element. It's similar to <strong>pop()</strong>, but it works at the beginning of the array instead of the end. Here's how it works:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let colors = ["red", "green", "blue"];
+        let firstColor = colors.shift();
+        console.log(colors); // ["green", "blue"]
+        console.log(firstColor); // "red"
+        </code>
+        </pre>
+        <p>
+            In this example, we start with an array of three colors. The <strong>shift()</strong> method removes the first element (<strong>red</strong>) from the array and returns it. The original <strong>colors</strong> array is mofified to contain only two elements.
+        </p>
+        <p>
+            Note that while <strong>push()</strong> and <strong>unshift()</strong> can add multiple elements at once, <strong>pop()</strong> and <strong>shift()</strong> remove only one element at a time.
+        </p>
+        </section>
+        <section id="section4">
+        <h3>
+            What is the Difference between one-dimensionaland two-dimensional Arrays?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            In programming, arrays are fundamental data structures used to store collections of elements. Understanding the difference between one-dimensional and two-dimensional arrays is crucial for organizing and manipulating data effectively. Let's explore these concepts in a way that's easy for beginners to grasp.
+        </p>
+        <p>
+            A one-dimensional array, often called an array, is like a single row of boxes. Imagine you have a line of storage lockers at a train station. Each locker can hold one item, and you can access any locker directly if you know its number.
+        </p>
+        <p>
+            In programming terms, each item in a one-dimensional array is accessed using a single index. For example, in JavaScript, you might create and use a one-dimensional array like this:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let fruits = ["apple", "banana", "cherry", "date"];
+        console.log(fruits[2]); // "chery"
+        </code>
+        </pre>
+        <p>
+            Here, <strong>fruits</strong> is a one-dimensional array. You can think of it as a single row of fruit names. To access any fruit, you use one number (the index) inside square brackets.
+        </p>
+        <p>
+            Now, let's move on to two-dimensional arrays. If a one-dimensional array is like a single row of lockers, a two-dimensional array is like a grid of lockers – multiple rows and columns. In programming, a two-dimensional array is essentially an array of arrays. It's used to represent data that has a natural grid-like structure, such as a chessboard, a spreadsheet, or pixels in an image.
+        </p>
+        <p>
+            To access an alement in a two-dimensional array, you need two indicies: one for the row and one for the column. Here's an example of how you might create an use a two-dimensional array in JavaScript:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let chessboard = [
+            ["R", "N", "B", "Q", "K", "B", "N", "R"],
+            ["P", "P", "P", "P", "P", "P", "P", "P"],
+            [" ", " ", " ", " ", " ", " ", " ", " "],
+            [" ", " ", " ", " ", " ", " ", " ", " "],
+            [" ", " ", " ", " ", " ", " ", " ", " "],
+            [" ", " ", " ", " ", " ", " ", " ", " "],
+            ["p", "p", "p", "p", "p", "p", "p", "p"],
+            ["r", "n", "b", "q", "k", "b", "n", "r"]
+        ];
+
+        console.log(chessboard[0][3]);  // Q
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>chessboard</strong> is a two-dimensional array representing a chess game's initial setup. To access the queen (<strong>Q</strong>) in the top row, we use two indices: <strong>[0][3]</strong>. The first index, <strong>0</strong>, selects the first row, and the second index, <strong>3</strong>, selects the fourth columne in that row.
+        </p>
+        <p>
+            The key difference between one-dimensional and two-dimensional arrays lies in how you access and organize the data. One-dimensional arrays use a single index and are suitable for linear data like lists or sequences. Two-dimensional arrays use two indices and are ideal for grid-like data structures.
+        </p>
+        <p>
+            It's worth noting that in JavaScript, two-dimensional arrays are actually arrays of arrays. This means each element of the outer array is itself an array. This nested structure allows for great flexibility but also requires careful handling to avoid errors.
+        </p>
+        <p>
+            As you progress in your programming journey, you'll find that choosing between one-dimensional and two-dimensional arrays depends on the nature of your data and how you need to manipulate it.
+        </p>
+        <p>
+            One-dimensional arrays are simpler and sufficient for many tasks, while two-dimensional arrays become invaluable when dealing with more complex, structured data.
+        </p>
+        </section>
+        <section id="section5">
+        <h3>
+            What is Array Destructuring, and how does it work?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            Array destructuring is a feature in JavaScript is a feature in JavaScript that allows you to extract values from arrays and assign them to variables in a more concise and readable way. It provides a convenient syntax for unpacking array elements into distinct variables.
+        </p>
+        <p>
+            This technique is particularly useful when working with arrays and functions that return multiple values. Here is an example of using array destructuring:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let fruits = ["apple", "banana", "orange"];
+        
+        let [first, second, third] = fruits;
+
+        console.log(first);  // "apple"
+        console.log(second); // "banana"
+        console.log(third);  // "orange"
+        </code>
+        </pre>
+        <p>
+            In this example, we have an array called <strong>fruits</strong> with three elements. Using array destructuring, we assign the first element to the variable <strong>first</strong>, the second element to <strong>second</strong>, and the third element to <strong>third</strong>. This allows us to easily access individual elements of the array without using index notation.
+        </p>
+        <p>
+            Here is what it would look like if you accessed each of those elements by their index instead of using array destructuring:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const fruits = ["apple", "banana", "orange"];
+
+        const first = fruits[0];
+        const second = fruits[1];
+        const third = fruits[2];
+
+        console.log(first);  // "apple"
+        console.log(second); // "banana"
+        console.log(third);  // "orange"
+        </code>
+        </pre>
+        <p>
+            Array destructuring also allows you to skip elements you're not interested in by using commas. For instance:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let colors = ["red", "green", "blue", "yellow"];
+        let [firstColor, , thirdColor] = color;
+
+        console.log(firstColor);  // "red"
+        console.log(thirdColor);  // "blue"
+        </code>
+        </pre>
+        <p>
+            In this example, we skip the second element of the <strong>colors</strong> array by using an extra comma. This assigns <strong>red</strong> to <strong>firstColor</strong> and <strong>blue</strong> to <strong>thirdColor</strong>, effectively ignoring <strong>green</strong>.
+        </p>
+        <p>
+            Another powerful feature of array destructuring is the ability to use default values. If the array has fewer elements thant eh variables you're trying to assign, you can provide default values:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let numbers = [1, 2];
+        let [a, b, c = 3] = numbers;
+
+        console.log(a);  // 1
+        console.log(b);  // 2
+        console.log(c);  // 3
+        </code>
+        </pre>
+        <p>
+            Here, we assign default value <strong>3</strong> to <strong>c</strong> because the <strong>numbers</strong> array doesn't have a third element.
+        </p>
+        <p>
+            Now, let's discuss the rest syntax, denoted by three dots (<strong>...</strong>). It allows you to capture the remaining elements of an array that haven't been destructured into a new array. Here's how it works:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let fruits = ["apple", "banana", "orange", "mango", "kiwi"];
+        let [first, second, ...rest] = fruits;
+
+        console.log(first);  // "apple"
+        console.log(second); // "banana"
+        console.log(rest);   // ["orange", "mango", "kiwi"]
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>first</strong> and <strong>second</strong> capture the first two elements of the <strong>fruits</strong> array, and <strong>rest</strong> captures all remaining elements as a new array. The rest syntax must be the last element in the destructuring pattern.
+        </p>
+        <p>
+            Array destructuring is a powerful feature that can make your code more concise and easier to read. It's especially useful when working with arrays, and when you need to extract specific elements from an array.
+        </p>
+        </section>
+        <section id="section6">
+        <h3>
+            How is Array Destructuring, and how does it work?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            Reversing a string is a common programming task that can be accomplished in JavaScript using a combination of string and array methods. The process involves three main steps:
+        </p>
+        <ul>
+            <li>
+                Splitting the string into an array of characters.
+            </li>
+            <li>
+                Reversing the array.
+            </li>
+            <li>
+                Joining the characters back into a string.
+            </li>
+        </ul>
+        <p>
+            Let's explore each of these using the <strong>split()</strong>, <strong>reverse()</strong>, and <strong>join()</strong> methods.
+        </p>
+        <p>
+            The first step in reversing a string is to convert it into an array of individual characters. We can do this using the <strong>split()</strong> method. The <strong>split()</strong> method divides a string into an array of substrings and specifies where each split should happen based on a given separator. If no separator is provided, the method returns an array containing the original string as a single elements. Examples of common separators include:
+        </p>
+        <ul>
+            <li>
+                An empty string (<strong>""</strong>), which splits the string into individual characters.
+            </li>
+            <li>
+                A single space (<strong>" "</strong>), which split the string whenever spaces occur.
+            </li>
+            <li>
+                A dash(<strong>"-"</strong>), which splits the string at each dash.
+            </li>
+        </ul>
+        <p>
+            Here's an example of using the <strong>split()</strong> method to create an array of characters:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let str = "hello";
+        let charArray = str.split("");
+        console.log(charArray);  // ["h", "e", "l", "l", "o"]
+        </code>
+        </pre>
+        <p>
+            In this example, we use <strong>split("")</strong> (with an empty string as the argument) to convert the string <strong>hello</strong> into an array of its individual characters. Once we have an array of characters, we can use the <strong>reverse()</strong> method to reverse the order of elements in the array.
+        </p>
+        <p>
+            The <strong>reverse()</strong> method is an array method that reverses the elements of an array in place. This means it modifies the original array rather than creating a new one. Here's how we can use it:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let charArray = ["h", "e", "l", "l", "o"];
+        charArray.reverse();
+        console.log(charArray); // ["o", "l", "l", "e", "h"]
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>reverse()</strong> changes the order of the elements in <strong>charArray</strong>, reversing it from <strong>["h", "e", "l", "l", "o"]</strong> to <strong>["o", "l", "l", "e", "h"]</strong>.
+        </p>
+        <p>
+            The final step is to conver the reversed array of characters back into string. We can accomplish this using  the <strong>join()</strong> method. The <strong>join()</strong> method creates and returns a new string by concateaning all the element in an array, separated by a specified separator string. If you want to join the characters without any separator, you can use an empty string as the argument. Here's an example:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let reversedArray = ["o", "l", "l", "e", "h"];
+        let reversedString = reversedArray.join("");
+
+        console.log(reversedString); // "olleh"
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>join("")</strong> (with an empty string passed to it as an argument) combines all the characters in the array into a single string without any separator between them.
+        </p>
+        <p>
+            Remember that string in JavaScript are immutable, which means you can't directly reverse a string by modifying it. That's why we need to convert it to an array, reverse the array, and then convert it back to string. this combination of string and array methods provides a powerful and flexible way to manipulate string in JavaScript.
+        </p>
+        <pre class="code-box">
+        <code>
+    console.log("Grocery shopping list");
+        // Grocery shopping list
+    const shoppingList = [];
+
+    console.log("It will be nice to have some fruit to eat.");
+        // It will be nice to have some fruit to eat
+    shoppingList.push("Apples");
+
+    function getShoppingListMsg(arr) {
+        return `Current Shopping List: ${arr}`;
+    }
+            
+    console.log(getShoppingListMsg(shoppingList));
+        // Current Shopping List: Apples
+
+    shoppingList.push("Grapes");
+    console.log(getShoppingListMsg(shoppingList));
+        // Current Shopping List: Apples, Grapes
+
+    console.log("It looks like we need to get some cooking oil.");
+        // It looks like we need to get some cooking oil
+    shoppingList.unshift("Vegetable Oil");
+    console.log(getShoppingListMsg(shoppingList));
+        // Current Shopping List: Vegetable Oil, Apples, Grapes
+
+    shoppingList.push("Popcorn", "Beef Jerky", "Potato Chips");
+    console.log(getShoppingListMsg(shoppingList));
+        // Current Shopping List: Vegetable Oil,Apples,Grapes,Popcorn,Beef Jerky,Potato Chips
+
+    console.log("This looks like too much junk food.");
+        // This looks like too much junk food
+    shoppingList.pop();
+
+    console.log(getShoppingListMsg(shoppingList));
+        // Current Shopping List: Vegetable Oil,Apples,Grapes,Popcorn,Beef Jerky
+
+    console.log("It might be nice to get a dessert.");
+        // It might be nice to get a dessert
+
+    shoppingList.unshift("Chocolate Cake");
+    console.log(getShoppingListMsg(shoppingList));
+        // Current Shopping List: Chocolate Cake,Vegetable Oil,Apples,Grapes,Popcorn,Beef Jerky
+
+    console.log("On second thought, maybe we should be more health conscious.");
+        // On second thought, maybe we should be more health conscious.
+        </code>
+        </pre>
+        </section>
         </article>
     </main>
     <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
     </body>
-    <script>
-        const topBtn = document.getElementById("scrollToTopBtn");
-
-topBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
-    </script>
+    <script src="script.js"></script>
     </html>
