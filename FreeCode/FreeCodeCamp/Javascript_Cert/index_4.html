@@ -54,6 +54,21 @@
                         How can you use string and Array Methods to Reverse a String?
                     </a>
                 </li>
+                <li>
+                    <a href="#shopping-list">
+                        Build a Shopping List
+                    </a>
+                </li>
+                <li>
+                    <a href="#picker-program">
+                        Build a Lunch Picker Porgram
+                    </a>
+                </li>
+                <li>
+                    <a href="#golf-score-translator">
+                        Build a Golf Score Translator.
+                    </a>
+                </li>
             </ul>
         </ol>
         <article>
@@ -477,6 +492,14 @@
         <p>
             Remember that string in JavaScript are immutable, which means you can't directly reverse a string by modifying it. That's why we need to convert it to an array, reverse the array, and then convert it back to string. this combination of string and array methods provides a powerful and flexible way to manipulate string in JavaScript.
         </p>
+    </section>
+        <section id="shopping-list">
+            <h3>
+                Build a Shopping List
+            </h3>
+            <p>
+                In this workshop, you will practice how to work with arrays by building a shopping list. You will review how to add and remove elements from an array using methods like <strong>push</strong>, <strong>pop</strong>, <strong>shift</strong>, and <strong>unshift</strong>.
+            </p>    
         <pre class="code-box">
         <code>
     console.log("Grocery shopping list");
@@ -527,6 +550,224 @@
         </code>
         </pre>
         </section>
+        <section id="picker-program">
+            <h3>Build a Lunch Picker Porgram</h3>
+            <p>
+                In this lab, you will build a program that helps in managing lunch options. You'll work with an array of lunches, add and remove items from the array, and randomly select a lunch option.
+            </p>
+            <p>
+                <b>Objective</b>: Fulfill the user stories below and get all tests to pass to complete the lab.
+            </p>
+            <legend>
+                <b>User Stories</b>:
+            </legend>
+            <ol class="custom-list">
+                <li>
+                    You should create a <strong>lunches</strong> variable and assign it an empty array that will be used to store lunch items.
+                </li>
+                <li>
+                    You should create a function <strong>addLunchToEnd</strong> that takes an array as the first argument and a string as the second argument. The function should:
+                </li>
+                <ul>
+                    <li>
+                        Add the string to the end of array.
+                    </li>
+                    <li>
+                        Log the string <strong>[Lunch Item] added to the end of the lunch menu.</strong> to the console, where <strong>[Lunch Item]</strong> is the string passed to the function.
+                    </li>
+                    <li>
+                        Return the updated array.
+                    </li>
+                </ul>
+                <li>
+                    You should create a function <strong>addLunchToStart</strong> that takes an array as the first argument and a string as the second argument. The function should:
+                </li>
+                <ul>
+                    <li>
+                        Add the string to the start of the array.
+                    </li>
+                    <li>
+                        Log the string <strong>[Lunch Item] added to start of the lunch menu.</strong> to the console, where <strong>[Lunch Item]</strong> is the string passed to the function.
+                    </li>
+                    <li>
+                        Return the updated array.
+                    </li>
+                </ul>
+                <li>
+                    You should create a function <strong>removesLastLunch</strong> that takes an array as its argument. The function shoul:
+                </li>
+                <ul>
+                    <li>
+                        Remove the last element from the array.
+                    </li>
+                    <li>
+                        If the removal is successful, log the string <strong>[Lunch Item] removed from the end of the lunch menu.</strong> to the console, where <strong>[Lunch Item]</strong> is the element removed from the array.
+                    </li>
+                    <li>
+                        If the array is empty, log the string <strong>"No lunches to remove."</strong> to the console.
+                    </li>
+                    <li>
+                        Return the updated array.
+                    </li>
+                </ul>
+                <li>
+                    You should create a function <strong>removeFirstLunch</strong> that takes an array as its argument. The function should:
+                </li>
+                <ul>
+                    <li>
+                        Remove the first element from the array.
+                    </li>
+                    <li>
+                        If the removal is succesful, log the string <strong>[Lunch Item] removed from teh start of the lunch menu.</strong> to the console, where <strong>[Lunch Item]</strong> is the element removed from the array.
+                    </li>
+                    <li>
+                        If the array is empty, log the string <strong>"No lunches to remove.</strong> to the console.
+                    </li>
+                    <li>Return the updated array.</li>
+                </ul>
+                <li>
+                    You shoulg create a function <strong>getRandomLunch</strong> that takes an array as its argument. The function should:
+                </li>
+                <ul>
+                    <li>
+                        Select a random element from the array.
+                    </li>
+                    <li>
+                        If successful, log the string <strong>Randomly selected lunch: [Lunch Item]</strong> to the console, where <strong>[Lunch Item]</strong> is a random element in the array.
+                    </li>
+                    <li>
+                        If the array is empty, log the string <strong>"No lunches available.</strong> to the console.
+                    </li>
+                </ul>
+                <li>
+                    You should create a function <strong>showLunchMenu</strong> that takes an array as its argument and:
+                </li>
+                <ul>
+                    <li>
+                        If there are elements in the array, logs the string <strong>Menu items: [Lunch Item], [Lunch Item]...</strong> to the console, where each <strong>[Lunch Item]</strong> is one of the elements in the array, in order.
+                    </li>
+                    <li>
+                        If array is empty, logs the string <strong>"The menu is empty."</strong> to the console.
+                    </li>
+                </ul>
+            </ol>
+            <h4> Build a lunch Picker Program</h4>
+            <pre class="code-box">
+            <code>
+    let lunches = [];
+function addLunchToEnd(arr, item) {
+arr.push(item); 
+console.log(`${item} added to the end of the lunch menu.`);
+return arr;
+}
+console.log(lunches);
+
+
+function addLunchToStart(arr, item) {
+arr.unshift(item);
+console.log(`${item} added to the start of the lunch menu.`)
+return arr;
+}
+console.log(lunches);
+
+function removeLastLunch(arr) {
+if (arr.length === 0) {
+console.log("No lunches to remove.");
+return
+}
+let removedItem = arr.pop();
+console.log(`${removedItem} removed from the end of the lunch menu.`);
+return arr;
+}
+console.log(lunches);
+
+function removeFirstLunch(arr) {
+if (arr.length === 0) {
+console.log("No lunches to remove.");
+return
+}
+let removedItem = arr.shift();
+console.log(`${removedItem} removed from the start of the lunch menu.`);
+return arr;
+}
+console.log(lunches);
+
+function getRandomLunch(arr){
+if (arr.length === 0) {
+console.log("No lunches available.");
+return
+}
+let randomIndex = Math.floor(Math.random() * arr.length);
+let randomItem = arr[randomIndex];
+console.log(`Randomly selected lunch: ${randomItem}`); 
+return randomItem;
+}
+console.log(lunches);
+ 
+function showLunchMenu(arr) {
+if (arr.length === 0) {
+console.log("The menu is empty.");
+return
+}
+let menuString = arr.join(", ");
+console.log(`Menu items: ${menuString}`);
+return
+}
+            </code>
+            </pre>
+        </section>
+        <section id="golf-score-translator">
+            <h4>Build a golf score Translator</h4>
+            <p>For this lab, you will use array methods to translate golf scores into their nickname.</p>
+            <p>
+                In the game of Golf, each hole has a <strong>par</strong>, meaning the average number of <strong>strokes</strong> a golfer is expected to make in order to sing the ball in the hole to complete the play.
+                Depending on how far above or bellow <strong>par</strong> your <strong>strokes</strong> are, there is a different nickname.
+            </p>
+            <p>
+                In this lab, you will write a function that converts the <b>par</b> and <b>strokes</b> to their nickname.
+            </p>
+            <p>
+                <b>Objective:</b> Fulfill the user stories below and get all the tests to pass to complete the lab.
+            </p>
+            <p>
+                <b>
+                    User Stories:
+                </b>
+            </p>
+        <ol class="custom-list">
+            <li>
+                YOu should create a function named <strong>golfScore</strong>.
+            </li>
+            <li>
+                <strong>golScore</strong> should take two numeric arguments, which are the par for the course and the amount of strokes made.
+            </li>
+            <li>
+                <strong>golfScore</strong> should return a string.
+            </li>
+            <li>
+                <strong>golfScore</strong> should return <strong>"Hole-in-one!"</strong> if <b>strokes</b> is <b>1</b>.
+            </li>
+            <li>
+                <strong>golfScore</strong> should return <b>"Eagle"</b> if <b>strokes</b> is less than or equal to <b>par</b> minus <b>2</b>.
+            </li>
+            <li>
+                <strong>golfSccore</strong> should return <b>"Birdie"</b> if <b>strokes</b> is equal to <b>par</b> minus <b>1</b>.
+            </li>
+            <li>
+                <strong>golfScore</strong> should return <b>"Par"</b> if <b>strokes</b> is equal to <b>par</b>.
+            </li>
+            <li>
+                <strong>golfScore</strong> should return <b>"Bogey"</b> if <b>strokes</b> is equal to <b>par</b> plus <b>1</b>.
+            </li>
+            <li>
+                <strong>golfScore</strong> should return <b>"Double Bogey"</b> if <b>strokes</b> is equal to <b>par</b> plus <b>2</b>.
+            </li>
+            <li>
+                <strong>golfScore</strong> should return <b>"Go Home!"</b> if <b>strokes</b> is greater than or equal to <b>par</b> plus <b>3</b>.
+            </li>
+        </ol>
+        </section>
+
         </article>
     </main>
     <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
