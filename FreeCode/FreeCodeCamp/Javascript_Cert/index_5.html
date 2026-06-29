@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>JavaScript</title>
+    </head>
+    <body>
+     <nav>
+      <ul>
+        <li><a href="index.html/#home">Home</a></li>
+              <!--li><a href="js-notes.html">JS Notes</a></li-->
+              <!--li><a href="about.html">About Me</a></li-->
+        </ul>
+     </nav>
+     <main>
+        <h1>Objects</h1>
+        <ol>
+            <li>
+                <h4>
+                    Introduction to JS Objects and their Properties
+                </h4>
+            </li>
+            <ul class="custom-list">
+                <li>
+                    <a href="#section1">
+                        What is an Object in JavaScript, and how can you access properties form an Object?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section2">
+                        How can you remove properties from an object?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section3">
+                        How to check if an Object has a property?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section4">
+                        How do you work with accessing properties from nested objects and arrays in objects?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section5">
+                        What is the difference between primitive and non - primitive data types?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section6">
+                        What is the difference between functions and object methods?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section7">
+                        What is the Objectt() constructor, and when should you use it?
+                    </a>
+                </li>
+            </ul>
+        </ol>
+        
+        <article>
+            <h2>
+                Introduction to JS Objects and their Properties
+            </h2>
+            <p>
+                In these lectures, you will learn the fundamentals of JS objects, including how to create them, access their properties, and understand the difference between primitive and non-primitive data types.
+            </p>
+            <section id="section1">
+                <h3>
+                    What is an Object in JS, and how can you access properties from an object?
+                </h3>
+                <h4>LESSON</h4>
+                <p>
+                    In JavaScript, an object is a fundamental data structire that allows you to store and organize related data and functionality.
+                </p>
+                <p>
+                    You can think of an object as a container that holds various pieces of information, much like a filing cabinet holds different folders and documents.
+                </p>
+                <p>
+                    These pieces of information are called properties, and they consist of a name (or key) and value.
+                </p>
+                <pre class="code-box">
+                <code>
+    const exampleObject = {
+        propertyName: value,
+    }
+                </code>
+                </pre>
+                <p>
+                    Object are incredibly versitale and form the backbone of JavaScript. In fact, almost everything in JavaScript is an object or can be treated as one. This includes arrays, functions, and even primitive data types like strings and numbers when used in certain ways.
+                </p>
+                <p>
+                    This object-centric nature of JavaSxript is one of the reasons it's such flexible and powerful language. Let's look at how you can create an object:
+                </p>
+        <pre class="code-box">
+        <code>
+    const person = {
+        name: "Alice",
+        age: 30,
+        city: "New York"
+    };
+        </code>
+        </pre>
+        <p>
+            In this example, we've created an object called <strong>person</strong> with three properties: <strong>name</strong>, <strong>age</strong>, and <strong>city</strong>. Each property has a name and a value, separated by a colon.
+        </p>
+        <p>
+           Now, let's explore how you can access these properties. There are two main ways to access object properties in JavaScript: dot notation: 
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30;
+            city: "New York"
+        };
+
+        console.log(person.name); // Alice
+        console.log(person.age)l. // 30
+        </code>
+        </pre>
+        <p>
+            Dot notation is concise and easy to read, making it the property you want to access and that name is a valid JavaScript identyfier (meaning it doesn't start with a number and doesn't contain special characters or spaces).
+        </p>
+        <p>
+            Bracket notation, on the other hand, allows you to accesss object properties using a string inside square brackets. Here's how you would use bracket notation:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30,
+            city: "New York"
+        };
+
+        console.log(person["name"]);  // Alice
+        console.log(person["age"]);   // 30
+        </code>
+        </pre>
+        <p>
+            Bracket notation is more flexible than dot notation because it allows you to use property names thta aren't valid JavaScript indentifiers. For example, if you had a property name with spaces or that starts with a number, you'd need to use bracket notation:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const oddObject = {
+            "1stOrioerty": "Hello",
+            "property with spaces": "World"        
+        };
+
+        console.log(oddObject["1stProperty"]);  Hello
+        console.log(oddObject["property with spaces"]); // World
+        </code>
+        </pre>
+        <p>
+            Another advantage of bracket notation is that it allows you to use variables to access properties dynamically:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30,
+            city: "Wonderland"
+        };
+
+        let propertyName = "city";
+        console.log(person[propertyName]);  // Wonderland
+        </code>
+        </pre>
+        <p>
+            This flexibility makes bracket notation particularly useful when you don't know the exact property name at the time you're writing the code, or when you're working with property names that come from user input or some other dynamic source.
+        </p>
+        <p>
+            It's worth noting that objects in JavaScript are incredibly powerful and versatile. They can contain not just simple values like strings and numbers, but also arrays, or other objects.
+        </p>
+        <p>
+            Understanding objects and how to work with them is crucial in JavaScript because they're used extensively throughout the language and in many JavaScript libraries and framework.
+        </p>
+        <p>
+            as you continue to learn to learn and work with JS, you'll find that mastering objects open up a world possibilities for creating complex and powerful applications.
+        </p>
+            </section>
+            <section id="section2">
+                <h3>
+                    How Can you remove Properties from nad Object?
+                </h3>
+                <h4>LESSON</h4>
+                
+            </section>
+            <section id="section3">
+                <h3>
+                    How to check if an Object has a Property?
+                </h3>
+            </section>
+            <section id="section4">
+                <h3>
+                    How do you work with accessing properties from nested objects and Arrays in Objects?
+                </h3>
+            </section>
+            <section id="section5">
+                <h3>
+                    What is the difference between primitive and non-primitive data types?
+                </h3>
+            </section>
+            <section id="section6">
+                <h3>
+                    What is the Difference between  functions and object methods?
+                </h3>
+            </section>
+            <section id="section7-+">
+
+            </section>
+        </article>
+
+        </main>
+
+        </body>
+        <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
+        </html>
