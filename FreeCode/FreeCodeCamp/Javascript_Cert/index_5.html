@@ -191,33 +191,659 @@
                     How Can you remove Properties from nad Object?
                 </h3>
                 <h4>LESSON</h4>
-                
+    <p>
+        Ther are several ways to remove properties from an object, with the <strong>delete</strong> operator being the most straightforward and commonly used method.
+    </p>
+    <p>
+        When you use <strong>delete</strong>, it removes the selected property from the object. Here's an example of how to use the <strong>delete</strong> operator:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30,
+            job: "Engineer"
+        };
+
+    delete person.job;
+    console.log(person.job);  // undefined
+    </code>
+    </pre>
+    <p>
+        In this example, we start with a <strong>person</strong> object that has three properties: <strong>name</strong>, <strong>age</strong>, and <strong>job</strong>. Then, we use the <strong>delete</strong> operator to remove the <strong>job</strong> property. After the deletion, the <strong>person</strong> object no longer has the <strong>job</strong> property.
+    </p>
+    <p>
+        Another way to remove properties in by using destructuring assignment with rest parameters. This approach doesn't actually delete the property, but it creates a new object without the specified properties:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        const person = {
+            name: "Bob",
+            age: 25,
+            job: "Designer",
+            city: "New York"
+        }
+
+    const {job, city, ...remainingProperties} = person; // { name: "Bob", age: 25 }
+    console.log(remainingProperties);
+    </code>
+    </pre>
+    <p>
+        In this example, we use destructuring to extract <strong>job</strong> and <strong>city</strong> from the <strong>person</strong>object, and collect the remaining properties into a new object called <strong>remainingProperties</strong>. This creates a new object without the <strong>job</strong> and <strong>city</strong> properties.
+    </p>
+    <p>
+        Understanding how to remove properties from object is an important skill in JS programming. It allows you to manipulate objects dynamically and clean up unnecessary data.
+    </p>
             </section>
             <section id="section3">
                 <h3>
                     How to check if an Object has a Property?
                 </h3>
+                <h4>LESSON</h4>
+        <p>
+            In JS, there are several ways to check if an object has a specific property. Understanding these methods is important for working effectively with objects, especially when you need to ensure certain properties exist before using them.
+        </p>
+        <p>
+            We'll explore some common approaches: the <strong>hasOwnProperty()</strong> method, the <strong>Object.hasOwn()</strong> method, the <strong>in</strong> operator, and checking against <strong>undefined</strong>.
+        </p>
+        <p>
+            Let's start with with the <strong>hasOwnProperty()</strong> method. This method returns a boolean indicating whether the object has the specifies property as its own property.Here's an example:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30
+        };
+
+        console.log(person.hasOwnProperty("name")); // true
+        console.log(person.hasOwnProperty("job"));  // false
+        </code>
+        </pre>
+        <p>
+            In this example, we have an object called <strong>person</strong> with two properties: <strong>name</strong> and <strong>age</strong>. To check if <strong>name</strong> is property in the <strong>person</strong> object, we use the <strong>hasOwnProperty()</strong> method. Since <strong>name</strong> is a property, it will return <strong>true</strong>. But when we use the <strong>hasOwnProperty()</strong> to check if <strong>job</strong> is a property, it will return <strong>false</strong> because it does not exist in the object.
+        </p>
+        <p>
+            <strong>Object.hasOwn()</strong> is the modern, recommended way to check if an object has a property as its own (not inheerited). Think if it as an upgraded, safer version of <strong>hasOwnProperty()</strong>. The syntax us <strong>Object.hasOwn(object, propertyName)</strong> - you pass the object as the first argument and the property name as the second.
+        </p>
+        <p>
+            Here is a basic example:
+        </p>    
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30
+        };
+
+        console.log(Object.hasOwn(person, "name"));  // true
+        console.log(Object.hasOwn(person, "job"));  // false
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>Object.hasOwn(person, "name")</strong> return <strong>true</strong> because <strong>name</strong> exist directly on the <strong>person</strong> object. <strong>Object.hasOwn(person, "job")</strong> returns <strong>false</strong> because <strong>job</strong> was never added to the object.
+        </p>
+        <p>
+            A very important thing to understand is that <strong>Object.hasOwn()</strong> only checks if the property <b>exist</b> -it does not care about the property's value. This means it still returns <strong>true</strong> even when the value is <strong>0</strong>, <strong>false</strong>, <strong>null</strong>, or <strong>undefined</strong>:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const user = {
+            username: "coder123",
+            score: 0,
+            isActive: false,
+            nickname: null
+        };
+
+    // Object.hasOwn() correctly reports these all exist
+    console.log(Object.hasOwn(user, "score"));  // true (value is 0, but property exists)
+    console.log(Object.hasOwn(user, "isActive"));  // (value is false, but property exists)
+    console.log(Object.hasOwn(user, "nickname")); // true (value is null, but property exists)
+    console.log(Object.hasOwn(user, "email"));   // false (property was never added)
+
+    // Danger! Using if() directly gives wrong result for falsy values
+    if(user.score) {
+        console.log("Has score:");   // This will NOT print even though score exists!!!
+    }
+
+    // Safe! Object.hasOwn() gives correct result
+    if (Object.hasOwn(user, "score")) {
+        console.log("Has score:", user.score);  // Has score: 0
+    }
+        </code>
+        </pre>
+        <p>
+            Another way to check for the existence of a property in an object is to use the <strong>in</strong> operator. Like <strong>hasOwnProperty()</strong>, the <strong>in</strong> operator will return <strong>true</strong> if the property exists on the object. Here's how you can use it:
+        </p>
+        <pre class="code-box">
+            <code>
+    JS
+        const person = {
+            name: "Bob",
+            age: 25
+        };
+
+        console.log("name" in person); // true
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>"name" in person</strong> returns <strong>true</strong> because <strong>name</strong> is a property of <strong>person</strong>.
+            <p>
+                The third method involves checking if a property is <strong>undeffined</strong>. This approach can be useful, but it has some limitations. Here's an example:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        const car = {
+            brand: "Toyota",
+            model: "Prius",
+            year: 2014
+        }
+
+    console.log(car.brand !== undefined); // true
+    console.log(car.color !== undefined); //
+            </code>
+            </pre>
+            <p>
+                In this code, we check if <strong>car.brand</strong> and <strong>car.color</strong> are not <strong>undefined</strong>. This works because accessing a non-existent property on an object returns <strong>undefined</strong>. However, this method can give false negatives if a property explicitly has the value <strong>undefined</strong>
+            </p>
+            <p>
+                In practice, the choice between these methods often depends on the specific requirements of your code. Understanding the differences between them will help you make the right choice in different scenarios.
+            </p>
             </section>
             <section id="section4">
                 <h3>
                     How do you work with accessing properties from nested objects and Arrays in Objects?
                 </h3>
+                <h4>LESSON</h4>
+        <p>
+            When working with JS, you'll often encounter complex data structures that involve nested objects and arrays within objects. These structures can represent rich, hierarchical data, but they also require a clear understanding of how to access and manipulate the data within them. Let's explore how to navigate these nested structures effectively.
+        </p>
+        <p>
+            Accessing properties from nested objects involves using the dot notation of bracket notation, much like accessing properties from simple objects. However, you'll need to chain these accessors to drill down into the nested structure.
+        </p>
+        <p>
+            For example, let's consider a nested object representing a person with contact information:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30,
+            contact: {
+                email: "alice@example.com",
+                phone: {
+                    home: "123-456-7890",
+                    work: "098-765-4321"
+                }
+            }
+        };
+        </code>
+        </pre>
+        <p>
+            To access <strong>Alice</strong>'s work phone number, you would chain the property accessors like this:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30,
+            contact: {
+                email: "alice@example.com",
+                phone: {
+                    home: "123-456-7890",
+                    work: "098-765-4321"
+                }
+            }
+        };
+
+        console.log(person.contact.phone.work); 
+        // "098-765-4321"
+        </code>
+        </pre>
+        <p>
+            You can also use bracket notation, which is particularly useful when property names include spaces or special characters, or when you're using variables to access properties:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice ",
+            age: 30,
+            contact: {
+                email: "alice@example.com",
+                phone: {
+                    home: "123-456-7890",
+                    work: "098-765-4321"
+                }
+            }
+        };
+    console.log(person['contact']['phone']['work']); // "098-765-4321"
+        </code>
+        </pre>
+        <p>
+            Now, let's take a look at how we can access data where one of the object properties has the value of an array. Here is a modified <strong>person</strong> object that includes an array of addresses:
+        </p>
+        <pre class="code-box">
+        <code>
+    const person = {
+        name: "Alice",
+        age: 30,
+        addresses: [
+            {type: "home", street: "123 Main St", city: "Anytown"},
+            {type: "work", street: "123 Work St", city: "Workville"},
+        ]
+    };
+        </code>
+        </pre>
+        <p>
+            Here is an example of how to access <strong>Alice</strong>'s work address city:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: "Alice",
+            age: 30, 
+            addresses: [
+            {type: "home", street: "123 Main St", city: "Anytown"},
+            {type: "work", street: "123 Work St", city: "Workville"},
+            ]
+        };
+
+    console.log(person.addresses[1].city);  
+    // we getting in position of second item with index of 1 and acces to city
+    // Workville
+        </code>
+        </pre>
+        <p>
+            In this example, <strong>person.addresses</strong> refers to the array of addresses. To access the second address in that array, we use bracket notation and index <strong>1</strong>. Then, we use dot notation to access the <strong>city</strong> from that address object.
+        </p>
+        <p>
+            Understanding how to access properties in nested objects and arrays is essential when working with complex data structures. In future workshops and labs, you will have the opportunity to practice working with these types of data structures.
+        </p>
             </section>
             <section id="section5">
                 <h3>
                     What is the difference between primitive and non-primitive data types?
                 </h3>
+                <h4>LESSON</h4>
+                <p>
+                    In JS, understanding the difference between promitive and non-primitive data types is important for writing efficient and bug-free code.
+                </p>
+                <p>
+                    These two categories of data types behave differently in terms of how they are stored in memory and how they are manipulated in your programs.
+                </p>
+                <p>
+                    Primitive data types are the simplest form of data in JS. They include number, bigint, string, boolean, <strong>null</strong>, <strong>undefined</strong>, and symbol. These types are called "primitive" because they represent single values and are not objects.
+                </p>
+                <p>
+                    When you work with primitive data types, you're dealing directly with their values. For example, when you create a variable with a primitive value, that value is stored directly in the variable.
+                </p>
+                <p>
+                    Primitive values are immutable, which means once they are created, their value cannot be changed. However, you can reassign a new value to the variable. Here's an example of working with primitive data types:
+                </p>
+            <pre class="code-box">
+            <code>
+    JS
+        let num1 = 5;
+        let num2 = num1;
+        num1 = 10;
+
+        console.log(num2); // 5
+            </code>
+            </pre>
+    <p>
+        In this example, we are assigning a primitive value (<strong>5</strong>) form <strong>num1</strong> to <strong>num2</strong>. This creates an independent copy of the value. As a result, any changes made to the original variable (<strong>num1</strong>) do not affect the copy (<strong>num2</strong>).
+    </p>
+    <p>
+        Non-primitive data types, on the other hand, are more complex. In JS, these are objects, which include regular objects, arrays, and functions. Unlike primitives, non-primitive types can hold multiple values as properties or elements.
+    </p>
+    <p>
+        When you create a variable with a non-primitive value, what's stored in the variable is actually a reference to the location in memory where the object is stored, not the object itself. This leads to some important differences in behavior. Here's an example with non-primitive types:
+    </p>
+    <pre class="code-box">
+    <code>
+JS
+    const originalPerson = { name: "John", age: 30 }
+    const copiedPerson = originalPerson;
+
+    originalPerson.age = 41;
+    console.log(copiedPerson.age);  // 41
+    </code>
+    </pre>
+    <p>
+        In this example we have an object called <strong>originalPerson</strong> with two properties of <strong>name</strong> and <strong>age</strong>. We then assign the <strong>originalPerson</strong> object to a variable called <strong>copiedPerson</strong>.
+    </p>
+    <p>
+        Then we update the <strong>age</strong> value to the <strong>originalPerson</strong> object. When we log the <strong>age</strong> property of <strong>copiedPerson</strong> object is shown the updated value.
+    </p>
+    <p>
+        But why is that happening? This occurs because both <strong>originalPerson</strong> and <strong>copiedPerson</strong> are regferencing the same object in memory.
+    </p>
+    <p>
+        In JS, when you assign an object to another variable, you're copying the reference to the object, not the object ittself. This is known as shallow copying by reference. As a result, any changes made to the object through one reference are reflected in all references to that object.
+    </p>
+    <p>
+        As you continue to work with JS, you'll encounter many situations where understanding the difference between primitive and non-primitive types is important. It's a fundamental concept that underlines many aspects of the language and is key to writing efficient and correct code.
+    </p>
             </section>
             <section id="section6">
                 <h3>
-                    What is the Difference between  functions and object methods?
+                    What is the Difference between  Functions and Object Methods?
                 </h3>
-            </section>
-            <section id="section7-+">
+                <h4>LESSON</h4>
+                <p>
+                    In JS, functions and object methods are both ways to encapsulate reusable code, but they have some key differences in how they are defined, used, and the context in which they operate. Understanding these differences is crucial for writing effective and organized JS code.
+                </p>
+                <p>
+                    As you learned in earlier modules, functions are reusable blocks of code that perform a specific task:
+                </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+    console.log(greet("Alice")); // "Hello, Alice!"
+    </code>
+    </pre>
+    <p>
+       Object method, on the other hand, are functions that are associated with an object. They are defined as properties of an object and can access and manipulate the object's data. Here's an example of an object with a method: 
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        const person = {
+            name: "Bob",
+            age: 30,
+            sayHello: function() {
+                return "Hello, my name is " + this.name;                
+            }
+        };
 
+    console.log(person.sayHello()); // "Hello, my name is Bob"
+    </code>
+    </pre>
+    <p>
+        In this example, <strong>sayHello</strong> is a method of the <strong>person</strong> object. The <strong>this</strong> keyword allows the <strong>sayHello</strong> method to access the properties of the object named <strong>person</strong>. You will learn more about the <strong>this</strong> later.
+    </p>
+    <p>
+        A difference between functions and methods is how they are invoked. Functions are called by their name, while methods are called using dot notation on the object they belong to. For example, we call the <strong>greet</strong> function as <strong>greet("Alice")</strong>, but we call the <strong>sayHello</strong> method as <strong>person.sayHelo()</strong>.
+    </p>
+    <p>
+        Another important differenceis the context in which they operate. Regular functions have their own scope, but they don't have a built-in reference to any particular object. Methods, however, are bound to their object and can access its properties and other methods using the <strong>this</strong> keyword.
+    </p>
+    <p>
+        A key point to note is that, methods help in organizing code into logical objects, while functions are used for more general, reusable code.
+    </p>
+    <p>
+        Understanding the difference between function and object methods is important as you progress in your JS journey. While they may seem similar at first, recognizing when to use each will help you write more organized, efficient, and better code.
+    </p>
+            </section>
+            <section id="section7">
+                <h3>
+                    What is the Object() Consttructor, and when should you Use it?
+                </h3>
+                <h4>LESSON</h4>
+                <p>
+                    In JS, a constructor is a special type of function used to create and initialize objects. It is invoked with the <strong>new</strong> keyword and can initialize properties and methods on the newly created object.
+                </p>
+                <p>
+                    In this lesson, we will take a look at how to work with the <strong>Object()</strong> constructor. The <strong>Object()</strong> constructor creates a new empty object. Here is an example:
+                </p>
+                <p>
+                    <strong>new Object()</strong>
+                </p>
+                <p>
+                    When you call <strong>new Object()</strong>, it returns a new object that can be used to store values.
+                </p>
+                <p>
+                    The <strong>Object()</strong> constructor can be used with or without the <strong>new</strong> keyword. When called as a function without <strong>new</strong>, it behaves differently depending on the type of value passed to it. Here's an example of using the <strong>Object()</strong> constructor without the <strong>new</strong> keyword:
+                </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const num = 42;
+        const numObj = Object(num); // Creates an object wrapper for the number
+
+        console.log(numObj);
+        console.log(typeof numObj); // "object"
+        </code>
+        </pre>
+        <p>
+            As you can see in the second <strong>console.log</strong>, <strong>numObj</strong> is an object. This is happening because we used the <strong>Object()</strong> constructor to turn that input of a number into an object.
+        </p>
+        <p>
+            What happens if we try to pass <strong>null</strong> or <strong>undefined</strong> to the <strong>Object()</strong> constructor?
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const newObj = new Object(undefined);
+        console.log(newObj);  // {}
+        </code>
+        </pre>
+        <p>
+            Well, the result will be an empty object. Another use case for the <strong>Object()</strong> constructor is when you're working with a value of unknown type and you need to ensure it's an object. Let's take a look at the following example:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        function toObject(value) {
+            if (value === null || value === undefined) {
+                return {};
+            }
+
+            if (typeof value === "object") {
+                return value;
+            }
+          return Object(value);
+
+        }
+
+        console.log(toObject(null));
+
+        console.log(toObject(true));
+
+        console.log(toObject([1, 2, 3]));
+        </code>
+        </pre>
+        <p>
+            In this example, we have a ffunction called <strong>toObject</strong>. The second condition will check if the value is a type of object and will return the value if the condition is <strong>true</strong>. This condition will check for objects as well as arrays since arrays are special types of objects.
+        </p>
+        <p>
+            If neither of the conditions is true, the function returns <strong>Object(value)</strong>, which converts the input into an object. This works for values like numbers, strings, and booleans.
+        </p>
+        <p>
+            Most of the time you will not be using the <strong>Object()</strong> constructor to create new object because you will be using object literal syntax instead (e.g., <strong>const objectLiteral = {name: "Beau" }</strong>). But it is still good to understand the basic of working with the Obect constructor.
+        </p>
             </section>
         </article>
+        <article>
+            <h3>Build a Wildlife Tracker</h3>
+            <p>
+                In this workshop, you will build a simple WIldlife Tracker using JavaScript objects. You will practice creating objects, accessing and updating properties, removing properties, checking for property existence, and working with bracket notation.
+            </p>
+            <pre class="code-box">
+            <code>
+// create an animals
+const tiger = {
+    species: "Tiger",
+    age: 5,
+    isEndangered: true
+};
 
+const elephant = {
+    species: "Elephant",
+    age: 10,
+    isEndangered: true
+};
+// create function to get animal species name
+const getSpecies = (animal) => {
+    return animal.species;
+};
+
+console.log(getSpecies(tiger));
+
+// create function to get animal age
+const getAge = (animal) => {
+    return animal.age;
+};
+
+console.log(getAge(tiger));
+
+// create function to create animal habitat 
+const addHabitat = (animal, habitat) => {
+    animal.habitat = habitat;
+  return animal;
+};
+
+console.log(addHabitat(tiger, "Rainforest"));
+
+// create funciton to update age of animal
+const updateAge = (animal, newAge) => {
+    animal.age = newAge;
+  return animal;
+};
+
+console.log(updateAge(elephant, 12));
+
+// create function to delete unnecessary  ect.
+const removeEndangeredStatus = (animal) => {
+    delete animal.isEndangered;
+  return animal;
+};
+
+console.log(removeEndangeredStatus(tiger));
+
+// checking hasOwnProperty for object
+const hasHabitat = (animal) => {
+      return animal.hasOwnProperty("habitat");
+};
+
+console.log(hasHabitat(tiger));
+console.log(hasHabitat(elephant));
+
+// create bracket notation access to any property 
+const getProperty = (animal, propertyName) => {
+        return animal[propertyName]
+    }
+console.log(getProperty(tiger, "species"));
+console.log(getProperty(elephant, "age"));
+            </code>
+            </pre>
+        </article>
+        <article>
+            <h3>
+                Build a Cargo Manifest Validator
+            </h3>
+            <p>
+                In this lab, you will use JavaScript to normalize and validate cargo manifests. A cargo manifest is a document that typicaly lists goods being transported ( ffor example, by ship, or train) and includes details about those goods.
+            </p>
+            <p>
+                Each cargo manifest will be represented as an object with the following properties:
+            </p>
+            <ul class="custom-list">
+                <li>
+                    <strong>containerId</strong>: a positive integer identifying the associated cargo container.
+                </li>
+                <li>
+                    <strong>destination</strong>: a non-empty string (after trimming whitespace) denoting the cargo's target destination.
+                </li>
+                <li>
+                    <strong>weight</strong>: a positive number representing the cargo's weight.
+                </li>
+                <li>
+                    unit: a string describing the units for the Cargo's weight property (either <b>"kg"</b> for kilograms or <b>lb</b> for pounds).
+                </li>
+                <li>
+                    <strong>hazmat</strong>: a boolean value indicating whether hazardous material handling is needed.
+                </li>
+            </ul>
+            <p>
+                Example cargo manifest object:
+            </p>
+            <pre class="code-box">
+            <code>
+    {
+        containerId: 1,
+        destination: "Montrey, California, USA",
+        weight: 831,
+        unit: "lb",
+        hazmat: false
+    }
+            </code>
+            </pre>
+    <p>
+        <b>Objective:</b> Fulfil the user stories below and ger all the tests to pass to complete the lab
+    </p>
+    <p>
+        <b>
+            User Stories:
+        </b>
+        <ol class="custom-list">
+            <li>
+                You should implement a function named <strong>normalizeUnits</strong> with a <strong>manifest</strong> parameter.
+            </li>
+            <ul>
+                <li>
+                    The function must not mutate the original manifest object and must always return a new object where <strong>weight</strong> is normalized to kilograms and <strong>unit</strong> is set to <strong>"kg</strong>.
+                </li>
+                <li>
+                    If the weight of the manifest ibject is expressed in pounds (<strong>unit: "lb"</strong>), the function should convert the <strong>weight</strong> to kilograms using the appropriate conversion, 1lb = 0,45kg, and update the <strong>unit</strong> accordingly.
+                </li>
+                <li>
+                    If the weight is already expressed in kilograms (<strong>unit: "kg"</strong>), the <strong>weight</strong> and <strong>unit</strong> should remain unchanged.
+                </li>
+            </ul>
+            <li>
+                You should implement a function named <strong>validateManifest</strong> with a <strong>manifest</strong> parameter.
+            </li>
+            <ul>
+                <li>
+                    The function must not mutate the original manifest object and must always return a new object.
+                </li>
+                <li>
+                    If the input manifest is valid (nomissing or invalid properties), the function should return an empty object.
+                </li>
+                <li>
+                    If the manifest is not valid, the function should return an object containing entries for each missing or invalid property. Missing properties should have the value <strong>"Missing</strong> and invalid properties should have the value <strong>"Invalid"</strong>.
+                </li>
+                </ul>
+                <p>
+                    Example return value where the input object is missing the <strong>destination</strong> property and has an invalid <strong>weight</strong> property.
+                </p>
+                <pre class="code-box">
+                <code>
+    {
+        destination: "Missing",
+        weight: "Invalid"
+    }
+                </code>
+                </pre>
+
+                <li>
+                    You should implement a function named <strong>processManifest</strong> with a <strong>manifest</strong> parameter. The function should log:
+                </li>
+
+                <uL>
+                    <li>
+                        If the manifest object is valid, <strong>Validation success : ${containerId}</strong> and then the manifest's weight in kilograms as such, <strong>Total weight: ${weight} kg</strong>. Use <strong>normalizeUnits()</strong> for this conversion.
+                    </li>
+                    <li>
+                        If the manifest object is not valid, <strong>Validation error: ${containerId}</strong> and then the object returned by calling <strong>validateManifest()</strong> with the manifest object.
+                    </li>
+                </uL>
+        </ol>
+        </article>
         </main>
 
         </body>
