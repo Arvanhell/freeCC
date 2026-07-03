@@ -843,6 +843,100 @@ console.log(getProperty(elephant, "age"));
                     </li>
                 </uL>
         </ol>
+        <pre class="code-box">
+        <code>
+    const cargoObject = {
+        containerId: 100,
+        destination: "Berlin, Europe",
+        weight: 500,
+        unit: "lb",
+        hazmat: false
+    };
+              
+    function normalizeUnits(manifest) {
+        const newManifest = {...manifest};
+                
+        if ( newManifest.unit === "lb" ) {
+            newManifest.weight = newManifest.weight * 0.45;
+            newManifest.unit = "kg";
+            }
+          return newManifest;
+        }
+              
+              
+    function validateManifest(manifest) {
+        const errors = {};
+              
+        // 1. containerId: Musi istnieć, być liczbą całkowitą i > 0
+        if (!('containerId' in manifest)) {
+            errors.containerId = "Missing";
+            } else if (!Number.isInteger(manifest.containerId) || manifest.containerId <= 0) {
+            errors.containerId = "Invalid";
+            }
+              
+        // 2. destination: Musi istnieć, być stringiem i nie być pustym po trim()
+        if (!('destination' in manifest)) {
+            errors.destination = "Missing";
+            } else if (typeof manifest.destination !== 'string' || manifest.destination.trim() === "") {
+            errors.destination = "Invalid";
+        }
+              
+        // 3. weight: Musi istnieć, być liczbą, nie być NaN i być > 0
+        if (!('weight' in manifest)) {
+            errors.weight = "Missing";
+            } else if (typeof manifest.weight !== 'number' || Number.isNaN(manifest.weight) || manifest.weight <= 0) {
+            errors.weight = "Invalid";
+        }
+              
+        // 4. unit: Musi istnieć i być dokładnie "kg" lub "lb"
+        if (!('unit' in manifest)) {
+            errors.unit = "Missing";
+            } else if (manifest.unit !== "kg" && manifest.unit !== "lb") {
+            errors.unit = "Invalid";
+        }
+              
+        // 5. hazmat: Musi istnieć i być typem boolean (true/false)
+        if (!('hazmat' in manifest)) {
+            errors.hazmat = "Missing";
+            } else if (typeof manifest.hazmat !== 'boolean') {
+            errors.hazmat = "Invalid";
+        }
+              
+         return errors;
+        }
+                   
+              
+    function processManifest(manifest) {
+        // 1. Kierownik pyta bramkarza o raport (validateManifest)
+        const errors = validateManifest(manifest);
+              
+        // 2. Sprawdzamy: czy obiekt 'errors' jest pusty?
+        // Object.keys(errors).length === 0 oznacza, że nie ma żadnych błędów.
+        if (Object.keys(errors).length === 0) {
+                  
+        // Scenariusz SUKCES:
+        // A. Logujemy sukces z ID
+        console.log(`Validation success: ${manifest.containerId}`);
+                  
+        // B. Konwertujemy jednostki za pomocą Twojej funkcji
+        const normalized = normalizeUnits(manifest);
+                  
+        // C. Logujemy wagę
+        console.log(`Total weight: ${normalized.weight} kg`);
+                  
+        } else {
+                  
+        // Scenariusz BŁĄD:
+        // A. Logujemy błąd z ID (nawet jeśli undefined)
+        console.log(`Validation error: ${manifest.containerId}`);
+                  
+        // B. Logujemy cały obiekt z błędami, który dostałeś od bramkarza
+        console.log(errors);
+        }
+    }
+              
+        </code>
+        </pre>
         </article>
         </main>
 
