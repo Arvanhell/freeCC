@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>JavaScript</title>
+    </head>
+    <body>
+     <nav>
+      <ul>
+        <li><a href="index.html/#home">Home</a></li>
+              <!--li><a href="js-notes.html">JS Notes</a></li-->
+              <!--li><a href="about.html">About Me</a></li-->
+        </ul>
+     </nav>
+     <main>
+        <h1>Loops</h1>
+        <ol>
+            <li>
+                <h4>
+                     Working with Loops   
+                </h4>
+            </li>
+            <ul class="custom-list">
+                <li>
+                    <a href="#section1">
+                        How do Loops and iteration work in JavaScript?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section2">
+                        How does the For...of Loop work, and when should you use it?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section3">
+                        What is the For...in Loop, and when should you use it?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section4">
+                        What is a While loop, and how does it differ from the Do...while Loop?
+                    </a>
+                </li>
+                <li>
+                    <a href="#section5">
+                        What are the break and continue Statements used for in Loops?
+                    </a>
+                </li>
+            </ul>
+        </ol>
+        <article>
+            <h2>Loops</h2>
+            <p>
+                Loops are an essential part of JavaScript. That's why the following lectures have been prepared for you to learn about the different types of loops and how they work, and how iteration works.
+            </p>
+            <section id="section1">
+                <h3>
+                    How to loops and iteration work in JavaScript?
+                </h3>
+                <h4>LESSON</h4>
+        <p>
+            Loops in programming are used to repeat a block of code multiple times.
+        </p>
+        <p>
+            An example of a loop would be when you are designing a program that needs to print out a list of items. You could use a loop to print out each one of the items in the list.
+        </p>
+        <p>
+            Another example would be when you are designing a game and you want to move a character across the screen. You could use a loop to move the character a certain number of pixels each time the loop runs.
+        </p>
+        <p>
+            In JavaScript, there are several types of loops that you can use. In this lesson, we will cover the <strong>for</strong> loop. Here is the basic syntax for a <strong>for</strong> loop:
+        </p>
+        <p>
+            <b>
+                for (initialization; condition; increment or decrement) {
+                <br>
+                    // the block to be executed
+                    <br>
+                }
+            </b>
+        </p>
+        <p>
+            The initialization statement is executed before the loop start. It is typicaly used to initialize a counter variable. A counter variable is a variable that is used to keep track of how many times the loop has run.
+        </p>
+        <p>
+            The condition statement is evaluated before  each iteration of the loop. An iteration is a single pass through the loop.
+        </p>
+        <p>
+            If the condition is true, the code block inside the loop is executed. If the condition is false, the loop stops and you move on to the next block of code.
+        </p>
+        <p>
+            The last part of the loop is the increment/ decrement statement. This statement is executed after each iteration of the loop. It is typically used to increment or decrement the counter variable.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        for (let i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        </code>
+        </pre>
+        <p>
+            In the first part of example above, we initialize a counter variable <strong>i</strong> to <strong>0</strong>. It is common convention to use <strong>i</strong> as the counter variable in a <strong>for</strong> loop
+        </p>
+        <p>
+            The next part is to check the condition. In this case, the condition is checking if <strong>i</strong> is less than <strong>5</strong>. Since <strong>i</strong> is <strong>0</strong>, the condition is true, and the code block inside the loop is executed. 
+        </p>
+        <p>
+            The code block inside the loop is to long the value of <strong>i</strong> to the console. The value of <strong>i</strong> is <strong>0</strong>, so the console will show the value of <strong>0</strong>.
+        </p>
+        <p>
+            Then the increment statement is executed. In this case, we are incrementing <strong>i</strong> by <strong>1</strong>. So <strong>i</strong> is now <strong>1</strong>.
+        </p>
+        <p>
+            Then we check the condition again which is to check if <strong>i</strong> is less than <strong>5</strong>. Since <strong>i</strong> is now <strong>1</strong>, the condition is still true, and the code block inside the loop is executed again.
+        </p>
+        <p>
+            We keep repeating this process until the condition is false. In this case, when <strong>i</strong> is <strong>5</strong>, the condition is false, and the loop stops.
+        </p>
+        <p>
+            When you're working with loops you should be careful not to create a condition that is always true. If you do, the loop will run forever and your program will crash. This is known as an infinite loop.
+        </p>
+        <p>
+            It is possible to create nested <strong>for</strong> loops. A nested loop is when you place one loop inside of another. We will see examples of when you might want to do this later on.
+        </p>
+        <p>
+            Loops can be beneficial in programming when you need to repeat a block of code a certain number of times. Even though working with <strong>for</strong> loops can be tricky at first, with practice you will get the hang of it.
+        </p>
+            </section>
+            <section id="section2">
+            <h3>How does the For...of Loop work, and when should you use it?</h3>
+        <h4>LESSON</h4>
+        <p>
+            A <strong>for...of</strong> loop is used when you need to loop over values from an iterable. Examples of iterables would be arrays, and strings.
+        </p>
+        <p>
+            Here is basic syntax for a <strong>for...of</strong> loop:
+        </p>
+        <p>
+            <b>
+                for (variable of iterable) {
+                    <br>
+                    // code block to be executed
+                    <br>
+                }
+            </b>
+        </p>
+        <p>
+            The variable in the example represents the current value of the iterable that is being looped over.
+        </p>
+        <p>
+            If you have an array of numbers, the variable would be the current number in the array. If you have a string, the variable would be the current character in the string.
+        </p>
+        <p>
+            Let's take a look at a few examples so you can better understand how th <strong>for...of</strong> loop works.
+        </p>
+        <p>
+            In this first example we have an array of numbers and we want to loop over each number and log it to the console.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const numbers = [1, 2, 3, 4, 5];
+
+        for (const num of numbers) {
+            console.log(num);
+        }
+        </code>
+        </pre>
+        <p>
+            We have created a variable called <strong>num</strong> that will represent the current number in the array. For iteration 1, <strong>num</strong> will be <strong>1</strong>, for iteration 2, <strong>num</strong> will be <strong>2</strong>, and so on.
+        </p>
+        <p>
+            Inside the loop, we are logging the current number to the console.
+        </p>
+        <p>
+            Here is another example where we have a string and we want to loop over each character and lof it to the console.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const str = 'freeCodeCamp';
+
+        for (let char of str) {
+            console.log(char);
+        }
+        </code>
+        </pre>
+        <p>
+            In this example, we have created a variable called <strong>char</strong> that will represent the current character in the string.
+        </p>
+        <p>
+            For each iteration, the loop will log the current character to the console.
+        </p>
+        <p>
+            It is important to note that you can use <strong>let</strong>, or <strong>const</strong> when declaring the variable in a <strong>for...of</strong> loop.
+        </p>
+        <p>
+            If you are going to use <strong>const</strong> though, make sure that the value of the variable inside the loop, use <strong>let</strong> instead.
+        </p>
+        <p>
+            Let's take a look at one last example dealing with an array of objects.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const people = [
+        { name: 'John', age: 30 },
+        { name: 'jane', age 25 },
+        { name: 'Jim', age: 40 }
+        ];
+
+    for (const person of people) {
+        console.log(`${person.name} is ${person.age} years old`);
+    }
+        </code>
+        </pre>
+        <p>
+            In this example, we have an array of objects called <strong>people</strong>. Each object has a <strong>name</strong> and <strong>age</strong> property.
+        </p>
+        <p>
+            When we loop through the array, we create a variable called <strong>person</strong> that will represent the current object in the array.
+        </p>
+        <p>
+            Inside the loop, we are outputting a message to the console.
+        </p>
+        <p>
+            The first message will be <strong>John is 30 years old</strong>, the second message will be <strong>Jane is 25 years old</strong>, and the third message will be <strong>Jim is 40 years old</strong>.
+        </p>
+        <p>
+            <strong>for...of</strong> loops are really useful when you need to loop over values from an iterable like an array or a string. They are also easy to read and can make your code more concise.
+        </p>
+            </section>
+            <section id="section3">
+            <h3>What is the For...in Loop, and when you use it?</h3>
+            <h4>LESSON</h4>
+        <p>
+            A <strong>for...in</strong> loop is best used when you need to loop over the properties of an object. This loop will iterate over all enumerable properties of an object, including inherited properties and non-numeric properties.
+        </p>
+        <p>
+            An inherited property is property that is inherited from the object's proptotype chain. a non-numeric property is a property that is not a number or a string that can be converted to a number.
+        </p>
+        <p>
+            Here's the basic syntax of a <strong>for...in</strong> loop:
+        </p>
+        <p>
+            <b>
+                for (variable in object) {
+                    <br>
+                    //code block to be executed
+                    <br>
+                }
+            </b>
+        </p>
+        <p>
+            The variable in the example represents the current property of the object tha is being looped over.
+        </p>
+        <p>
+            Let's take a look at a few examples so you can better understand how the <strong>for...in</strong> loop works.
+        </p>
+        <p>
+            In this rirst example we have a <strong>fruit</strong> object and we want to loop over each property an log the value to the console.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const fruit = {
+            name: 'apple',
+            color: 'red',
+            price: 0.99
+        };
+
+        for (const prop in fruit) {
+            console.log(fruit[prop]);
+        }
+        </code>
+        </pre>
+        <p>
+            The <strong>prop</strong> variable represents the current property of the object. <strong>fruit[prop]</strong> is used to access the value of each property.
+        </p>
+        <p>
+            For the first iteration, <strong>prop</strong> will be <strong>name</strong>. For the second iteration, <strong>prop</strong> will be <strong>color</strong>, and so on.
+        </p>
+        <p>
+            The result logged to the console will be <strong>apple</strong>, <strong>red</strong>, and <strong>0.99</strong>.
+        </p>
+        <p>
+            In this second example, we have a nested object and we want to loop over each property and log the value to the console.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: 'John',
+            age: 30,
+            address: {
+                street: '123 Main St',
+                city: 'Anytown',
+                state: 'CA'
+            }
+        };
+
+        for (const prop in person) {
+            console.log(person[prop])
+        }
+        </code>
+        </pre>
+        <p>
+            The <strong>address</strong> property is an object itself. The <strong>for...in</strong> loop will also loop over the properties of the <strong>person</strong> object and log the entire <strong>address</strong> object to the console.
+        </p>
+        <p>
+            here is what the result will look like in the console:
+        </p>
+        <p>
+            <b>
+                John
+                <br>
+                30
+                <br>
+                { street: '123 Main St', city: 'Anytown', state: 'CA' }
+            </b>
+        </p>
+        <p>
+            If you want to loop over the properties of the <strong>address</strong> object, you can nest another <strong>for...in</strong> loop inside the first one.
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        const person = {
+            name: 'John',
+            age: 30,
+            address: {
+                street: '123 Main St',
+                city: 'Anytown',
+                state: 'CA'
+            }
+        };
+
+    function isObject(obj) {
+        return typeof obj === 'object' && !Array.isArray(obj) && obj !== null;
+    }
+
+    for (const prop in person) {
+        if (isObject(person[prop])) {
+            for (const nestedProp in person[prop]) {
+                console.log(person[prop][nestedProp]);
+            }
+        } else {
+            console.log(person[prop]);
+        }
+    }
+        </code>
+        </pre>
+        <p>
+            In this example, we have a custom function <strong>isObject</strong> that check if the value is an objbect.
+        </p>
+        <p>
+            The <strong>Array.isArray</strong> methid is used to check if the value is an array. By placing the logical NOT operator (<strong>!</strong>) in front of the method, we are checking if the value is not array.
+        </p>
+        <p>
+            The reason why we can't just use <strong>typeof</strong> equals <strong>'object'</strong> is because arrays are also considered objects in JavaScript. We want to exclude arrays from the check.
+        </p>
+        <p>
+            Also, due to a historical bug in JavaScript, <strong>typeof null</strong> returns <strong>'object'</strong>. So we want to also exclude <strong>null</strong> values from the check.
+        </p>
+        <p>
+            If the condition is true, we nest another <strong>for...in</strong> loop that will loop over the properties of the nested object and log the value to the console.
+        </p>
+        <p>
+            The <strong>nestedProp</strong> variable represents the current property of the nested object.
+        </p>
+        <p>
+            Here is what the modified resul will look like in the console:
+            <b>
+                'John'<br>
+                30<br>
+                '123 Main St'<br>
+                'Anytown'<br>
+                'CA'
+            </b>
+        </p>
+        <p>
+            A <strong>for...in</strong> loop is useful when you need to loop over the properties of an object.
+        </p>
+        <p>
+            It is not recommended to use a <strong>for...in</strong> loop to loop over the elements of an array. Insted, use a <strong>for...of</strong> loop or other array methods like <strong>forEach</strong>, <strong>map</strong>, <strong>filter</strong>, and <strong>reduce</strong>, which we take lesson later.
+        </p>
+            </section>
+        </article>
+    </main>
+
+    </body>
+    <button id="scrollToTopBtn" title="Wróć na górę">⬆️</button>
+    <script src="script.js"></script>
+    </html>
