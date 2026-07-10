@@ -49,6 +49,26 @@
                     </a>
                 </li>
             </ul>
+            <li>
+                <a href="#build1">
+                    <h4>Build a Word Counter</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build2">
+                    <h4>Build a Sentence Analyzer</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build3">
+                    <h4>Build a Traffic Light Sequencer</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build4">
+                    <h4>Build a Space Mission Roster</h4>
+                </a>
+            </li>
         </ol>
         <article>
             <h2>Loops</h2>
@@ -388,6 +408,681 @@
             It is not recommended to use a <strong>for...in</strong> loop to loop over the elements of an array. Insted, use a <strong>for...of</strong> loop or other array methods like <strong>forEach</strong>, <strong>map</strong>, <strong>filter</strong>, and <strong>reduce</strong>, which we take lesson later.
         </p>
             </section>
+            <section id="section4">
+                <h3>
+                    What is a While Loop, and how does it differ from the Do...while loop?
+                </h3>
+                <h4>LESSON</h4>
+        <p>
+            In previoius lesson, you learned how to work with <strong>for</strong> loops. <strong>for...in</strong> loops and <strong>for...of</strong> loops. In this lesson, you will learn about the <strong>while</strong> loop and the <strong>do...while</strong> loop.
+        </p>
+        <p>
+            A <strong>while</strong> loop will run a block of a code as long as the condition is true. Here is the basic syntax for a <strong>while</strong> loop:
+        </p>
+        <pre class="code-box">
+        <code>
+    While (condition) {
+        // code block to be executed
+    }
+        </code>
+        </pre>
+        <p>
+            The condition is checked before the block of code is executed. If the condition is false, the block of code will not be executed. 
+        </p>
+        <p>
+            <strong>while</strong> loops are useful when you do not know how many times you need to run the block of code. Here is an example of using a <strong>while</strong> loop:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let counter = 0;
+        while (counter < 5) {
+            console.log(counter);
+            counter++;
+        }
+        </code>
+        </pre>
+        <p>
+            In this example, we have a variable called <strong>counter</strong> that is initialized to <strong>0</strong>. The <strong>while</strong> loop will continue to run as long as the value of <strong>counter</strong> is less than <strong>5</strong>. Inside the loop, we log the value of <strong>counter</strong> to the console and then increment <strong>counter</strong> by <strong>1</strong>.
+        </p>
+        <p>
+            Another loop similar to the <strong>while</strong> loop would be the <strong>do...while</strong> loop. Here is the basic syntax:
+        </p>
+        <pre class="code-box">
+        <code>
+    do { 
+        // code block to executed
+    } while (condition);
+        </code>
+        </pre>
+        <p>
+            One key difference between a <strong>do...while</strong> loop and a <strong>while</strong> loop is that the <strong>do...while</strong> loop will execute the block of code at least once before checking the condition.
+        </p>
+        <p>
+            If the condition is true, the block of code of code will continue to execute. If the condition is false, the block of code will stop executing.
+        </p>
+        <p>
+            Here is an example of using a <strong>do...while</strong> loop:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        let counter = 0;
+        do {
+            console.log(counter);
+            counter++;
+        } while (counter < 5);           
+        </code>
+        </pre>
+        <p>
+            In this example, we have a variable called <strong>counter</strong> that is initialized to <strong>0</strong>. The <strong>do...while</strong> loop will log the value of <strong>counter</strong> to the console and then increment <strong>counter</strong> by <strong>1</strong>. After executing the block of code, it checks if the value of <strong>counter</strong> is less than <strong>5</strong>. If it is, the loop will continue to run. If not, the loop will stop.
+        </p>
+        <p>
+            In most cases, you will probably use the <strong>while</strong> loop more often than the <strong>do...while</strong> loop. However, it is good to know both types of loops and when to use them.
+        </p>
+            </section>
+            <section id="section5">
+        <h3>
+            What are the Break and Continue statements used for in loops?
+        </h3>
+        <h4>LESSON</h4>
+        <p>
+            A <strong>break</strong> statement is used to exit a loop early, while a <strong>continue</strong> statement is used to skip the current iteration of a loop and move to the next one.
+        </p>
+        <p>
+            Here is an example of using a <strong>break</strong> statement in a <strong>for</strong> loop:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        for (let i=0; i < 10; i++) {
+            if (i === 5) {
+                break;
+            }
+            console.log(i);
+        }
+        </code>
+        </pre>
+        <p>
+            In the example above, the loop starts counting at <strong>0</strong> and while <strong>i</strong> is less than <strong>10</strong>, the loop will continue to run.
+        </p>
+        <p>
+            Inside the loop, we check if <strong>i</strong> is equal to <strong>5</strong>. If it is, we use the <strong>break</strong> statement to exit the loop early. If not, we log the value of <strong>i</strong> to the console. So the output of the code will print the number <strong>0, 1, 2, 3</strong> and    <strong>4</strong>.
+        </p>
+        <p>
+            The <strong>break</strong> statement is useful when you want to exit a loop early based on a certain condition. For example, if you are searching for a specific value in an array, you can use a <strong>break</strong> statement to exit the loop once you find the value.
+        </p>
+        <p>
+            Sometimes you may want to skip a particular iteration of a loop without exiting the loop entirely. This is where the <strong>continue</strong> statement comes in. Here is an example of using a <strong>continue</strong> statement in a <strong>for</strong> loop:
+        </p>
+        <pre class="code-box">
+            <code>
+    JS
+        for (let i = 0; i < 10; i++) {
+            if (i === 5) {
+                continue;
+            }
+            console.log(i);
+        }
+            </code>
+        </pre>
+        <p>
+            Just like before, we have initialized <strong>i</strong> to <strong>0</strong> and have a condition that will run the loop as long as <strong>i</strong> is less than <strong>10</strong>.
+        </p>
+        <p>
+            Inside the loop, when <strong>i</strong> is equal to <strong>5</strong>, we use the <strong>continue</strong> statement to skip the current iteration and move to the next one.
+        </p>
+        <p>
+            The output of this code will print the numbers <strong>1, 2, 3, 4, 5, 6, 7, 8</strong> and <strong>9</strong>. The number <strong>5</strong> is skipped because of the <strong>continue</strong> statement.
+        </p>
+        <p>
+            Another thing you can do with both the <strong>break</strong> and <strong>continue</strong> statements is to use labels to specify which loop you want to break or continue.
+        </p>
+        <p>
+            This is useful when you have nested loops and you want to control the flow of the outer loop from within the inner loop.
+        </p>
+        <p>
+            Here is an example of using labels with the <strong>berak</strong> statement:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        outerLoop: for (let i = 0; i < 3; i++) {
+            innerLoop: for (let j = 0; j < 3; j++) {
+                if (i === 1 && j === 1) {
+                break outerLoop;
+            }
+            console.log(`i: ${i}, j: ${j}`);
+          }
+        }
+        </code>
+        </pre>
+        <p>
+            In this example, we have an outer <strong>for</strong> loop labeled <strong>outerLoop</strong> and an inner <strong>for</strong> loop labeled <strong>innerLoop</strong>.
+        </p>
+        <p>
+            When <strong>i</strong> is equal to <strong>1</strong> and <strong>j</strong> is equal to <strong>1</strong>, we use the <strong>break</strong> statement with the <strong>outerLoop</strong> label to exit the outer loop early. This will exit both the inner and outer loops.
+        </p>
+        <p>
+            The output of this code will log the following to the console:
+        </p>
+        <pre class="code-box">
+        <code>
+    "i: 0, j: 0"
+    "i: 0, j: 1"
+    "i: 0, j: 2"
+    "i: 1, j: 0"
+        </code>
+        </pre>
+        <p>
+            Most or the time you will not find the need to use labels with the <strong>break</strong> and <strong>continue</strong> statements, but it is good to know that you have that option if you ever need it.
+        </p>
+            </section>
+        </article>
+        <article>
+            <h4 id="build1">Build a Word Counter</h4>
+            <p>
+                In this workshop, you will practice using <strong>for...of</strong> loops by building a function that counts the occurences of a string in an array of string.
+            </p>
+            <p>
+                Before you write that function, you will create a simpler one that logs each character of a string to the console. 
+            </p>
+            <pre class="code-box">
+            <code>
+      function printCharacters(str) {
+            for (const char of str) { 
+                console.log(char); 
+                        } 
+                    }
+
+    printCharacters("hello"); 
+            </code>
+            </pre>  
+<p>
+    In the next few steps, you will build a function that counts how often a string appears in an array of strings.To start, define an empty function named <strong>getMatchedWordCount</strong> with the parameters <strong>sentence</strong> and <strong>match</strong> in that order.
+</p>
+<p>
+    You should call the function getMatchedWordCount with the argument <strong>["I", "really", "really", "really", "like", "to", "code"]</strong> for the sentence parameter and <strong>"really"</strong> for the match parameter.
+</p>
+<pre class="code-box">
+    <code>
+  function getMatchedWordCount(sentence, match) {
+    let count = 0;
+  return count;
+}
+
+console.log(getMatchedWordCount(["I", "really", "really", "really", "like", "to", "code"], "really"));
+    </code>
+</pre>             
+<p>
+    Great, your function returns a <b>0</b>, but it doesn’t count anything yet.To fix this, inside <strong>getMatchedWordCount</strong>, create a <strong>for...of</strong> loop with an empty code block that iterates over each word in sentence.
+</p>             
+<pre class="code-box">
+<code>
+    function getMatchedWordCount(sentence, match) {
+        let count = 0;
+        
+        // Pętla for...of przechodzi po każdym słowie (word) w tablicy (sentence)
+        for (const word of sentence) {
+          // Jeśli słowo w pętli zgadza się z szukanym (match), zwiększ licznik
+          if (word === match) {
+            count++;
+          }
+        }
+        
+        return count;
+      }
+      
+      console.log(
+        getMatchedWordCount(
+          ["I", "really", "really", "really", "like", "to", "code"],
+          "really"
+        )
+      );
+      
+</code>
+</pre>
+<p>
+    Now, inside the loop, log the following template literal to the console: <strong>Checking "${word}" against "${match}" | Running count: ${count}</strong>
+</p>
+<pre class="code-box">
+<code>
+    function printCharacters(str) {
+        for (const char of str) {
+          console.log(char);
+        }
+      }
+      printCharacters("hello");
+      
+      function getMatchedWordCount(sentence, match) {
+        let count = 0;
+      
+        for (const word of sentence) {
+          console.log(`Checking "${word}" against "${match}" | Running count: ${count}`);
+      
+          if (word === match) {
+            count++;
+          }
+        }
+      
+        return count;
+      }
+      
+
+  getMatchedWordCount(
+    ["I", "really", "really", "really", "like", "to", "code"],
+    "really"
+  )
+);
+</code>
+</pre>
+<p>
+    Now it's time to add the logic to your loop that increments <strong>count</strong> appropriately.Inside the loop, use a conditional statement to increment <strong>count</strong> by <strong>1</strong> if the variable <strong>word</strong> equals the variable <strong>match</strong>. Otherwise, leave the value of <strong>count</strong> unchanged.
+</p>
+<pre class="code-box">
+<code>
+    function getMatchedWordCount(sentence, match) {
+        let count = 0;
+        
+        for (const word of sentence) {
+            if (word === match ) {
+          count++;
+             }
+      console.log(`Checking "${word}" against "${match}" | Running count: ${count}`);
+      } 
+  
+      return count;
+  }
+
+  console.log(getMatchedWordCount(["Do", "not", "fear", "the", "dandy", "lion"], "dandy"));
+</code>
+</pre>
+<p>
+    You’ve finished working on your <strong>getMatchedWordCount</strong> function!Now you are going to test it with different data to see how it behaves.Add a new <strong>console.log</strong> statement below the existing one that calls <strong>getMatchedWordCount</strong> with these parameters:• sentence: <strong>["Do", "not", "fear", "the", "dandy", "lion"]</strong>• match:   <strong>"dandy"</strong> Congratulations! You’ve completed this workshop.
+</p>
+        </article>
+        <article>
+            <h4 id="build2">Build a Sentence Analyzer</h4>
+            <p>
+                In this workshop, you'll review how to work with JavaScript loops by building a sentence analyzer app.
+            </p>
+            <p>
+                Analyzer will take a sentence and ger the count for the number of words, vowels, consonants, and punctuation marks.
+            </p>
+        <pre class="code-box">
+        <code>
+    function getVowelCount(sentence) {
+      let count = 0;
+       // budujemy licznik i...
+         // ustawiamy tylko a, e, i, o, u jako nasze samogloski ( vowels)
+      const vowels = "aeiouAEIOU"; 
+
+      for (const char of sentence.toLowerCase()) {
+        if (vowels.includes(char)) {  for (const char of sentence.toLowerCase()) {
+            // liczymy vowels oraz ustawiamy zmienna dla malych liter  toLowerCase
+       count++;
+    }
+  }
+
+  return count;
+  // zwracamy wynik policzonych samoglosek
+}
+// aby pokazac swiatu co nam wyjdzie po zaprezentowaniu jakiegos zdania np
+// 1. Tworzysz zmienną i przypisujesz jej wynik działania funkcji
+const vowelCount = getVowelCount("Apples are tasty fruits");
+
+// 2. Wyświetlasz wynik w konsoli (używamy template stringa, czyli backticków ``)
+console.log(`Vowel Count: ${vowelCount}`);
+ // running test 
+ // Vowel Count: 7
+
+//
+// kolejna czesc zadania budujemy licznik consonants
+//
+
+function getConsonantCount(sentence) {
+    // To są Twoje spółgłoski - znowu, używamy tylko małych, 
+    // bo zaraz użyjemy .toLowerCase()
+    const consonants = "bcdfghjklmnpqrstvwxyz"; 
+    let count = 0;
+  
+    // Przechodzimy przez zdanie zamienione na małe litery
+    for (const char of sentence.toLowerCase()) {
+      // Sprawdzamy czy dany znak jest w naszej liście spółgłosek
+      if (consonants.includes(char)) {
+        count++;
+      }
+    }
+    return count;
+  }
+   // little test it is works 
+   const consonantCount = getConsonantCount("Coding is fun");
+   console.log(`Consonant Count: ${consonantCount}`);
+   
+   // running test 
+   // Consonant Count: 7
+// 
+// budujmey licznik znakow intepunkcyjnych
+//
+
+function getPunctuationCount(sentence) {
+    const punctuations = ".,!?;:-()[]{}\"'–";
+    let count = 0;
+  
+    for (const char of sentence) {
+      if (punctuations.includes(char)) {
+        count++;
+      }
+    }
+    return count;
+  }
+  
+
+const punctuationCount = getPunctuationCount("WHAT?!?!?!?!?");
+console.log(`Punctuation Count: ${punctuationCount}`);
+// running test 
+// Punctuation Count: 9
+
+//
+// liczenie wyrazow
+//
+
+function getWordCount(sentence) {
+    const trimSentence = sentence.trim();
+     if (trimSentence === "") {
+    return 0;
+    }
+    const words = trimSentence.split(" ");
+  return words.length;
+  }
+
+  const wordCount = getWordCount("I love freeCodeCamp");
+  console.log(`Word Count: ${wordCount}`);
+
+  // running test 
+  // Word Count: 3
+        </code>
+        </pre>
+        </article>
+        <article>
+           <h4 id="build3">
+            Build a Traffic Light Sequencer
+           </h4> 
+        <p>
+            In this lab, you will simulate configurable traffic light cycles and log anomalies.
+        </p>
+        <p>
+            You'll work with config objects that describe the phases of a traffic light. Each config object has the following properties:
+        </p>
+        <ul class="custom-list">
+            <li>
+                <strong>fault</strong>: a boolean flag that triggers early termination when <b>true</b>
+            </li>
+            <li>
+                <strong>phases</strong>:  an array of phase objects.
+            </li>
+        </ul>
+        <p>
+            Each phase object inside <strong>phases</strong> has the following properties:
+        </p>
+        <ul class="custom-list">
+            <li>
+                <strong>color</strong>: a string representing the light color (<b>"green"</b>, <b>"yellow"</b>, <b>"red"</b>)
+            </li>
+            <li>
+                <strong>duration</strong>: a positive integer representing how long the phase lasts in seconds.
+            </li>
+        </ul>
+        <p>
+            You can refer to the provident <strong>config1</strong>, <strong>config2</strong>, <strong>config3</strong>, and <strong>config4</strong> objects as examples of possible configuration objects.
+        </p>
+        <p> <b>Note</b>: Do not add any extra console.log() statements, as they may cause the tests to fail.
+        </p>
+        <p>
+            <b>Objective</b>: Fulfil the user stories below and ger all the tests to pass to complete the lab.
+        </p>
+        <p><strong>User Stories</strong></p>
+        <ol class="custom-list">
+            <li>
+                You should have a function named <b>runSequence</b> with two parameters: <b>config</b> and <b>cycles</b>, where <b>config</b> represents a config object and <b>cycles</b> represents the maximum number of times the sequence can run before stopping
+            </li>
+            <li>
+                You should implement <b>runSequence(config, cycles)</b> using <b>for</b> or <b>while</b> loop to iterate through each phase across the given numbers of cycles.
+            </li>
+            <li>
+                The <b>runSequence</b> function should: 
+                <ul class="custom-list">
+                    <li>
+                        log <b>No phases found</b> and immediately return if <b>config.phases</b> is empty.
+                    </li>
+                    <li>
+                        Log <b>Faulted phase!</b> and stop the simulation early if <b>config.fault</b> is set to <b>true</b>.
+                    </li>
+                    <li>
+                        Log <b>Invalid phase detected</b> if <b>duration <= 0</b>.
+                    </li>
+                    <li>
+                        Log <b>Switching to [color] for [duration]s</b> for each valid phase. Replace <b>[color]</b> and <b>[duration]</b> with the corresponding properties of the phase object.
+                    </li>
+                    <li>
+                        For example, <b>runSequence(config, 1)</b> should log
+                    </li>
+                    <p>
+                        <b>
+                            Switching to green for 5 s <br>
+                            Switching to yellow for 2 s <br>
+                            Switching to red for 4 s
+                        </b>
+                    </p>
+                </ul>
+            </li>
+        </ol>
+        <ol class="custom-list">
+            <li>
+                You should have a function named <b>generateTimeLine</b> with two parameters: <b>config</b> and <b>cycles</b>.
+            </li>
+            <li>
+                The <b>generateTimeLine</b> function should:
+            </li>
+            <ul class="custom-list">
+                <li>
+                    Record the cumulative elapsed time after each phase across the cycles into an array, adding each phase's <b>duration</b> to the runnng total as you iterate.
+                </li>
+                <li>
+                    Process all faulted and invalid phases without validation, even if <b>config.fault</b> is <b>true</b> or <b>duration <= 0</b>.
+                </li>
+                <li>
+                    Return the array of cumulative timestamps.
+                </li>
+                <li>
+                    For example, <b>generateTimeLine(config, 1)</b> should return the array <b>[5, 7, 11]</b>.
+                </li>
+            </ul>
+        </ol>
+        <pre class="code-box">
+        <code>
+// Our configs ready to work within
+
+const config1 = {
+  fault: false,
+  phases: [
+    { color: "green", duration: 5 },
+    { color: "yellow", duration: 2 },
+    { color: "red", duration: 4 }
+  ]
+};
+
+const config2 = {
+  fault: false,
+  phases: [
+    { color: "red", duration: 3 },
+    { color: "yellow", duration: -2 },
+    { color: "green", duration: 6 }
+  ]
+};
+
+const config3 = {
+  fault: true,
+  phases: [
+    { color: "green", duration: 5 },
+    { color: "yellow", duration: 2 },
+    { color: "red", duration: 6 }
+  ]
+};
+
+const config4 = {
+  fault: false,
+  phases: []
+};
+
+
+
+function runSequence(config, cycles) {
+ // test if we have any cycles
+   if (config.phases.length === 0 ) {
+    console.log("No phases found");
+   return;
+   }
+
+// loop trough numbers of cycles 
+   for (let i = 0; i < cycles; i++) {
+     if ( config.fault === true) {
+      console.log("Faulted phase!");
+   return; // end of simulation 
+   }
+
+   for (const phase of config.phases) {
+// check for time is real
+     if (phase.duration <= 0) {
+       console.log("Invalid phase detected");
+      } else {
+// If all is in order 
+     console.log(`Switching to ${phase.color} for ${phase.duration} s`);
+   }
+  }
+ }
+}
+
+
+function generateTimeline(config, cycles) {
+   const timeline = []; // array for summarize time
+   let totalTime = 0; // summarize start counter
+    
+     for (let i=0; i < cycles; i++) {
+       for (const phase of config.phases) {
+       //   we adding phase time  each duration
+       totalTime += phase.duration;
+       //  push to our array 
+       timeline.push(totalTime);
+  }
+ }
+   return timeline;
+}
+
+        </code>
+        </pre> 
+        </article>
+        <article>
+            <h4 id="build4">Build a Space Mission Roster</h4>
+
+            <p>
+                In this mission, we will leverage JavaScript loops to build a space mission roster.
+            </p>
+            <pre class="code-box">
+            <code>
+ const squad = [];
+
+const firstAstronaut = {
+  id: 1,
+  name: "Andy",
+  role: "Commander",
+  isEVAEligible: true,
+  priority: 3
+};
+
+function addCrewMember(crew, astronaut) {
+  for (let i = 0; i < crew.length; i++) {
+    if (crew[i].id === astronaut.id) {
+      console.log("Duplicate ID: " + astronaut.id);
+      return;
+    }
+  }
+  crew.push(astronaut);
+}
+
+addCrewMember(squad, firstAstronaut);
+
+const remainingCrew = [
+  { id: 2, name: "Bart", role: "Pilot", isEVAEligible: false, priority: 8 },
+  { id: 3, name: "Caroline", role: "Engineer", isEVAEligible: true, priority: 4 },
+  { id: 4, name: "Diego", role: "Scientist", isEVAEligible: false, priority: 1 },
+  { id: 5, name: "Elise", role: "Medic", isEVAEligible: true, priority: 7 },
+  { id: 6, name: "Felix", role: "Navigator", isEVAEligible: true, priority: 6 },
+  { id: 7, name: "Gertrude", role: "Communications", isEVAEligible: false, priority: 4 },
+  { id: 8, name: "Hank", role: "Mechanic", isEVAEligible: true, priority: 2 },
+  { id: 9, name: "Irene", role: "Specialist", isEVAEligible: true, priority: 5 },
+  { id: 10, name: "Joan", role: "Technician", isEVAEligible: false, priority: 1 },
+];
+
+for (let i = 0; i < remainingCrew.length; i++) {
+  addCrewMember(squad, remainingCrew[i]);
+}
+
+function swapCrewMembers(crew, fromIndex, toIndex) {
+  if (
+    fromIndex < 0 || 
+    toIndex < 0 ||
+    fromIndex >= crew.length ||
+    toIndex >= crew.length
+  ) {
+    console.log("Invalid crew indices");
+    return;
+  }
+
+  const updatedCrew = crew.slice();
+  updatedCrew[fromIndex] = updatedCrew.splice(toIndex, 1, updatedCrew[fromIndex])[0];
+
+  return updatedCrew; 
+}
+
+const updatedSquad = swapCrewMembers(squad, 2, 5);
+
+function sortByPriorityDescending(crew) {
+    // 1. Zewnętrzna pętla: powtarzamy przejścia przez tablicę
+    for (let i = 0; i < crew.length; i++) {
+      // 2. Wewnętrzna pętla: porównujemy sąsiednie elementy
+      for (let j = 0; j < crew.length - 1 - i; j++) {
+        // 3. Sprawdzamy, czy musimy zamienić (priorytet mniejszy niż następny)
+        if (crew[j].priority < crew[j + 1].priority) {
+          // Używamy naszej poprzedniej logiki zamiany (tymczasowy schowek)
+          const temp = crew[j];
+          crew[j] = crew[j + 1];
+          crew[j + 1] = temp;
+        }
+      }
+    }
+    // Funkcja nie zwraca nic (zgodnie z poleceniem, modyfikuje oryginał)
+  }
+  
+
+function getEVAReadyCrew(crew) {
+    // 1. Tworzymy puste miejsce na listę wybranych
+    const eligible = [];
+    for (const astronaut of crew) {
+        if (astronaut.isEVAEiligible) eligible.push(stronaut);
+      }
+     sortByPriorityDescending(eligible);
+    // 5. Zwracamy gotową listę osób z uprawnieniami EVA
+    return eligible;
+  }
+
+  // 1. Wywołujemy funkcję i zapisujemy wynik w nowej zmiennej
+const EVAReadySquad = getEVAReadyCrew(updatedSquad);
+
+
+
+            </code>
+            </pre>
         </article>
     </main>
 
