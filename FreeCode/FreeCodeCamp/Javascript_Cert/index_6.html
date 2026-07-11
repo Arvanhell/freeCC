@@ -69,6 +69,11 @@
                     <h4>Build a Space Mission Roster</h4>
                 </a>
             </li>
+            <li>
+                <a href="#build5">
+                    <h4>Build a Heritage library catalog</h4>
+                </a>
+            </li>
         </ol>
         <article>
             <h2>Loops</h2>
@@ -1079,10 +1084,96 @@ function getEVAReadyCrew(crew) {
   // 1. Wywołujemy funkcję i zapisujemy wynik w nowej zmiennej
 const EVAReadySquad = getEVAReadyCrew(updatedSquad);
 
+function chunkCrew(crew, size) {
+    if (size < 1) {
+      console.log("Chunk size must be >= 1");
+      return;
+    }
+  
+    const chunks = [];
+    for (let i = 0; i < crew.length; i += size) {
+      chunks.push(crew.slice(i, i + size));
+    }
+  
+    return chunks;
+  }
+  
+  const EVAChunks = chunkCrew(EVAReadySquad, 3);
+  
+  function printCrewSummary(crew) {
+    const sorted = crew.slice();
+    sortByPriorityDescending(sorted); 
+    for (const astronaut of sorted) {
+      console.log(astronaut.name);
+    }
+  }
+  
+  printCrewSummary(updatedSquad)
 
 
             </code>
             </pre>
+    <p>
+        Mission Summary: Crew Management System
+    </p>
+    <ol class="custom-list">
+     <li>
+        1. Initial Setup & Core Squad: We established the EVAReadySquad (or squadd) array, which serves as the central database of all potential crew members.
+     </li>
+     <li>
+        2. addCrewMember Function: This function acts as the recruitment tool, taking the existing squad and a new astronaut to update the roster dynamically.
+     </li>
+     <li>
+        3. swapCrewMembers Function: This utility manages physical shifts in the squad. By using three variables (a temporary holder to prevent data loss), we enabled safe personnel reassignments.
+     </li>
+     <li>
+        4. Priority-Based Sorting sortByPriorityDescending: We implemented a custom sorting algorithm to rank astronauts by their priority level, ensuring the most critical personnel are always prioritized for missions.
+     </li>
+     <li>
+        5. Availability Checks: We built mechanisms to filter the squad, ensuring only available astronauts are considered for active operations.
+     </li>
+     <li>
+        6. Chunking Logic (chunkCrew): This is the part that seemed confusing, but here is the logic: Mission Control needs to divide the crew into smaller, manageable pods (e.g., 3 people per group).
+        Instead of writing multiple if statements, we use a for loop that "jumps" through the array using the size parameter (i += size).
+        slice(i, i + size) acts as a scalpel, cutting exactly the number of people needed for each pod and pushing them into a new, 2D array structure (EVAChunks). It's basically "batching" the crew for deployment.
+     </li>
+     <li>
+        7. printCrewSummary: The final reporting tool. It creates a safe, shallow copy (slice()) of the crew, applies our priority sorting, and iterates through the list to log a clean, ranked summary of the entire team.
+     </li>
+</ol>
+The Big Picture
+     <p>
+        You have essentially built a Human Resources system for space travel. You can now:
+    </p>
+    <ol class="custom-list">
+            <li>Recruit (Add)</li>
+            <li>Reorganize (Swap)</li>
+            <li>Rank (Sort)</li>
+            <li>Deploy (Chunking into pods)</li>
+            <li>Report (Summary)</li>
+        </ol>
+    <p>
+        You’ve moved from simple variables to handling nested 2D arrays and defensive coding patterns. It’s a solid piece of engineering. You’re not just typing lines; you’re building the logic that keeps the mission running.
+    </p>
+    <!-- 
+  MISSION LOG: CREW MANAGEMENT SYSTEM SUMMARY
+  
+  1. Core Squad Initialization: Established the primary crew array.
+  2. addCrewMember: Recruitment module for appending new personnel.
+  3. swapCrewMembers: Safety protocol for personnel reassignments using a temporary swap variable.
+  4. sortByPriorityDescending: Custom sorting algorithm to rank crew by mission priority.
+  5. Availability Checks: Filtering protocol to isolate active personnel.
+  6. chunkCrew (Deployment Protocol): Batching logic using a stepping for-loop and .slice() 
+     to organize the squad into manageable 2D sub-groups (pods).
+  7. printCrewSummary: Final reporting tool; creates a shallow copy, applies priority 
+     sorting, and logs a ranked summary of the entire team.
+-->
+        </article>
+        <article id="build5">
+            <h4>Build a Heritage library catalog</h4>
+            <p>
+                In this workshop, you will digitize historical catalog cards for a heritage library. You will practice using loops, objects, and string methods to parse raw text data, search and group entries, render formatted output, and export to JSON and CSV.
+            </p>
         </article>
     </main>
 
