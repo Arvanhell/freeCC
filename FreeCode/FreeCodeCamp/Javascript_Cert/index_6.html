@@ -74,6 +74,28 @@
                     <h4>Build a Heritage library catalog</h4>
                 </a>
             </li>
+            <li>
+                <a href="#build6">
+                    <h4>Build a factorial calculator</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build7">
+                    <h4>
+                        Implement the Mutation algorithm
+                    </h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build8">
+                    <h4>Implement the chunky monkey algorithm</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build9">
+                    <h4>Build a Profile Lookup</h4>
+                </a>
+            </li>
         </ol>
         <article>
             <h2>Loops</h2>
@@ -1174,7 +1196,503 @@ The Big Picture
             <p>
                 In this workshop, you will digitize historical catalog cards for a heritage library. You will practice using loops, objects, and string methods to parse raw text data, search and group entries, render formatted output, and export to JSON and CSV.
             </p>
-        </article>
+          <pre class="code-box">
+   <code>
+    /**
+ * Heritage Library Catalog
+ * * Goal: Build a robust data processing pipeline for library records.
+ * * Features:
+ * 1. Data Ingestion: Parses raw string cards into structured JavaScript objects.
+ * 2. Search & Organize: Implements author-based filtering and decade-based grouping.
+ * 3. Validation: Ensures data integrity by rejecting incomplete or faulty records.
+ * 4. Presentation: Provides a formatted, human-readable display of catalog entries.
+ * 5. Data Exchange: Supports industrial standards for data sharing via JSON and CSV exports.
+ * 6. Analytics: Calculates statistical summaries, including total counts and historical ranges.
+ * * This system serves as a foundational engine for transforming unstructured raw data
+ * into a reliable, queryable, and portable information management asset.
+ */
+
+ const rawCatalogCards = [
+  "From a Buick 8 | King, Stephen | 2002 | Shelf K7",
+  "The Shining | King, Stephen | 1977 | Shelf K1",
+  // ... reszta Twoich danych
+];
+
+// 1. Parsing Logic
+function parseCard(rawString) { /* ... Twoja implementacja ... */ }
+function parseCatalog(rawCards) { /* ... Twoja implementacja ... */ }
+
+const catalog = parseCatalog(rawCatalogCards);
+
+// 2. Querying & Grouping
+function findByAuthor(catalog, author) { /* ... */ }
+function groupByDecade(catalog) { /* ... */ }
+
+const byDecade = groupByDecade(catalog);
+
+// 3. Rendering & Validation
+function renderEntry(entry) { /* ... */ }
+function validateEntry(entry) { /* ... */ }
+
+// 4. Export Utilities
+function exportToJSON(catalog) { /* ... */ }
+function exportToCSV(catalog) { /* ... */ }
+
+// 5. Analytics (Summary)
+// ... logika sumująca i wyliczająca zakresy ...
+
+   </code>
+    </pre>
+    <pre class="code-box">
+    <code>
+
+        const rawCatalogCards = [
+  "From a Buick 8 | King, Stephen | 2002 | Shelf K7",
+  "The Shining | King, Stephen | 1977 | Shelf K1",
+  "The Stand | King, Stephen | 1978 | Shelf K2",
+  "It | King, Stephen | 1986 | Shelf K3",
+  "Misery | King, Stephen | 1987 | Shelf K4",
+  "Do Androids Dream of Electric Sheep? | Dick, Philip K. | 1968 | Shelf D5",
+  "I, Robot | Asimov, Isaac | 1950 | Shelf A8",
+  "Foundation | Asimov, Isaac | 1951 | Shelf A9",
+  "Dune | Herbert, Frank | 1965 | Shelf H3",
+  "Neuromancer | Gibson, William | 1984 | Shelf G8",
+  "Snow Crash | Stephenson, Neal | 1992 | Shelf S6",
+  "The Martian | Weir, Andy | 2011 | Shelf W5",
+  "Ender's Game | Card, Orson Scott | 1985 | Shelf C2",
+  "The Hitchhiker's Guide to the Galaxy | Adams, Douglas | 1979 | Shelf A1",
+  "Ready Player One | Cline, Ernest | 2011 | Shelf C7",
+  "The Dark Tower: The Gunslinger | King, Stephen | 1982 | Shelf K5",
+  // edge cases: missing data
+  "Unknown Title |  | 1975 | Shelf X1",
+  "Mysterious Manuscript | Unknown Author |  | Shelf Z9",
+  "Ancient Scroll | Anonymous | 850 | ",
+];
+
+function parseCard(rawString) {
+  const parts = rawString.split("|");
+  const trimmedParts = [];
+  for (let i = 0; i < parts.length; i++) {
+    trimmedParts.push(parts[i].trim());
+  }
+  const title = trimmedParts[0];
+  const author = trimmedParts[1];
+  const year = trimmedParts[2];
+  const location = trimmedParts[3];
+  return {
+    title: title || "Unknown",
+    author: author || "Unknown",
+    year: year ? parseInt(year) : "Unknown",
+    location: location || "Unknown"
+  };
+}
+
+function parseCatalog(rawCards) {
+  const catalog = [];
+  for (let i = 0; i < rawCards.length; i++) {
+    catalog.push(parseCard(rawCards[i]));
+  }
+  return catalog;
+}
+
+const catalog = parseCatalog(rawCatalogCards);
+
+function findByAuthor(catalog, author) {
+  const searchTerm = author.toLowerCase();
+  const results = [];
+  for (let i = 0; i < catalog.length; i++) {
+    if (catalog[i].author.toLowerCase().includes(searchTerm)) {
+      results.push(catalog[i]);
+    }
+  }
+  return results;
+}
+
+function groupByDecade(catalog) {
+  const grouped = {};
+  for (let i = 0; i < catalog.length; i++) {
+    const book = catalog[i];
+    if (book.year === "Unknown") {
+      if (!grouped["Unknown"]) {
+        grouped["Unknown"] = [];
+      }
+      grouped["Unknown"].push(book);
+      continue;
+    }
+    const decade = Math.floor(book.year / 10) * 10;
+    const decadeKey = `${decade}s`;
+    if (!grouped[decadeKey]) {
+      grouped[decadeKey] = [];
+    }
+    grouped[decadeKey].push(book);
+  }
+  return grouped;
+}
+
+const byDecade = groupByDecade(catalog);
+
+function renderEntry(entry) {
+  const title = entry.title || "Unknown";
+  const author = entry.author || "Unknown";
+  const year = entry.year || "Unknown";
+  const location = entry.location || "Unknown";
+  return `${"-".repeat(25)}
+Title: ${title}
+Author: ${author}
+Year: ${year}
+Location: ${location}
+${"-".repeat(25)}`;
+}
+
+console.log(renderEntry(catalog[0]));
+
+function validateEntry(entry) {
+  let isValid = true;
+  if (!("title" in entry) || !entry.title || entry.title === "Unknown") {
+    isValid = false;
+  }
+  if (!("author" in entry) || !entry.author || entry.author === "Unknown") {
+    isValid = false;
+  }
+  if (!("year" in entry) || !entry.year || entry.year === "Unknown") {
+    isValid = false;
+  }
+  if (!("location" in entry) || !entry.location || entry.location === "Unknown") {
+    isValid = false;
+  }
+  return isValid;
+}
+
+function exportToJSON(catalog) {
+  return JSON.stringify(catalog, null, 2);
+}
+
+function exportToCSV(catalog) {
+  const header = "Title,Author,Year,Location";
+  const rows = [];
+  for (let i = 0; i < catalog.length; i++) {
+    const entry = catalog[i];
+    rows.push(`"${entry.title}","${entry.author}",${entry.year},"${entry.location}"`);
+  }
+  let csv = header;
+  for (let i = 0; i < rows.length; i++) {
+    csv = csv + "\n" + rows[i];
+  }
+  return csv;
+}
+
+console.log(exportToCSV(catalog));
+
+        // Podsumowanie liczbowe
+        console.log(`Total books: ${catalog.length}`);
+        console.log(`Decade groups: ${Object.keys(byDecade).length}`);
+        
+        // Obliczanie zakresu czasowego
+        let oldestYear = Infinity;
+        let newestYear = 0;
+        
+        for (let i = 0; i < catalog.length; i++) {
+          const entry = catalog[i];
+          
+          if (entry.year !== "Unknown") {
+            // Aktualizujemy najstarszy rok
+            if (entry.year < oldestYear) {
+              oldestYear = entry.year;
+            }
+            // Aktualizujemy najnowszy rok
+            if (entry.year > newestYear) {
+              newestYear = entry.year;
+            }
+          }
+        }
+        
+        console.log(`Oldest year: ${oldestYear}`);
+        console.log(`Newest year: ${newestYear}`);
+        console.log(catalog.length);
+        console.log(Object.keys(byDecade).length);
+        console.log(oldestYear);
+        console.log(newestYear);
+    </code>
+    </pre>
+      </article>
+      <article id="build6">
+      <h4>Build a factorial calculator</h4>
+      <p>
+        In this lab, you build a factorial calculator. You'll oractice using loops and conditionals to calculate the factorial of a number.
+      </p>
+      <p>
+        A factorial is the product of an integer and all the integers below it. For example, the factorial of 5 is 5 * 4 * 3 * 2 * 1 = 120. In this lab, you will create a factorial calculator that takes a number from the user and calculates the factorial of that number.Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
+      </p>
+      <p>
+ User Stories:
+  </p>
+  <ol class="custom-list">
+<li>
+    1. You should declare a variable num and assign it a number of your choice. The assigned number should be between 1 and 20 inclusive.
+</li>
+ <li>
+    2. Create a function named factorialCalculator that takes a number as an argument and returns the factorial of that number.
+ </li>
+ <li>
+    3. Inside the function, declare a result variable and assign it the value of 1. Using a loop, loop through all numbers from 1 to the input number(inclusive) and for each number, multiply the result variable by the current number and assign the result to the result variable. You can choose to use either a for loop, while loop or do...while loop here.
+ </li>
+ <li>
+    4. You should call the factorialCalculator function with num as the argument and assign the result to the variable factorial.
+ </li>
+ <li>
+    5. You should store the final output in the format Factorial of [num] is [factorial] and assign it to the variable resultMsg.
+ </li>
+ <li>
+    6. You should output the value of resultMsg to the console.
+ </li>
+</ol>
+<pre class="code-box">
+    <code>
+/**
+ * Factorial Calculator
+ * * Goal: Implement a mathematical algorithm to compute the factorial of a given number.
+ * * Features:
+ * 1. Dynamic Input: Generates a random integer (n) between 1 and 20 to test the function.
+ * 2. Iterative Computation: Uses a loop to calculate the product of all integers from 1 up to n.
+ * 3. Scalability: Efficiently handles inputs within the requested range, ensuring precision.
+ * 4. Reporting: Displays the result in a clean, formatted string output.
+ * * This project demonstrates the practical application of loops and mathematical 
+ * logic to solve algorithmic problems, emphasizing the transition from static 
+ * values to dynamic, randomized testing.
+ */
+
+ // Losowanie liczby od 1 do 20
+// Math.random() zwraca ułamek od 0 do < 1
+// Mnożymy przez 20 i dodajemy 1, aby uzyskać zakres 1-20
+const num = Math.floor(Math.random() * 20) + 1;
+
+function factorialCalculator(n) {
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+const factorial = factorialCalculator(num);
+const resultMsg = `Factorial of ${num} is ${factorial}`;
+
+console.log(resultMsg);
+
+    </code>
+</pre>
+      </article>
+      <article id="build7">
+        <h4>
+            Implement the Mutation algorithm
+        </h4>
+        <p>
+            Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
+        </p>
+        <p>
+            User Stories:
+        </p>
+        <ol class="custom-list">
+
+<li>1. Create a function named <strong>mutation</strong> that takes an array as its argument.</li>        
+
+<li>
+    2. mutation should return true if the string in the first element of the array contains all of the letters of the string in the second element of the array, and false otherwise. For example:
+</li>
+<ul>
+<li>
+    • <b>mutation(["hello", "Hello"])</b> ,should return <b>true</b> because all of the letters in the second string are present in the first, ignoring case.
+</li>
+<li>
+    •<b> mutation(["hello", "hey"])</b> should return <b>false</b> because the string <b>hello</b> does not contain a y.
+</li>
+<li>
+    •<b> mutation(["Alien", "line"])</b>, should return <b>true</b> because all of the letters in <b>line</b> are present in <b>Alien</b>.
+</ul>
+</ol>
+<pre class="code-box">
+<code>
+    /**
+ * Mutation Algorithm
+ * * Goal: Determine if the first string in an array contains all letters of the second.
+ * * Features:
+ * 1. Case-Insensitivity: Converts both strings to lowercase to ensure 'A' equals 'a'.
+ * 2. Character Verification: Iterates through the second string and verifies that each 
+ * character exists within the first string.
+ * 3. Boolean Return: Returns true if all characters are found, false otherwise.
+ * * This project demonstrates string manipulation, array indexing, and conditional 
+ * logic to validate data integrity between two related inputs.
+ */
+
+ function mutation(arr) {
+    // Pobieramy oba ciągi i sprowadzamy je do małych liter
+    const target = arr[0].toLowerCase();
+    const test = arr[1].toLowerCase();
+  
+    // Sprawdzamy każdy znak w 'test'
+    for (let i = 0; i < test.length; i++) {
+      // Jeśli znak z 'test' nie występuje w 'target', zwracamy false
+      if (target.indexOf(test[i]) === -1) {
+        return false;
+      }
+    }
+  
+    // Jeśli pętla przeszła pomyślnie, znaczy, że wszystkie znaki są obecne
+    return true;
+  }
+  
+  // Przykłady użycia:
+  console.log(mutation(["hello", "hey"])); // false
+  console.log(mutation(["hello", "Hello"])); // true
+  console.log(mutation(["Alien", "line"])); // true
+</code>
+</pre>
+      </article>
+      <article id="build8">
+        <h4>Implement the chunky monkey algorithm</h4>
+       <p>
+        Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
+        </p>
+        <p>
+        User Stories:
+    </p>
+    <ol class="custom-list">
+1. Write a function named chunkArrayInGroups that takes an array as first argument and a number as second argument. The function should split the array into smaller arrays of length equal to the second argument and returns them as a two-dimensional array.
+</ol>
+<pre class="code-box">
+    <code>
+/**
+ * Chunky Monkey Algorithm
+ * * Goal: Split a flat array into smaller sub-arrays of a specified length (size).
+ * * Features:
+ * 1. Chunking Logic: Iterates through the array and segments it into blocks.
+ * 2. Two-Dimensional Output: Returns an array containing the segmented sub-arrays.
+ * 3. Handling Remainders: Ensures that if the array length is not perfectly divisible 
+ * by the size, the final chunk contains all remaining elements.
+ * * This project reinforces mastery over array methods, specifically .slice(), 
+ * which provides a clean and declarative way to extract segments.
+ */
+       
+        function chunkArrayInGroups(arr, size) {
+  const result = [];
+
+  // Przeskakujemy po tablicy o wartość 'size'
+  for (let i = 0; i < arr.length; i += size) {
+    // Używamy slice do wycięcia fragmentu od 'i' do 'i + size'
+    // Metoda slice nie modyfikuje oryginalnej tablicy, co jest bardzo bezpieczne
+    result.push(arr.slice(i, i + size));
+  }
+
+  return result;
+}
+
+// Przykłady testowe:
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2)); // [['a', 'b'], ['c', 'd']]
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3));    // [[0, 1, 2], [3, 4, 5]]
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4));    // [[0, 1, 2, 3], [4, 5]]
+
+    </code>
+</pre>
+       </p>
+      </article>
+      <article id="build9">
+        <h4>Build a Profile Lookup</h4>
+<p>
+    In this lab, you will build a profile lookup that looks up information about people in a contacts list.
+</p>
+<p>
+    For exmaple imagine there is a contact named Akira Laine, the<b>lookUpProfile("Akira", "lastName")</b> should return <b>Laine</b> 
+</p>
+<p>
+    <b>Objective</b>: Fulfill the user stories below and get all tests to pass to complete.
+</p>
+<p> 
+    <b>User Stories</b>:
+</p>
+<ol class="custom-list">
+<li>
+    You should create a function named <strong>lookUpProfile</strong> that takes a name and a property as arguments.
+</li>
+<li>
+    You should retrieve contact information from the provided <strong>contacts</strong> array.
+</li>
+<li>
+    If rhe function receives a contact name and the property exists on the related contact, then the property's value should be returned.
+</li>
+<li>
+    If the name passed to the function does not match any contacts in the contacts array, then the function should return <strong>"No such contact"</strong>.
+</li>
+<li>
+    If the property does not exist on a found contact, then function should return <strong>"No such property"</strong>.
+</li>
+</ol>
+<pre class="code-box">
+<code>
+
+    /**
+    * Profile Lookup Algorithm
+    * * Goal: Search for a contact and return the value of a specific property.
+    * * Features:
+    * 1. Contact Search: Iterates through the list to find a matching name.
+    * 2. Property Validation: Checks if the requested property exists on the contact.
+    * 3. Error Handling: Returns specific messages if either the contact or the property is not found.
+    * * This project demonstrates the usage of loops, conditional logic, and the 'hasOwnProperty' 
+    * method to safely access properties in nested objects.
+    */
+
+    
+    const contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile(name, prop) {
+  for (let i = 0; i < contacts.length; i++) {
+    // 1. Sprawdzamy czy imię pasuje
+    if (contacts[i].firstName === name) {
+      // 2. Jeśli imię pasuje, sprawdzamy czy istnieje property
+      if (contacts[i].hasOwnProperty(prop)) {
+        return contacts[i][prop];
+      } else {
+        return "No such property";
+      }
+    }
+  }
+  // 3. Jeśli pętla przeszła cały katalog i nie znalazła imienia
+  return "No such contact";
+}
+
+// Przykłady sprawdzenia:
+console.log(lookUpProfile("Akira", "likes")); // ["Pizza", "Coding", "Brownie Points"]
+console.log(lookUpProfile("Kristian", "lastName")); // "Vos"
+console.log(lookUpProfile("Sherlock", "address")); // "No such property"
+console.log(lookUpProfile("Bob", "number")); // "No such contact"
+
+</code>
+</pre>
+      </article>
     </main>
 
     </body>
