@@ -96,6 +96,36 @@
                     <h4>Build a Profile Lookup</h4>
                 </a>
             </li>
+            <li>
+                <a href="#build10">
+                    <h4>Build a longest word finder app</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build11">
+                    <h4>Build a string repeating function</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build12">
+                    <h4>Build a Festival crowd flow simulator</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build13">
+                    <h4>Build a missing letter detector</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build14">
+                    <h4>Build a smart pantry restocker</h4>
+                </a>
+            </li>
+            <li>
+                <a href="#build15">
+                    <h4>Build a proofreading tool</h4>
+                </a>
+            </li>
         </ol>
         <article>
             <h2>Loops</h2>
@@ -1693,6 +1723,431 @@ console.log(lookUpProfile("Bob", "number")); // "No such contact"
 </code>
 </pre>
       </article>
+      <article id="build10">
+        <h4>Build a longest word finder app</h4>
+        <p>
+            In this lab, you will build a function that returns the length of the longest word in the provided sentence.For example, in the sentence "The quick brown fox jumped over the lazy dog", the longest word is "jumped", which has a length of 6.
+        </p>
+<p><b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.</p>
+<p>
+    <b>User Stories</b>:
+</p>
+<ol class="custom-list">
+<li>1. You should create a function named findLongestWordLength that takes a string as an argument.</li>
+ <li>
+    2. The function should return the length of the longest word in the string.
+ </li>
+</ol>
+<pre class="code-box">
+<code>
+    /**
+ * Longest Word Finder
+ * * Goal: Identify and return the length of the longest word in a given sentence.
+ * * Features:
+ * 1. String Splitting: Converts the input sentence into an array of individual words.
+ * 2. Iteration & Comparison: Compares the length of each word against a running maximum.
+ * 3. Return Value: Returns the length (integer) of the longest identified word.
+ * * This project reinforces string manipulation and the use of the .split() method 
+ * combined with iterative logic to extract specific data from text.
+ */
+
+ function findLongestWordLength(str) {
+    // 1. Dzielimy zdanie na tablicę słów (rozdzielamy spacją)
+    const words = str.split(" ");
+    
+    // 2. Inicjalizujemy licznik dla najdłuższego słowa
+    let longestLength = 0;
+    
+    // 3. Iterujemy przez tablicę słów
+    for (let i = 0; i < words.length; i++) {
+      // 4. Jeśli bieżące słowo jest dłuższe od dotychczasowego rekordu, aktualizujemy go
+      if (words[i].length > longestLength) {
+        longestLength = words[i].length;
+      }
+    }
+    
+    return longestLength;
+  }
+  
+  // Przykłady sprawdzenia:
+  console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog")); // 6
+  console.log(findLongestWordLength("May the force be with you")); // 5
+  
+</code>
+</pre>
+</article>
+<article id="build11">
+    <h4>Build a string repeating function</h4>
+     <p>
+        In this lab you will create a function that repeats a given string a specific nuber of times. For the purpose of this lab, do not use the built-in <strong>.repeat()</strong> method.
+     </p>
+     <p>
+        <b>Objective</b>: Fulfil the user stories below and get all the tests to pass to complete the lab.
+    </p>
+    <p>
+        <b>User stories</b>:
+    </p>
+    <ol class="custom-list">
+        <li>You should create function named <strong>repeatStringNumTimes</strong> that takes two parameters: a string and a number.</li>
+        <li>
+            The function should return the string repeated the specific number of times.
+        </li>
+        <li>
+            If the number is less than or rqual to zero the function should rerurn an empty string.
+        </li>
+    </ol>
+    <pre class="code-box">
+    <code>
+/**
+ * String Repetition Algorithm
+ * * Goal: Repeat a string a specified number of times without using .repeat().
+ * * Features:
+ * 1. Accumulation: Uses an empty string as an accumulator to build the result.
+ * 2. Iteration: Employs a loop to append the string to the accumulator n times.
+ * 3. Boundary Handling: Explicitly returns an empty string for non-positive input values.
+ * * This project demonstrates basic string manipulation and control flow, 
+ * reinforcing the concept of building complex outputs from simple iterations.
+ */
+
+
+ function repeatStringNumTimes(str, num) {
+    // 1. Jeśli num <= 0, funkcja zgodnie z wymaganiami zwraca pusty ciąg
+    if (num <= 0) {
+      return "";
+    }
+  
+    // 2. Inicjalizujemy pudełko na wynik
+    let repeatedString = "";
+  
+    // 3. Pętla wykonująca się num razy
+    for (let i = 0; i < num; i++) {
+      repeatedString += str;
+    }
+  
+    return repeatedString;
+  }
+  
+  // Przykłady sprawdzenia:
+  console.log(repeatStringNumTimes("abc", 3)); // "abcabcabc"
+  console.log(repeatStringNumTimes("*", 8));   // "********"
+  console.log(repeatStringNumTimes("abc", -2)); // ""
+  
+    </code>
+    </pre>
+      </article>
+      <article id="build12">
+    <h4>Build a Festival crowd flow simulator</h4>
+    <p>
+        In this workshop, we simulate the flow of attendants at a music festival.
+    </p>
+        </article>
+        <article id="build13">
+        <h4>Build a missing letter detector</h4>
+        <p>
+<b>User Stories</b>:
+        </p>
+        <ol class="custom-list">
+        <li>1. You should hav a function named <b>fearNotLetter</b></li>
+        <li>
+            2. The <b>fearNotLetter</b> function should accept one argument: a string representing a range of letters in alphabetical  order which can have one letter missing.
+        </li>
+        <li>
+            3. The function should find the missing letter in the passed letter range and return it.
+        </li>
+        <li>
+            4. If all letters are present in the range, the function should return <b>undefined</b>.
+        </li>
+        </ol>
+        <pre class="code-box">
+        <code>
+/**
+ * Fear Not Letter Algorithm
+ * * Goal: Identify a missing character in an alphabetical sequence.
+ * * Features:
+ * 1. Char Code Conversion: Uses .charCodeAt() to convert letters to their numeric ASCII representation.
+ * 2. Sequential Check: Compares the numeric value of consecutive characters.
+ * 3. Gap Identification: Detects where the sequence jumps by more than 1.
+ * * This project demonstrates how to manipulate character sets and handle 
+ * range-based logic effectively.
+ */
+
+
+ function fearNotLetter(str) {
+    // Przechodzimy przez wszystkie litery z wyjątkiem ostatniej
+    for (let i = 0; i < str.length - 1; i++) {
+      // Pobieramy kod ASCII bieżącej i kolejnej litery
+      const currentCode = str.charCodeAt(i);
+      const nextCode = str.charCodeAt(i + 1);
+  
+      // Jeśli różnica między kodami jest większa niż 1, znaczy, że mamy lukę
+      if (nextCode - currentCode > 1) {
+        // Zwracamy literę, której brakuje (kod bieżącej + 1 zamieniony na znak)
+        return String.fromCharCode(currentCode + 1);
+      }
+    }
+  
+    // Jeśli pętla się skończy i nic nie znajdzie, zwracamy undefined
+    return undefined;
+  }
+  
+  // Przykłady:
+  console.log(fearNotLetter("abce")); // "d"
+  console.log(fearNotLetter("abcdefghjklmno")); // "i"
+  console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz")); // undefined
+  
+        </code>
+        </pre>
+        </article>
+        <article id="build14">
+            <h4>Build a smart pantry restocker</h4>
+        <p>
+            In this lab, you will build a small pantry management program using basic JavaScript concepts like arrays, objects, loops, and conditionals.
+        </p>
+        <p>
+            You will simulate receiving a shipment of pantry items, deciding what to do with each item, and organizing the results for storage.
+        </p>
+        <p>
+            <b>Objective</b>: Fulfil the user stories below and get all the tests to pass to complete the lab.
+        </p>
+        <p>
+            The <b>rawData</b> array contains pipe-separated strings with the format <strong>sku|name|qty|expires|zone</strong>, where <b>zone</b> is optional.
+        </p>
+        <p>
+        <b>User Stories</b>:
+        </p>
+        <ol class="custom-list">
+            <li>
+                1. You should implement a <b>parseShipment(rawData)</b> function that takes an array of strings and returns an array of objects with <strong>{ sku, name, qty, expires, zone } </strong> properties.
+            </li>
+            <ul class="custom-list">
+                <li>
+                    Duplicate <b>sku</b> values in the shipment should be ignored.
+                </li>
+                <li>
+                    When the <b>zone</b> segmebt is not provided, it should default to <strong>"general"</strong>.
+                </li>
+                <li>
+                    The <b>qty</b> value should be converted to a number.
+                </li>
+            </ul>
+            <li>
+                You should implement a <strong>planRestock(pantry, shipment)</strong> function that compares the current pantry with the incoming shipment and returns an array of actions in the form <strong>{ type, item }</strong>, where <b>type</b> is one of <b>"restock"</b>, <b>"discard"</b>, or <b>"donate"</b>, and <b>item</b> is the parsed shipment object. The <b>pantry</b> parameter is an array of objects with the same shape as a parsed shipment item (
+                    <strong>{ sku, name, qty, expires, zone }</strong>
+                )
+            </li>
+            <ul class="custom-list">
+                <li>
+                    • If a shipment item has a <b>qty</b> of 0 or less, the action <b>type</b> should be <strong>"discard"</strong>, regardless of whether the item exists in the pantry.
+                </li>
+                <li>
+                    • Otherwise, if the shipment item's <b>sku</b> already exists in the pantry, the action <b> type</b> should be <strong>"restock"</strong>.
+                </li>
+                <li>
+                    • Otherwise (the shipment item's <b>sku</b> does not exist in the pantry), the action <b>type</b> should be <strong>"donate"</strong>
+ 
+                </li>
+            </ul>
+            <li>
+                3. You should implement a <strong>groupByZone(actions)</strong> function that groups the actions into storage zones based on each item's <b>zone</b> property. The function should return an object where each key is a zone name and the value is an array of actions belonging to that zone. For example, if actions contain items with zones <b>"fridge"</b> and <b>"pantry"</b>, the result should be <strong>{ fridge: [...], pantry: [...] }</strong>
+            </li>
+            <li>
+                4. You should implement a <strong>clonePantry(pantry)</strong> function that returns a deep copy of the pantry so planning changes do not affect the original list. A deep copy means creating a new array with new objects, so modifying the copy does not change the original pantry.
+            </li>
+            <li>
+                5. You should use all of the functions together to process a shipment and log the final grouped result object to the console.
+            </li>
+        </ol>
+        <pre class="code-box">
+        <code>
+
+/**
+ * Smart Pantry Management Algorithm
+ * * Goal: Efficiently process incoming shipments and categorize inventory actions.
+ * * Features:
+ * 1. Data Sanitization: Uses pipe-delimited string parsing to map raw data into structured objects.
+ * 2. Deduplication Strategy: Implements a Set-based filter to ignore duplicate SKU entries in the shipment.
+ * 3. Logistical Decision Engine: Employs conditional logic to classify items as "restock", "donate", or "discard" based on current pantry state and quantity.
+ * 4. Zone-based Organization: Utilizes reduction techniques to aggregate actions by storage zone for optimized retrieval.
+ * 5. State Integrity: Implements deep cloning to ensure original pantry data remains immutable during planning.
+ * * This project demonstrates mastery of object-oriented data structures, 
+ * array manipulation, and scalable inventory workflow management.
+ */
+
+            
+
+const pantry = [
+  { sku: "A10", name: "Tomatoes", qty: 4, expires: "2027-01-01", zone: "fridge" },
+  { sku: "D43", name: "Pineapples", qty: 2, expires: "2020-01-01", zone: "general" }
+];
+
+const rawData = [
+  "A10|Tomatoes|5|2027-01-01",
+  "B21|Bananas|10|2027-01-01",
+  "C32|Eggs|3|2027-01-01|fridge",
+  "C32|Eggs|3|2027-01-01",
+  "D43|Pineapples|0|2027-01-01",
+  "E54|Peppers|-1|2027-01-01|fridge"
+];
+
+// 1. Parse Shipment: Transformacja surowych danych w obiekty
+function parseShipment(rawData) {
+  const seenSkus = new Set();
+  const parsed = [];
+
+  for (const entry of rawData) {
+    const [sku, name, qty, expires, zone] = entry.split('|');
+    
+    // Ignorowanie duplikatów SKU
+    if (seenSkus.has(sku)) continue;
+    seenSkus.add(sku);
+
+    parsed.push({
+      sku,
+      name,
+      qty: Number(qty),
+      expires,
+      zone: zone || "general" // Domyślna strefa
+    });
+  }
+  return parsed;
+}
+
+// 2. Plan Restock: Decyzje o logistyce
+function planRestock(pantry, shipment) {
+  return shipment.map(item => {
+    if (item.qty <= 0) return { type: "discard", item };
+    
+    const exists = pantry.some(p => p.sku === item.sku);
+    return {
+      type: exists ? "restock" : "donate",
+      item
+    };
+  });
+}
+
+// 3. Group By Zone: Organizacja przestrzeni
+function groupByZone(actions) {
+  return actions.reduce((acc, action) => {
+    const zone = action.item.zone;
+    if (!acc[zone]) acc[zone] = [];
+    acc[zone].push(action);
+    return acc;
+  }, {});
+}
+
+// 4. Clone Pantry: Deep Copy (bezpieczeństwo danych)
+function clonePantry(pantry) {
+  return JSON.parse(JSON.stringify(pantry));
+}
+
+// 5. Integracja (Workflow)
+function processShipment(pantry, rawData) {
+  const shipment = parseShipment(rawData);
+  const actions = planRestock(pantry, shipment);
+  const result = groupByZone(actions);
+  
+  console.log("Final Grouped Result:", JSON.stringify(result, null, 2));
+  return result;
+}
+
+// 1. Parsowanie
+const shipment = parseShipment(rawData);
+
+// 2. Planowanie (używając oryginalnego pantry)
+const actions = planRestock(pantry, shipment);
+
+// 3. Grupowanie
+const groupedResult = groupByZone(actions);
+
+// 4. LOGOWANIE - to jest kluczowe dla FCC, żeby zaliczyli zadanie
+console.log(groupedResult);
+        </code>
+        </pre>
+        </article>
+        <article id="build15">
+            <h4>Build a proofreading tool</h4>
+            <p>
+                In this lab, you will build a proofreading tool that analyzes arrays of words for palindromes and repeated phrases.A palindrome is a word that reads the same forwards and backwards. For example, "racecar" and "level" are palindromes, but "hello" is not.
+            </p>
+<p>
+    A phrase is a sequence of consecutive words. For example, in ["the", "cat", "sat", "the", "cat"], the phrase "the cat" (a sequence of 2 words) appears at positions 0 and 3.
+</p>
+<p>
+    <b>Objective</b>: fulfill the user stories below and get all the tests to pass to complete the lab.
+</p>
+<p>
+    <b>User Stories</b>:
+</p>
+<ol class="custom-list">
+<li>
+    1. You should define a function named isPalindrome that takes a word string as its argument. It should return true if the word reads the same forwards and backwards (case-insensitive), and false otherwise.2. You should define a function named findPalindromeBreaks that takes a words array as its argument. It should return an array of indices of words that are not palindromes. It should return an empty array if the input is empty.
+</li>
+<li>
+    3. You should define a function named findRepeatedPhrases that takes a words array and a phraseLength number as arguments. It should return an array of all start indices where a sequence of phraseLength consecutive words appears more than once in the array — including the index of the first occurrence. It should return an empty array if phraseLength is greater than or equal to the length of words. Overlapping sequences should also be counted.
+</li>
+<li>
+    4. You should define a function named analyzeTexts that takes a texts array and a phraseLength number as arguments. It should process each element of texts (each an array of words) and return an array of objects, each with repeatedPhrases and palindromeBreaks properties. It should return an empty array if texts is empty.
+</li>
+</ol>
+<pre class="code-box">
+<code>
+    /**
+    * Proofreading Tool Algorithm
+    * * Goal: Analyze text arrays for palindromic structure and recurring phrase patterns.
+    * * Features:
+    * 1. Palindrome Validation: Normalizes strings to lowercase and compares against their reversed counterparts.
+    * 2. Anomaly Detection: Identifies indices where word structure deviates from the palindrome rule.
+    * 3. Pattern Recognition: Uses sliding window analysis to locate repeated consecutive phrases of a given length.
+    * 4. Batch Processing: Aggregates analytical results across multiple text arrays.
+    */
+   
+   // 1. Is Palindrome: Check individual words
+   function isPalindrome(word) {
+     const normalized = word.toLowerCase();
+     const reversed = normalized.split('').reverse().join('');
+     return normalized === reversed;
+   }
+   
+   // 2. Find Palindrome Breaks: Indices of non-palindromic words
+   function findPalindromeBreaks(words) {
+     return words.reduce((breaks, word, index) => {
+       if (!isPalindrome(word)) breaks.push(index);
+       return breaks;
+     }, []);
+   }
+   
+   // 3. Find Repeated Phrases: Locate recurring sequences
+   function findRepeatedPhrases(words, phraseLength) {
+     if (phraseLength >= words.length || phraseLength <= 0) return [];
+   
+     const seen = new Map();
+     const result = [];
+   
+     for (let i = 0; i <= words.length - phraseLength; i++) {
+       const phrase = words.slice(i, i + phraseLength).join(' ');
+       
+       if (seen.has(phrase)) {
+         // Jeśli już widzieliśmy tę frazę, dodajemy indeks bieżący i pierwszy
+         if (!result.includes(seen.get(phrase))) result.push(seen.get(phrase));
+         result.push(i);
+       } else {
+         seen.set(phrase, i);
+       }
+     }
+     return [...new Set(result)].sort((a, b) => a - b);
+   }
+   
+   // 4. Analyze Texts: Batch analysis
+   function analyzeTexts(texts, phraseLength) {
+     return texts.map(words => ({
+       repeatedPhrases: findRepeatedPhrases(words, phraseLength),
+       palindromeBreaks: findPalindromeBreaks(words)
+     }));
+   }
+   
+</code>
+</pre>
+        </article>
     </main>
 
     </body>
