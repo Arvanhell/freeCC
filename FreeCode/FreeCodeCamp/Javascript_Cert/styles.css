@@ -234,3 +234,50 @@ nav ul li {
     margin: 0;        /* Ensures no extra space from global li styles */
     padding: 0;
 }
+
+
+
+.btn-box {
+    display: inline-block; /* Dzięki temu span przyjmie paddingi i background */
+    background-color: #3b3f58; /* Kolor tła z Twojego screena */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    margin-bottom: 10px; /* Odstęp między przyciskami */
+    transition: background 0.3s;
+}
+
+/* Opcjonalnie: efekt najechania */
+.btn-box:hover {
+    background-color: #2a2d3e;
+}
+
+/* Usunięcie podkreślenia linku, jeśli przeszkadza */
+a {
+    text-decoration: none;
+}
+
+
+/* Styl dla nagłówka rozdziału */
+.chapter-header {
+    display: block;        /* Rozciąga się na całą szerokość */
+    font-size: 1.5em;      /* Większy, wyraźny rozmiar */
+    font-weight: 800;      /* Bardziej pogrubiony */
+    color: #2c3e50;        /* Ciemniejszy kolor dla kontrastu */
+    margin: 20px 0 10px 0; /* Odstępy: góra/dół, żeby oddzielić od poprzedniego */
+    border-bottom: 2px solid #3b3f58; /* Opcjonalna linia pod rozdziałem */
+    padding-bottom: 5px;
+}
+
+/* Styl dla Twoich przycisków/linków */
+.nav-item {
+    display: inline-block;
+    background-color: #3b3f58;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
