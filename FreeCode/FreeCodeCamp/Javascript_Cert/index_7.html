@@ -16,12 +16,14 @@
      </nav>
      <main>
         <h1>JavaScript Fundamentals Review</h1>
+        
+        
+              <h3>JavaScript Fundamentals Review</h3>
         <ol>
-            <h3>JavaScript Fundamentals Review</h3>
             <li>
-                <h4>
+                <span class="btn-box">
                     Working with types and Objects    
-                </h4>
+                </span>
             </li>
             <ul class="custom-list">
                 <li>
@@ -41,7 +43,7 @@
                 </li>
             </ul>
             <li>
-                <h4>Working with Arrays, Variables, and Naming practices</h4>
+                <span class="btn-box">Working with Arrays, Variables, and Naming practices</span>
             </li>
             <ul class="custom-list">
                 <li>
@@ -55,7 +57,7 @@
                     </a>
                 </li>
                 <li>
-                    <h4>Working with code Quality and execution Concepts</h4>
+                    <span class="btn-box">Working with code Quality and execution Concepts</span>
                 </li>
                 <li>
                     <a href="#section6">
@@ -70,6 +72,39 @@
                 <li>
                     <a href="#section8">
                         What are Closures, and how do they work?
+                    </a>
+                </li>
+                <li>
+                    <a href="#build1">
+                        <span class="btn-box">Build a String Inverter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#build2">
+                     <span class="btn-box">
+                        Build the Largest Number Finder
+                     </span>
+                     </a>
+                </li>
+                <li>
+                    <a href="#build3">
+                        <span class="btn-box">
+                            Build a First Element Finder
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#build4">
+                        <span class="btn-box">
+                            Implement the Slice and Splice Algorithm
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#build5">
+                        <span class="btn-box">
+                            Build a Pyramid Generator
+                        </span>
                     </a>
                 </li>
             </ul>
@@ -557,6 +592,494 @@
         In summary, llinters and formatters are powerful tools tht help maintain code quality, catch potential errors early, and ensure consistency across codebases. By automating these aspects of code review they allow developers to focus more on solving problems and less on debating code style.
     </p>
             </section>
+            <section id="section7">
+            <h3>What is Memory Mangment, and how does it work in JavaScript?</h3>    
+            <h4>DESCRIPTION</h4>
+            <p>
+                Memory managment is an essential concept i programming, but it can be a bit confusing for beginners, let's break it down in simple terms.
+            </p>
+            <p>
+                When you run a program, including JavaScript code in a web browser, it needs memory to store all the information its working with. This includes variables, functions, objects, basically everything your code creates and uses. Memory managment is the process of controlling this memory, allocating it when needed, and freeing it up when it's no longer needed. In some programming languages, developers have to manually manage memory. They need to explicitly tell the computer when to allocate memory for new things and when to free up memory that's no longer needed. This can be powerful but also tricky as forgetting to free memory can lead to memory leaks.
+            </p>
+            <p>
+                JavaScript however uses automatic memory menagment. This means that JavaScript (more specifically the JavaScript engine in your web browser) takes care of memory allocation nad deallocation for you. You dont't have to explicitly free memory in your code. This automatic process is often called garbage collection.
+            </p>
+            <p>
+                Here's how it works in simple terms. First allocation happens when you create a variable, object or functions in your JavaScript code, memory is automatically allocated to store them. Then you use this allocated memory when you work with these variables, objects or functions in your code.
+            </p>
+            <p>
+                The JavaScript engine has clever ways to figure out when something in memory is no longer needed. Generally if there is no way for your program to access or use a piece of data any more it's considered no longer needed. Periodically the garbage collector runs, it finds a memory that's no longer needed and frees it up, making it available for future use. This process happens automatically which is great because it means you don't have to worry about managing memory yourself.
+            </p>
+            <p>
+                However, it's still important to understand this concept because you can sometimes accidentally keep references to things you don't need anymore preventing the garbage collector from freeing that memory. For example: 
+            </p>
+            <pre class="code-box">
+            <code>
+    function createlargeArray() {
+        let largeArray = new Array(1000000);
+        return function() {
+            console.log(largeArray.length);
+        };
+    }
+
+    let printArrayLength = createLargeArray();
+    printArrayLength();
+            </code>
+            </pre>
+        <p>
+            In this code, even after <strong>createLargeArray</strong> finishes running. <strong>largeArray</strong> cant't be garbage collected because the returned function still has access to it. This is a closure, and while closures are useful they can sometimes lead to more memory usage than you might expect. You will learn more about closures in future lessons.
+        </p>
+        <p>
+            As a beginner, you don't need to worry too much about the inticacies of memory managment. JavaScript's automatic garbage collection takes care of most things for you. However, as you advance in your JavaScript journey, understanding these concepts can help you write more efficient code, especially for lanrger applications or when working with limited resources. 
+        </p>
+        <p>
+            Remember, good coding practices, like avoinding global variables when possible and being mindful of what your functions are closing over, can help the JavaScript engine manage memory more efficiently.
+        </p>
+            </section>
+            <section id="section8">
+            <h3>What are closures, and how do they work?</h3>
+            <h4>LESSON</h4>
+            <p>
+                Closures are one of the most powerful and often misunderstood features in JavaScript. At its core, a closure is a function that has access to variables in its outer enclosing lexical scope, even after the outer function has returned. This might sound complex but it's a fundamental concept that enables many advanced programming patterns in JavaScript.
+            </p>
+            <p>
+                To understand closures, let's start with an example:
+            </p>
+            <pre class="code-box">
+            <code>
+    JS
+        function outerFunction(x) {
+            let y = 10;
+            function innerFunction() {
+                console.log(x+ y);
+            }
+            return innerFunction;
+        }
+
+        let closure = outerFunction(5);
+        console.log(closure());  // 15
+            </code>
+            </pre>
+        <p>
+            In this example, <strong>outerFunction</strong> takes a parameter <strong>x</strong> and defines a local variable <strong>y</strong>. It then defines an <strong>innerFunction</strong> that uses both <strong>x</strong> and <strong>y</strong>. Finally it returns <strong>innerFunction</strong>. When we call <strong>outerFunction(5)</strong> it returns <strong>innerFunction</strong> which we assign to the variable <strong>closure</strong>. When we later call <strong>closure()</strong> it still has access to <strong>x</strong> and <strong>y</strong> from <strong>outerFunction</strong> even though <strong>outerFunction</strong> has already finished executing. This is the essence of a closure.
+        </p>
+        <p>
+            The inner function maintains a reference to its outer lexical environment, preserving access to the variables in that environment even after the outer function has completed.
+        </p>
+        <p>
+            Closures are particularly useful for creating private variables and functions. Consider this example:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        function createCounter() {
+            let count = 0;
+            return function () {
+                count++;
+                return count;
+            };
+        }
+
+        let counter = createCounter();
+        console.log(counter()); // 1
+        console.log(counter()); // 2
+        </code>
+        </pre>
+        <p>
+            In this case, <strong>createCounter</strong> returns a function that increment and returns a <strong>count</strong> variable. The <strong>count</strong> variable is not directly accessible from outside <strong>createCounter</strong>, but the returned function (our closure) has access to it. Each time we call <strong>counter()</strong>, it increments and returns the <strong>count</strong>.
+        </p>
+        <p>
+            Closures can also capture multiple variables from their outer scope. For example:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        function multiply(x) {
+            return function (y) {
+                return x * y;
+            };
+        }
+
+        let double = multiply(2);
+        console.log(double(5));  // 10
+        </code>
+        </pre>
+        <p>
+            Here the inner function captures the <strong>x</strong> parameter from <strong>multiply</strong>. When we create <strong>double</strong> by calling <strong>multiply(2)</strong> it returns a function that always multiplies its argument by <strong>2</strong>.
+        </p>
+        <p>
+            One important thing to note about closures is that they capture variables, by reference not by value. This means if the value of a captured variable changes, the closure will see the new value. For example:
+        </p>
+        <pre class="code-box">
+        <code>
+    JS
+        function createIncrementer() {
+            let count = 0;
+            return function () {
+                count++;
+                console.log(count);
+            };
+        }
+
+        let increment = createIncrementer();
+        increment(); // 1
+        increment(); // 2
+        </code>
+        </pre>
+        <p>
+            Each time we call <strong>increment</strong> its working with the same <strong>count</strong> variable, not a copy of it's initial value. Closures are a powerful tool in JavaScript you'll find that understanding and using closures effectively can greatly enhance your ability to write clean, efficient and powerful code.
+        </p>
+            </section>
+        </article>
+        <article>
+            <span class="btn-box" id="build1">Build a String Inverter</span>
+            <p>
+                In this lab, you will build a simple string inverter that reverses the characters of a given string.For example, <strong>"hello"</strong> should become <strong>"olleh"</strong>.
+            </p>
+            <p>
+                <b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+            </p>
+            <p>
+            <b>User Stories</b>:
+           </p>
+           <ol class="custom-list">
+           <li>
+               1. You should create a function named <strong>reverseString</strong> that takes a string as an argument. 
+           </li>
+           <li>
+               2. The function should return the reversed string.
+           </li>
+</ol>
+<pre class="code-box">
+    <code>
+   function reverseString(str) {
+    return str.split('').reverese().join('');
+   }
+
+
+   /*
+   1. 
+   Łączenie (Chaining): W JavaScript metody takie jak 
+   .split(), 
+   .reverse()  
+   .join() zwracają wynik, który przekazują do następnej metody. 
+   Nie musisz pisać str przed każdą z nich. 
+   Pisząc str.split().str.reverse(), próbujesz wywołać metodę reverse() na czymś, co nie istnieje.
+   2.
+    split(''): Pamiętaj o pustym cudzysłowie w nawiasie (''). 
+    Jeśli zostawisz nawias pusty split(), JS nie będzie wiedział, 
+    gdzie ciąć i wrzuci cały tekst jako jeden element do tablicy.
+     '' mówi mu: „tnij po każdej literze”.
+   3.
+    return: Musisz zwrócić wynik operacji, a nie oryginalny, niezmieniony str, który dostałeś na wejściu.
+      Jak to rozumieć (łopatologicznie):
+   1. 
+   str.split(''): Rozbijasz cały łańcuch na pojedyncze klocki (litery).
+   2.
+    .reverse(): Puszczasz klocki w odwrotnej kolejności.
+   3. 
+    .join(''): Sklejasz klocki w jeden nowy łańcuch.
+
+    Jedna ważna rzecz: Metody reverse() i join() działają tylko na tablicach. 
+    Dlatego na samym początku musisz użyć split(''), żeby zamienić string w tablicę.
+     Dopiero wtedy możesz „kręcić” jego zawartością.
+   */
+</code>
+</pre>
+
+        </article>
+        <article>
+            <span class="btn-box" id="build2">
+                Build the Largest Number Finder
+            </span>
+            <p>
+                In this lab, you will build a function that returns an array consisting of the largest number from each provided sub-array.Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
+            </p>
+            <p>
+                Objective: Fulfill the user stories below and get all the tests to pass to complete the lab.
+            </p>
+            <p><b>User Stories</b>:</p>
+        <ol class="custom-list">
+        <li>
+            1. You should create a function largestOfAll that takes an array of arrays as an argument.
+        </li>
+        <li>
+            2. The function should return an array containing the largest number from each sub-array.
+        </li> 
+    </ol>
+<pre class="code-box">
+    <code>
+        function largestOfAll(arr) {
+            const result = []; // Nasze pudełko na wyniki
+          
+            for (let i = 0; i < arr.length; i++) {
+              // 1. Wyciągamy pod-tablicę (np. [1, 5, 2])
+              const subArray = arr[i];
+          
+              // 2. Zakładamy, że pierwszy element jest największy
+              let largest = subArray[0];
+          
+              // 3. Pętla wewnątrz - szukamy czegoś większego
+              for (let j = 0; j < subArray.length; j++) {
+                if (subArray[j] > largest) {
+                  largest = subArray[j]; // Znaleźliśmy nowego króla!
+                }
+              }
+          
+              // 4. Wrzucamy największą liczbę do naszego pudełka
+              result.push(largest);
+            }
+          
+            return result;
+          }
+          
+    </code>
+</pre>
+        </article>
+        <article >
+            <span class="btn-box" id="build3">
+                Build a First Element Finder
+            </span>
+            <p>
+                In this lab, you will create a function that looks through an array and returns the first element that passes a test function (also known as a "truth test").
+            </p>
+            <p>
+                The function would iterate through the array and test each element using the provided test function. At the end, it would return the first element where the test function returns <strong>true</strong>.
+            </p>
+<p><b>Example</b>:</p>
+<pre class="code-box">
+<code>
+    findElement =([1, 3, 5, 8], num => num % 2 === 0). // return 8
+    findElement =([1, 3, 5], num => num % 2 === 0) // return undefined
+</pre>
+
+<p>
+    <b>objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab. 
+</p>
+<p><b>User Stories</b>:</p>
+<ol>
+    <li>
+        1. You should have a function named findElement that accepts an array and a function as arguments.
+    </li>
+    <li>
+        2. The function should return the first item in the array that passes a truth test. This means that, calling the passed in function func, given an element x, the truth test is passed if func(x) is true.
+    </li>
+    <li>
+        3. If no element passes the test, the function should return undefined.
+    </li>
+</ol>
+<pre class="code-box">
+<code>
+    function findElement(arr, func) {
+        // 1. Przechodzimy przez każdy element w tablicy
+        for (let i = 0; i < arr.length; i++) {
+          const element = arr[i];
+      
+          // 2. „Pytamy" przekazaną funkcję (func), czy ten element pasuje
+          if (func(element) === true) {
+            // 3. Jeśli tak, od razu go zwracamy i kończymy robotę (pętla się przerywa)
+            return element;
+          }
+        }
+      
+        // 4. Jeśli pętla się skończyła i nic nie znaleźliśmy, zwracamy undefined
+        return undefined;
+      }
+      
+</code>
+</pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build4">
+                Implement the Slice and Splice Algorithm
+            </span>
+            <p>
+                In this lab, you will need to create an algorithm ot merge two arrays.
+            </p>
+            <p>
+                <b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+            </p>
+            <p>
+                <b>User Stories</b>:
+            </p>
+            <ol>
+                <li>
+                    1. Create <strong>frankenSplice</strong> function that accepts two arrays and an index.
+                </li>
+                <li>
+                    2. Copy each element of the first array into the second array, in order, beggining at the given index, and return the resulting array.
+                </li>
+                <li>
+                    3. The input arrays should remain the same after the function runs.
+                </li>
+            </ol>
+            <pre class="code-box">
+            <code>
+    function frankenSplice(arr1, arr2, n) {
+
+      // 1. Tworzymy kopię drugiej tablicy, żeby nie zmieniać oryginału
+      // spread operator (...) wyjmuje elementy z arr2 i wkłada do nowej tablicy []
+  
+      let result = [...arr2];
+
+     // 2. Wstawiamy elementy z pierwszej tablicy
+     // splice(miejsce_wstawienia, ile_usunąć, co_wstawić)
+     // '...' przed arr1 powoduje, że wstawiamy elementy po kolei
+  
+     result.splice(n, 0, ...arr1);
+
+  return result;
+}
+
+            </code>
+            </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build5">
+                Build a Pyramid Generator
+            </span>
+            <p>
+                <b>Objective</b>: Fulfill the user stories below and get all the test to pass to complete the lab.
+            </p>
+            <p>
+                <b>User Stories</b>:
+            </p>
+            <ol>
+                <li>
+                    1. you should have a function named <strong>pyramid</strong> that takes three arguments.
+                </li>
+                <li>
+                    2. The first argument should be a string representing the pattern character to repeat in your pyramid.
+                </li>
+                <li>
+                    3. The second argument should be an integer representing the number of rows in the pyramid.
+                </li>
+                <li>
+                    4. The third argument should be a Boolean value.
+                </li>
+                <li>
+                    5. The <strong>pyramid</strong> function should return a string in which the pattern character is repeated and arranged to form a pyramid having the vertex facing upwards when the third argument is <strong>false</strong>.
+                </li>
+                <li>
+                    6. When the third argument is <strong>true</strong> the pyramid should have the vertex facing downwards.
+                </li>
+                <li>
+                    7. The vertex row should have a single pattern character, and each other row should have two pattern characters more than teh previous one.
+                </li>
+                <li>
+                    8. Each row should start with a number of spaces sufficient to put the center character of each row in the same coumn and there should not be any spaces at the end of each row.
+                </li>
+                <li>
+                    9. The pyramid should start and end with a newline character.
+                </li>
+            </ol>
+            <pre class="code-box">
+                <code>
+        For example, calling puramid('o', 4, false) should give this output:
+           o
+          ooo
+         ooooo
+        ooooooo
+
+  function pyramid(char, rows, inverted) {
+    
+  let result = "\n"; // Zaczynamy od nowej linii
+  
+     // Jeśli inverted jest true, odwracamy kolejność wierszy
+  for (let i = 0; i < rows; i++) {
+    let currentRow = inverted ? rows - i : i + 1;
+    
+    // Liczba znaków w wierszu: 1, 3, 5, 7... (wzór: 2 * n - 1)
+    let charCount = 2 * currentRow - 1;
+    
+    // Liczba spacji: zależna od tego, ile wierszy zostało do "najszerszego"
+    let spaceCount = rows - currentRow;
+    
+    // Budujemy wiersz
+    result += " ".repeat(spaceCount) + char.repeat(charCount) + "\n";
+  }
+  
+  return result;
+}
+                </code>
+            </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build6">
+                Build a Gradebook App
+            </span>
+            <p>
+                <b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab. 
+            </p>
+            <p>
+                <b>User Stories</b>:
+            </p>
+            <ol>
+                <li>
+                    1. You should have a function named <strong>getAverage</strong> that takes an array of test scores as parameter and returns the average score.
+                </li>
+                <li>
+                    2. You should have a function named <strong>getGrade</strong> that takes a student score as a parameter and returns a string representing a letter grade based on the score. Here are the scores and their corresponding letter grades:
+                    100  "A+", 90 - 99  "A", 80 - 89 "B", 70 - 79 "C", 60 - 69 "D", 0-59 "F"
+                </li>
+                <li>
+                    3. You should have a function named <strong>hasPassingGrade</strong> that takes a score as a parameter and returns either <strong>true</strong> or <strong>false</strong> depending on if the score corresponds to a passing grade.
+                </li>
+                <li>
+                    4. The <strong>hassPassingGrade</strong> function should use the <strong>getGrade</strong> function to get the letter grade, and use it to determine if the grade is passing. A passing grade is anything different from <b>"F"</b>.
+                </li>
+                <li>
+                    5. You should have a function named <strong>studentMsg</strong> that takes an array of scores and a student score as the parameters. The function should return a string with the format:
+                </li>
+                <uL>
+                    <li>
+                        <b>"Class average: average-goes-here. Your grade: grade-goes-here. You passed the course."</b>, if the student passed the course.
+                    </li>
+                    <li>
+                        <b>"Class average: average-goes-here. Your grade: grade-goes-here. You failed the course."</b>, f student failed the course.
+                    </li>
+                </uL>
+            </ol>
+            <p>
+                Replace <b>average-goes-here</b> with the average of total scores and <b>grade-goes-here</b> with the student's grade. Use <strong>getAverage</strong> to get the average score and <strong>getGrade</strong> to get the student's grade.
+            </p>
+            <pre class="code-box">
+            <code>
+    function getAverage(scores) {
+
+      let sum = 0;
+
+    for (const score of scores) {
+       sum += score;
+      }
+     return sum / scores.length;
+    }
+
+    function getGrade(score) {
+
+      if (score === 100) return "A+";
+      if (score >= 90) return "A";
+      if (score >= 80) return "B";
+      if (score >= 70) return "C";
+      if (score >= 60) return "D";
+    return "F";
+   }
+
+function hasPassingGrade(score) {
+  return getGrade(score) !== "F";
+}
+
+function studentMsg(totalScores, studentScore) {
+  const average = getAverage(totalScores);
+  const grade = getGrade(studentScore);
+  const passed = hasPassingGrade(studentScore);
+  
+  const status = passed ? "You passed the course." : "You failed the course.";
+  
+  return `Class average: ${average}. Your grade: ${grade}. ${status}`;
+}
+            </code>
+            </pre>
         </article>
         </main>
     </body>
