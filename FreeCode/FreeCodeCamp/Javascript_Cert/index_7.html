@@ -107,7 +107,92 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a href="#build6">
+                        <span class="btn-box">
+                            Build a gradebook app
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#build7">
+                        <span class="btn-box">
+                            Build a Title Case Converter
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#build8">
+                        <span class="btn-box">Implement a Falsy Remover</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#build9">
+                        <span class="btn-box">
+                            Build an Inventory Managment Program
+                        </span>
+                    </a>
+                </li>
             </ul>
+            <li>
+                <a href ="#section9">
+                    <span class="btn-box">
+                        Understanding Modules, Imports, and Exports
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href ="#build10">
+                 <span class="btn-box">Implement a Unique Sorted Union
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#build11">
+                <span class="btn-box">Build a Password generator app</span>
+                </a>
+            </li>
+            <li>
+                <a href="#build12">
+                    <span class="btn-box">Design a Sum All Numbers Algorithm
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#build13">
+                    <span class="btn-box">
+                        Implement a DNA Pair Generator
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#build14">
+                    <span class="btn-box">
+                        Implement an HTML Entity Converter
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#build15">
+                    <span class="btn-box">
+                        Build an Odd Fibbonacci Sum Calculator
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#build16">
+                <span class="btn-box">
+                    Implement an Element Skipper
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#build17">
+                    <span class="btn-box">
+                        Build a Playlist Remix Engine
+                    </span>
+                </a>
+            </li>
         </ol>
         <article>
             <h2>Working with Types and Objects</h2>
@@ -857,7 +942,7 @@
     <b>objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab. 
 </p>
 <p><b>User Stories</b>:</p>
-<ol>
+<ol class="custom-list">
     <li>
         1. You should have a function named findElement that accepts an array and a function as arguments.
     </li>
@@ -902,7 +987,7 @@
             <p>
                 <b>User Stories</b>:
             </p>
-            <ol>
+            <ol class="custom-list">
                 <li>
                     1. Create <strong>frankenSplice</strong> function that accepts two arrays and an index.
                 </li>
@@ -944,7 +1029,7 @@
             <p>
                 <b>User Stories</b>:
             </p>
-            <ol>
+            <ol class="custom-list">
                 <li>
                     1. you should have a function named <strong>pyramid</strong> that takes three arguments.
                 </li>
@@ -1014,7 +1099,7 @@
             <p>
                 <b>User Stories</b>:
             </p>
-            <ol>
+            <ol class="custom-list">
                 <li>
                     1. You should have a function named <strong>getAverage</strong> that takes an array of test scores as parameter and returns the average score.
                 </li>
@@ -1031,7 +1116,7 @@
                 <li>
                     5. You should have a function named <strong>studentMsg</strong> that takes an array of scores and a student score as the parameters. The function should return a string with the format:
                 </li>
-                <uL>
+                <ul class="custom-list">
                     <li>
                         <b>"Class average: average-goes-here. Your grade: grade-goes-here. You passed the course."</b>, if the student passed the course.
                     </li>
@@ -1080,6 +1165,1027 @@ function studentMsg(totalScores, studentScore) {
 }
             </code>
             </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build7">
+                Build a Title Case Converter
+            </span>
+            <p>
+                In this lab you will create a function that converts a string to title case. Title case menas that the first letter of each word is capitalized and the rest of the word is in lower case.
+                <strong>"Web Development Is Awesome</strong> is an example of a title cased string.
+            </p>
+            <p>
+                <b>Objective</b>: Fulfil the user stories nelow and get all the tests to pass to complete the lab.
+            </p>
+            <p>
+                <b>User Stories</b>:
+            </p>
+            <ol class="custom-list">
+                <li>
+                    1. You should have a <strong>titleCase</strong> function that takes a string as an argument.
+                </li>
+                <li>
+                    2. The <strong>titleCase</strong> function should return a string with the first letter of each word capitalized and the rest of the word in lower case.
+                </li>
+                <li>
+                    3. <strong>titleCase("I like to code")</strong> should return <b>"I Like To Code".</b>
+                </li>
+                <li>
+                    4. <strong>titleCase("javaScript is fun")</strong> should return <b>"JavaScript Is Fun"</b>.
+                </li>
+            </ol>
+            <pre class="code-box">
+            <code>
+    function titleCase(str) {
+        // 1. Zamieniamy wszystko na małe litery i rozbijamy na tablicę słów
+    const words = str.toLowerCase().split(' ');
+
+        // 2. Tworzymy nową tablicę ze przetworzonymi słowami
+    const titleCasedWords = words.map(word => {
+        // Łączymy: wielką pierwszą literę + resztę słowa (od indeksu 1)
+     return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+
+        // 3. Łączymy tablicę z powrotem w string, używając spacji jako kleju
+    return titleCasedWords.join(' ');
+ }
+            </code>
+            </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build8">
+                Implement a Falsy Remover
+            </span>
+            <p>
+                In this lab you will create a functioin that removes all falsy values from an array.
+            </p>
+            <p>
+                Falsy values in JavaScript are <strong>false</strong>, <strong>null</strong>, <strong>0</strong>, <strong>""</strong>, <strong>undeffined</strong>, and <strong>NaN</strong>.
+            </p>
+            <p><b>Objectivve</b>: Fulfill the user stories below and get all the test to pass to complete the lab.
+            </p>
+            <p>
+                <b>User Stories</b>:
+            </p>
+            <ol class="custom-list">
+                <li> 
+                    1. You should have a <strong>bouncer</strong> function that takes an array as argument.
+                </li>
+                <li>
+                    The <strong>bouncer</strong> function should return a new array that contains the same elements as the array passed in a as argument with the falsy elements removed.
+                </li>
+                <li>
+                    3. The <strong>bouncer</strong> function should not change the array passed in as an argument.
+                </li>
+            </ol>
+            <p>
+                Hint: Try converting each value to Boolean
+            </p>
+            <pre class="code-box">
+                <code>
+    function bouncer(arr) {
+       // Metoda filter tworzy NOWĄ tablicę
+       // Przekazujemy funkcję Boolean, która zamienia każdy element na true lub false
+
+      return arr.filter(Boolean);
+    }
+                </code>
+            </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build9">
+                Build an Inventory Managment Program
+            </span>
+            <p>
+                In this lab, you will build an inventory management program that will allow you to add, update, find and remove products from the inventory. 
+            </p>
+            <p>
+                You will use an array of objects to represent your inventory, where each object will have name and quantity as the keys.
+            </p>
+            <p>
+                <b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+            </p> 
+            <p>
+                <b>User Stories</b>:
+            </p>
+            <ol class="custom-list">
+<li>
+1. You should declare an empty array named inventory that will store product objects having a key name with the value of a lowercase string, and a key quantity with the value of an integer.
+</li>                
+<li>
+ 2. You should create a function named findProductIndex that takes the product name as its argument and returns the index of the corresponding product object inside the inventory array. The function should always use the lowercase form of the product name to perform the search. If the product is not found, the function should return -1.
+</li>
+<li>
+ 3. You should create a function named addProduct that takes a product object as its argument.
+</li>
+<li>
+ 4. If the product is already present in the inventory, the addProduct function should update its quantity value by adding the quantity passed in to the function to the current quantity and log to the console the product name followed by a space and quantity updated.
+</li>
+<li>
+ 5. If the product is not present in the inventory, the addProduct function should push the product to the inventory array and log the product name to the console, followed by a space and added to inventory.
+</li>
+<li>
+ 6. You should create a function named removeProduct that takes the product name and quantity as its arguments.
+</li>
+<li>
+ 7. The removeProduct function should subtract the passed quantity from the corresponding product object inside the inventory and log the string Remaining &lt;product-name&gt; pieces: &lt;product-quantity&gt; to the console, where &lt;product-name&gt; should be replaced by the product name, and &lt;product-quantity&gt; should be replaced by the product quantity.
+</li>
+<li>
+ 8. If the quantity after the subtraction is zero, removeProduct should remove the product object from the inventory. If the quantity in the inventory is not enough to perform the subtraction, the removeProduct function should log the string Not enough &lt;product-name&gt; available, remaining pieces: &lt;product-quantity&gt; to the console.
+</li>
+<li>
+ 9. If the product to remove is not present in the inventory, the removeProduct function should log &lt;product-name&gt; not found to the console.
+</li>    
+</ol>
+<p>
+Note: To prevent conflicts, keep only the logging mentioned in the user stories when running tests.
+</p>
+<pre class="code-box">
+<code>
+    let inventory = [];
+
+function findProductIndex(name) {
+  // Szukamy indeksu obiektu, którego nazwa pasuje (po zamianie na małe litery)
+  return inventory.findIndex(product => product.name === name.toLowerCase());
+}
+
+function addProduct(product) {
+  // 1. Zadbajmy o małe litery na samym początku
+  const lowerName = product.name.toLowerCase();
+  const index = findProductIndex(lowerName); // Szukamy po małych literach
+  
+  if (index !== -1) {
+    // Jeśli produkt istnieje: aktualizujemy ilość
+    inventory[index].quantity += product.quantity;
+    // Logujemy zgodnie z wymogami: nazwa z małych + " quantity updated"
+    console.log(`${lowerName} quantity updated`);
+  } else {
+    // Jeśli nie ma: dodajemy nowy produkt
+    inventory.push({
+      name: lowerName,
+      quantity: product.quantity
+    });
+    // Logujemy: nazwa z małych + " added to inventory"
+    console.log(`${lowerName} added to inventory`);
+  }
+}
+
+
+function removeProduct(name, quantity) {
+  // 1. Ujednolicamy nazwę wejściową do małych liter
+  const lowerName = name.toLowerCase();
+  
+  // 2. Szukamy indeksu, używając już ujednoliconej nazwy
+  const index = findProductIndex(lowerName);
+  
+  // 3. Jeśli nie znaleziono (index równy -1), logujemy wiadomość
+  if (index === -1) {
+    console.log(`${lowerName} not found`);
+    return;
+  }
+  
+  const product = inventory[index];
+  
+  // 4. Logika odejmowania
+  if (product.quantity < quantity) {
+    console.log(`Not enough ${lowerName} available, remaining pieces: ${product.quantity}`);
+  } else {
+    product.quantity -= quantity;
+    
+    if (product.quantity === 0) {
+      inventory.splice(index, 1);
+    } else {
+      console.log(`Remaining ${lowerName} pieces: ${product.quantity}`);
+    }
+  }
+}
+
+</code>
+</pre>
+        </article>
+        <article>
+            <h2 id="section9">Understanding Modules, Imports, and Exports</h2>
+            <h3>
+                What is a Module in JavaScript, and how can you Import and Export Modules in Your Program?
+            </h3>
+            <h4>DESCRIPTION</h4>
+        <p>
+            In JavaScript, a module is a selff=contained unit of code that encapsulates related functions, classes, or variables.
+        </p>
+        <p>
+            Think of a module as a building block for your application, much like a chapter in a book. Each module focuses on a specific functionality, making your code more organized, maintable, and reusable. Modules help prevent naming conflicts and allow you to structure your application into separate, interconnected pieces.
+        </p>
+        <p>
+            The concept of modules in JavaScript has evolved over time, but the most widely used and supported approach is the ES6 (ECmaScript 2015) module system. This system provides a standardized way to define and use modules across different JavaScript environments.
+        </p>
+        <p>
+            To create module, you write your JavaScript code in separate file. Any variables, functions, or classes you want to make available to other parts of your application need to be explicitly exported. You can do this using the <strong>export</strong> keyword.
+        </p>
+        <p>
+            for example, let's say you have a file called <strong>math.js</strong> with some math funcitons:
+        </p>
+        <pre class="code-box">
+        <code>
+            export function add(a, b) {
+                return a + b;
+            }
+
+            export function substract(a, b) {
+                return a - b;
+            }
+
+            const PI = 3.14159;
+            export { PI };
+        </code>
+        </pre>
+        <p>
+            In this example, we're exporting two functions ( <strong>add</strong>, and <strong>substract</strong>) and constant (<strong>PI</strong>). You can export as many items as you need from a single module.
+        </p>
+        <p>
+            To use these exported items in another part of your application, you need to import them. This is doen using the <strong>import </strong> keyword.
+        </p>
+        <p>
+            Let's say you want to use these math functions in a file called app.js:
+        </p>
+        <pre class="code-box">
+        <code>
+    import { add, substract, PI } from './math.js';
+
+    console.log(add(5,3));          // Outputs: 8
+    console.log(substract(10, 4));  // Outputs: 6 
+    console.log(PI);                // Outputs: 3.14159
+        </code>
+        </pre>
+        <p>
+            Here, we're importing the specific functions and constant we need from the <strong>math.js</strong> module. The <strong>'./math.js'</strong> part tells JavaScript where to find the module file relative to the current file.
+        </p>
+        <p>
+            Sometimes, you might want to import everything a module exports. You can do this ising asteriks (<strong>*</strong>) syntax:
+        </p>
+        <pre class="code-box">
+        <code>
+    import * as Math from './math.js';
+
+    console.log(Math.add(5, 3));        // Outputs: 8
+    console.log(Math.substract(10,4));  // Outputs: 6
+    console.log(Math.PI);               // Outputs: 3.14159
+        </code>
+        </pre>
+        <p>
+            In this case, all exports from <strong>math.js</strong> are imported as properties of an object called <strong>Math</strong>.
+        </p>
+        <p>
+            Another common pattern is to have a default export in module. This is typically used when a module primarily exports a single function. You can only have one default export per moduule.
+        </p>
+        <p>
+            Here's how it looks:
+        </p>
+        <pre class="code-box">
+        <code>
+    // In math.js
+    export default function multiply(a, b) {
+        return a * b
+    }
+
+    //In app.js
+    import multiply from './math.js';
+
+    console.log(multiply(4, 5));    // Outputs : 20
+
+       </code>
+        </pre>
+        <p>
+            Notice that when importing a default export, you don't need to use curly braces, and you can name the import whatever you want.
+        </p>
+        <p>
+            It's important to note that to use ES6 modules in the browser, you need to specify the <strong>type</strong> as <strong>module</strong> in your <strong>script</strong> tag:
+        </p>
+        <pre class="code-box">
+        <code>
+    <script type="module" src="app.js"></script>
+        </code>
+        </pre>
+        <p>
+            Modules provide a powerful way to organize and structure your JavaScript code. They allow you to break your application into smaller, managable pieces, promote code reuse, and help maintain a clean separation of concerns. As you build larger applications, you'll find that modules become an essential tool in your JavaScript development toolkit.
+        </p>
+        </article>
+        <article>
+            <h2>Working with the Arguments Object and Rest Parameters</h2>
+            <p>
+                In these lessons, you will learn how to work with the <strong>arguments</strong> object and rest parameter syntax.
+            </p>
+            <section id="section10">
+                <h3>What is the Argument Object?</h3>
+                <h4>LESSON</h4>
+                <p>
+                    As you recall from earlier lessons and workshops, you can create functions with a number of parameters and call that function with arguments.
+                </p>
+                <p>
+                    Here is a reminder:
+                </p>
+                <pre class="code-box">
+                <code>
+    // function definition
+    function getSum(num1, num2) {
+        return num1 + num2;
+    }
+
+    // function call 
+    getSum(3, 4);  // 7
+                </code>
+                </pre>
+    <p>
+        But what if you have a function that is called with more arguments than it was defined to accept?
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        // funciton definition
+        function getSum(num1, num2) {
+        return num1 + num2
+    }
+
+    // function call with extra argument
+    console.log(getSum(3, 4, 5));  // 7
+    </code>
+    </pre>
+    <p>
+        JavaScript will not throw an error in this case. It will instead ignore the extra argument and just add the numbers <b>3</b> and <b>4</b> together. Function that accept a variable number of arguments are knows as variadic functions.
+    </p>
+    <p>
+        If you are working with variadic functions, then you can utilize <strong>arguments</strong> object. This array-like object contains the values of the arguments passed into function.
+    </p>
+    <p>
+        Here's an example:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function logArgs() {
+            for (const arg of arguments) {
+                console.log(arg);
+            }
+        }
+
+        logArgs(1, 2, 4);
+        // result
+        // 1
+        // 2
+        // 4
+
+        logArgs("example"); // "example"
+    </code>
+    </pre>
+    <p>
+        Since the <strong>arguments</strong> object is array-like, you can access an argument at a specific index like this:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function getArg() {
+            return arguments[1];
+        }
+
+        console.log(getArg(2, 4, 6));  // 4
+    </code>
+    </pre>
+    <p>
+        You can also use the <strong>length</strong> property like this to get the number of arguments the function was called with:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function getArgs() {
+            return arguments.length;
+        }
+
+        console.log(getArg("Example")); // 1
+        console.log(getArg("Another", "Example")); // 2
+    </code>
+    </pre>
+    <p>
+        Even though the <strong>arguments</strong> object appears to act like a real array, it does not have built in <strong>Array</strong> methods like <strong>includes</strong> or <strong>push</strong>. To have access to those methods, you would need to first convert the <strong>arguments</strong> object to a real array using something like <strong>slice</strong>, <strong>Array.from()</strong> or the spread operator:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function hasCat() {
+            return [...arguments].includes("cat");
+        }
+
+        console.log(hasCat("dog", "chicken", "cat" )); // true
+        console.log(("dog", "chicken", "horse")); // false
+    </code>
+    </pre>
+    <p>
+        While it is possible to work with the <strong>arguments</strong> object for variadic finctions, modern javaScript applications will normally use rest parameter syntax.
+    </p>
+    <P>
+        <b>What is variadic funciton?</b>
+        Funciton that accept a variable number of arguments.
+    </P>
+    <p>
+        <b>What is the argument object?</b> An array-like object that contains the values of the arguments passed into a function.
+    </p>
+    <p>
+        <b>Why can't you use built in Array method like include or push on the argumets object?</b> The arguments objecdt is not a real array so it doesn't have those built in methods.
+    </p>
+            </section>
+            <section id="section11">
+                <h3>What are Rest Parameters and How do they Differ from the arguments Object?</h3>
+                <h4>LESSON</h4>
+        <p>
+            In the previous lesson, you learned how to work with the <strong>arguments</strong> object which is an array-like object containing the values of the arguments passed into the function.
+        </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function logArgs() {
+            for (const arg of arguments) {
+                console.log(arg);
+            }
+        }
+
+        logArgs(1, 2, 3);
+        // result:
+        // 1
+        // 2
+        // 3
+    </code>
+    </pre>
+    <p>
+        While this is valid way to acces and work with a variable set of arguments from a function, modern JavaScript applications will use the rest parameters syntax instead.
+    </p>
+    <p>
+        Here is an updated example using the rest paramater syntax instead of the <strong>arguments</strong> object:
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+      function logArgs(...args) {
+        for (const arg of args) {
+            console.log(arg);
+        }
+      }
+
+      logArgs(1, 2, 3);
+      // result :
+      // 1
+      // 2
+      // 3
+    </code>
+    </pre>
+    <p>
+        This updated example no longer references the <strong>arguments</strong> object directly. Instead, the function definition's last parameter has three dots in front of it. This causes this rest parameter has three dots in front of it. This causes this rest parameter to be placed within an <strong>Array</strong> object. You can name this rest parameter whatever you like. Just make sure it is the parameter in the funciton definition like this:
+    </p>
+    <pre class="code-box">
+    <code>
+        function exampleFunction(a, b, ...restOfArgs) {
+            // some code here
+        }
+
+        function anotherFunction(x, y, ... theArgs) {
+            // some code here
+        }
+    </code>
+    </pre>
+    <p>
+        Ther are a few more restrictions when dealing with the rest parameter syntax. One restriction is that function definitions can only have one rest parameter. So the following example here would be considered invalid.
+    </p>
+    <p>
+        <b>Won't work <br>
+        <br>
+        function badFunction(...args, ...moreArgs) { <br>
+        //some code here <br>
+        }</b>
+    </p>
+    <p>
+        The next restriction is that trailing commas are not allowed after the rest parameter:
+        <b>function exampleFunction(a,b, ...restofArgs, )</b>
+    </p>
+    <p>
+        Another restrictionis that the rest parameter cannot have a default value. Otherwise a <strong>SyntaxError</strong> will be thrown.
+    </p>
+    <pre class="code-box">
+    <code>
+        function badFunction(...arg = [1,2]) {
+            // some code here
+        }
+    </code>
+    </pre>
+    <p>
+        So what are some differences between the <strong>arguments</strong> object and <strong>rest</strong> parameters?
+    </p>
+    <p>
+        One key difference is that the <strong>arguments</strong> object is not a real array so it doesn't support methods like <strong>includes</strong>, <strong>pop</strong>, and <strong>push</strong>. But the rest parameter is an <strong>Array</strong> instance. So you can use valid built in array methods without needing to convert it to a real array first.
+    </p>
+    <pre class="code-box">
+    <code>
+    JS
+        function hasCat(...arg) {
+            return args.includes("cat");
+        }
+
+        console.log(hasCat("dog", "chicken", "cat")) // true
+        console.log(hasCat("dog", "chicken", "cow")) // false
+    </code>
+    </pre>
+            </section>
+        </article>
+        <article>
+            <span class="btn-box" id="build10">
+                Implement a Unique Sorted Union 
+            </span>
+            <p>
+                Create a funcion that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+            </p>
+            <p><b>Objective</b>: Fulfil the user stories below and get all the tests to pass to complete the lab.</p>
+            <p><b>User Stories</b>:</p>
+            <ol class="custom-list">
+                <li>1. You should have a function named <strong>uniteUnique</strong></li>
+                <li>2. The <strong>uniteUnique</strong> function should accept two or more arrays as arguments.</li>
+                <li>
+                    3. The function should return a new array that contains unique values from the argument arrays, in the order they are first found in the arguments. For example, an input like <strong>[1,2,4], [2,3,5]</strong> would have an output of <strong>[1, 2, 4, 3, 5]</strong>.
+                </li>
+            </ol>
+        <pre class="code-box">
+        <code>
+    function uniteUnique(...arrays) {
+  // 1. Spłaszczamy wszystkie argumenty do jednej tablicy
+  // (...) to rest operator, zbiera wszystkie argumenty w jedną tablicę tablic
+
+  const flatArray = [].concat(...arrays);
+
+  // 2. Tworzymy nową tablicę wynikową
+  const result = [];
+
+  // 3. Przechodzimy przez każdą liczbę i sprawdzamy, czy już ją mamy
+
+  for (let i = 0; i < flatArray.length; i++) {
+    const num = flatArray[i];
+    
+    // Jeśli result jeszcze nie zawiera 'num', to go dodajemy
+
+    if (result.indexOf(num) === -1) {
+      result.push(num);
+    }
+  }
+
+  return result;
+}
+        </code>
+        </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build11">
+                Build a Password Generator App 
+            </span> 
+            <p>
+                Build a password generator app based on the user's input.
+            </p>
+            <p>
+                In this lab, you'll practice using functions by building a random password generator.
+            </p>
+            <p>
+                <b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+            </p>
+            
+<p>
+    <b>User Stories</b>:
+</p>
+<ol class="custom-list">
+<li><b>1</b>. You should create a function called generatePassword that takes a parameter, indicating the length of generated password. You can name the parameter whatever you like.
+</li>
+<li>
+ <b>2</b>. Your function should return a string which represents a randomly generated password. You should use the following string and different Math methods to help you return a new string with random characters in it: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*().
+</li>
+<li>
+ <b>3</b>. You should define a variable called password and assign it the result of calling the generatePassword function with a numeric argument that represents the desired password length.
+</li>
+<li>
+ <b>4</b>. You should have a console.log that logs a single string made by concatenating the message Generated password: and the password variable separated by a space.
+</li>
+</ol>
+<pre class="code-box">
+    <code>
+        function generatePassword(length) {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  let password = "";
+
+  for (let i = 0; i < length; i++) {
+    // 1. Losujemy indeks od 0 do długości zbioru characters
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    
+    // 2. Dodajemy wybrany znak do naszego hasła
+    password += characters[randomIndex];
+  }
+
+  return password;
+}
+
+// 3. Definiujemy zmienną z wynikiem
+const password = generatePassword(12); // Przykładowa długość: 12
+
+// 4. Logowanie wyniku
+console.log("Generated password: " + password);
+
+    </code>
+</pre>            
+        </article>
+        <article>
+            <span class="btn-box" id="build12">
+                Design a Sum All Numbers Algorithm
+                </span>
+                <p>
+                    this Algorithm takes an array of two numbers and returns the sum of those numbers plus the sum of all numbers between them.
+                </p>
+                <p>
+                    In this lab, you will need to design a sum all numbers algorithm.
+                </p>
+                <p>
+                <b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+                </p>
+                <p><b>User Stories</b>:</p>
+<ol class="custom-list">
+    <li>
+1. You should have a function named sumAll that accepts an array of two numbers.
+</li>
+<li>
+ 2. sumAll([n, m]) should return the sum of n and m plus the sum of all the numbers between them. The lowest number will not always come first. For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+</li>
+</ol>
+<pre class="code-box">
+<code>
+    function sumAll(arr) {
+        // 1. Znajdujemy mniejszą i większą liczbę
+        const min = Math.min(arr[0], arr[1]);
+        const max = Math.max(arr[0], arr[1]);
+        
+        let sum = 0;
+        
+        // 2. Pętla przez cały zakres (od min do max włącznie)
+        for (let i = min; i <= max; i++) {
+          sum += i;
+        }
+        
+        return sum;
+      }
+      
+</code>
+</pre>
+            
+        </article>
+        <article>
+        <span class="btn-box" id="build13">
+            Implement a DNA Pair Generator
+        </span>
+        <p>
+            In the double helix of the DNA, the bases are always paired together: if on one strand there is an A base, on the other strand directly in front there is a T base, the other pair is C and G.In this lab, you will write a function to match the missing base pairs for the provided DNA strand. For each character in the provided string, find the base pair character.
+        </p>
+        <p>
+For example, for the input ATCG, return [["A", "T"], ["T", "A"], ["C", "G"], ["G", "C"]]
+The A base gets paired with a T base, the T base is paired with a A base, the C is paired with the G base, and finally the G base is paired with a C base.
+</p>
+<p>
+<b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+</p>
+<p>
+<b>User Stories</b>:
+</p>
+<ol class="custom-list">
+<li>
+    1. You should have a pairElement function that takes a string of any length as an argument.
+</li>
+ <li>
+    2. The pairElement function should return a 2d array, where each inner array has two strings inside, the first string is one base from the input, and the second string the paired base.
+ </li>
+ <li>
+    3. When given A, the function should pair it with T.
+ </li>
+ <li>
+    4. When given T, the function should pair it with A.
+ </li>
+ <li>
+    5. When given C, the function should pair it with G.
+ </li>
+ <li>
+    6. When given G, the function should pair it with C.
+ </li>
+</ol>  
+        <pre class="code-box">
+        <code>
+            function pairElement(str) {
+  // 1. Definiujemy obiekt jako „słownik" par
+  const pairs = {
+    "A": "T",
+    "T": "A",
+    "C": "G",
+    "G": "C"
+  };
+
+  // 2. Rozbijamy string na tablicę liter, a potem używamy map(),
+  // aby każdą literę zamienić na jej parę w postaci tablicy [litera, para]
+  return str.split('').map(char => [char, pairs[char]]);
+}
+        </code>
+        </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build14">
+                Implement an HTML Entity Converter
+            </span>
+            <p>
+                Converw special characters in a string to their corresponding HTML entities.
+            </p>
+            <p>
+                This lab is about converting special characters in a string with their corresponding HTML entities.
+            </p>
+                <p><b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+            </p>
+            <p>
+<b>User Stories</b>:
+</p>
+<ol class="custom-list">
+<li>
+    1. You should have a convertHTML function that accepts a string as an argument.
+</li>
+<li>
+    2. The convertHTML function should return a new string by converting special characters in the argument string to their corresponding HTML entities.
+</li>
+</ol>
+<pre class="code-box">
+<code>
+   // • & should be converted to &amp;.
+   // • < should be converted to &lt;.
+   // • > should be converted to &gt;.
+   // • " should be converted to &quot;.
+   // • '.should be converted to &apos;
+
+   function convertHTML(str) {
+    // 1. Słownik znaków specjalnych
+    const htmlEntities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&apos;"
+    };
+  
+    // 2. Używamy metody replace z wyrażeniem regularnym
+    // /[&<>"']/g szuka każdego z tych znaków globalnie w całym stringu
+    return str.replace(/[&<>"']/g, (match) => {
+      return htmlEntities[match];
+    });
+  }
+  
+</code>
+</pre>
+
+        </article>
+        <article>
+            <span class="btn-box" id="build15">
+                Build an Odd Fibbonacci Sum Calculator
+            </span>
+            <p>
+                Buuild an odd Fibbonacci sum calculator that takes a number and returns the sum of all odd Fibbonacci numbers that are less than or wquall to that number.
+            </p>
+            <p>
+                In this lab you will build an odd Fibonacci sum calculator that computes the sum of all odd Fibonacci numbers that are less than or equal to a given positive integer.
+            </p>
+                <p>
+                    <b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+                </p>
+<p><b>User Stories</b>:</p>
+<ol class="custom-list">
+    <li>
+1. You should have a sumFibs function that accepts a number as an argument.
+</li>
+<li>
+ 2. The sumFibs function should return the sum of all odd Fibonacci numbers that are less than or equal to the given number.
+</li>
+<li>
+ 3. The Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the two pre
+</li>
+<li>
+ 4. Only the odd Fibonacci numbers should be add
+</li>
+            </ol>
+            <pre class="code-box">
+            <code>
+                function sumFibs(num) {
+  let prev = 0;
+  let curr = 1;
+  let sum = 0;
+
+  // Pętla działa dopóki aktualna liczba Fibonacciego jest <= num
+  while (curr <= num) {
+    // 1. Sprawdzamy czy liczba jest nieparzysta
+    if (curr % 2 !== 0) {
+      sum += curr;
+    }
+
+    // 2. Obliczamy następną liczbę w ciągu
+    let next = prev + curr;
+    prev = curr;
+    curr = next;
+  }
+
+  return sum;
+}
+
+            </code>
+            </pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build16">
+                Implement an Element Skipper
+            </span>
+            <p>
+                In this lab you will create a function that skips elements in an array until it finds an acceptable one based on a specific test function.
+            </p>
+            <p>
+                For example, for an array like [1, 1, 1, 2, 1, 1, 1] and a test function function(n) {return n === 2}, the first element that is acceptable for this is the one at index 3, so all the elements before that need to be discarded, and the output should be the 
+            </p>
+            <p>
+<b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+</p>
+<p>
+<b>User Stories</b>:
+</p>
+<ol class="custom-list">
+<li>
+    1. You should have a dropElements function that accepts an array (arr) and a function (func) as arguments.
+</li>
+ <li>
+    2. The dropElements function should iterate through the array and remove elements starting from the first one until func returns true for an element.
+ </li>
+ <li>
+    3. The dropElements function should return the remaining elements in the array if the condition is met.
+ </li>
+ <li>
+    4. If the condition is never satisfied, it should return an empty array.
+ </li>
+</ol>
+<pre class="code-box">
+    <code>
+        function dropElements(arr, func) {
+  // 1. Znajdujemy indeks pierwszego elementu, który spełnia warunek
+  const index = arr.findIndex(func);
+
+  // 2. Jeśli taki element nie istnieje (findIndex zwróci -1), zwracamy pustą tablicę
+  if (index === -1) {
+    return [];
+  }
+
+  // 3. Zwracamy tablicę od znalezionego indeksu do końca
+  return arr.slice(index);
+}
+
+    </code>
+</pre>
+        </article>
+        <article>
+            <span class="btn-box" id="build17">
+                Build a Playlist Remix Engine
+            </span>
+            <p>
+                Build a Playlist Remix Engine using JS arrays. You will apply array methods and logic to transform data nad generate a final remix schedudle.
+            </p>
+            <p>
+                In this lab, you will build a program that creates a single remix playlist from multiple playlists submitted by listeners.
+                </p>
+                <p>
+                    Each listener provides a list of songs they want to hear. Some songs may appear more than once, and some artists may show up too many times. Your job is to work through these playlists step by step: combine them into one list, score each song, remove duplicate songs, limit how often the same artist appears, and then create a final play order.
+                </p>
+        <p>
+<b>Objective</b>: Fulfill the user stories below and get all the tests to pass to complete the lab.
+</p>
+<p>
+<b>User Stories</b>:
+</p>
+<ol class="custom-list">
+    <li>
+1. You should create a function named flattenPlaylists that accepts an array of playlists where each playlist is an array of objects with the following properties: trackId, artist, title, votes, bpm. If the input is not an array, flattenPlaylists should return an empty array. An example playlist has been provided for you. You can use this example to test out your function.
+</li>
+<li>
+2. flattenPlaylists should return a flat array of track objects, where each object includes all the original track properties plus a source property set to an array with the playlist index and the track index indicating where the track originated.
+</li>
+<li>
+3. You should create a function named scoreTracks that accepts an array of track objects as returned by flattenPlaylists (each with trackId, artist, title, votes, bpm, and source properties) and returns a new array of track objects, each with a score property added using the formula: votes * 10 - Math.abs(bpm - 120).
+</li>
+<li>
+4. You should create a function named dedupeTracks that accepts an array of track objects as returned by scoreTracks and returns a new array with duplicate trackId entries removed, keeping only the first occurrence of each.
+</li>            
+<li>
+5. You should create a function named enforceArtistQuota that accepts an array of track objects as returned by dedupeTracks and a number representing the maximum allowed occurrences per artist. The function should return a new array where no artist appears more times than the given number, keeping the earliest occurrences.
+</li>
+<li>
+6. You should create a function named buildSchedule that accepts an array of track objects as returned by enforceArtistQuota and returns a new array of { slot, trackId } objects, where slot is a 1-based index representing each track's position in the broadcast order.
+</li>
+<li>
+7. You should create a function named remixPlaylist that accepts an array of playlists and the maximum number of allowed occurrences per artist. The function should return the final broadcast schedule as an array of { slot, trackId } objects, by calling flattenPlaylists, scoreTracks, dedupeTracks, enforceArtistQuota, and buildSchedule in order.
+</li>
+</ol>
+<pre class="code-box">
+<code>
+    const playlists = [
+  [
+    {
+      trackId: "trk101",
+      artist: "Velvet Comet",
+      title: "Crimson Afterglow",
+      votes: 5,
+      bpm: 122
+    },
+    {
+      trackId: "trk102",
+      artist: "Neon Harbor",
+      title: "Static Horizon",
+      votes: 2,
+      bpm: 108
+    },
+    {
+      trackId: "trk103",
+      artist: "Lunar Arcade",
+      title: "Midnight Frequency",
+      votes: 4,
+      bpm: 128
+    }
+  ],
+  [
+    {
+      trackId: "trk201",
+      artist: "Solar Echo",
+      title: "Glass Skyline",
+      votes: 3,
+      bpm: 115
+    },
+    {
+      trackId: "trk202",
+      artist: "Velvet Comet",
+      title: "Satellite Hearts",
+      votes: 6,
+      bpm: 124
+    }
+  ]
+];
+
+function flattenPlaylists(playlists) {
+  if (!Array.isArray(playlists)) return [];
+  
+  let flat = [];
+  for (let i = 0; i < playlists.length; i++) {
+    for (let j = 0; j < playlists[i].length; j++) {
+      flat.push({
+        ...playlists[i][j],
+        source: [i, j]
+      });
+    }
+  }
+  return flat;
+}
+
+function scoreTracks(tracks) {
+  return tracks.map(track => ({
+    ...track,
+    score: track.votes * 10 - Math.abs(track.bpm - 120)
+  }));
+}
+
+function dedupeTracks(tracks) {
+  const seen = new Set();
+  return tracks.filter(track => {
+    if (seen.has(track.trackId)) return false;
+    seen.add(track.trackId);
+    return true;
+  });
+}
+
+function enforceArtistQuota(tracks, maxPerArtist) {
+  const artistCount = {};
+  return tracks.filter(track => {
+    artistCount[track.artist] = (artistCount[track.artist] || 0) + 1;
+    return artistCount[track.artist] <= maxPerArtist;
+  });
+}
+
+function buildSchedule(tracks) {
+  return tracks.map((track, index) => ({
+    slot: index + 1,
+    trackId: track.trackId
+  }));
+}
+
+function remixPlaylist(playlists, maxPerArtist) {
+  const flat = flattenPlaylists(playlists);
+  const scored = scoreTracks(flat);
+  const deduped = dedupeTracks(scored);
+  const limited = enforceArtistQuota(deduped, maxPerArtist);
+  return buildSchedule(limited);
+}
+
+</code>
+</pre>
         </article>
         </main>
     </body>
